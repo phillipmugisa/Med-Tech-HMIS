@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMIS</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../STATIC/css/styles.css">
+    <link rel="stylesheet" href="../../STATIC/css/components.css">
+    <link rel="stylesheet" href="../../STATIC/css/utils.css">
+
+    <!-- js -->
+    <script src="../../STATIC/js/scripts.js"></script>
+</head>
+<body>
+    <header class="departments">
+        <a href="" class="department">
+            <img src="../../STATIC/icons/create-patient.png" alt="">
+            <span class="department-name">Patients</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/visits.svg" alt="">
+            <span class="department-name">Visits</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/triage.png" alt="">
+            <span class="department-name">Triage</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/invoices.png" alt="">
+            <span class="department-name">invoices</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/doctor.png" alt="">
+            <span class="department-name">Doctor</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/lab.png" alt="">
+            <span class="department-name">Laboratory</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/cardiology.png" alt="">
+            <span class="department-name">Cardiology</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/radiology.png" alt="">
+            <span class="department-name">Radiology</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/pharmacy.png" alt="">
+            <span class="department-name">Pharmacy</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/inventory.png" alt="">
+            <span class="department-name">Inventory</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/theatre.png" alt="">
+            <span class="department-name">Theatre</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/dental.png" alt="">
+            <span class="department-name">Dental</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/appointment.png" alt="">
+            <span class="department-name">Appointments</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/finances.png" alt="">
+            <span class="department-name">Finances</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/finances.png" alt="">
+            <span class="department-name">Finances</span>
+        </a>
+    </header>
+    <main class="split">
+        <section class="main-content-area">
+
+            <div class="records-part" id="recent-patients">
+                <header>
+                    <p class="table-title">Recent Patient Records</p>
+                    <form action="">
+                        <input type="search" name="" id="" placeholder="Search...">
+                    </form>
+                </header>
+                <div class="body">
+                    <table>
+                        <thead>
+                            <tr class="cs-bg-hover-color cs-text-md cs-text-secondary cs-font-600">
+                                <th>No.</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Visit</th>
+                                <th>Gender</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>23453</td>
+                                <td>Alex Makasa</td>
+                                <td>23</td>
+                                <td>No</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>23453</td>
+                                <td>Alex Makasa</td>
+                                <td>23</td>
+                                <td>No</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>23453</td>
+                                <td>Alex Makasa</td>
+                                <td>23</td>
+                                <td>No</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>23453</td>
+                                <td>Alex Makasa</td>
+                                <td>23</td>
+                                <td>No</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>23453</td>
+                                <td>Alex Makasa</td>
+                                <td>23</td>
+                                <td>No</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>23453</td>
+                                <td>Alex Makasa</td>
+                                <td>23</td>
+                                <td>No</td>
+                                <td>Male</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-pagination cs-flex cs-justify-between cs-align-center" style="--gap: 1rem;padding: 0 1rem;">
+                        <div class="cs-grid cs-align-center">
+                            <p class="cs-text-md" style="color: var(--text-color);">Showing Page <span id="current-page-0"></span> of <span id="max-page"></span>. (<span id="table-item-count"></span> Entries)</p>
+                        </div>
+                        <div class="table-pagination cs-flex cs-justify-end cs-align-center" style="--gap: 1rem;">
+                            <button id="previous-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Previous</button>
+                            <span id="current-page" class="cs-text-md"></span>
+                            <button id="next-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="records-part" id="current-visits">
+                <header>
+                    <p class="table-title">Current Visits</p>
+                    <form action="">
+                        <input type="search" name="" id="" placeholder="Search...">
+                    </form>
+                </header>
+                <div class="body">
+                    <table>
+                        <thead>
+                            <tr class="cs-bg-hover-color cs-text-md cs-text-secondary cs-font-600">
+                                <th>No.</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Visit</th>
+                                <th>Gender</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>23453</td>
+                                <td>Alex Makasa</td>
+                                <td>23</td>
+                                <td>No</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>23453</td>
+                                <td>Alex Makasa</td>
+                                <td>23</td>
+                                <td>No</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>23453</td>
+                                <td>Alex Makasa</td>
+                                <td>23</td>
+                                <td>No</td>
+                                <td>Male</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-pagination cs-flex cs-justify-between cs-align-center" style="--gap: 1rem;padding: 0 1rem;">
+                        <div class="cs-grid cs-align-center">
+                            <p class="cs-text-md" style="color: var(--text-color);">Showing Page <span id="current-page-0"></span> of <span id="max-page"></span>. (<span id="table-item-count"></span> Entries)</p>
+                        </div>
+                        <div class="table-pagination cs-flex cs-justify-end cs-align-center" style="--gap: 1rem;">
+                            <button id="previous-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Previous</button>
+                            <span id="current-page" class="cs-text-md"></span>
+                            <button id="next-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <aside class="preview-area" id="patient-preview">
+            <div class="img-wrapper">
+                <img src="../../STATIC/images/user.png" alt="">
+            </div>
+            <div class="details">
+                <div class="detail-group">
+                    <p class="part-title">Patient No.:</p>
+                    <p class="part-content">67834</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">First Name:</p>
+                    <p class="part-content">Alex</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Last No.:</p>
+                    <p class="part-content">Muhumuza</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">NIN:</p>
+                    <p class="part-content">CM24MVREK234423MFC</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Phone No:</p>
+                    <p class="part-content">+256728463968</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Birth Place:</p>
+                    <p class="part-content">Wakiso</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Gender:</p>
+                    <p class="part-content">Male</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Age:</p>
+                    <p class="part-content">24</p>
+                </div>
+            </div>
+            <div class="cta_area">
+                <button>Edit Detials</button>
+                <button>Create Visit</button>
+            </div>
+        </aside>
+    </main>
+</body>
+</html>
