@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="inline-size=device-inline-size, initial-scale=1.0" />
+    <title>HMIS</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../STATIC/css/styles.css" />
+    <link rel="stylesheet" href="../../STATIC/css/components.css" />
+    <link rel="stylesheet" href="../../STATIC/css/utils.css" />
+
+    <!-- js -->
+    <script src="../../STATIC/js/scripts.js"></script>
+
+    <style>
+      .body {
+        position: relative;
+      }
+
+      .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .flex-column {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      .flex-gap-40 {
+        gap: 20px;
+      }
+
+      .modal {
+        background-color: #e1edf7;
+        border: none;
+        inline-size: 70%;
+        block-size: fit-content;
+        border-radius: 0;
+        padding: 0;
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+      }
+
+      .modal-header {
+        background-color: #1da1f2;
+        padding: 18px 20px;
+        border-block-end: 2px solid #1da1f2;
+      }
+
+      .modal-header h3 {
+        font-weight: 500;
+        font-size: 14px;
+        color: #f2f2f2;
+      }
+
+      .modal-body {
+        background-color: #e1edf7;
+        border-radius: 0;
+        padding: 20px 20px;
+        margin: 0;
+      }
+
+      .modal-footer {
+        background-color: #e1edf7;
+        padding: 0 20px 20px 20px;
+      }
+
+      .modal-footer .form-control {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+      }
+
+      .modal-footer .form-control img {
+        background-color: #ffe6e2;
+        border: 1px solid #ffe6e2;
+        border-radius: 8px;
+        block-size: 42px;
+        inline-size: 100px;
+        cursor: pointer;
+      }
+
+      .modal-footer .form-control img.cancel {
+        background-color: #e21b1b;
+        border: 1px solid #e21b1b;
+      }
+
+      .modal-footer .form-control img.save {
+        background-color: #ffe6e2;
+        border: 1px solid #ffe6e2;
+      }
+
+      .modal-section {
+        position: relative;
+        z-index: 5;
+        block-size: auto;
+        margin-block-start: 20px;
+      }
+
+      .modal-section:nth-child(1) {
+        margin-block-start: 0;
+      }
+
+      .section-label {
+        background-color: #e1edf7;
+        padding: 0 0.2rem;
+        inline-size: fit-content;
+        block-size: auto;
+        position: absolute;
+        z-index: 10;
+        top: 2%;
+        left: 0%;
+        transform: translate(10%, -65%);
+      }
+
+      .section-label small {
+        margin: 0;
+        font-size: 14px;
+        color: #81caf8;
+      }
+
+      .section-content {
+        color: rgb(155, 155, 155);
+        block-size: fit-content;
+        border: 2px dotted #b9dff9;
+        border-radius: 8px;
+        padding: 15px;
+      }
+
+      .section-content-row.flex {
+        justify-content: space-between;
+      }
+
+      .patient-image {
+        inline-size: 100%;
+        justify-content: flex-end !important;
+      }
+
+      .patient-image img {
+        inline-size: 62px;
+        block-size: 62px;
+      }
+
+      .section-content form .form-control {
+        flex: 1;
+      }
+
+      .section-content form label {
+        font-size: 14px;
+      }
+
+      .section-content form .input {
+        border: 1px solid #cce5f9;
+        border-radius: 6px;
+        padding-block: 4.6px;
+        inline-size: 100% !important;
+        background-color: #edf4fa;
+      }
+
+      .section-content form select,
+      .section-content form textarea,
+      .section-content form input[type="date"] {
+        border: 1px solid #cce5f9;
+        border-radius: 6px;
+        padding-block: 3.3px;
+        inline-size: 100% !important;
+        background-color: #edf4fa;
+      }
+
+      .section-content form textarea {
+        padding-inline: 15px;
+      }
+
+      .section-content form input[type="date"] {
+        padding-inline: 0.8px;
+      }
+
+      .section-content form .input:focus {
+        outline: none;
+      }
+
+      .section-content form .flex {
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      .section-tabs.flex {
+        justify-content: flex-start;
+        background-color: #fff;
+      }
+
+      .section-tab {
+        background-color: #fff;
+        padding: 10px 20px;
+        border-inline-end: 1px solid #eae9e9;
+        border-block-end: 1px solid #eae9e9;
+        cursor: pointer;
+      }
+
+      .section-tab.current {
+        border-block-end: none;
+        background-color: #fffaec;
+      }
+
+      .section-tabs-content {
+        background-color: #fffaec;
+        inline-size: 100%;
+        block-size: 250px;
+        overflow: scroll;
+        padding: 15px;
+      }
+
+      .content-hidden {
+        display: none;
+      }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        inline-size: 100%;
+        overflow: scroll;
+      }
+
+      table tr {
+        cursor: pointer;
+      }
+
+      table th {
+        font-family: "Lato", sans-serif;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      table th,
+      table td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 0 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="departments">
+      <a href="" class="department">
+        <img src="../../STATIC/icons/create-patient.png" alt="" />
+        <span class="department-name">Patients</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/visits.svg" alt="" />
+        <span class="department-name">Visits</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/triage.png" alt="" />
+        <span class="department-name">Triage</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/invoices.png" alt="" />
+        <span class="department-name">invoices</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/doctor.png" alt="" />
+        <span class="department-name">Doctor</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/lab.png" alt="" />
+        <span class="department-name">Laboratory</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/cardiology.png" alt="" />
+        <span class="department-name">Cardiology</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/radiology.png" alt="" />
+        <span class="department-name">Radiology</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/pharmacy.png" alt="" />
+        <span class="department-name">Pharmacy</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/inventory.png" alt="" />
+        <span class="department-name">Inventory</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/theatre.png" alt="" />
+        <span class="department-name">Theatre</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/dental.png" alt="" />
+        <span class="department-name">Dental</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/appointment.png" alt="" />
+        <span class="department-name">Appointments</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/finances.png" alt="" />
+        <span class="department-name">Finances</span>
+      </a>
+      <a href="" class="department">
+        <img src="../../STATIC/icons/finances.png" alt="" />
+        <span class="department-name">Finances</span>
+      </a>
+    </header>
+    <main style="all: unset">
+      <div class="modal">
+        <div class="modal-header">
+          <div class="flex" style="justify-content: flex-start; gap: 10px">
+            <img src="../../STATIC/icons/lab.png" alt="" style="inline-size: 28px; block-size: 28px" />
+            <h3 style="font-size: 20px">Laboratory Form</h3>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Patient Information</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">First Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Middle Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Last Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <div class="patient-image flex">
+                      <img src="../../STATIC/images/user.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">National ID No.</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex" style="gap: 20px">
+                    <div class="flex flex-column" style="flex: 1">
+                      <label for="">Age</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="flex flex-column" style="flex: 2">
+                      <label for="">Date of Birth</label>
+                      <input class="input" type="date" />
+                    </div>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Gender</label>
+                    <select name="gender" class="input">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Patient ID</label>
+                    <input class="input" type="text" value="MEDT00001" disabled />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Tabs</small>
+            </div>
+            <div class="section-content">
+              <div class="section-tabs flex">
+                <div class="section-tab current">
+                  <h3>CBC Test</h3>
+                </div>
+                <div class="section-tab">
+                  <h3>BMP Test</h3>
+                </div>
+                <div class="section-tab">
+                  <h3>Tab-3</h3>
+                </div>
+                <div class="section-tab">
+                  <h3>Tab-4</h3>
+                </div>
+              </div>
+              <div class="section-tabs-content">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Test Name</th>
+                      <th>Purpose</th>
+                      <th>Normal Range</th>
+                      <th>Abnormal Results</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Complete Blood Count (CBC)</td>
+                      <td>Determines the number and type of blood cells present in the sample</td>
+                      <td>
+                        Varies based on age and gender, but typically: <br />
+                        - Red Blood Cells (RBC): 4.5-5.5 million cells/mcL <br />
+                        - White Blood Cells (WBC): 4,500-11,000 cells/mcL <br />
+                        - Hemoglobin (Hb): 13.5-17.5 g/dL for males; 12-15.5 g/dL for females <br />
+                        - Hematocrit (Hct): 38.8%-50% for males; 34.9%-44.5% for females <br />
+                        - Platelets: 150,000-450,000/mcL
+                      </td>
+                      <td>
+                        - Low RBC count: may indicate anemia or bleeding <br />
+                        - High WBC count: may indicate infection or inflammation <br />
+                        - Low Hb or Hct: may indicate anemia <br />
+                        - High Hb or Hct: may indicate dehydration or polycythemia <br />
+                        - Low platelet count: may indicate bleeding or a blood disorder
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="section-tabs-content content-hidden">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Test Name</th>
+                      <th>Purpose</th>
+                      <th>Normal Range</th>
+                      <th>Abnormal Results</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Basic Metabolic Panel (BMP)</td>
+                      <td>Measures several electrolytes and other substances in the blood to assess kidney function and other metabolic processes</td>
+                      <td>
+                        - Sodium (Na): 135-145 mEq/L <br />
+                        - Potassium (K): 3.5-5.1 mEq/L <br />
+                        - Chloride (Cl): 98-106 mEq/L <br />
+                        - Bicarbonate (HCO3): 22-28 mEq/L <br />
+                        - Blood Urea Nitrogen (BUN): 7-20 mg/dL <br />
+                        - Creatinine (Cr): 0.6-1.3 mg/dL
+                      </td>
+                      <td>
+                        - Low or high levels of any electrolyte: may indicate a metabolic disorder or kidney dysfunction <br />
+                        - High BUN or creatinine levels: may indicate kidney dysfunction
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="section-tabs-content content-hidden">
+                <h2>Tab-3 Content</h2>
+              </div>
+              <div class="section-tabs-content content-hidden">
+                <h2>Tab-4 Content</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-control">
+            <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
+            <img class="save" src="../../STATIC/icons/save.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const sectionTabContents = document.querySelectorAll(".section-tabs-content");
+
+      const sectionTabs = document.querySelectorAll(".section-tab");
+      sectionTabs.forEach((sectionTab, key) => {
+        sectionTab.addEventListener("click", (event) => {
+          sectionTabs.forEach((sectionTab) => {
+            if (sectionTab.classList.contains("current")) {
+              sectionTab.classList.remove("current");
+            }
+          });
+          sectionTabContents.forEach((sectionTabContent) => {
+            if (!sectionTabContent.classList.contains("content-hidden")) {
+              sectionTabContent.classList.add("content-hidden");
+            }
+          });
+          sectionTab.classList.add("current");
+          sectionTabContents[key].classList.remove("content-hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
