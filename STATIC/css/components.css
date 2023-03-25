@@ -133,16 +133,22 @@ main .main-content-area .variable-section {
   display: none;
   border: 1px solid hsl(0, 0%, 90%);
   block-size: 100%;
-  align-items: flex-start;
+  align-content: flex-start;
+  padding: 0.25rem 0.5rem;
 }
 main .main-content-area .variable-section.inview {
   display: grid;
+  gap: 0.5rem;
 }
 main .main-content-area .variable-section .section_cta_area {
-  padding: 0.25rem;
+  padding: 0.25rem 0;
 }
 main .main-content-area .variable-section .section_cta_area button {
   padding: 5px 10px;
+}
+main .main-content-area .variable-section .section-form {
+  border: 1px solid hsl(0, 0%, 90%);
+  padding: 1rem 0.5rem;
 }
 main .preview-area {
   background-color: white;
