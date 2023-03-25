@@ -199,10 +199,15 @@ select {
   transform: translate(10%, -65%);
 }
 
+.modal .modal-section .section-label {
+  background-color: #ffffff;
+}
+
 .modal-section .section-label small {
   margin: 0;
   font-size: 16px;
   color: #81caf8;
+  font-weight: 500;
 }
 
 .modal-section .section-content {

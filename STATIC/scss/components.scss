@@ -5,6 +5,7 @@ $transition: background-color .2s linear;
 $btnImgSize: 30px;
 $backgroundThemeColor: #F8F8F8;
 $borderColor: hsl(0, 0%, 90%);
+$accentColor: #1da1f2;
 
 
 body {
@@ -78,12 +79,12 @@ button {
 main {
     background-color: $backgroundThemeColor;
     display: grid;
-    grid-template-columns: .1fr 1fr;
+    grid-template-columns: 3% 97%;
     padding: .5rem;
     gap: .5rem;
     
     &.split {
-        grid-template-columns: .03fr 1fr 0.3fr;
+        grid-template-columns: 3% 73% 23%;
     }
 
     .sidebar-cta-section {
@@ -94,10 +95,11 @@ main {
         gap: .15rem;
 
         button {
-            background-color: #1da1f2;
+            background-color: $accentColor;
             color: white;
             padding: 10px 15px;
             border: none;
+            color: hsl(0, 0%, 95%);
 
             &:hover {
                 background-color: hsl(203, 89%, 40%);
@@ -123,6 +125,8 @@ main {
 
             button {
                 padding: 5px 10px;
+                background-color: $accentColor;
+                color: hsl(0, 0%, 95%);
             }
         }
 
@@ -180,6 +184,12 @@ main {
 
                 button {
                     padding: 5px 10px;
+                    color: $accentColor;
+                    background-color: hsl(0, 0%, 95%);
+
+                    &:hover {
+                        background-color: hsl(0, 0%, 98%);
+                    }
                 }
             }
 
