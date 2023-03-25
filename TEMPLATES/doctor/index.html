@@ -80,33 +80,33 @@
     </header>
     <main class="split">
         <aside class="sidebar-cta-section">
-            <button>
+            <button class="accented">
                 <i class="fa fa-search"></i>
             </button>
-            <button>
+            <button class="accented">
                 <i class="fa fa-cog"></i>
             </button>
-            <button>
+            <button class="accented">
                 <i class="fa fa-user"></i>
             </button>
-            <button>
+            <button class="accented">
                 <i class="fa fa-sign-out"></i>
             </button>
         </aside>
         <section class="main-content-area">
             <div class="main-cta-section">
-                <button class="section-togglers" data-section="assigned_patients" id="_togglerassigned_patients">Assigned Patients</button>
-                <button class="section-togglers" data-section="general_doctor" id="general_doctor_toggler">General</button>
-                <button class="section-togglers" data-section="clinical_findings" id="clinical_findings_toggler">Clinical Findings</button>
-                <button class="section-togglers" data-section="diagnosis" id="diagnosis_toggler">Diagnosis</button>
-                <button class="section-togglers" data-section="prescription" id="prescription_toggler">Prescription</button>
-                <button class="section-togglers" data-section="procedures" id="procedures_toggler">Procedures</button>
-                <button class="section-togglers" data-section="theatre" id="theatre_toggler">Theatre</button>
-                <button class="section-togglers" data-section="dental_lab" id="dental_lab_toggler">Dental Lab</button>
-                <button class="section-togglers" data-section="eye" id="eye_toggler">Eye</button>
-                <button class="section-togglers" data-section="lab_results" id="lab_results_toggler">Lab Results</button>
-                <button class="section-togglers" data-section="cardiology_results" id="cardiology_results_toggler">Cardiology Results</button>
-                <button class="section-togglers" data-section="radiology_results" id="radiology_results_toggler">Radiology Results</button>
+                <button class="accented section-togglers" data-section="assigned_patients" id="_togglerassigned_patients">Assigned Patients</button>
+                <button class="accented section-togglers" data-section="general_doctor" id="general_doctor_toggler">General</button>
+                <button class="accented section-togglers" data-section="clinical_findings" id="clinical_findings_toggler">Clinical Findings</button>
+                <button class="accented section-togglers" data-section="diagnosis" id="diagnosis_toggler">Diagnosis</button>
+                <button class="accented section-togglers" data-section="prescription" id="prescription_toggler">Prescription</button>
+                <button class="accented section-togglers" data-section="procedures" id="procedures_toggler">Procedures</button>
+                <button class="accented section-togglers" data-section="theatre" id="theatre_toggler">Theatre</button>
+                <button class="accented section-togglers" data-section="dental_lab" id="dental_lab_toggler">Dental Lab</button>
+                <button class="accented section-togglers" data-section="eye" id="eye_toggler">Eye</button>
+                <button class="accented section-togglers" data-section="lab_results" id="lab_results_toggler">Lab Results</button>
+                <button class="accented section-togglers" data-section="cardiology_results" id="cardiology_results_toggler">Cardiology Results</button>
+                <button class="accented section-togglers" data-section="radiology_results" id="radiology_results_toggler">Radiology Results</button>
             </div>
             <section class="variable-section" id="assigned_patients">
               <div class="records-part" id="recent-patients">
@@ -187,73 +187,168 @@
             </section>
             <section class="variable-section inview" id="general_doctor">
               <div class="section_cta_area">
-                <button>Triage</button>
-                <button>Allergies</button>
-                <button>Medical Conditions</button>
+                <button class="section-part-toggler" data-section="triage">Triage</button>
+                <button class="section-part-toggler" data-section="allergies">Allergies</button>
+                <button class="section-part-toggler" data-section="medical_conditions">Medical Conditions</button>
               </div>
-              <div class="section-form">
-                <div class="modal-section">
-                  <div class="section-label">
-                    <small>Vital Signs</small>
-                  </div>
-                  <div class="section-content">
-                    <form action="">
-                      <div class="section-content-row flex flex-gap-40">
-                        <div class="form-control flex flex-column">
-                          <label for="">Blood Pressure</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="">Heart Rate</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="">Respiratory Rate</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="">Temperature</label>
-                          <input class="input" type="text" />
-                        </div>
+              <div class="variable-section-part inview" id="triage">
+                <div class="section-form">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Vital Signs</small>
                       </div>
-                    </form>
-                  </div>
-                </div>
-                <div class="modal-section">
-                  <div class="section-label">
-                    <small>Signs & Symptoms</small>
-                  </div>
-                  <div class="section-content">
-                    <form action="">
-                      <div class="section-content-row flex">
-                        <div class="form-control flex flex-column">
-                          <div class="form-control flex flex-column" style="inline-size: 100%">
-                            <label for="">Fill the signs and symptoms from the patient</label>
-                            <textarea class="input" cols="100%" rows="2"></textarea>
+                      <div class="section-content">
+                        <div class="section-content-row grid flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Blood Pressure</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Heart Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Respiratory Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Temperature</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Weight(Kg)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Height(cm)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Oxygen Saturation</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">MUAC</label>
+                            <input class="input" type="text" />
                           </div>
                         </div>
                       </div>
-                    </form>
-                  </div>
-                </div>
-                <div class="modal-section">
-                  <div class="section-label">
-                    <small>Injury Details</small>
-                  </div>
-                  <div class="section-content">
-                    <form action="">
-                      <div class="section-content-row flex">
-                        <div class="form-control flex flex-column">
-                          <div class="form-control flex flex-column" style="inline-size: 100%">
-                            <label for="">Fill the type, location and severity of injury</label>
-                            <textarea class="input" cols="100%" rows="2"></textarea>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Signs & Symptoms</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the signs and symptoms from the patient</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </form>
-                  </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Injury Details</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the type, location and severity of injury</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section cta-area">
+                      <button class="accented section-form-cta accented">Save</button>
+                    </div>
                 </div>
               </div>
+              <div class="variable-section-part" id="allergies">
+                <div class="section-form">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Allergies</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row grid flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Blood Pressure</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Heart Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Respiratory Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Temperature</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Weight(Kg)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Height(cm)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Oxygen Saturation</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">MUAC</label>
+                            <input class="input" type="text" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Signs & Symptoms</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the signs and symptoms from the patient</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Injury Details</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the type, location and severity of injury</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section cta-area">
+                      <button class="accented section-form-cta accented">Save</button>
+                    </div>
+                </div></div>
+              <div class="variable-section-part" id="medical_conditions">medical_conditions</div>
             </section>
             <section class="variable-section" id="clinical_findings">clinical_findings</section>
             <section class="variable-section" id="diagnosis">diagnosis</section>

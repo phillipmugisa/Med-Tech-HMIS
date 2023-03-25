@@ -219,6 +219,11 @@ select {
   display: grid;
   gap: 1rem;
 }
+.section-content-row.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
 
 .section-content-row.flex {
   justify-content: space-between;
