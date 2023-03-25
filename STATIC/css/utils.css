@@ -3,7 +3,7 @@
   --success-color: green;
 }
 
-body.modal-open {
+body.cs-modal-open {
   overflow: hidden;
   inline-size: 100vw;
   block-size: 100vh;
@@ -24,7 +24,7 @@ body::after {
   z-index: 50;
 }
 
-body.modal-open::after {
+body.cs-modal-open::after {
   display: block;
 }
 
@@ -610,10 +610,10 @@ table tbody tr.active {
 } */
 /* lists */
 
-.modal {
+.cs-modal {
 }
 
-.modal.sm {
+.cs-modal.sm {
   inset-block-start: 15%;
   inline-size: 25vw;
   z-index: 1200;
@@ -629,10 +629,10 @@ table tbody tr.active {
   }
 }
 @media (max-width: 1000px) {
-  .modal {
+  .cs-modal {
     inline-size: 80vw;
   }
-  .modal.sm {
+  .cs-modal.sm {
     inline-size: 40vw;
   }
 }

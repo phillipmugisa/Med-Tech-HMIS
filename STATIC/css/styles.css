@@ -109,6 +109,7 @@ select {
 }
 
 .modal {
+  display: none;
   background-color: #e1edf7;
   border: none;
   inline-size: 70%;
@@ -119,6 +120,10 @@ select {
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
+}
+
+.modal.inview {
+  display: grid;
 }
 
 .modal-header {
@@ -134,7 +139,7 @@ select {
 }
 
 .modal-body {
-  background-color: #e1edf7;
+  background-color: #ffffff;
   border-radius: 0;
   padding: 20px 20px;
   margin: 0;
@@ -182,7 +187,7 @@ select {
 }
 
 .modal .section-label {
-  background-color: #e1edf7;
+  background-color: #ffffff;
   padding: 0 0.2rem;
   inline-size: fit-content;
   block-size: auto;
@@ -221,22 +226,28 @@ select {
   block-size: 62px;
 }
 
+.section-form .section-content form .form-control,
 .modal .section-content form .form-control {
   flex: 1;
 }
 
+.section-form .section-content form label,
 .modal .section-content form label {
   font-size: 14px;
 }
 
+.section-form .section-content form .input,
 .modal .section-content form .input {
   border: 1px solid #cce5f9;
   border-radius: 6px;
   padding-block: 4.6px;
   inline-size: 100% !important;
-  background-color: #edf4fa;
+  background-color: hsl(208, 57%, 98%);
 }
 
+.section-form .section-content form select,
+.section-form .section-content form textarea,
+.section-form .section-content form input[type="date"],
 .modal .section-content form select,
 .modal .section-content form textarea,
 .modal .section-content form input[type="date"] {
@@ -247,28 +258,34 @@ select {
   background-color: #edf4fa;
 }
 
+.section-form .section-content form textarea,
 .modal .section-content form textarea {
   padding-inline: 15px;
 }
 
+.section-form .section-content form input[type="date"],
 .modal .section-content form input[type="date"] {
   padding-inline: 0.8px;
 }
 
+.section-form .section-content form .input:focus,
 .modal .section-content form .input:focus {
   outline: none;
 }
 
+.section-form .section-content form .flex,
 .modal .section-content form .flex {
   justify-content: flex-start;
   align-items: flex-start;
 }
 
+.section-form .section-tabs.flex,
 .modal .section-tabs.flex {
   justify-content: flex-start;
   background-color: #fff;
 }
 
+.section-form .section-tab,
 .modal .section-tab {
   background-color: #fff;
   padding: 10px 20px;
@@ -277,11 +294,13 @@ select {
   cursor: pointer;
 }
 
+.section-form .section-tab.current,
 .modal .section-tab.current {
   border-block-end: none;
   background-color: #fffaec;
 }
 
+.section-form .section-tabs-content,
 .modal .section-tabs-content {
   background-color: #fffaec;
   inline-size: 100%;
@@ -290,10 +309,12 @@ select {
   padding: 15px;
 }
 
+.section-form .content-hidden,
 .modal .content-hidden {
   display: none;
 }
 
+.section-form table,
 .modal table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -301,16 +322,20 @@ select {
   overflow: scroll;
 }
 
+.section-form table tr,
 .modal table tr {
   cursor: pointer;
 }
 
+.section-form table th,
 .modal table th {
   font-family: "Lato", sans-serif;
   font-size: 1rem;
   font-weight: bold;
 }
 
+.section-form table th,
+.section-form table td
 .modal table th,
 .modal table td {
   border: 1px solid #dddddd;
