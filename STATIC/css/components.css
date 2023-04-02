@@ -18,6 +18,17 @@ button:hover {
   background-color: hsl(0, 14%, 95%);
 }
 
+button.accented {
+  background-color: #1da1f2;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  color: hsl(0, 0%, 95%);
+}
+button.accented:hover {
+  background-color: hsl(203, 89%, 40%);
+}
+
 .departments {
   display: grid;
   grid-auto-flow: column;
@@ -55,6 +66,21 @@ button:hover {
   font-weight: 500;
 }
 
+.department {
+  inline-size: 100px;
+}
+
+.department.active {
+  background-color: #1da1f2;
+  color:#F8F8F8;
+}
+
+
+.department.active:hover {
+  background-color: #1da1f2;
+  color:#F8F8F8;
+}
+
 main {
   background-color: #F8F8F8;
   display: grid;
@@ -71,16 +97,6 @@ main .sidebar-cta-section {
   display: grid;
   align-content: flex-start;
   gap: 0.15rem;
-}
-main .sidebar-cta-section button {
-  background-color: #1da1f2;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  color: hsl(0, 0%, 95%);
-}
-main .sidebar-cta-section button:hover {
-  background-color: hsl(203, 89%, 40%);
 }
 main .main-content-area {
   display: grid;
@@ -100,8 +116,6 @@ main .main-content-area .main-cta-section {
 }
 main .main-content-area .main-cta-section button {
   padding: 5px 10px;
-  background-color: #1da1f2;
-  color: hsl(0, 0%, 95%);
 }
 main .main-content-area .records-part {
   display: grid;
@@ -143,20 +157,28 @@ main .main-content-area .variable-section.inview {
   display: grid;
   gap: 0.5rem;
 }
+main .main-content-area .variable-section .variable-section-part {
+  display: none;
+}
+main .main-content-area .variable-section .variable-section-part.inview {
+  display: grid;
+}
 main .main-content-area .variable-section .section_cta_area {
-  padding: 0.25rem 0;
+  padding: 0 0 0.25rem 0;
 }
 main .main-content-area .variable-section .section_cta_area button {
-  padding: 5px 10px;
-  color: #1da1f2;
-  background-color: hsl(0, 0%, 95%);
-}
-main .main-content-area .variable-section .section_cta_area button:hover {
-  background-color: hsl(0, 0%, 98%);
+  padding: 5px 15px;
 }
 main .main-content-area .variable-section .section-form {
   border: 1px solid hsl(0, 0%, 90%);
   padding: 1rem 0.5rem;
+}
+main .main-content-area .variable-section .section-form .cta-area {
+  display: grid;
+  justify-content: flex-end;
+}
+main .main-content-area .variable-section .section-form .cta-area .section-form-cta {
+  padding: 5px 20px;
 }
 main .preview-area {
   background-color: white;
