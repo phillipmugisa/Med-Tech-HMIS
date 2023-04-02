@@ -748,6 +748,13 @@
 
   // Set up your table
   let table = $('#data-table').DataTable();
+
+  // Signout
+  const signoutBtn = document.querySelector('.fa-sign-out');
+
+  signoutBtn.addEventListener('click', (event) => {
+    window.location.href = "../auth/index.html";
+  });
 </script>
 <script src="../../STATIC/js/modals.js"></script>
 
