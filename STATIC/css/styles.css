@@ -346,3 +346,17 @@ select {
 .disabled:hover {
   cursor: not-allowed;
 }
+
+
+
+.visibility-hidden {
+  display: none;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}

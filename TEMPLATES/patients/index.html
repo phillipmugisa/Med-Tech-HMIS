@@ -516,19 +516,32 @@
             </div>
             <div class="modal-section">
             <div class="section-label">
-                <small>Billing Method</small>
+                <small>Billing Information</small>
             </div>
             <div class="section-content">
                 <form action="">
-                <div class="section-content-row flex">
-                    <div class="form-control flex flex-column">
-                    <label for="">Select Option</label>
-                    <select name="billing" class="input" style="inline-size: 23% !important">
-                        <option value="cash">Cash</option>
-                        <option value="account">Account</option>
-                        <option value="insurance">Insurance</option>
-                    </select>
-                    </div>
+                  <div class="section-content-row flex flex-gap-40">
+                      <div class="form-control flex flex-column">
+                        <label for="">Billing Method</label>
+                        <select name="method" class="input" id="billing_methods">
+                            <option value="cash">Cash</option>
+                            <option value="account">Account</option>
+                            <option value="insurance">Insurance</option>
+                        </select>
+                      </div>
+                      <div class="form-control flex flex-column" id="to_billing_company">
+                        <label for="" class=" visibility-hidden to_billing_company">To Billing Company</label>
+                        <select name="company" class="input  visibility-hidden to_billing_company">
+                            <option value="jubilee">Jubilee Insurance</option>
+                            <option value="sanlam">Sanlam Life Insurance Uganda</option>
+                            <option value="aig">AIG Uganda Limited</option>
+                            <option value="britam">Britam Insurance</option>
+                        </select>
+                      </div>
+                      <div class="form-control flex flex-column">
+                      </div>
+                      <div class="form-control flex flex-column">
+                      </div>
                 </div>
                 </form>
             </div>
@@ -793,6 +806,28 @@
   signoutBtn.addEventListener('click', (event) => {
     window.location.href = "../auth/index.html";
   });
+
+
+
+  // Billing
+  // Display field for insurance company
+  // When insurance is selected as the payment mode
+
+  const billingMethodsDropdown = document.querySelector("#billing_methods");
+  billingMethodsDropdown.addEventListener("change", function() {
+    const selectedOption = billingMethodsDropdown.value;
+    if(selectedOption === "insurance"){
+      // The more elegant way causes the billing mode field to overflow
+      document.querySelectorAll(".to_billing_company")[0].classList.remove("visibility-hidden");
+      document.querySelectorAll(".to_billing_company")[1].classList.remove("visibility-hidden");
+    }else{
+      // The more elegant way causes the billing mode field to overflow
+      document.querySelectorAll(".to_billing_company")[0].classList.add("visibility-hidden");
+      document.querySelectorAll(".to_billing_company")[1].classList.add("visibility-hidden");
+    }
+});
+
+
 </script>
 <script src="../../STATIC/js/modals.js"></script>
 
