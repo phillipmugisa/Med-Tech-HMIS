@@ -105,7 +105,7 @@
         </aside>
         <section class="main-content-area">
             <div class="main-cta-section">
-                <button class="modal-activators" id="create_patient_modal_activator" data-modal="create_new_user_modal">New User</button>
+                <button class="modal-activators" id="create_patient_modal_activator" data-modal="create_new_user_modal">New Staff</button>
             </div>
             <div class="records-part" id="recent-patients">
                 <div class="body">
@@ -157,124 +157,10 @@
                       </tr>
                     </tfoot>
                   </table>
-
-                <!-- // Original table -->
-                <!-- <header>
-                    <p class="table-title">Patient Register</p>
-                    <form action="">
-                        <input type="search" name="" id="" placeholder="Search...">
-                    </form>
-                </header>
-                <table>
-                    <thead>
-                        <tr class="cs-bg-hover-color cs-text-md cs-text-secondary cs-font-600">
-                            <th>No.</th>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Visit</th>
-                            <th>Gender</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>FLH230300</td>
-                            <td>Alex Makasa</td>
-                            <td>23</td>
-                            <td>No</td>
-                            <td>Male</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230311</td>
-                            <td>Joana J. Nkumba</td>
-                            <td>18</td>
-                            <td>No</td>
-                            <td>Female</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230302</td>
-                            <td>Matthew Musoke K.</td>
-                            <td>52</td>
-                            <td>No</td>
-                            <td>Male</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230303</td>
-                            <td>John Ngoobi Phillip</td>
-                            <td>31</td>
-                            <td>No</td>
-                            <td>Male</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230304</td>
-                            <td>Tina Mwebaza Mwalye</td>
-                            <td>28</td>
-                            <td>No</td>
-                            <td>Female</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230308</td>
-                            <td>Daniel Angura</td>
-                            <td>20</td>
-                            <td>No</td>
-                            <td>Male</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="table-pagination cs-flex cs-justify-between cs-align-center" style="--gap: 1rem;padding: 0 1rem;">
-                    <div class="cs-grid cs-align-center">
-                        <p class="cs-text-md" style="color: var(--text-color);">Showing Page <span id="current-page-0"></span> of <span id="max-page"></span>. (<span id="table-item-count"></span> Entries)</p>
-                    </div>
-                    <div class="table-pagination cs-flex cs-justify-end cs-align-center" style="--gap: 1rem;">
-                        <button id="previous-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Previous</button>
-                        <span id="current-page" class="cs-text-md"></span>
-                        <button id="next-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Next</button>
-                    </div>
-                </div> -->
                 </div>
             </div>            
         </section>
         <aside class="preview-area" id="user-preview">
-            <!-- <div class="img-wrapper">
-                <img src="../../STATIC/images/user.png" alt="">
-            </div>
-            <div class="details">
-                <div class="detail-group">
-                    <p class="part-title">Patient No.:</p>
-                    <p class="part-content">67834</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">First Name:</p>
-                    <p class="part-content">Alex</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Last No.:</p>
-                    <p class="part-content">Muhumuza</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">NIN:</p>
-                    <p class="part-content">CM2REK234423MFC</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Phone No:</p>
-                    <p class="part-content">+256728463968</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Birth Place:</p>
-                    <p class="part-content">Wakiso</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Gender:</p>
-                    <p class="part-content">Male</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Age:</p>
-                    <p class="part-content">24</p>
-                </div>
-            </div>
-            <div class="cta_area">
-                <button  class="modal-activators" id="edit_patient_modal_activator" data-modal="create_patient_modal">Edit Details</button>
-                <button class="modal-activators" id="create_visit_modal_activator" data-modal="create_visit_modal">Create Visit</button>
-            </div> -->
         </aside>
     </main>
 
@@ -283,7 +169,7 @@
         <div class="modal-header">
             <div class="flex" style="justify-content: flex-start; gap: 10px">
             <img src="../../STATIC/icons/add.png" alt="" style="inline-size: 28px; block-size: 28px" />
-            <h3 style="font-size: 20px">Register New User</h3>
+            <h3 style="font-size: 20px">Register New Staff</h3>
             </div>
         </div>
         <div class="modal-body">
@@ -318,15 +204,15 @@
                     <input class="input" type="text" />
                     </div>
                     <div class="form-control flex" style="gap: 20px">
-                    <div class="flex flex-column" style="flex: 1">
-                        <label for="">Age</label>
-                        <input class="input" type="text" />
-                    </div>
-                    <div class="flex flex-column" style="flex: 2">
-                        <label for="">Date of Birth</label>
-                        <input class="input" type="date" />
-                    </div>
-                    </div>
+                        <div class="flex flex-column" style="flex: 1">
+                            <label for="">Age</label>
+                            <input class="input" type="text" />
+                        </div>
+                        <div class="flex flex-column" style="flex: 2">
+                            <label for="">Date of Birth</label>
+                            <input class="input" type="date" />
+                        </div>
+                        </div>
                     <div class="form-control flex flex-column">
                     <label for="">Gender</label>
                     <select name="gender" class="input">
@@ -335,13 +221,8 @@
                     </select>
                     </div>
                     <div class="form-control flex flex-column">
-                      <label for="">User Role</label>
-                      <select name="role" class="input">
-                          <option value="doctor">Doctor</option>
-                          <option value="nurse">Nurse</option>
-                          <option value="support">Support Staff</option>
-                          <option value="lab technician">Lab Technician</option>
-                      </select>
+                      <label for="">Staff Number</label>
+                    <input class="input" type="text" value="FLHS012356" disabled />
                     </div>
                 </div>
                 </form>
@@ -367,7 +248,7 @@
                     <input class="input" type="text" />
                     </div>
                     <div class="form-control flex flex-column">
-                    <label for="">Home Address</label>
+                    <label for="">Location</label>
                     <input class="input" type="text" />
                     </div>
                 </div>
@@ -376,120 +257,256 @@
             </div>
             <div class="modal-section">
             <div class="section-label">
-                <small>Can Access</small>
+                <small>Other Information</small>
             </div>
             <div class="section-content">
                 <form action="">
                 <div class="section-content-row flex flex-gap-40">
-                    <div class="section-content-column" style="flex:1">
-                      <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                        <label for="" style="flex:100%;">Patients</label>
-                        <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                      </div>
-                      <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                        <label for="" style="flex:100%;">Lab</label>
-                        <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                      </div>
-                      <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                        <label for="" style="flex:100%;">Pharmacy</label>
-                        <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                      </div>
-                      <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                        <label for="" style="flex:100%;">Dental</label>
-                        <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                      </div>
-                      <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                        <label for="" style="flex:100%;">Finance</label>
-                        <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                      </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Staff Title</label>
+                    <select name="title" class="input">
+                        <option value="anaesthetist">Anaesthetist</option>
+                        <option value="anaesthesiologist">Anaesthesiologist</option>
+                        <option value="cardiologist">Cardiologist</option>
+                        <option value="doctor">Doctor</option>
+                        <option value="labTechnologist">Lab Technologist</option>
+                        <option value="nurse">Nurse</option>
+                        <option value="pathologist">Pathologist</option>
+                        <option value="pharmacist">Pharmacist</option>
+                        <option value="radiologist">Radiologist</option>
+                        <option value="therapist">Therapist</option>
+                        <option value="receptionist">Receptionist</option>
+                    </select>
                     </div>
-                    <div class="section-content-column" style="flex:1">
-                      <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                        <label for="" style="flex:100%;">Patients</label>
-                        <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                        </div>
-                        <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                          <label for="" style="flex:100%;">Lab</label>
-                          <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                        </div>
-                        <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                          <label for="" style="flex:100%;">Pharmacy</label>
-                          <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                        </div>
-                        <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                          <label for="" style="flex:100%;">Dental</label>
-                          <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                        </div>
-                        <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                          <label for="" style="flex:100%;">Finance</label>
-                          <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                        </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Specialty</label>
+                    <select name="specialty" class="input">
+                        <option value="gynacology">Gynacology</option>
+                        <option value="dentistry">Dentistry</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="generalDoctor">General Doctor</option>
+                        <option value="nurse">Nurse</option>
+                        <option value="pathology">Pathology</option>
+                        <option value="radiology">Radiology</option>
+                        <option value="therapy">Therapy</option>
+                        <option value="other">Other</option>
+                    </select>
                     </div>
-                    <div class="section-content-column" style="flex:1">
-                      <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                        <label for="" style="flex:100%;">Patients</label>
-                        <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                        </div>
-                        <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                          <label for="" style="flex:100%;">Lab</label>
-                          <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                        </div>
-                        <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                          <label for="" style="flex:100%;">Pharmacy</label>
-                          <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                        </div>
-                        <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                          <label for="" style="flex:100%;">Dental</label>
-                          <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                        </div>
-                        <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                          <label for="" style="flex:100%;">Finance</label>
-                          <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                        </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Doctor Specialty</label>
+                    <select name="specialty" class="input">
+                        <option value="gynacology">Gynacology</option>
+                        <option value="dentistry">Dentistry</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="generalDoctor">General Doctor</option>
+                        <option value="nurse">Nurse</option>
+                        <option value="pathology">Pathology</option>
+                        <option value="radiology">Radiology</option>
+                        <option value="therapy">Therapy</option>
+                        <option value="other">Other</option>
+                    </select>
                     </div>
-                    <div class="section-content-column" style="flex:1">
-                      <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                        <label for="" style="flex:100%;">Patients</label>
-                        <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                    <div class="form-control flex flex-column" style="visibility: hidden;">
+                    <label for="">Home Address</label>
+                    <input class="input" type="text" />
+                    </div>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="form-control">
+            <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
+            <img class="save" src="../../STATIC/icons/save.png" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="create_user_roles_modal">
+        <div class="modal-header">
+            <div class="flex" style="justify-content: flex-start; gap: 10px">
+            <img src="../../STATIC/icons/add.png" alt="" style="inline-size: 28px; block-size: 28px" />
+            <h3 style="font-size: 20px">User Roles</h3>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Personal Information</small>
+            </div>
+            <div class="section-content">
+                <form action="">
+                <div class="flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                    <label for="">First Name</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Middle Name</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Last Name</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <div class="patient-image flex">
+                        <img src="../../STATIC/images/user.png" alt="" />
+                    </div>
+                    </div>
+                </div>
+                <div class="flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                    <label for="">National ID No.</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex" style="gap: 20px">
+                        <div class="flex flex-column" style="flex: 1">
+                            <label for="">Age</label>
+                            <input class="input" type="text" />
                         </div>
-                        <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                          <label for="" style="flex:100%;">Lab</label>
-                          <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                        <div class="flex flex-column" style="flex: 2">
+                            <label for="">Date of Birth</label>
+                            <input class="input" type="date" />
                         </div>
-                        <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                          <label for="" style="flex:100%;">Pharmacy</label>
-                          <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
                         </div>
-                        <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                          <label for="" style="flex:100%;">Dental</label>
-                          <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                        </div>
-                        <div class="form-control flex" style="align-items: center;justify-content: space-between;">
-                          <label for="" style="flex:100%;">Finance</label>
-                          <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
-                        </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Gender</label>
+                    <select name="gender" class="input">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Staff Number</label>
+                    <input class="input" type="text" value="FLHS012356" disabled />
                     </div>
                 </div>
                 </form>
             </div>
             </div>
             <div class="modal-section">
-            <div class="section-label">
-                <small>Account Status</small>
-            </div>
-            <div class="section-content">
-                <form action="">
-                <div class="section-content-row flex">
-                    <div class="form-control flex flex-column">
-                    <label for="">Select Option</label>
-                    <select name="status" class="input" style="inline-size: 23% !important">
-                        <option value="activated">Activated</option>
-                        <option value="suspended">Suspended</option>
-                    </select>
-                    </div>
+                <div class="section-label">
+                    <small>Credentials</small>
                 </div>
-                </form>
-            </div>
+                <div class="section-content">
+                    <form action="">
+                    <div class="section-content-row flex flex-gap-40">
+                        <div class="form-control flex flex-column">
+                        <label for="">Username</label>
+                        <input class="input" type="text" />
+                        </div>
+                        <div class="form-control flex flex-column">
+                        <label for="">Password</label>
+                        <input class="input" type="text" />
+                        </div>
+                        <div class="form-control flex flex-column" style="visibility: hidden;">
+                        </div>
+                        <div class="form-control flex flex-column" style="visibility: hidden;">
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            <div class="modal-section">
+                <div class="section-label">
+                    <small>Can Access</small>
+                </div>
+                <div class="section-content">
+                    <form action="">
+                    <div class="section-content-row flex flex-gap-40">
+                        <div class="section-content-column" style="flex:1">
+                          <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                            <label for="" style="flex:100%;">Patients</label>
+                            <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                          </div>
+                          <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                            <label for="" style="flex:100%;">Lab</label>
+                            <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                          </div>
+                          <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                            <label for="" style="flex:100%;">Pharmacy</label>
+                            <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                          </div>
+                          <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                            <label for="" style="flex:100%;">Dental</label>
+                            <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                          </div>
+                          <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                            <label for="" style="flex:100%;">Finance</label>
+                            <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                          </div>
+                        </div>
+                        <div class="section-content-column" style="flex:1">
+                          <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                            <label for="" style="flex:100%;">Patients</label>
+                            <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                            <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                              <label for="" style="flex:100%;">Lab</label>
+                              <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                            <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                              <label for="" style="flex:100%;">Pharmacy</label>
+                              <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                            <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                              <label for="" style="flex:100%;">Dental</label>
+                              <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                            <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                              <label for="" style="flex:100%;">Finance</label>
+                              <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                        </div>
+                        <div class="section-content-column" style="flex:1">
+                          <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                            <label for="" style="flex:100%;">Patients</label>
+                            <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                            <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                              <label for="" style="flex:100%;">Lab</label>
+                              <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                            <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                              <label for="" style="flex:100%;">Pharmacy</label>
+                              <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                            <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                              <label for="" style="flex:100%;">Dental</label>
+                              <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                            <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                              <label for="" style="flex:100%;">Finance</label>
+                              <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                        </div>
+                        <div class="section-content-column" style="flex:1">
+                          <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                            <label for="" style="flex:100%;">Patients</label>
+                            <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                            <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                              <label for="" style="flex:100%;">Lab</label>
+                              <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                            <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                              <label for="" style="flex:100%;">Pharmacy</label>
+                              <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                            <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                              <label for="" style="flex:100%;">Dental</label>
+                              <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                            <div class="form-control flex" style="align-items: center;justify-content: space-between;">
+                              <label for="" style="flex:100%;">Finance</label>
+                              <input class="input" type="checkbox" style="flex:1;border:1px solid purple;"/>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="modal-footer">
@@ -553,6 +570,7 @@
     </div>
     <div class="cta_area">
         <button onclick="triggerEditUserModal({id:${parseInt(user.id)}})"  class="modal-activators">Update Staff</button>
+        <button onclick="triggerUserRolesModal({id:${parseInt(user.id)}})"  class="modal-activators">User Roles</button>
     </div>
     `;
     previewArea.innerHTML = previewContent;

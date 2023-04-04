@@ -28,11 +28,29 @@ function triggerEditUserModal(user){
 
     // open the modal
     const modalToOpen = document.querySelector("#create_new_user_modal");
-    modalToOpen.querySelector(".modal-header").querySelector("h3").textContent = "Update User";
+    modalToOpen.querySelector(".modal-header").querySelector("h3").textContent = "Update Existing Staff";
     modalToOpen.classList.add("inview");
     console.log(typeof user, user);
 
     modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
+        modalToOpen.querySelector(".modal-header").querySelector("h3").textContent = "Register New Staff";
+        modalToOpen.classList.remove("inview");
+    });
+}
+
+function triggerUserRolesModal(user){
+    // close open modals
+    let openModals = document.querySelectorAll(".modal.inview");
+    openModals.forEach(modal => modal.classList.remove("inview"));
+
+    // open the modal
+    const modalToOpen = document.querySelector("#create_user_roles_modal");
+    // modalToOpen.querySelector(".modal-header").querySelector("h3").textContent = "Update User Roles";
+    modalToOpen.classList.add("inview");
+    console.log(typeof user, user);
+
+    modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
+        // modalToOpen.querySelector(".modal-header").querySelector("h3").textContent = "Create User Roles";
         modalToOpen.classList.remove("inview");
     });
 }
