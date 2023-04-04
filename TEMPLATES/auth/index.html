@@ -4,161 +4,154 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple IMS</title>
-
-    <link rel="stylesheet" href="./assets/css/utils.css">
-    <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="./assets/icons/themify-icons.css">
+    <meta name="viewport" content="inline-size=device-inline-size, initial-scale=1.0">
+    <title>Med Tech — HMIS</title>
 
     <style>
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap');
 
-:root {
-  --brand-primary: #1da1f2;
-  --brand-primary-dark: #1da1f2;
-  --brand-primary-light: #dfeff8;
-  --brand-secondary: #fafbfc;
+    :root {
+    --brand-primary: #1da1f2;
+    --brand-primary-dark: #1da1f2;
+    --brand-primary-light: #dfeff8;
+    --brand-secondary: #fafbfc;
 
-  --text-grey: #65735b;
-  --text-white: #ffffff; 
-
-
-  --font-poppins: "Poppins", sans-serif;
-  --font-quicksand: "Quicksand", sans-serif;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  block-size: 100%;
-}
-
-body {
-  color: var(--text-grey);
-  background: var(--brand-secondary);
-  font-family: var(--font-quicksand);
-  line-block-size: 1.6;
-  overflow-x: hidden;
-  position: relative;
-}
-
-.flex {
-  block-size: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    --text-grey: #65735b;
+    --text-white: #ffffff; 
 
 
-.btn {
-  display: inline-block;
-  padding: 10px 30px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  color: var(--text-white);
-  background-color: var(--brand-primary);
-}
+    --font-poppins: "Poppins", sans-serif;
+    --font-quicksand: "Quicksand", sans-serif;
+    }
 
-.btn:hover {
-  background-color: var(--brand-primary-dark);
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-.btn-sm {
-  padding: .5rem 1rem;
-}
+    html,
+    body {
+        block-size: 100%;
+    }
 
-.btn-lg {
-  padding: .8rem 2rem;
-}
+    body {
+        color: var(--text-grey);
+        background: var(--brand-secondary);
+        font-family: var(--font-quicksand);
+        line-block-size: 1.6;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .flex {
+        block-size: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
 
-.card {
-  color: var(--text-1);
-  background-color: var(--bg-7);
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  margin: 10px 0;
-  width: 100%;
-}
+    .btn {
+        display: inline-block;
+        padding: 10px 30px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        color: var(--text-white);
+        background-color: var(--brand-primary);
+    }
 
-.form-control input,
-.form-control button {
-  border: none;
-  border-radius: .2rem;
-}
+    .btn:hover {
+        background-color: var(--brand-primary-dark);
+    }
 
-.form-control input:focus,
-.form-control textarea:focus {
-  outline: none;
-  border: 1px solid var(--brand-primary);
-}
+    .btn-sm {
+        padding: .5rem 1rem;
+    }
 
-.form-control button i {
-  font-weight: bold;
-}
+    .btn-lg {
+        padding: .8rem 2rem;
+    }
 
-        /* Login screen */
-        .auth-card {
-    width: 100%;
-}
+    .card {
+        color: var(--text-1);
+        background-color: var(--bg-7);
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        margin: 10px 0;
+        inline-size: 100%;
+    }
 
-.auth-card * {
-    width: 100%;
-}
+    .form-control input,
+    .form-control button {
+        border: none;
+        border-radius: .2rem;
+    }
 
-.auth-card-title {
- font-weight: unset;
-}
+    .form-control input:focus,
+    .form-control textarea:focus {
+        outline: none;
+        border: 1px solid var(--brand-primary);
+    }
 
-.auth-form .form-control {
-    margin-bottom: .3rem;
-}
+    .form-control button i {
+        font-weight: bold;
+    }
 
-.auth-form .form-control.flex {
-    flex-direction: column;
-}
+    .auth-card {
+        inline-size: 100%;
+    }
 
-.auth-form .form-control label {
-    width: 100%;
-}
+    .auth-card * {
+        inline-size: 100%;
+    }
 
-.auth-form .form-control input {
-    border: 1px solid var(--brand-primary);
-    border-radius: .2rem;
-    width: 100%;
-    padding: .4rem .6rem;
-    font-size: large;
-}
+    .auth-card-title {
+        font-weight: unset;
+    }
 
-.auth-form .form-control input[type='password'] {
-    letter-spacing: .2rem;
-    font-weight: bold;
-}
+    .auth-form .form-control {
+        margin-bottom: .3rem;
+    }
 
-.auth-form .form-control input:focus {
-    outline: none;
-    border: 1px solid var(--brand-primary);
-}
+    .auth-form .form-control.flex {
+        flex-direction: column;
+    }
 
-.auth-card-actions {
-    margin: .6rem 0 0 0;
-}
+    .auth-form .form-control label {
+        inline-size: 100%;
+    }
 
-.auth-card-actions * {
-    font-weight: unset;
-    line-block-size: 1.4;
-}
-/* Login screen */
+    .auth-form .form-control input {
+        border: 1px solid var(--brand-primary);
+        border-radius: .2rem;
+        inline-size: 100%;
+        padding: .4rem .6rem;
+        font-size: large;
+    }
+
+    .auth-form .form-control input[type='password'] {
+        letter-spacing: .2rem;
+        font-weight: bold;
+    }
+
+    .auth-form .form-control input:focus {
+        outline: none;
+        border: 1px solid var(--brand-primary);
+    }
+
+    .auth-card-actions {
+        margin: .6rem 0 0 0;
+    }
+
+    .auth-card-actions * {
+        font-weight: unset;
+        line-block-size: 1.4;
+    }
     </style>
 </head>
 

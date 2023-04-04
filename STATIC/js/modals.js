@@ -20,6 +20,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 
+
+function triggerEditUserModal(user){
+    // close open modals
+    let openModals = document.querySelectorAll(".modal.inview");
+    openModals.forEach(modal => modal.classList.remove("inview"));
+
+    // open the modal
+    const modalToOpen = document.querySelector("#create_new_user_modal");
+    modalToOpen.querySelector(".modal-header").querySelector("h3").textContent = "Update User";
+    modalToOpen.classList.add("inview");
+    console.log(typeof user, user);
+
+    modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
+        modalToOpen.classList.remove("inview");
+    });
+}
+
 function triggerEditPatientModal(patient){
     // close open modals
     let openModals = document.querySelectorAll(".modal.inview");
@@ -65,3 +82,4 @@ function triggerCreateTriageModal(){
         modalToOpen.classList.remove("inview");
     });
 }
+
