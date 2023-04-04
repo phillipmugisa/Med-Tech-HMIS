@@ -355,149 +355,171 @@
       </div>
   </div>
 
-    <div class="modal" id="create_visit_modal">
-      <div class="modal-header">
-        <div class="flex" style="justify-content: flex-start; gap: 10px">
-          <img src="../../STATIC/icons/visits.svg" alt="" style="inline-size: 28px; block-size: 28px" />
-          <h3 style="font-size: 20px">Create Visit</h3>
-        </div>
+  <div class="modal" id="create_visit_modal">
+    <div class="modal-header">
+      <div class="flex" style="justify-content: flex-start; gap: 10px">
+        <img src="../../STATIC/icons/visits.svg" alt="" style="inline-size: 28px; block-size: 28px" />
+        <h3 style="font-size: 20px">Create Visit</h3>
       </div>
-      <div class="modal-body">
-        <div class="modal-section">
-          <div class="section-label">
-            <small>Patient Information</small>
-          </div>
-          <div class="section-content">
-            <form action="">
-              <div class="flex flex-gap-40">
-                <div class="form-control flex flex-column">
-                  <label for="">First Name</label>
-                  <input class="input" type="text" />
-                </div>
-                <div class="form-control flex flex-column">
-                  <label for="">Middle Name</label>
-                  <input class="input" type="text" />
-                </div>
-                <div class="form-control flex flex-column">
-                  <label for="">Last Name</label>
-                  <input class="input" type="text" />
-                </div>
-                <div class="form-control flex flex-column">
-                  <div class="patient-image flex">
-                    <img src="../../STATIC/images/user.png" alt="" />
-                  </div>
-                </div>
-              </div>
-              <div class="flex flex-gap-40">
-                <div class="form-control flex flex-column">
-                  <label for="">National ID No.</label>
-                  <input class="input" type="text" />
-                </div>
-                <div class="form-control flex" style="gap: 20px">
-                  <div class="flex flex-column" style="flex: 1">
-                    <label for="">Age</label>
-                    <input class="input" type="text" />
-                  </div>
-                  <div class="flex flex-column" style="flex: 2">
-                    <label for="">Date of Birth</label>
-                    <input class="input" type="date" />
-                  </div>
-                </div>
-                <div class="form-control flex flex-column">
-                  <label for="">Gender</label>
-                  <select name="gender" class="input">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                  </select>
-                </div>
-                <div class="form-control flex flex-column">
-                  <label for="">Patient ID</label>
-                  <input class="input" type="text" value="MEDT00001" disabled />
-                </div>
-              </div>
-            </form>
-          </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="section-label">
+          <small>Patient Information</small>
         </div>
-        <div class="modal-section">
-          <div class="section-label">
-            <small>To See Doctor</small>
-          </div>
-          <div class="section-content">
-            <form action="">
-              <div class="section-content-row flex flex-gap-40">
-                <div class="form-control flex flex-column">
-                  <label for="">Doctor</label>
-                  <select name="fullname" class="input">
-                    <option value="Muludiang Emmanuel">Dr. Muludiang Emmanuel</option>
-                    <option value="Mugisa Phillip">Dr. Mugisa Phillip</option>
-                    <option value="Barbra B">Dr. Barbra B</option>
-                    <option value="Peter P">Dr. Peter S</option>
-                    <option value="Mulondo Caxton">Dr. Mulondo Caxton</option>
-                    <option value="Abdoulanziz Ally">Dr. Abdoulanziz Ally</option>
-                  </select>
+        <div class="section-content">
+          <form action="">
+            <div class="flex flex-gap-40">
+              <div class="form-control flex flex-column">
+                <label for="">First Name</label>
+                <input class="input" type="text" />
+              </div>
+              <div class="form-control flex flex-column">
+                <label for="">Middle Name</label>
+                <input class="input" type="text" />
+              </div>
+              <div class="form-control flex flex-column">
+                <label for="">Last Name</label>
+                <input class="input" type="text" />
+              </div>
+              <div class="form-control flex flex-column">
+                <div class="patient-image flex">
+                  <img src="../../STATIC/images/user.png" alt="" />
                 </div>
-                <div class="form-control flex flex-column">
-                  <label for="">Date</label>
+              </div>
+            </div>
+            <div class="flex flex-gap-40">
+              <div class="form-control flex flex-column">
+                <label for="">National ID No.</label>
+                <input class="input" type="text" />
+              </div>
+              <div class="form-control flex" style="gap: 20px">
+                <div class="flex flex-column" style="flex: 1">
+                  <label for="">Age</label>
+                  <input class="input" type="text" />
+                </div>
+                <div class="flex flex-column" style="flex: 2">
+                  <label for="">Date of Birth</label>
                   <input class="input" type="date" />
                 </div>
-                <div class="form-control flex flex-column" style="visibility: hidden;">
-                </div>
-                <div class="form-control flex flex-column" style="visibility: hidden;">
-                </div>
               </div>
-            </form>
-          </div>
-        </div>
-        <div class="modal-section">
-          <div class="section-label">
-            <small>Other Information</small>
-          </div>
-          <div class="section-content">
-            <form action="">
-              <div class="section-content-row flex">
-                <div class="form-control flex flex-column">
-                  <div class="form-control flex flex-column" style="inline-size: 100%">
-                    <label for="">Visit Reason</label>
-                    <textarea class="input" cols="100%" rows="3"></textarea>
-                  </div>
-                </div>
+              <div class="form-control flex flex-column">
+                <label for="">Gender</label>
+                <select name="gender" class="input">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
               </div>
-            </form>
-          </div>
-        </div>
-        <div class="modal-section">
-          <div class="section-label">
-            <small>Financials</small>
-          </div>
-          <div class="section-content">
-            <table>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Doctor</th>
-                  <th>Consultation Fees</th>
-                  <th>Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>0001</td>
-                  <td>Dr. Muludiang Emmanuel</td>
-                  <td>UGX 25,000</td>
-                  <td>03-03-2023</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+              <div class="form-control flex flex-column">
+                <label for="">Patient ID</label>
+                <input class="input" type="text" value="MEDT00001" disabled />
+              </div>
+            </div>
+          </form>
         </div>
       </div>
-      <div class="modal-footer">
-        <div class="form-control">
-          <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
-          <img class="save" src="../../STATIC/icons/save.png" alt="" />
+      <div class="modal-section">
+        <div class="section-label">
+          <small>Visit</small>
+        </div>
+        <div class="section-content">
+          <form action="">
+            <div class="section-content-row flex flex-gap-40">
+              <div class="form-control flex flex-column">
+                <label for="">Visit Date</label>
+                <input class="input" type="date" />
+              </div>
+              <div class="form-control flex flex-column">
+                <label for="">Category</label>
+                <select name="category" class="input">
+                  <option value="consultation">Consultation</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-control flex flex-column">
+                <label for="">Doctor Specialty</label>
+                <select name="specialty" class="input">
+                  <option value="gynacology">Gynacology</option>
+                  <option value="urology">Urology</option>
+                  <option value="cardiology">Cardiology</option>
+                  <option value="generalDoctor">General Doctor</option>
+                </select>
+              </div>
+              <div class="form-control flex flex-column">
+                <label for="">To See Doctor</label>
+                <select name="fullname" class="input">
+                  <option value="Muludiang Emmanuel">Dr. Muludiang Emmanuel</option>
+                  <option value="Mugisa Phillip">Dr. Mugisa Phillip</option>
+                  <option value="Barbra B">Dr. Barbra B</option>
+                  <option value="Peter P">Dr. Peter S</option>
+                  <option value="Mulondo Caxton">Dr. Mulondo Caxton</option>
+                  <option value="Abdoulanziz Ally">Dr. Abdoulanziz Ally</option>
+                </select>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
-  </div>
+      <div class="modal-section">
+        <div class="section-label">
+          <small>Billing</small>
+        </div>
+        <div class="section-content">
+          <form action="">
+            <div class="section-content-row flex flex-gap-40">
+              <div class="form-control flex flex-column">
+                <label for="">Billing Mode</label>
+                <select name="billingMode" class="input">
+                  <option value="cash">Cash</option>
+                  <option value="account">Account</option>
+                  <option value="insurance">Insurance</option>
+                </select>
+              </div>
+              <div class="form-control flex flex-column">
+                <label for="">Bill</label>
+                <input class="input" type="text" />
+              </div>
+              <div class="form-control flex flex-column" style="visibility: hidden;">
+              </div>
+              <div class="form-control flex flex-column" style="visibility: hidden;">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- <div class="modal-section">
+        <div class="section-label">
+          <small>Financials</small>
+        </div>
+        <div class="section-content">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Doctor</th>
+                <th>Consultation Fees</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>Dr. Muludiang Emmanuel</td>
+                <td>UGX 25,000</td>
+                <td>03-03-2023</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div> -->
+    </div>
+    <div class="modal-footer">
+      <div class="form-control">
+        <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
+        <img class="save" src="../../STATIC/icons/save.png" alt="" />
+      </div>
+    </div>
+</div>
 </body>
 
 

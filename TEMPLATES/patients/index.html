@@ -607,13 +607,33 @@
           </div>
           <div class="modal-section">
             <div class="section-label">
-              <small>To See Doctor</small>
+              <small>Visit</small>
             </div>
             <div class="section-content">
               <form action="">
                 <div class="section-content-row flex flex-gap-40">
                   <div class="form-control flex flex-column">
-                    <label for="">Doctor</label>
+                    <label for="">Visit Date</label>
+                    <input class="input" type="date" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Category</label>
+                    <select name="category" class="input">
+                      <option value="consultation">Consultation</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Doctor Specialty</label>
+                    <select name="specialty" class="input">
+                      <option value="gynacology">Gynacology</option>
+                      <option value="urology">Urology</option>
+                      <option value="cardiology">Cardiology</option>
+                      <option value="generalDoctor">General Doctor</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">To See Doctor</label>
                     <select name="fullname" class="input">
                       <option value="Muludiang Emmanuel">Dr. Muludiang Emmanuel</option>
                       <option value="Mugisa Phillip">Dr. Mugisa Phillip</option>
@@ -623,36 +643,38 @@
                       <option value="Abdoulanziz Ally">Dr. Abdoulanziz Ally</option>
                     </select>
                   </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Date</label>
-                    <input class="input" type="date" />
-                  </div>
-                  <div class="form-control flex flex-column" style="visibility: hidden;">
-                  </div>
-                  <div class="form-control flex flex-column" style="visibility: hidden;">
-                  </div>
                 </div>
               </form>
             </div>
           </div>
           <div class="modal-section">
             <div class="section-label">
-              <small>Other Information</small>
+              <small>Billing</small>
             </div>
             <div class="section-content">
               <form action="">
-                <div class="section-content-row flex">
+                <div class="section-content-row flex flex-gap-40">
                   <div class="form-control flex flex-column">
-                    <div class="form-control flex flex-column" style="inline-size: 100%">
-                      <label for="">Visit Reason</label>
-                      <textarea class="input" cols="100%" rows="3"></textarea>
-                    </div>
+                    <label for="">Billing Mode</label>
+                    <select name="billingMode" class="input">
+                      <option value="cash">Cash</option>
+                      <option value="account">Account</option>
+                      <option value="insurance">Insurance</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Bill</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column" style="visibility: hidden;">
+                  </div>
+                  <div class="form-control flex flex-column" style="visibility: hidden;">
                   </div>
                 </div>
               </form>
             </div>
           </div>
-          <div class="modal-section">
+          <!-- <div class="modal-section">
             <div class="section-label">
               <small>Financials</small>
             </div>
@@ -676,7 +698,7 @@
                 </tbody>
               </table>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="modal-footer">
           <div class="form-control">
