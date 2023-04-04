@@ -80,16 +80,12 @@
             <span class="department-name">Invoices</span>
         </a>
         <a href="" class="department disabled" disabled>
-          <img src="../../STATIC/icons/finances.png" alt="">
-          <span class="department-name">Finances</span>
-        </a>
-        <!-- <a href="" class="department disabled" disabled>
             <img src="../../STATIC/icons/finances.png" alt="">
-            <span class="department-name">Insurance</span>
-        </a> -->
-        <a href="../admin/index.html" class="department">
-          <img src="../../STATIC/icons/finances.png" alt="">
-          <span class="department-name">Admin</span>
+            <span class="department-name">Finances</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/finances.png" alt="">
+            <span class="department-name">Finances</span>
         </a>
     </header>
     <main class="split">
@@ -111,7 +107,7 @@
             <div class="main-cta-section">
                 <button class="accented section-togglers" data-section="assigned_patients" id="_togglerassigned_patients">Assigned Patients</button>
                 <button class="accented section-togglers" data-section="general_doctor" id="general_doctor_toggler">General</button>
-                <button disabled class="accented section-togglers disabled" data-section="clinical_findings" id="clinical_findings_toggler">Clinical Findings</button>
+                <button class="accented section-togglers" data-section="clinical_findings" id="clinical_findings_toggler">Clinical Findings</button>
                 <button disabled class="accented section-togglers disabled" data-section="diagnosis" id="diagnosis_toggler">Diagnosis</button>
                 <button disabled class="accented section-togglers disabled" data-section="prescription" id="prescription_toggler">Prescription</button>
                 <button disabled class="accented section-togglers disabled" data-section="procedures" id="procedures_toggler">Procedures</button>
@@ -269,79 +265,6 @@
                       </tr>
                     </tfoot>
                   </table>
-
-                <!-- // Original table -->
-                <!-- <header>
-                    <p class="table-title">Patient Register</p>
-                    <form action="">
-                        <input type="search" name="" id="" placeholder="Search...">
-                    </form>
-                </header>
-                <table>
-                    <thead>
-                        <tr class="cs-bg-hover-color cs-text-md cs-text-secondary cs-font-600">
-                            <th>No.</th>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Visit</th>
-                            <th>Gender</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>FLH230300</td>
-                            <td>Alex Makasa</td>
-                            <td>23</td>
-                            <td>No</td>
-                            <td>Male</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230311</td>
-                            <td>Joana J. Nkumba</td>
-                            <td>18</td>
-                            <td>No</td>
-                            <td>Female</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230302</td>
-                            <td>Matthew Musoke K.</td>
-                            <td>52</td>
-                            <td>No</td>
-                            <td>Male</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230303</td>
-                            <td>John Ngoobi Phillip</td>
-                            <td>31</td>
-                            <td>No</td>
-                            <td>Male</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230304</td>
-                            <td>Tina Mwebaza Mwalye</td>
-                            <td>28</td>
-                            <td>No</td>
-                            <td>Female</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230308</td>
-                            <td>Daniel Angura</td>
-                            <td>20</td>
-                            <td>No</td>
-                            <td>Male</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="table-pagination cs-flex cs-justify-between cs-align-center" style="--gap: 1rem;padding: 0 1rem;">
-                    <div class="cs-grid cs-align-center">
-                        <p class="cs-text-md" style="color: var(--text-color);">Showing Page <span id="current-page-0"></span> of <span id="max-page"></span>. (<span id="table-item-count"></span> Entries)</p>
-                    </div>
-                    <div class="table-pagination cs-flex cs-justify-end cs-align-center" style="--gap: 1rem;">
-                        <button id="previous-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Previous</button>
-                        <span id="current-page" class="cs-text-md"></span>
-                        <button id="next-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Next</button>
-                    </div>
-                </div> -->
                 </div>
             </div>  
             </section>
@@ -510,7 +433,181 @@
                 </div></div>
               <div class="variable-section-part" id="medical_conditions">medical_conditions</div>
             </section>
-            <section class="variable-section" id="clinical_findings">clinical_findings</section>
+            <section class="variable-section" id="clinical_findings" style="border:none">
+              <div class="section_cta_area">
+                <button class="section-part-toggler" data-section="general">General Findings</button>
+                <button class="section-part-toggler" data-section="paedeatrics">Paedeatrics</button>
+                <button class="section-part-toggler" data-section="gyn">Gyn</button>
+              </div>
+              <div class="variable-section-part inview" id="general">
+                <div class="section-form" style="border:none;padding:0;">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-content" style="border:none;border-radius:0;padding:0;block-size:450px;background-color:rgb(231, 249, 254);overflow-y:scroll;padding:4px 8px">
+                        <div class="section-content-row flex" style="gap:20px">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Presenting complaints</label>
+                              <textarea class="input" cols="100%" rows="1"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Clinical notes</label>
+                              <textarea class="input" cols="100%" rows="1"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">ROHS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">PSH</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">POH</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">POH</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">General appearance</label>
+                              <textarea class="input" cols="100%" rows="1"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Respiratory</label>
+                              <textarea class="input" cols="100%" rows="8"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">CVS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">ENT</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Abdomen & Gut</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">CNS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">General appearance</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Respiratory</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">CVS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">ENT</label>
+                              <textarea class="input" cols="100%" rows="6"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Abdomen & Gut</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">CNS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="variable-section-part" id="allergies">
+                <div class="section-form">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Allergies</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row grid flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Blood Pressure</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Heart Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Respiratory Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Temperature</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Weight(Kg)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Height(cm)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Oxygen Saturation</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">MUAC</label>
+                            <input class="input" type="text" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Signs & Symptoms</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the signs and symptoms from the patient</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Injury Details</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the type, location and severity of injury</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section cta-area">
+                      <button class="accented section-form-cta accented">Save</button>
+                    </div>
+                </div></div>
+              <div class="variable-section-part" id="medical_conditions">medical_conditions</div>
+            </section>
             <section class="variable-section" id="diagnosis">diagnosis</section>
             <section class="variable-section" id="prescription">prescription</section>
             <section class="variable-section" id="procedures">procedures</section>
