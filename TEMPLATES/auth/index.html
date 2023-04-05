@@ -157,7 +157,6 @@
 
     /* putting the eye in the login */
 .form-control{
-
         position: relative;
 
     }
@@ -231,6 +230,28 @@
         signinBtn.addEventListener('click', (event) => {
             event.preventDefault();
             signinBtn.textContent = "Please wait...";
+
+            // console.log("hello there ")
+            // progress bar code 
+            var i = 0;
+         
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("myBar");
+                var width = 5;
+                var id = setInterval(frame, 30);
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+             i = 0;
+        } else {
+         width++;
+        elem.style.width = width + "%";
+        // elem.innerHTML = width  + "%";
+                    }
+            }
+        }
+    
 
             setTimeout(()=>{
                 window.location.href = "../patients/index.html";
