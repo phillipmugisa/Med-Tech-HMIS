@@ -66,6 +66,21 @@ button.accented:hover {
   font-weight: 500;
 }
 
+.department {
+  inline-size: 100px;
+}
+
+.department.active {
+  background-color: #1da1f2;
+  color:#F8F8F8;
+}
+
+
+.department.active:hover {
+  background-color: #1da1f2;
+  color:#F8F8F8;
+}
+
 main {
   background-color: #F8F8F8;
   display: grid;

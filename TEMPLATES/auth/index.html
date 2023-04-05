@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="inline-size=device-inline-size, initial-scale=1.0">
+    <title>Med Tech — HMIS</title>
+
+    <style>
+
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap');
+
+    :root {
+    --brand-primary: #1da1f2;
+    --brand-primary-dark: #1da1f2;
+    --brand-primary-light: #dfeff8;
+    --brand-secondary: #fafbfc;
+
+    --text-grey: #65735b;
+    --text-white: #ffffff; 
+
+
+    --font-poppins: "Poppins", sans-serif;
+    --font-quicksand: "Quicksand", sans-serif;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        block-size: 100%;
+    }
+
+    body {
+        color: var(--text-grey);
+        background: var(--brand-secondary);
+        font-family: var(--font-quicksand);
+        line-block-size: 1.6;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .flex {
+        block-size: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .btn {
+        display: inline-block;
+        padding: 10px 30px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        color: var(--text-white);
+        background-color: var(--brand-primary);
+    }
+
+    .btn:hover {
+        background-color: var(--brand-primary-dark);
+    }
+
+    .btn-sm {
+        padding: .5rem 1rem;
+    }
+
+    .btn-lg {
+        padding: .8rem 2rem;
+    }
+
+    .card {
+        color: var(--text-1);
+        background-color: var(--bg-7);
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        margin: 10px 0;
+        inline-size: 100%;
+    }
+
+    .form-control input,
+    .form-control button {
+        border: none;
+        border-radius: .2rem;
+    }
+
+    .form-control input:focus,
+    .form-control textarea:focus {
+        outline: none;
+        border: 1px solid var(--brand-primary);
+    }
+
+    .form-control button i {
+        font-weight: bold;
+    }
+
+    .auth-card {
+        inline-size: 100%;
+    }
+
+    .auth-card * {
+        inline-size: 100%;
+    }
+
+    .auth-card-title {
+        font-weight: unset;
+    }
+
+    .auth-form .form-control {
+        margin-bottom: .3rem;
+    }
+
+    .auth-form .form-control.flex {
+        flex-direction: column;
+    }
+
+    .auth-form .form-control label {
+        inline-size: 100%;
+    }
+
+    .auth-form .form-control input {
+        border: 1px solid var(--brand-primary);
+        border-radius: .2rem;
+        inline-size: 100%;
+        padding: .4rem .6rem;
+        font-size: large;
+    }
+
+    .auth-form .form-control input[type='password'] {
+        letter-spacing: .2rem;
+        font-weight: bold;
+    }
+
+    .auth-form .form-control input:focus {
+        outline: none;
+        border: 1px solid var(--brand-primary);
+    }
+
+    .auth-card-actions {
+        margin: .6rem 0 0 0;
+    }
+
+    .auth-card-actions * {
+        font-weight: unset;
+        line-block-size: 1.4;
+    }
+    </style>
+</head>
+
+<body style="background-color: var(--brand-primary-dark);">
+    <div class="container flex">
+        <div class="auth flex">
+            <div class="logo" style="block-size:470px;">
+                <img src="../../STATIC/auth-logo/med-tech-hmis-logo.png" alt="">
+            </div>
+            <div class="wrapper flex" style="background-color:white;block-size:470px;margin:0;padding:14px 40px">
+                <div class="auth-card card" style="background-color: var(--brand-primary-light);">
+                    <h3 class="auth-card-title flex">Login Form</h3>
+                    <form action="" id="signin-form" class="auth-form">
+                        <div class="form-control flex">
+                            <label for="username">Username</label>
+                            <input type="text" name="" id="username" required>
+                        </div>
+                        <div class="form-control flex">
+                            <label for="password">Password</label>
+                            <input type="password" name="" id="password" required>
+                        </div>
+                        <button type="submit" class="btn" id="signin-btn">Sign In</button>
+                    </form>
+                    <div class="auth-card-actions">
+                        <h5 class="forgot-password">Forgotten password?</h5>
+                        <h6 class="request-password">Contact admin</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const signinBtn = document.querySelector('#signin-btn');
+
+        signinBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            signinBtn.textContent = "Please wait...";
+
+            setTimeout(()=>{
+                window.location.href = "../patients/index.html";
+            },3000)
+        });
+    </script>
+</body>
+
+</html>

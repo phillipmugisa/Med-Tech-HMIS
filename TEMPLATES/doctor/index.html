@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HMIS</title>
 
     <!-- css -->
+    <link rel="stylesheet" href="../../STATIC/css/table.min.css">
+    <link rel="stylesheet" href="../../STATIC/themify/icons/themify-icons.css">
+
     <link rel="stylesheet" href="../../STATIC/css/styles.css">
     <link rel="stylesheet" href="../../STATIC/css/components.css">
     <link rel="stylesheet" href="../../STATIC/css/utils.css">
     <link rel="stylesheet" href="../../STATIC/icons/font-awesome-4.7.0/css/font-awesome.min.css">
 
     <!-- js -->
+    <script src="../../STATIC/js/jquery-3.5.1.js"></script>
+    <script src="../../STATIC/js/jquery.dataTables.min.js"></script>
+
     <script src="../../STATIC/js/scripts.js"></script>
+
+    <style>
+      
+    </style>
 </head>
 <body>
     <header class="departments">
@@ -25,57 +35,61 @@
             <img src="../../STATIC/icons/visits.svg" alt="">
             <span class="department-name">Visits</span>
         </a>
-        <a href="" class="department">
-            <img src="../../STATIC/icons/triage.png" alt="">
-            <span class="department-name">Triage</span>
+        <a href="../patients/triage.html" class="department">
+          <img src="../../STATIC/icons/triage.png" alt="">
+          <span class="department-name">Triage</span>
         </a>
-        <a href="" class="department">
-            <img src="../../STATIC/icons/invoices.png" alt="">
-            <span class="department-name">invoices</span>
-        </a>
-        <a href="../doctor/index.html" class="department">
+        <a href="../doctor/index.html" class="department active">
             <img src="../../STATIC/icons/doctor.png" alt="">
             <span class="department-name">Doctor</span>
         </a>
-        <a href="" class="department">
+        <a href="" class="department disabled" disabled>
             <img src="../../STATIC/icons/lab.png" alt="">
             <span class="department-name">Laboratory</span>
         </a>
-        <a href="" class="department">
+        <a href="" class="department disabled" disabled>
             <img src="../../STATIC/icons/cardiology.png" alt="">
             <span class="department-name">Cardiology</span>
         </a>
-        <a href="" class="department">
+        <a href="" class="department disabled" disabled>
             <img src="../../STATIC/icons/radiology.png" alt="">
             <span class="department-name">Radiology</span>
         </a>
-        <a href="" class="department">
+        <a href="" class="department disabled" disabled>
             <img src="../../STATIC/icons/pharmacy.png" alt="">
             <span class="department-name">Pharmacy</span>
         </a>
-        <a href="" class="department">
+        <a href="" class="department disabled" disabled>
             <img src="../../STATIC/icons/inventory.png" alt="">
             <span class="department-name">Inventory</span>
         </a>
-        <a href="" class="department">
+        <a href="" class="department disabled" disabled>
             <img src="../../STATIC/icons/theatre.png" alt="">
             <span class="department-name">Theatre</span>
         </a>
-        <a href="" class="department">
+        <a href="" class="department disabled" disabled>
             <img src="../../STATIC/icons/dental.png" alt="">
             <span class="department-name">Dental</span>
         </a>
-        <a href="" class="department">
+        <a href="" class="department disabled" disabled>
             <img src="../../STATIC/icons/appointment.png" alt="">
             <span class="department-name">Appointments</span>
         </a>
-        <a href="" class="department">
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/invoices.png" alt="">
+            <span class="department-name">Invoices</span>
+        </a>
+        <a href="" class="department disabled" disabled>
             <img src="../../STATIC/icons/finances.png" alt="">
             <span class="department-name">Finances</span>
         </a>
-        <a href="" class="department">
+        <!-- <a href="" class="department disabled" disabled>
             <img src="../../STATIC/icons/finances.png" alt="">
-            <span class="department-name">Finances</span>
+            <span class="department-name">Insurance</span>
+        </a> -->
+        <a href="../admin/index.html" class="department">
+          <img src="../../STATIC/icons/finances.png" alt="">
+          <span class="department-name">Admin</span>
         </a>
     </header>
     <main class="split">
@@ -96,100 +110,173 @@
         <section class="main-content-area">
             <div class="main-cta-section">
                 <button class="accented section-togglers" data-section="assigned_patients" id="_togglerassigned_patients">Assigned Patients</button>
-                <button class="accented section-togglers" data-section="general_doctor" id="general_doctor_toggler">General</button>
+                <button disabled class="accented section-togglers disabled" data-section="general_doctor" id="general_doctor_toggler">General</button>
                 <button class="accented section-togglers" data-section="clinical_findings" id="clinical_findings_toggler">Clinical Findings</button>
-                <button class="accented section-togglers" data-section="diagnosis" id="diagnosis_toggler">Diagnosis</button>
-                <button class="accented section-togglers" data-section="prescription" id="prescription_toggler">Prescription</button>
-                <button class="accented section-togglers" data-section="procedures" id="procedures_toggler">Procedures</button>
-                <button class="accented section-togglers" data-section="theatre" id="theatre_toggler">Theatre</button>
-                <button class="accented section-togglers" data-section="dental_lab" id="dental_lab_toggler">Dental Lab</button>
-                <button class="accented section-togglers" data-section="eye" id="eye_toggler">Eye</button>
-                <button class="accented section-togglers" data-section="lab_results" id="lab_results_toggler">Lab Results</button>
-                <button class="accented section-togglers" data-section="cardiology_results" id="cardiology_results_toggler">Cardiology Results</button>
-                <button class="accented section-togglers" data-section="radiology_results" id="radiology_results_toggler">Radiology Results</button>
+                <button disabled class="accented section-togglers disabled" data-section="diagnosis" id="diagnosis_toggler">Diagnosis</button>
+                <button disabled class="accented section-togglers disabled" data-section="prescription" id="prescription_toggler">Prescription</button>
+                <button disabled class="accented section-togglers disabled" data-section="procedures" id="procedures_toggler">Procedures</button>
+                <button disabled class="accented section-togglers disabled" data-section="theatre" id="theatre_toggler">Theatre</button>
+                <button disabled class="accented section-togglers disabled" data-section="dental_lab" id="dental_lab_toggler">Dental Lab</button>
+                <button disabled class="accented section-togglers disabled" data-section="eye" id="eye_toggler">Eye</button>
+                <button disabled class="accented section-togglers disabled" data-section="lab_results" id="lab_results_toggler">Lab Results</button>
+                <button disabled class="accented section-togglers disabled" data-section="cardiology_results" id="cardiology_results_toggler">Cardiology Results</button>
+                <button disabled class="accented section-togglers disabled" data-section="radiology_results" id="radiology_results_toggler">Radiology Results</button>
             </div>
-            <section class="variable-section" id="assigned_patients">
+            <section class="variable-section inview" id="assigned_patients">
               <div class="records-part" id="recent-patients">
-                  <header>
-                      <p class="table-title">Assigned Patients</p>
-                      <form action="">
-                          <input type="search" name="" id="" placeholder="Search...">
-                      </form>
-                  </header>
-                  <div class="body">
-                      <table>
-                          <thead>
-                              <tr class="cs-bg-hover-color cs-text-md cs-text-secondary cs-font-600">
-                                  <th>No.</th>
-                                  <th>Name</th>
-                                  <th>Age</th>
-                                  <th>Visit</th>
-                                  <th>Gender</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <td>23453</td>
-                                  <td>Alex Makasa</td>
-                                  <td>23</td>
-                                  <td>No</td>
-                                  <td>Male</td>
-                              </tr>
-                              <tr>
-                                  <td>23453</td>
-                                  <td>Alex Makasa</td>
-                                  <td>23</td>
-                                  <td>No</td>
-                                  <td>Male</td>
-                              </tr>
-                              <tr>
-                                  <td>23453</td>
-                                  <td>Alex Makasa</td>
-                                  <td>23</td>
-                                  <td>No</td>
-                                  <td>Male</td>
-                              </tr>
-                              <tr>
-                                  <td>23453</td>
-                                  <td>Alex Makasa</td>
-                                  <td>23</td>
-                                  <td>No</td>
-                                  <td>Male</td>
-                              </tr>
-                              <tr>
-                                  <td>23453</td>
-                                  <td>Alex Makasa</td>
-                                  <td>23</td>
-                                  <td>No</td>
-                                  <td>Male</td>
-                              </tr>
-                              <tr>
-                                  <td>23453</td>
-                                  <td>Alex Makasa</td>
-                                  <td>23</td>
-                                  <td>No</td>
-                                  <td>Male</td>
-                              </tr>
-                          </tbody>
-                      </table>
-                      <div class="table-pagination cs-flex cs-justify-between cs-align-center" style="--gap: 1rem;padding: 0 1rem;">
-                          <div class="cs-grid cs-align-center">
-                              <p class="cs-text-md" style="color: var(--text-color);">Showing Page <span id="current-page-0"></span> of <span id="max-page"></span>. (<span id="table-item-count"></span> Entries)</p>
-                          </div>
-                          <div class="table-pagination cs-flex cs-justify-end cs-align-center" style="--gap: 1rem;">
-                              <button id="previous-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Previous</button>
-                              <span id="current-page" class="cs-text-md"></span>
-                              <button id="next-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Next</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                <div class="body">
+                  <table id="data-table" class="display" style="width:100%;margin-top:.5rem;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>Visit</th>
+                            <th>Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>FLH230300</td>
+                            <td>John Mukama Blue</td>
+                            <td>M</td>
+                            <td>25</td>
+                            <td>No</td>
+                            <td>08:30</td>
+                        </tr>
+                        <tr>
+                            <td>FLH230385</td>
+                            <td>Grace Sasira Lusuku</td>
+                            <td>F</td>
+                            <td>47</td>
+                            <td>Yes</td>
+                            <td>10:54</td>
+                        </tr>
+                        <tr>
+                            <td>FLH230326</td>
+                            <td>Mohamed Baker L.</td>
+                            <td>M</td>
+                            <td>21</td>
+                            <td>No</td>
+                            <td>10:53</td>
+                        </tr>
+                        <tr>
+                            <td>FLH230301</td>
+                            <td>Phillip Naturinda M.</td>
+                            <td>M</td>
+                            <td>35</td>
+                            <td>No</td>
+                            <td>10:59</td>
+                        </tr>
+                        <tr>
+                          <td>FLH230311</td>
+                          <td>Deodat Aganyira</td>
+                          <td>M</td>
+                          <td>68</td>
+                          <td>No</td>
+                          <td>12:02</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230313</td>
+                        <td>Joram Bwambale</td>
+                        <td>M</td>
+                        <td>28</td>
+                        <td>No</td>
+                        <td>13:15</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230316</td>
+                        <td>Matthew Musoke</td>
+                        <td>M</td>
+                        <td>26</td>
+                        <td>No</td>
+                        <td>13:42</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230366</td>
+                        <td>Juma Kiyinji Moses</td>
+                        <td>M</td>
+                        <td>43</td>
+                        <td>No</td>
+                        <td>14:33</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230336</td>
+                        <td>Alert Kapallaga</td>
+                        <td>M</td>
+                        <td>23</td>
+                        <td>No</td>
+                        <td>14:43</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230361</td>
+                        <td>Martin Tukesiga Joel</td>
+                        <td>M</td>
+                        <td>22</td>
+                        <td>No</td>
+                        <td>14:36</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230386</td>
+                        <td>Jane Nantongo Nakato</td>
+                        <td>F</td>
+                        <td>24</td>
+                        <td>No</td>
+                        <td>14:38</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230386</td>
+                        <td>Hassan Dahalane</td>
+                        <td>M</td>
+                        <td>32</td>
+                        <td>No</td>
+                        <td>14:42</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230377</td>
+                        <td>Ssempala Moses</td>
+                        <td>M</td>
+                        <td>55</td>
+                        <td>No</td>
+                        <td>14:50</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230656</td>
+                        <td>Robert Mulenda Mwiru</td>
+                        <td>M</td>
+                        <td>26</td>
+                        <td>No</td>
+                        <td>15:08</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230116</td>
+                        <td>Johnson Orone Nathan</td>
+                        <td>M</td>
+                        <td>20</td>
+                        <td>No</td>
+                        <td>15:15</td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Visit</th>
+                        <th>Created At</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+            </div>  
             </section>
-            <section class="variable-section inview" id="general_doctor">
+            <section class="variable-section" id="general_doctor">
               <div class="section_cta_area">
                 <button class="section-part-toggler" data-section="triage">Triage</button>
                 <button class="section-part-toggler" data-section="allergies">Allergies</button>
-                <button class="section-part-toggler" data-section="medical_conditions">Medical Conditions</button>
+                <button disabled class="section-part-toggler disabled" data-section="medical_conditions">Medical Conditions</button>
               </div>
               <div class="variable-section-part inview" id="triage">
                 <div class="section-form">
@@ -350,7 +437,181 @@
                 </div></div>
               <div class="variable-section-part" id="medical_conditions">medical_conditions</div>
             </section>
-            <section class="variable-section" id="clinical_findings">clinical_findings</section>
+            <section class="variable-section" id="clinical_findings" style="border:none">
+              <div class="section_cta_area">
+                <button class="section-part-toggler" data-section="general">General Findings</button>
+                <button class="section-part-toggler" data-section="paedeatrics">Paedeatrics</button>
+                <button class="section-part-toggler" data-section="gyn">Gyn</button>
+              </div>
+              <div class="variable-section-part inview" id="general">
+                <div class="section-form" style="border:none;padding:0;">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-content" style="border:none;border-radius:0;padding:0;block-size:450px;background-color:rgb(231, 249, 254);overflow-y:scroll;padding:4px 8px">
+                        <div class="section-content-row flex" style="gap:20px">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Presenting complaints</label>
+                              <textarea class="input" cols="100%" rows="1"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Clinical notes</label>
+                              <textarea class="input" cols="100%" rows="1"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">ROHS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">PSH</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">POH</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">POH</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">General appearance</label>
+                              <textarea class="input" cols="100%" rows="1"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Respiratory</label>
+                              <textarea class="input" cols="100%" rows="8"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">CVS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">ENT</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Abdomen & Gut</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">CNS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">General appearance</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Respiratory</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">CVS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">ENT</label>
+                              <textarea class="input" cols="100%" rows="6"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Abdomen & Gut</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">CNS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="variable-section-part" id="allergies">
+                <div class="section-form">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Allergies</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row grid flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Blood Pressure</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Heart Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Respiratory Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Temperature</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Weight(Kg)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Height(cm)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Oxygen Saturation</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">MUAC</label>
+                            <input class="input" type="text" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Signs & Symptoms</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the signs and symptoms from the patient</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Injury Details</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the type, location and severity of injury</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section cta-area">
+                      <button class="accented section-form-cta accented">Save</button>
+                    </div>
+                </div></div>
+              <div class="variable-section-part" id="medical_conditions">medical_conditions</div>
+            </section>
             <section class="variable-section" id="diagnosis">diagnosis</section>
             <section class="variable-section" id="prescription">prescription</section>
             <section class="variable-section" id="procedures">procedures</section>
@@ -400,7 +661,7 @@
                 </div>
             </div>
             <div class="cta_area">
-                <button  class="modal-activators" id="edit_patient_modal_activator" data-modal="create_patient_modal">Edit Detials</button>
+                <button  class="modal-activators" id="edit_patient_modal_activator" data-modal="create_patient_modal">Edit Details</button>
                 <button class="modal-activators" id="create_visit_modal_activator" data-modal="create_visit_modal">Create Visit</button>
             </div>
         </aside>
@@ -739,4 +1000,91 @@
 
 
 <script src="../../STATIC/js/modals.js"></script>
+
+<script>
+  // Clear patient on preview
+  const clearPatientOnPreview = (patient) => {
+    const previewArea = document.querySelector("#patient-preview");
+    const previewContent = "";
+    previewArea.innerHTML = previewContent;
+
+  }
+  // On page load, clear preview
+  clearPatientOnPreview();
+
+  // Load patient on preview
+  const loadPatientOnPreview = (patient) => {
+    const previewArea = document.querySelector("#patient-preview");
+    const previewContent = `
+    <div class="img-wrapper">
+        <img src="../../STATIC/images/user.png" alt="">
+    </div>
+    <div class="details">
+        <div class="detail-group">
+            <p class="part-title">Patient No.:</p>
+            <p class="part-content">${patient.id}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">First Name:</p>
+            <p class="part-content">${patient.name}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Last No.:</p>
+            <p class="part-content">Muhumuza</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">NIN:</p>
+            <p class="part-content">CM2REK234423MFC</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Phone No:</p>
+            <p class="part-content">+256728463968</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Birth Place:</p>
+            <p class="part-content">Wakiso</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Gender:</p>
+            <p class="part-content">${patient.gender}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Age:</p>
+            <p class="part-content">${patient.age}</p>
+        </div>
+    </div>
+    <div class="cta_area">
+        <button onclick=""  class="modal-activators">Send To Lab</button>
+    </div>
+    `;
+    previewArea.innerHTML = previewContent;
+
+  }
+
+  // Change patient on prview
+  const patientRows = document.querySelector("tbody").querySelectorAll("tr");
+  patientRows.forEach(patientRow => patientRow.addEventListener("click", (event) => {
+    if(event.target.parentElement.tagName === "TR"){
+      const patient = {
+        id:event.target.parentElement.querySelectorAll("td")[0].textContent,
+        name:event.target.parentElement.querySelectorAll("td")[1].textContent,
+        age:event.target.parentElement.querySelectorAll("td")[2].textContent,
+        visit:event.target.parentElement.querySelectorAll("td")[3].textContent,
+        gender:event.target.parentElement.querySelectorAll("td")[4].textContent
+      }
+    console.log(patient);
+    loadPatientOnPreview(patient);
+    }
+  }))
+
+  // Set up your table
+  let table = $('#data-table').DataTable();
+
+  // Signout
+  const signoutBtn = document.querySelector('.fa-sign-out');
+
+  signoutBtn.addEventListener('click', (event) => {
+    window.location.href = "../auth/index.html";
+  });
+</script>
 </html>

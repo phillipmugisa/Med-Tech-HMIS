@@ -111,7 +111,8 @@ select {
 .modal {
   display: none;
   background-color: #e1edf7;
-  border: none;
+  /* border: none; */
+  border: 2px solid #cce5f9;
   inline-size: 70%;
   block-size: fit-content;
   border-radius: 0;
@@ -335,4 +336,27 @@ select {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 0 0.5rem;
+}
+
+
+.disabled {
+  opacity: .5;
+}
+
+.disabled:hover {
+  cursor: not-allowed;
+}
+
+
+
+.visibility-hidden {
+  display: none;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
 }
