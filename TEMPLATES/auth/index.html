@@ -153,6 +153,22 @@
         font-weight: unset;
         line-block-size: 1.4;
     }
+
+
+    /* putting the eye in the login */
+    .form-control{
+
+        position: relative;
+
+    }
+    .ti-eye{
+        display: inline-flex;
+        position: absolute;
+        top: 30px;
+        left: 220px;
+        bottom: 0px;
+    }
+
     </style>
 </head>
 
@@ -197,6 +213,21 @@
                 window.location.href = "../patients/index.html";
             },3000)
         });
+
+
+
+        // showing or hidding the password functionality
+        const showHidePassword = document.querySelector(".ti-eye");
+
+        showHidePassword.addEventListener("click", (event)=>{
+
+            event.preventDefault();
+           
+            document.querySelector("#password").setAttribute("type","text")
+            console.log("hello")
+
+        })
+
     </script>
 </body>
 
