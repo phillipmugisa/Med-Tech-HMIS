@@ -71,7 +71,7 @@
             <img src="../../STATIC/icons/appointment.png" alt="">
             <span class="department-name">Appointments</span>
         </a>
-        <a href="" class="department disabled" disabled>
+        <a href="../admin/invoices.html" class="department">
             <img src="../../STATIC/icons/invoices.png" alt="">
             <span class="department-name">Invoices</span>
         </a>
@@ -328,7 +328,7 @@
         <div class="modal-header">
             <div class="flex" style="justify-content: flex-start; gap: 10px">
             <img src="../../STATIC/icons/add.png" alt="" style="inline-size: 28px; block-size: 28px" />
-            <h3 style="font-size: 20px">Register New Insurance</h3>
+            <h3 style="font-size: 20px">Register New Insurance Company</h3>
             </div>
         </div>
         <div class="modal-body">
@@ -362,6 +362,8 @@
                         <input class="input" type="text" />
                     </div>
                     <div class="form-control flex flex-column">
+                        <label for="">P.O. Box</label>
+                        <input class="input" type="text" />
                     </div>
                     <div class="form-control flex flex-column">
                     </div>
@@ -410,32 +412,73 @@
         <div class="modal-header">
             <div class="flex" style="justify-content: flex-start; gap: 10px">
             <img src="../../STATIC/icons/add.png" alt="" style="inline-size: 28px; block-size: 28px" />
-            <h3 style="font-size: 20px">Register New Account</h3>
+            <h3 style="font-size: 20px">Register New Company Account</h3>
             </div>
         </div>
         <div class="modal-body">
             <div class="modal-section">
             <div class="section-label">
-                <small>Account Information</small>
+                <small>Company Information</small>
             </div>
             <div class="section-content">
                 <form action="">
                 <div class="flex flex-gap-40">
                     <div class="form-control flex flex-column">
-                        <label for="">Account Name</label>
+                        <label for="">Company Name</label>
                         <input class="input" type="text" />
                     </div>
                     <div class="form-control flex flex-column">
-                        <label for="">Account Number</label>
+                        <label for="">Company Email</label>
                         <input class="input" type="text" />
                     </div>
                     <div class="form-control flex flex-column">
-                        <label for="">Bank</label>
+                        <label for="">Telephone</label>
                         <input class="input" type="text" />
                     </div>
                     <div class="form-control flex flex-column">
-                        <label for="">Branch</label>
+                        <label for="">Website URL</label>
                         <input class="input" type="text" />
+                    </div>
+                </div>
+                <div class="flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                        <label for="">Physical Address</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                        <label for="">P.O. Box</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    </div>
+                    <div class="form-control flex flex-column">
+                    </div>
+                </div>                
+                </form>
+            </div>
+            </div>
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Contact Person</small>
+            </div>
+            <div class="section-content">
+                <form action="">
+                <div class="section-content-row flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                    <label for="">Phone Number</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Alternative</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Email Address</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Location</label>
+                    <input class="input" type="text" />
                     </div>
                 </div>
                 </form>

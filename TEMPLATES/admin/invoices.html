@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMIS</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../STATIC/css/table.min.css">
+    <link rel="stylesheet" href="../../STATIC/themify/icons/themify-icons.css">
+
+    <link rel="stylesheet" href="../../STATIC/css/styles.css">
+    <link rel="stylesheet" href="../../STATIC/css/components.css">
+    <link rel="stylesheet" href="../../STATIC/css/utils.css">
+    <link rel="stylesheet" href="../../STATIC/icons/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <!-- js -->
+    <script src="../../STATIC/js/jquery-3.5.1.js"></script>
+    <script src="../../STATIC/js/jquery.dataTables.min.js"></script>
+    <script src="../../STATIC/js/moment.min.js"></script>
+
+
+    <script src="../../STATIC/js/scripts.js"></script>
+
+    <style>
+        .date-range-filter{
+            justify-content: flex-start;
+            margin-block-end: 14px;
+        }
+        .date-range-filter .flex{
+            gap:14px;
+        }
+        .date-range-filter-field {
+            padding: 6px;
+            border: 1px solid #e1e4e8;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header class="departments">
+        <a href="../patients/index.html" class="department">
+            <img src="../../STATIC/icons/create-patient.png" alt="">
+            <span class="department-name">Patients</span>
+        </a>
+        <a href="../patients/visits.html" class="department">
+            <img src="../../STATIC/icons/visits.svg" alt="">
+            <span class="department-name">Visits</span>
+        </a>
+        <a href="../patients/triage.html" class="department">
+          <img src="../../STATIC/icons/triage.png" alt="">
+          <span class="department-name">Triage</span>
+        </a>
+        <a href="../doctor/index.html" class="department">
+            <img src="../../STATIC/icons/doctor.png" alt="">
+            <span class="department-name">Doctor</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/lab.png" alt="">
+            <span class="department-name">Laboratory</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/cardiology.png" alt="">
+            <span class="department-name">Cardiology</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/radiology.png" alt="">
+            <span class="department-name">Radiology</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/pharmacy.png" alt="">
+            <span class="department-name">Pharmacy</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/inventory.png" alt="">
+            <span class="department-name">Inventory</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/theatre.png" alt="">
+            <span class="department-name">Theatre</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/dental.png" alt="">
+            <span class="department-name">Dental</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/appointment.png" alt="">
+            <span class="department-name">Appointments</span>
+        </a>
+        <a href="../admin/invoices.html" class="department active">
+            <img src="../../STATIC/icons/invoices.png" alt="">
+            <span class="department-name">Invoices</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/finances.png" alt="">
+            <span class="department-name">Finances</span>
+        </a>
+        <!-- <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/finances.png" alt="">
+            <span class="department-name">Insurance</span>
+        </a> -->
+        <a href="../admin/index.html" class="department">
+          <img src="../../STATIC/icons/finances.png" alt="">
+          <span class="department-name">Admin</span>
+        </a>
+    </header>
+    <main class="split">
+        <aside class="sidebar-cta-section">
+            <button class="accented">
+                <i class="fa fa-search"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-cog"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-user"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-sign-out"></i>
+            </button>
+        </aside>
+        <section class="main-content-area">
+            <div class="main-cta-section">
+                <button class="accented section-togglers" data-section="tab_01" id="tab_01_toggler">Revenue</button>
+                <button class="accented section-togglers" data-section="tab_02" id="tab_02_toggler">Expenses</button>
+                <button class="accented section-togglers" data-section="tab_03" id="tab_03_toggler">Income</button>
+            </div>
+            <section class="variable-section inview" id="tab_01">
+                <div class="flex date-range-filter date-range-filter-01">
+                    <div class="flex">
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">From Date</label>
+                            <input type="date" name="from" id="from-date" class="date-range-filter-field" data-date-format="dd-mm-yyyy">
+                        </div>
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">To Date</label>
+                            <input type="date" name="to" id="to-date" class="date-range-filter-field" data-date-format="dd-mm-yyyy">
+                        </div>
+
+                        <div class="form-control flex flex-column">
+                            <h4 class="" style="font-weight:400;color:#9d9c9c">Generate report</h4>
+                            <button id="print-data-table-01" class="btn" style="padding-block:7px;border-radius:3px;">Print Table</button>
+                        </div>
+                        <div class="form-control flex flex-column">
+                            <h4 class="" style="font-weight:400;color:#9d9c9c">Generate report</h4>
+                            <button id="export-data-table-01" class="btn" style="padding-block:7px;border-radius:3px;">Export CSV</button>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="body">
+                  <table id="data-table-01" class="display" style="width:100%;margin-top:.5rem;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Patient ID</th>
+                            <th>Service</th>
+                            <th>Created At</th>
+                            <th>Payment Status</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>FLH230300</td>
+                            <td>CBC Scan</td>
+                            <td>04/23/2022</td>
+                            <td>Pending</td>
+                            <td>25,000</td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>FLH230385</td>
+                            <td>Malaria Test</td>
+                            <td>01/23/2022</td>
+                            <td>Paid</td>
+                            <td>5,000</td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>FLH230326</td>
+                            <td>Drug purchase</td>
+                            <td>04/06/2023</td>
+                            <td>Paid</td>
+                            <td>150,000</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>TOTAL</th>
+                            <th>5,000,000</th>
+                        </tr>
+                    </tfoot>
+                  </table>
+                </div>
+            </div>  
+            </section>
+            <section class="variable-section" id="tab_02">
+                <div class="flex date-range-filter date-range-filter-02">
+                    <div class="flex">
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">From Date</label>
+                            <input type="date" name="from" id="from-date" class="date-range-filter-field" data-date-format="dd-mm-yyyy">
+                        </div>
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">To Date</label>
+                            <input type="date" name="to" id="to-date" class="date-range-filter-field" data-date-format="dd-mm-yyyy">
+                        </div>
+
+                        <div class="form-control flex flex-column">
+                            <h4 class="" style="font-weight:400;color:#9d9c9c">Generate report</h4>
+                            <button id="print-data-table-02" class="btn" style="padding-block:7px;border-radius:3px;">Print Table</button>
+                        </div>
+                        <div class="form-control flex flex-column">
+                            <h4 class="" style="font-weight:400;color:#9d9c9c">Generate report</h4>
+                            <button id="export-data-table-02" class="btn" style="padding-block:7px;border-radius:3px;">Export CSV</button>
+                        </div>                         
+                    </div>
+                </div>
+                <div class="body">
+                    <table id="data-table-02" class="display" style="width:100%;margin-top:.5rem;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Patient ID</th>
+                                <th>Service</th>
+                                <th>Created At</th>
+                                <th>Payment Status</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>FLH230300</td>
+                                <td>CBC Scan</td>
+                                <td>04/23/2022</td>
+                                <td>Pending</td>
+                                <td>25,000</td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>FLH230300</td>
+                                <td>CBC Scan</td>
+                                <td>04/23/2022</td>
+                                <td>Pending</td>
+                                <td>25,000</td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>FLH230385</td>
+                                <td>Malaria Test</td>
+                                <td>01/23/2022</td>
+                                <td>Paid</td>
+                                <td>5,000</td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>FLH230300</td>
+                                <td>CBC Scan</td>
+                                <td>04/23/2022</td>
+                                <td>Pending</td>
+                                <td>25,000</td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>FLH230385</td>
+                                <td>Malaria Test</td>
+                                <td>01/23/2022</td>
+                                <td>Paid</td>
+                                <td>5,000</td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>FLH230326</td>
+                                <td>Drug purchase</td>
+                                <td>04/06/2023</td>
+                                <td>Paid</td>
+                                <td>150,000</td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>FLH230326</td>
+                                <td>Drug purchase</td>
+                                <td>04/06/2023</td>
+                                <td>Paid</td>
+                                <td>150,000</td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>FLH230385</td>
+                                <td>Malaria Test</td>
+                                <td>01/23/2022</td>
+                                <td>Paid</td>
+                                <td>5,000</td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>FLH230326</td>
+                                <td>Drug purchase</td>
+                                <td>04/06/2023</td>
+                                <td>Paid</td>
+                                <td>150,000</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>TOTAL</th>
+                                <th>5,000,000</th>
+                            </tr>
+                        </tfoot>
+                      </table>
+                </div>
+            </div>  
+            </section>
+            <section class="variable-section" id="tab_03">
+                <div class="flex date-range-filter date-range-filter-03">
+                    <div class="flex">
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">From Date</label>
+                            <input type="date" name="from" id="from-date" class="date-range-filter-field" data-date-format="dd-mm-yyyy">
+                        </div>
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">To Date</label>
+                            <input type="date" name="to" id="to-date" class="date-range-filter-field" data-date-format="dd-mm-yyyy">
+                        </div>
+
+                        <div class="form-control flex flex-column">
+                            <h4 class="" style="font-weight:400;color:#9d9c9c">Generate report</h4>
+                            <button id="print-data-table-03" class="btn" style="padding-block:7px;border-radius:3px;">Print Table</button>
+                        </div>
+                        <div class="form-control flex flex-column">
+                            <h4 class="" style="font-weight:400;color:#9d9c9c">Generate report</h4>
+                            <button id="export-data-table-03" class="btn" style="padding-block:7px;border-radius:3px;">Export CSV</button>
+                        </div>                          
+                    </div>
+                </div>
+                <div class="body">
+                    <table id="data-table-03" class="display" style="width:100%;margin-top:.5rem;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Patient ID</th>
+                                <th>Service</th>
+                                <th>Created At</th>
+                                <th>Payment Status</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>FLH230300</td>
+                                <td>CBC Scan</td>
+                                <td>04/23/2022</td>
+                                <td>Pending</td>
+                                <td>25,000</td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>FLH230385</td>
+                                <td>Malaria Test</td>
+                                <td>01/23/2022</td>
+                                <td>Paid</td>
+                                <td>5,000</td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>FLH230326</td>
+                                <td>Drug purchase</td>
+                                <td>04/06/2023</td>
+                                <td>Paid</td>
+                                <td>150,000</td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>FLH230300</td>
+                                <td>CBC Scan</td>
+                                <td>04/23/2022</td>
+                                <td>Pending</td>
+                                <td>25,000</td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>FLH230385</td>
+                                <td>Malaria Test</td>
+                                <td>01/23/2022</td>
+                                <td>Paid</td>
+                                <td>5,000</td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>FLH230326</td>
+                                <td>Drug purchase</td>
+                                <td>04/06/2023</td>
+                                <td>Paid</td>
+                                <td>150,000</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>TOTAL</th>
+                                <th>5,000,000</th>
+                            </tr>
+                        </tfoot>
+                      </table>
+                </div>
+            </div>  
+            </section>
+         </section>
+        <aside class="preview-area preview-area___area___" id="patient-preview___">
+            <!-- <div class="img-wrapper">
+                <img src="../../STATIC/images/user.png" alt="">
+            </div>
+            <div class="details">
+                <div class="detail-group">
+                    <p class="part-title">Patient No.:</p>
+                    <p class="part-content">67834</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">First Name:</p>
+                    <p class="part-content">Alex</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Last No.:</p>
+                    <p class="part-content">Muhumuza</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">NIN:</p>
+                    <p class="part-content">CM2REK234423MFC</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Phone No:</p>
+                    <p class="part-content">+256728463968</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Birth Place:</p>
+                    <p class="part-content">Wakiso</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Gender:</p>
+                    <p class="part-content">Male</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Age:</p>
+                    <p class="part-content">24</p>
+                </div>
+            </div>
+            <div class="cta_area">
+                <button  class="modal-activators" id="edit_patient_modal_activator" data-modal="create_patient_modal">Edit Details</button>
+                <button class="modal-activators" id="create_visit_modal_activator" data-modal="create_visit_modal">Create Visit</button>
+            </div> -->
+        </aside>
+    </main>
+</body>
+
+
+<script src="../../STATIC/js/modals.js"></script>
+
+<script>
+    const previewArea___ = document.querySelector(".preview-area___area");
+    if(previewArea___){
+        // Clear patient on preview
+        const clearPatientOnPreview = (patient) => {
+            const previewArea = document.querySelector("#patient-preview");
+            const previewContent = "";
+            previewArea.innerHTML = previewContent;
+
+        }
+        // On page load, clear preview
+        clearPatientOnPreview();
+
+        // Load patient on preview
+        const loadPatientOnPreview = (patient) => {
+            const previewArea = document.querySelector("#patient-preview");
+            const previewContent = `
+            <div class="img-wrapper">
+                <img src="../../STATIC/images/user.png" alt="">
+            </div>
+            <div class="details">
+                <div class="detail-group">
+                    <p class="part-title">Patient No.:</p>
+                    <p class="part-content">${patient.id}</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">First Name:</p>
+                    <p class="part-content">${patient.name}</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Last No.:</p>
+                    <p class="part-content">Muhumuza</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">NIN:</p>
+                    <p class="part-content">CM2REK234423MFC</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Phone No:</p>
+                    <p class="part-content">+256728463968</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Birth Place:</p>
+                    <p class="part-content">Wakiso</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Gender:</p>
+                    <p class="part-content">${patient.gender}</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Age:</p>
+                    <p class="part-content">${patient.age}</p>
+                </div>
+            </div>
+            <div class="cta_area">
+                <button onclick=""  class="modal-activators">Send To Lab</button>
+            </div>
+            `;
+            previewArea.innerHTML = previewContent;
+
+        }
+
+        // Change patient on prview
+        const patientRows = document.querySelector("tbody").querySelectorAll("tr");
+        patientRows.forEach(patientRow => patientRow.addEventListener("click", (event) => {
+            if(event.target.parentElement.tagName === "TR"){
+            const patient = {
+                id:event.target.parentElement.querySelectorAll("td")[0].textContent,
+                name:event.target.parentElement.querySelectorAll("td")[1].textContent,
+                age:event.target.parentElement.querySelectorAll("td")[2].textContent,
+                visit:event.target.parentElement.querySelectorAll("td")[3].textContent,
+                gender:event.target.parentElement.querySelectorAll("td")[4].textContent
+            }
+            console.log(patient);
+            loadPatientOnPreview(patient);
+            }
+        }))
+    }
+  
+  // Set up your table
+  let table01 = $('#data-table-01').DataTable();
+  let table02 = $('#data-table-02').DataTable();
+  let table03 = $('#data-table-03').DataTable();
+
+    // Extend dataTables search
+    $.fn.dataTable.ext.search.push(
+        function(settings, data, dataIndex) {
+            var min = $('#from-date').val();
+            var max = $('#to-date').val();
+            var createdAt = data[3] || 0; // Our date column in the table
+            if ((min == "" || max == "") || (moment(createdAt).isSameOrAfter(min) && moment(createdAt).isSameOrBefore(max))) {
+                return true;
+            }
+            return false;
+        }
+    );
+
+    // Re-draw the table when the a date range filter changes
+    $('.date-range-filter-01').change(function() {
+        table01.draw();
+    });
+
+    // Re-draw the table when the a date range filter changes
+    $('.date-range-filter-02').change(function() {
+        table02.draw();
+    });
+
+    // Re-draw the table when the a date range filter changes
+    $('.date-range-filter-03').change(function() {
+        table03.draw();
+    });
+
+
+
+    // Print table
+    function printDataTable(mTitle, table) {
+        const title = document.createElement('h3');
+        title.style.textDecoration = "underline";
+        title.textContent = mTitle;
+        const divToPrint = document.querySelector(`#data-table-${table}`);
+        divToPrint.append(title);
+        let htmlToPrint = '' +
+            '<style type="text/css">' +
+                'table {' +
+                    'border-collapse:collapse;' +
+                '}' +
+                'table th, table td {' +
+                    'border:1px solid #000;' +
+                    'padding:0.5em;' +
+                '}' +
+            '</style>';
+        htmlToPrint += divToPrint.outerHTML;
+        const newWin = window.open("");
+        newWin.document.write(htmlToPrint);
+        newWin.print();
+        newWin.close();
+        title.textContent = "";
+    }
+
+    document.querySelector("#print-data-table-01").addEventListener('click', ()=> {
+        printDataTable("Revenue", '01');
+    });
+
+
+    document.querySelector("#print-data-table-02").addEventListener('click', ()=> {
+        printDataTable("Expenses", '02');
+    });
+
+    document.querySelector("#print-data-table-03").addEventListener('click', ()=> {
+        printDataTable("Income", '03');
+    });
+
+
+    // Export as CSV
+    function downloadCSV(tableId, fileName) {
+        const table = document.getElementById(tableId);
+        const rows = table.querySelectorAll("tr");
+
+        // Prepare a CSV file content string
+        let csvContent = "data:text/csv;charset=utf-8,";
+
+        // Loop through each row of the table
+        rows.forEach(function(row) {
+            const cells = row.querySelectorAll("td, th");
+            const rowData = [];
+
+            // Loop through each cell of the row
+            cells.forEach(function(cell) {
+            rowData.push('"' + cell.innerText.replace(/"/g, '""') + '"');
+            });
+
+            // Combine the row data into a CSV row and add it to the file content
+            csvContent += rowData.join(",") + "\r\n";
+        });
+
+        // Create a download link and trigger the download
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", fileName);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    document.querySelector("#export-data-table-01").addEventListener('click', ()=> {
+        downloadCSV('data-table-01', "revenues")
+    });
+
+
+    document.querySelector("#export-data-table-02").addEventListener('click', ()=> {
+        downloadCSV('data-table-02', "expenses")
+    });
+
+    document.querySelector("#export-data-table-03").addEventListener('click', ()=> {
+        downloadCSV('data-table-03', "income")
+    });
+
+    
+
+
+
+    
+  // Signout
+  const signoutBtn = document.querySelector('.fa-sign-out');
+
+  signoutBtn.addEventListener('click', (event) => {
+    window.location.href = "../auth/index.html";
+  });
+</script>
+</html>
