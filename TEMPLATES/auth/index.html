@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="inline-size=device-inline-size, initial-scale=1.0">
+    <link rel="stylesheet" href="../../STATIC/themify/icons/themify-icons.css">
     <title>Med Tech — HMIS</title>
 
     <style>
@@ -152,6 +153,40 @@
         font-weight: unset;
         line-block-size: 1.4;
     }
+
+
+    /* putting the eye in the login */
+.form-control{
+        position: relative;
+
+    }
+
+.ti-eye{
+        display: inline-flex;
+        position: absolute;
+        top: 30px;
+        left: 220px;
+        bottom: 0px;
+    }
+
+    /* progress bar  */
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+  /* padding: 1px; */
+  margin-top: 5px;
+}
+
+#myBar {
+    
+  width: 5%;
+  height: 5px;
+  background-color: #04AA6D;
+  text-align: center;
+  line-height: 20px;
+  color: white;
+}
+
     </style>
 </head>
 
@@ -172,13 +207,18 @@
                         <div class="form-control flex">
                             <label for="password">Password</label>
                             <input type="password" name="" id="password" required>
+                            <i class="ti-eye"style='color:black'></i>
                         </div>
                         <button type="submit" class="btn" id="signin-btn">Sign In</button>
                     </form>
+                    <div id="myProgress">
+                        <div id="myBar"></div>
+                      </div>
                     <div class="auth-card-actions">
                         <h5 class="forgot-password">Forgotten password?</h5>
                         <h6 class="request-password">Contact admin</h6>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -191,10 +231,49 @@
             event.preventDefault();
             signinBtn.textContent = "Please wait...";
 
+            // console.log("hello there ")
+            // progress bar code 
+            var i = 0;
+         
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("myBar");
+                var width = 5;
+                var id = setInterval(frame, 30);
+                
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+             i = 0;
+        } else {
+         width++;
+        elem.style.width = width + "%";
+        // elem.innerHTML = width  + "%";
+                    }
+            }
+        }
+    
+
             setTimeout(()=>{
                 window.location.href = "../patients/index.html";
             },3000)
         });
+
+
+
+        // showing or hidding the password functionality
+        const showHidePassword = document.querySelector(".ti-eye");
+
+        showHidePassword.addEventListener("click", (event)=>{
+
+            event.preventDefault();
+            let dataType = ("message")? "password ": "text"
+           
+            document.querySelector("#password").setAttribute("type","text")
+            console.log("hello")
+
+        })
+
     </script>
 </body>
 
