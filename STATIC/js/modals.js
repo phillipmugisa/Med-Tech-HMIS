@@ -71,7 +71,6 @@ function triggerEditPatientModal(patient){
     });
 }
 
-
 function triggerCreateVisitModal(){
     // close open modals
     let openModals = document.querySelectorAll(".modal.inview");
@@ -85,7 +84,6 @@ function triggerCreateVisitModal(){
         modalToOpen.classList.remove("inview");
     });
 }
-
 
 function triggerCreateTriageModal(){
     // close open modals
