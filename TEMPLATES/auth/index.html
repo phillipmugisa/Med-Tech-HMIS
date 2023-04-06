@@ -156,12 +156,11 @@
 
 
     /* putting the eye in the login */
-.form-control{
+    .form-control{
         position: relative;
-
     }
 
-.ti-eye{
+    .ti-eye{
         display: inline-flex;
         position: absolute;
         top: 30px;
@@ -170,22 +169,21 @@
     }
 
     /* progress bar  */
-#myProgress {
-  width: 100%;
-  background-color: #ddd;
-  /* padding: 1px; */
-  margin-top: 5px;
-}
+    #myProgress {
+        width: 100%;
+        background-color: transparent;
+        margin-top: 5px;
+    }
 
-#myBar {
-    
-  width: 5%;
-  height: 5px;
-  background-color: #04AA6D;
-  text-align: center;
-  line-height: 20px;
-  color: white;
-}
+    #myBar {
+        margin-block-start: 14px;
+        width: 0%;
+        height: 20px;
+        background-color: #04AA6D;
+        text-align: center;
+        line-height: 20px;
+        color: white;
+    }
 
     </style>
 </head>
@@ -226,34 +224,29 @@
 
     <script>
         const signinBtn = document.querySelector('#signin-btn');
-
         signinBtn.addEventListener('click', (event) => {
             event.preventDefault();
-            signinBtn.textContent = "Please wait...";
-
-            // console.log("hello there ")
-            // progress bar code 
-            var i = 0;
+            const myProgress = document.getElementById("myProgress");
+            myProgress.style.backgroundColor = "#ddd";
+            let i = 0;
          
             if (i == 0) {
                 i = 1;
-                var elem = document.getElementById("myBar");
-                var width = 5;
-                var id = setInterval(frame, 30);
+                const elem = document.getElementById("myBar");
+                let width = 5;
+                const id = setInterval(frame, 30);
                 
-        function frame() {
-            if (width >= 100) {
-                clearInterval(id);
-             i = 0;
-        } else {
-         width++;
-        elem.style.width = width + "%";
-        // elem.innerHTML = width  + "%";
+                function frame() {
+                    if (width >= 100) {
+                        clearInterval(id);
+                        i = 0;
+                    } else {
+                        width++;
+                        elem.style.width = width + "%";
                     }
+                }
             }
-        }
     
-
             setTimeout(()=>{
                 window.location.href = "../patients/index.html";
             },3000)
