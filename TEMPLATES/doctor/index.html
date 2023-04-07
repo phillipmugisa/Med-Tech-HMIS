@@ -110,7 +110,7 @@
         <section class="main-content-area">
             <div class="main-cta-section">
                 <button class="accented section-togglers" data-section="assigned_patients" id="_togglerassigned_patients">Assigned Patients</button>
-                <button disabled class="accented section-togglers disabled" data-section="general_doctor" id="general_doctor_toggler">General</button>
+                <button class="accented section-togglers" data-section="general_doctor" id="general_doctor_toggler">General</button>
                 <button class="accented section-togglers" data-section="clinical_findings" id="clinical_findings_toggler">Clinical Findings</button>
                 <button disabled class="accented section-togglers disabled" data-section="diagnosis" id="diagnosis_toggler">Diagnosis</button>
                 <button disabled class="accented section-togglers disabled" data-section="prescription" id="prescription_toggler">Prescription</button>
@@ -623,47 +623,6 @@
             <section class="variable-section" id="radiology_results">radiology_results</section>
         </section>
         <aside class="preview-area" id="patient-preview">
-            <div class="img-wrapper">
-                <img src="../../STATIC/images/user.png" alt="">
-            </div>
-            <div class="details">
-                <div class="detail-group">
-                    <p class="part-title">Patient No.:</p>
-                    <p class="part-content">67834</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">First Name:</p>
-                    <p class="part-content">Alex</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Last No.:</p>
-                    <p class="part-content">Muhumuza</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">NIN:</p>
-                    <p class="part-content">CM2REK234423MFC</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Phone No:</p>
-                    <p class="part-content">+256728463968</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Birth Place:</p>
-                    <p class="part-content">Wakiso</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Gender:</p>
-                    <p class="part-content">Male</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Age:</p>
-                    <p class="part-content">24</p>
-                </div>
-            </div>
-            <div class="cta_area">
-                <button  class="modal-activators" id="edit_patient_modal_activator" data-modal="create_patient_modal">Edit Details</button>
-                <button class="modal-activators" id="create_visit_modal_activator" data-modal="create_visit_modal">Create Visit</button>
-            </div>
         </aside>
     </main>
 
@@ -1060,6 +1019,7 @@
     previewArea.innerHTML = previewContent;
 
   }
+  
 
   // Change patient on prview
   const patientRows = document.querySelector("tbody").querySelectorAll("tr");
@@ -1072,8 +1032,7 @@
         visit:event.target.parentElement.querySelectorAll("td")[3].textContent,
         gender:event.target.parentElement.querySelectorAll("td")[4].textContent
       }
-    console.log(patient);
-    loadPatientOnPreview(patient);
+      loadPatientOnPreview(patient);
     }
   }))
 

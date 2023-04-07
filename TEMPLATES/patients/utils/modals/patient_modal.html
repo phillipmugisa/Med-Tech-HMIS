@@ -1,0 +1,181 @@
+{% load static %}
+
+<div class="modal" id="create_patient_modal">
+    <div class="modal-header">
+        <div class="flex" style="justify-content: flex-start; gap: 10px">
+        <img src="{% static 'icons/add.png' %}" alt="" style="inline-size: 28px; block-size: 28px" />
+        <h3 style="font-size: 20px">Register Patient</h3>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="modal-section">
+        <div class="section-label">
+            <small>Personal Information</small>
+        </div>
+        <div class="section-content">
+            <form action="">
+            <div class="flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                <label for="">First Name</label>
+                <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Middle Name</label>
+                <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Last Name</label>
+                <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                <div class="patient-image flex">
+                    <img src="{% static 'images/user.png' %}" alt="" />
+                </div>
+                </div>
+            </div>
+            <div class="flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                <label for="">National ID No.</label>
+                <input class="input" type="text" />
+                </div>
+                <div class="form-control flex" style="gap: 20px">
+                <div class="flex flex-column" style="flex: 1">
+                    <label for="">Age</label>
+                    <input class="input" type="text" />
+                </div>
+                <div class="flex flex-column" style="flex: 2">
+                    <label for="">Date of Birth</label>
+                    <input class="input" type="date" />
+                </div>
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Gender</label>
+                <select name="gender" class="input">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Patient ID</label>
+                <input class="input" type="text" value="MEDT00001" disabled />
+                </div>
+            </div>
+            </form>
+        </div>
+        </div>
+        <div class="modal-section">
+        <div class="section-label">
+            <small>Contact Information</small>
+        </div>
+        <div class="section-content">
+            <form action="">
+            <div class="section-content-row flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                <label for="">Phone Number</label>
+                <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Alternative</label>
+                <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Email Address</label>
+                <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Home Address</label>
+                <input class="input" type="text" />
+                </div>
+            </div>
+            </form>
+        </div>
+        </div>
+        <div class="modal-section">
+        <div class="section-label">
+            <small>Next of Kin</small>
+        </div>
+        <div class="section-content">
+            <form action="">
+            <div class="section-content-row flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                <label for="">First Name</label>
+                <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Middle Name</label>
+                <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Last Name</label>
+                <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Relationship</label>
+                <select name="relationship" class="input">
+                    <option value="husband">Husband</option>
+                    <option value="wife">Wife</option>
+                    <option value="brother">Brother</option>
+                    <option value="sister">Sister</option>
+                    <option value="son">Son</option>
+                    <option value="daughter">Daughter</option>
+                </select>
+                </div>
+            </div>
+            <div class="section-content-row flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                <label for="">Phone Number</label>
+                <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Alternative</label>
+                <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Home Address</label>
+                <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column" style="visibility: hidden"></div>
+            </div>
+            </form>
+        </div>
+        </div>
+        <div class="modal-section">
+        <div class="section-label">
+            <small>Billing Information</small>
+        </div>
+        <div class="section-content">
+            <form action="">
+              <div class="section-content-row flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">Billing Method</label>
+                    <select name="method" class="input" id="billing_methods">
+                        <option value="cash">Cash</option>
+                        <option value="account">Account</option>
+                        <option value="insurance">Insurance</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column" id="to_billing_company">
+                    <label for="" class=" visibility-hidden to_billing_company">To Billing Company</label>
+                    <select name="company" class="input  visibility-hidden to_billing_company">
+                        <option value="jubilee">Jubilee Insurance</option>
+                        <option value="sanlam">Sanlam Life Insurance Uganda</option>
+                        <option value="aig">AIG Uganda Limited</option>
+                        <option value="britam">Britam Insurance</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column">
+                  </div>
+                  <div class="form-control flex flex-column">
+                  </div>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="form-control">
+        <img class="cancel" src="{% static 'icons/cancel.png' %}" alt="" />
+        <img class="save" src="{% static 'icons/save.png' %}" alt="" />
+        </div>
+    </div>
+</div>

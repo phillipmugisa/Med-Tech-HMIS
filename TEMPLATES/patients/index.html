@@ -1,93 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HMIS</title>
-
-    <!-- css -->
-    <link rel="stylesheet" href="../../STATIC/css/table.min.css">
-    <link rel="stylesheet" href="../../STATIC/themify/icons/themify-icons.css">
-
-    <link rel="stylesheet" href="../../STATIC/css/styles.css">
-    <link rel="stylesheet" href="../../STATIC/css/components.css">
-    <link rel="stylesheet" href="../../STATIC/css/utils.css">
-    <link rel="stylesheet" href="../../STATIC/icons/font-awesome-4.7.0/css/font-awesome.min.css">
-
-    <!-- js -->
-    <script src="../../STATIC/js/jquery-3.5.1.js"></script>
-    <script src="../../STATIC/js/jquery.dataTables.min.js"></script>
-
-    <script src="../../STATIC/js/scripts.js"></script>
-</head>
-<body>
-    <header class="departments">
-        <a href="../patients/index.html" class="department active">
-            <img src="../../STATIC/icons/create-patient.png" alt="">
-            <span class="department-name">Patients</span>
-        </a>
-        <a href="../patients/visits.html" class="department">
-            <img src="../../STATIC/icons/visits.svg" alt="">
-            <span class="department-name">Visits</span>
-        </a>
-        <a href="../patients/triage.html" class="department">
-            <img src="../../STATIC/icons/triage.png" alt="">
-            <span class="department-name">Triage</span>
-        </a>
-        <a href="../doctor/index.html" class="department">
-            <img src="../../STATIC/icons/doctor.png" alt="">
-            <span class="department-name">Doctor</span>
-        </a>
-        <a href="" class="department disabled" disabled>
-          <img src="../../STATIC/icons/lab.png" alt="">
-          <span class="department-name">Laboratory</span>
-        </a>
-        <a href="" class="department disabled" disabled>
-            <img src="../../STATIC/icons/cardiology.png" alt="">
-            <span class="department-name">Cardiology</span>
-        </a>
-        <a href="" class="department disabled" disabled>
-            <img src="../../STATIC/icons/radiology.png" alt="">
-            <span class="department-name">Radiology</span>
-        </a>
-        <a href="" class="department disabled" disabled>
-            <img src="../../STATIC/icons/pharmacy.png" alt="">
-            <span class="department-name">Pharmacy</span>
-        </a>
-        <a href="" class="department disabled" disabled>
-            <img src="../../STATIC/icons/inventory.png" alt="">
-            <span class="department-name">Inventory</span>
-        </a>
-        <a href="" class="department disabled" disabled>
-            <img src="../../STATIC/icons/theatre.png" alt="">
-            <span class="department-name">Theatre</span>
-        </a>
-        <a href="" class="department disabled" disabled>
-            <img src="../../STATIC/icons/dental.png" alt="">
-            <span class="department-name">Dental</span>
-        </a>
-        <a href="" class="department disabled" disabled>
-            <img src="../../STATIC/icons/appointment.png" alt="">
-            <span class="department-name">Appointments</span>
-        </a>
-        <a href="" class="department disabled" disabled>
-            <img src="../../STATIC/icons/invoices.png" alt="">
-            <span class="department-name">Invoices</span>
-        </a>
-        <a href="" class="department disabled" disabled>
-            <img src="../../STATIC/icons/finances.png" alt="">
-            <span class="department-name">Finances</span>
-        </a>
-        <!-- <a href="" class="department disabled" disabled>
-            <img src="../../STATIC/icons/finances.png" alt="">
-            <span class="department-name">Insurance</span>
-        </a> -->
-        <a href="../admin/index.html" class="department">
-          <img src="../../STATIC/icons/finances.png" alt="">
-          <span class="department-name">Admin</span>
-        </a>
-    </header>
+{% extends '../utils/layout.html' %}
+{% load static %}
+{% block content %}
     <main class="split">
         <aside class="sidebar-cta-section">
             <button class="accented">
@@ -109,7 +22,7 @@
             </div>
             <div class="records-part" id="recent-patients">
                 <div class="body">
-                  <table id="data-table" class="display" style="width:100%;margin-top:.5rem;">
+                  <table id="patientsTable" class="display" style="width:100%;margin-top:.5rem;">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -121,13 +34,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>FLH230300</td>
-                            <td>John Mukama Blue</td>
-                            <td>M</td>
-                            <td>25</td>
-                            <td>No</td>
-                            <td>08:30</td>
+                        <tr data-row="1">
+                            <td data-value="patient_id">FLH230300</td>
+                            <td data-value="name">John Mukama Blue</td>
+                            <td data-value="gender">M</td>
+                            <td data-value="age">25</td>
+                            <td data-value="has_visit">No</td>
+                            <td data-value="creation_time">08:30</td>
                         </tr>
                         <tr>
                             <td>FLH230385</td>
@@ -253,582 +166,110 @@
                       </tr>
                     </tfoot>
                   </table>
-
-                <!-- // Original table -->
-                <!-- <header>
-                    <p class="table-title">Patient Register</p>
-                    <form action="">
-                        <input type="search" name="" id="" placeholder="Search...">
-                    </form>
-                </header>
-                <table>
-                    <thead>
-                        <tr class="cs-bg-hover-color cs-text-md cs-text-secondary cs-font-600">
-                            <th>No.</th>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Visit</th>
-                            <th>Gender</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>FLH230300</td>
-                            <td>Alex Makasa</td>
-                            <td>23</td>
-                            <td>No</td>
-                            <td>Male</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230311</td>
-                            <td>Joana J. Nkumba</td>
-                            <td>18</td>
-                            <td>No</td>
-                            <td>Female</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230302</td>
-                            <td>Matthew Musoke K.</td>
-                            <td>52</td>
-                            <td>No</td>
-                            <td>Male</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230303</td>
-                            <td>John Ngoobi Phillip</td>
-                            <td>31</td>
-                            <td>No</td>
-                            <td>Male</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230304</td>
-                            <td>Tina Mwebaza Mwalye</td>
-                            <td>28</td>
-                            <td>No</td>
-                            <td>Female</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230308</td>
-                            <td>Daniel Angura</td>
-                            <td>20</td>
-                            <td>No</td>
-                            <td>Male</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="table-pagination cs-flex cs-justify-between cs-align-center" style="--gap: 1rem;padding: 0 1rem;">
-                    <div class="cs-grid cs-align-center">
-                        <p class="cs-text-md" style="color: var(--text-color);">Showing Page <span id="current-page-0"></span> of <span id="max-page"></span>. (<span id="table-item-count"></span> Entries)</p>
-                    </div>
-                    <div class="table-pagination cs-flex cs-justify-end cs-align-center" style="--gap: 1rem;">
-                        <button id="previous-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Previous</button>
-                        <span id="current-page" class="cs-text-md"></span>
-                        <button id="next-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Next</button>
-                    </div>
-                </div> -->
                 </div>
             </div>            
         </section>
-        <aside class="preview-area" id="patient-preview">
-            <!-- <div class="img-wrapper">
-                <img src="../../STATIC/images/user.png" alt="">
-            </div>
-            <div class="details">
-                <div class="detail-group">
-                    <p class="part-title">Patient No.:</p>
-                    <p class="part-content">67834</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">First Name:</p>
-                    <p class="part-content">Alex</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Last No.:</p>
-                    <p class="part-content">Muhumuza</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">NIN:</p>
-                    <p class="part-content">CM2REK234423MFC</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Phone No:</p>
-                    <p class="part-content">+256728463968</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Birth Place:</p>
-                    <p class="part-content">Wakiso</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Gender:</p>
-                    <p class="part-content">Male</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Age:</p>
-                    <p class="part-content">24</p>
-                </div>
-            </div>
-            <div class="cta_area">
-                <button  class="modal-activators" id="edit_patient_modal_activator" data-modal="create_patient_modal">Edit Details</button>
-                <button class="modal-activators" id="create_visit_modal_activator" data-modal="create_visit_modal">Create Visit</button>
-            </div> -->
-        </aside>
+        <aside class="preview-area" id="patient-preview"></aside>
     </main>
 
-
-    <div class="modal" id="create_patient_modal">
-        <div class="modal-header">
-            <div class="flex" style="justify-content: flex-start; gap: 10px">
-            <img src="../../STATIC/icons/add.png" alt="" style="inline-size: 28px; block-size: 28px" />
-            <h3 style="font-size: 20px">Register Patient</h3>
+    {% include "./utils/modals/patient_modal.html" %}
+    {% include "./utils/modals/visits_modal.html" %}
+    <script>
+      // Load patient on preview
+      const loadPatientOnPreview = (patient) => {
+        const previewArea = document.querySelector("#patient-preview");
+        const previewContent = `
+        <div class="img-wrapper">
+            <img src="{% static 'images/user.png' %}" alt="">
+        </div>
+        <div class="details" id="preview_detials">
+            <div class="detail-group">
+                <p class="part-title">Patient No.:</p>
+                <p class="part-content">${patient.id}</p>
+            </div>
+            <div class="detail-group">
+                <p class="part-title">Full Name:</p>
+                <p class="part-content" id="preview_patient_name">${patient.name}</p>
+            </div>
+            <div class="detail-group">
+                <p class="part-title">NIN:</p>
+                <p class="part-content">CM2REK234423MFC</p>
+            </div>
+            <div class="detail-group">
+                <p class="part-title">Phone No:</p>
+                <p class="part-content">+256728463968</p>
+            </div>
+            <div class="detail-group">
+                <p class="part-title">Birth Place:</p>
+                <p class="part-content">Wakiso</p>
+            </div>
+            <div class="detail-group">
+                <p class="part-title">Gender:</p>
+                <p class="part-content">${patient.gender}</p>
+            </div>
+            <div class="detail-group">
+                <p class="part-title">Age:</p>
+                <p class="part-content">${patient.age}</p>
             </div>
         </div>
-        <div class="modal-body">
-            <div class="modal-section">
-            <div class="section-label">
-                <small>Personal Information</small>
-            </div>
-            <div class="section-content">
-                <form action="">
-                <div class="flex flex-gap-40">
-                    <div class="form-control flex flex-column">
-                    <label for="">First Name</label>
-                    <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column">
-                    <label for="">Middle Name</label>
-                    <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column">
-                    <label for="">Last Name</label>
-                    <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column">
-                    <div class="patient-image flex">
-                        <img src="../../STATIC/images/user.png" alt="" />
-                    </div>
-                    </div>
-                </div>
-                <div class="flex flex-gap-40">
-                    <div class="form-control flex flex-column">
-                    <label for="">National ID No.</label>
-                    <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex" style="gap: 20px">
-                    <div class="flex flex-column" style="flex: 1">
-                        <label for="">Age</label>
-                        <input class="input" type="text" />
-                    </div>
-                    <div class="flex flex-column" style="flex: 2">
-                        <label for="">Date of Birth</label>
-                        <input class="input" type="date" />
-                    </div>
-                    </div>
-                    <div class="form-control flex flex-column">
-                    <label for="">Gender</label>
-                    <select name="gender" class="input">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                    </div>
-                    <div class="form-control flex flex-column">
-                    <label for="">Patient ID</label>
-                    <input class="input" type="text" value="MEDT00001" disabled />
-                    </div>
-                </div>
-                </form>
-            </div>
-            </div>
-            <div class="modal-section">
-            <div class="section-label">
-                <small>Contact Information</small>
-            </div>
-            <div class="section-content">
-                <form action="">
-                <div class="section-content-row flex flex-gap-40">
-                    <div class="form-control flex flex-column">
-                    <label for="">Phone Number</label>
-                    <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column">
-                    <label for="">Alternative</label>
-                    <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column">
-                    <label for="">Email Address</label>
-                    <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column">
-                    <label for="">Home Address</label>
-                    <input class="input" type="text" />
-                    </div>
-                </div>
-                </form>
-            </div>
-            </div>
-            <div class="modal-section">
-            <div class="section-label">
-                <small>Next of Kin</small>
-            </div>
-            <div class="section-content">
-                <form action="">
-                <div class="section-content-row flex flex-gap-40">
-                    <div class="form-control flex flex-column">
-                    <label for="">First Name</label>
-                    <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column">
-                    <label for="">Middle Name</label>
-                    <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column">
-                    <label for="">Last Name</label>
-                    <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column">
-                    <label for="">Relationship</label>
-                    <select name="relationship" class="input">
-                        <option value="husband">Husband</option>
-                        <option value="wife">Wife</option>
-                        <option value="brother">Brother</option>
-                        <option value="sister">Sister</option>
-                        <option value="son">Son</option>
-                        <option value="daughter">Daughter</option>
-                    </select>
-                    </div>
-                </div>
-                <div class="section-content-row flex flex-gap-40">
-                    <div class="form-control flex flex-column">
-                    <label for="">Phone Number</label>
-                    <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column">
-                    <label for="">Alternative</label>
-                    <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column">
-                    <label for="">Home Address</label>
-                    <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column" style="visibility: hidden"></div>
-                </div>
-                </form>
-            </div>
-            </div>
-            <div class="modal-section">
-            <div class="section-label">
-                <small>Billing Information</small>
-            </div>
-            <div class="section-content">
-                <form action="">
-                  <div class="section-content-row flex flex-gap-40">
-                      <div class="form-control flex flex-column">
-                        <label for="">Billing Method</label>
-                        <select name="method" class="input" id="billing_methods">
-                            <option value="cash">Cash</option>
-                            <option value="account">Account</option>
-                            <option value="insurance">Insurance</option>
-                        </select>
-                      </div>
-                      <div class="form-control flex flex-column" id="to_billing_company">
-                        <label for="" class=" visibility-hidden to_billing_company">To Billing Company</label>
-                        <select name="company" class="input  visibility-hidden to_billing_company">
-                            <option value="jubilee">Jubilee Insurance</option>
-                            <option value="sanlam">Sanlam Life Insurance Uganda</option>
-                            <option value="aig">AIG Uganda Limited</option>
-                            <option value="britam">Britam Insurance</option>
-                        </select>
-                      </div>
-                      <div class="form-control flex flex-column">
-                      </div>
-                      <div class="form-control flex flex-column">
-                      </div>
-                </div>
-                </form>
-            </div>
-            </div>
+        <div class="cta_area">
+            <button id="editPatientDetails" class="modal-activators">Edit Detials</button>
+            <button onclick="triggerCreateVisitModal()" class="modal-activators">Create Visit</button>
         </div>
-        <div class="modal-footer">
-            <div class="form-control">
-            <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
-            <img class="save" src="../../STATIC/icons/save.png" alt="" />
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="create_visit_modal">
-        <div class="modal-header">
-          <div class="flex" style="justify-content: flex-start; gap: 10px">
-            <img src="../../STATIC/icons/visits.svg" alt="" style="inline-size: 28px; block-size: 28px" />
-            <h3 style="font-size: 20px">Create Visit</h3>
-          </div>
-        </div>
-        <div class="modal-body">
-          <div class="modal-section">
-            <div class="section-label">
-              <small>Patient Information</small>
-            </div>
-            <div class="section-content">
-              <form action="">
-                <div class="flex flex-gap-40">
-                  <div class="form-control flex flex-column">
-                    <label for="">First Name</label>
-                    <input class="input" type="text" />
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Middle Name</label>
-                    <input class="input" type="text" />
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Last Name</label>
-                    <input class="input" type="text" />
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <div class="patient-image flex">
-                      <img src="../../STATIC/images/user.png" alt="" />
-                    </div>
-                  </div>
-                </div>
-                <div class="flex flex-gap-40">
-                  <div class="form-control flex flex-column">
-                    <label for="">National ID No.</label>
-                    <input class="input" type="text" />
-                  </div>
-                  <div class="form-control flex" style="gap: 20px">
-                    <div class="flex flex-column" style="flex: 1">
-                      <label for="">Age</label>
-                      <input class="input" type="text" />
-                    </div>
-                    <div class="flex flex-column" style="flex: 2">
-                      <label for="">Date of Birth</label>
-                      <input class="input" type="date" />
-                    </div>
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Gender</label>
-                    <select name="gender" class="input">
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-                    </select>
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Patient ID</label>
-                    <input class="input" type="text" value="MEDT00001" disabled />
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="modal-section">
-            <div class="section-label">
-              <small>Visit</small>
-            </div>
-            <div class="section-content">
-              <form action="">
-                <div class="section-content-row flex flex-gap-40">
-                  <div class="form-control flex flex-column">
-                    <label for="">Visit Date</label>
-                    <input class="input" type="date" />
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Category</label>
-                    <select name="category" class="input">
-                      <option value="consultation">Consultation</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Doctor Specialty</label>
-                    <select name="specialty" class="input">
-                      <option value="gynacology">Gynacology</option>
-                      <option value="urology">Urology</option>
-                      <option value="cardiology">Cardiology</option>
-                      <option value="generalDoctor">General Doctor</option>
-                    </select>
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">To See Doctor</label>
-                    <select name="fullname" class="input">
-                      <option value="Muludiang Emmanuel">Dr. Muludiang Emmanuel</option>
-                      <option value="Mugisa Phillip">Dr. Mugisa Phillip</option>
-                      <option value="Barbra B">Dr. Barbra B</option>
-                      <option value="Peter P">Dr. Peter S</option>
-                      <option value="Mulondo Caxton">Dr. Mulondo Caxton</option>
-                      <option value="Abdoulanziz Ally">Dr. Abdoulanziz Ally</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="modal-section">
-            <div class="section-label">
-              <small>Billing</small>
-            </div>
-            <div class="section-content">
-              <form action="">
-                <div class="section-content-row flex flex-gap-40">
-                  <div class="form-control flex flex-column">
-                    <label for="">Billing Mode</label>
-                    <select name="billingMode" class="input">
-                      <option value="cash">Cash</option>
-                      <option value="account">Account</option>
-                      <option value="insurance">Insurance</option>
-                    </select>
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Bill</label>
-                    <input class="input" type="text" />
-                  </div>
-                  <div class="form-control flex flex-column" style="visibility: hidden;">
-                  </div>
-                  <div class="form-control flex flex-column" style="visibility: hidden;">
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <!-- <div class="modal-section">
-            <div class="section-label">
-              <small>Financials</small>
-            </div>
-            <div class="section-content">
-              <table>
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Doctor</th>
-                    <th>Consultation Fees</th>
-                    <th>Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>01</td>
-                    <td>Dr. Muludiang Emmanuel</td>
-                    <td>UGX 25,000</td>
-                    <td>03-03-2023</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div> -->
-        </div>
-        <div class="modal-footer">
-          <div class="form-control">
-            <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
-            <img class="save" src="../../STATIC/icons/save.png" alt="" />
-          </div>
-        </div>
-    </div>
-</body>
-
-
-
-<script>
-  // Clear patient on preview
-  const clearPatientOnPreview = (patient) => {
-    const previewArea = document.querySelector("#patient-preview");
-    const previewContent = "";
-    previewArea.innerHTML = previewContent;
-
-  }
-  // On page load, clear preview
-  clearPatientOnPreview();
-
-  // Load patient on preview
-  const loadPatientOnPreview = (patient) => {
-    const previewArea = document.querySelector("#patient-preview");
-    const previewContent = `
-    <div class="img-wrapper">
-        <img src="../../STATIC/images/user.png" alt="">
-    </div>
-    <div class="details">
-        <div class="detail-group">
-            <p class="part-title">Patient No.:</p>
-            <p class="part-content">${patient.id}</p>
-        </div>
-        <div class="detail-group">
-            <p class="part-title">Full Name:</p>
-            <p class="part-content">${patient.name}</p>
-        </div>
-        <div class="detail-group">
-            <p class="part-title">NIN:</p>
-            <p class="part-content">CM2REK234423MFC</p>
-        </div>
-        <div class="detail-group">
-            <p class="part-title">Phone No:</p>
-            <p class="part-content">+256728463968</p>
-        </div>
-        <div class="detail-group">
-            <p class="part-title">Birth Place:</p>
-            <p class="part-content">Wakiso</p>
-        </div>
-        <div class="detail-group">
-            <p class="part-title">Gender:</p>
-            <p class="part-content">${patient.gender}</p>
-        </div>
-        <div class="detail-group">
-            <p class="part-title">Age:</p>
-            <p class="part-content">${patient.age}</p>
-        </div>
-    </div>
-    <div class="cta_area">
-        <button onclick="triggerEditPatientModal({id:${parseInt(patient.id)}})"  class="modal-activators">Edit Detials</button>
-        <button onclick="triggerCreateVisitModal()" class="modal-activators">Create Visit</button>
-    </div>
-    `;
-    previewArea.innerHTML = previewContent;
-
-  }
-
-  // Change patient on prview
-  const patientRows = document.querySelector("tbody").querySelectorAll("tr");
-  patientRows.forEach(patientRow => patientRow.addEventListener("click", (event) => {
-    if(event.target.parentElement.tagName === "TR"){
-      const patient = {
-        id:event.target.parentElement.querySelectorAll("td")[0].textContent,
-        name:event.target.parentElement.querySelectorAll("td")[1].textContent,
-        age:event.target.parentElement.querySelectorAll("td")[3].textContent,
-        visit:event.target.parentElement.querySelectorAll("td")[4].textContent,
-        gender:event.target.parentElement.querySelectorAll("td")[2].textContent
+        `;
+        previewArea.innerHTML = previewContent;
+        
+        previewArea.querySelector("#editPatientDetails")
+          .addEventListener("click", () => triggerEditPatientModal(patient))
       }
-    loadPatientOnPreview(patient);
-    }
-  }))
-
-
-  // Set up your table
-  let table = $('#data-table').DataTable();
-
-  // Signout
-  const signoutBtn = document.querySelector('.fa-sign-out');
-
-  signoutBtn.addEventListener('click', (event) => {
-    window.location.href = "../auth/index.html";
-  });
-
-
-
-  // Billing
-  // Display field for insurance company
-  // When insurance is selected as the payment mode
-
-  const billingMethodsDropdown = document.querySelector("#billing_methods");
-  billingMethodsDropdown.addEventListener("change", function() {
-    const selectedOption = billingMethodsDropdown.value;
-    if(selectedOption === "insurance"){
-      // The more elegant way causes the billing mode field to overflow
-      document.querySelectorAll(".to_billing_company")[0].classList.remove("visibility-hidden");
-      document.querySelectorAll(".to_billing_company")[1].classList.remove("visibility-hidden");
-    }else{
-      // The more elegant way causes the billing mode field to overflow
-      document.querySelectorAll(".to_billing_company")[0].classList.add("visibility-hidden");
-      document.querySelectorAll(".to_billing_company")[1].classList.add("visibility-hidden");
-    }
-});
-
-
-</script>
-<script src="../../STATIC/js/modals.js"></script>
-
-</html>
+    
+    
+      // Change patient on prview
+      const patientRows = document.querySelector("tbody").querySelectorAll("tr");
+      patientRows.forEach(patientRow => patientRow.addEventListener("click", (event) => {
+        if(event.target.parentElement.tagName === "TR"){
+          const patient = {
+            id:event.target.parentElement.querySelectorAll("td")[0].textContent,
+            name:event.target.parentElement.querySelectorAll("td")[1].textContent,
+            age:event.target.parentElement.querySelectorAll("td")[3].textContent,
+            visit:event.target.parentElement.querySelectorAll("td")[4].textContent,
+            gender:event.target.parentElement.querySelectorAll("td")[2].textContent
+          }
+        loadPatientOnPreview(patient);
+        }
+      }))
+    
+    
+      // Set up your table
+      // let table = $('#data-table').DataTable();
+    
+      // Signout
+      const signoutBtn = document.querySelector('.fa-sign-out');
+    
+      signoutBtn.addEventListener('click', (event) => {
+        window.location.href = "../auth/index.html";
+      });
+    
+    
+    
+      // Billing
+      // Display field for insurance company
+      // When insurance is selected as the payment mode
+    
+      const billingMethodsDropdown = document.querySelector("#billing_methods");
+      billingMethodsDropdown.addEventListener("change", function() {
+        const selectedOption = billingMethodsDropdown.value;
+        if(selectedOption === "insurance"){
+          // The more elegant way causes the billing mode field to overflow
+          document.querySelectorAll(".to_billing_company")[0].classList.remove("visibility-hidden");
+          document.querySelectorAll(".to_billing_company")[1].classList.remove("visibility-hidden");
+        }else{
+          // The more elegant way causes the billing mode field to overflow
+          document.querySelectorAll(".to_billing_company")[0].classList.add("visibility-hidden");
+          document.querySelectorAll(".to_billing_company")[1].classList.add("visibility-hidden");
+        }
+    });
+    
+    
+    </script>
+{% endblock %}

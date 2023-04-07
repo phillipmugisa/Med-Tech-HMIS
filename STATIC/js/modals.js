@@ -56,34 +56,14 @@ function triggerUserRolesModal(user){
 }
 
 function triggerEditPatientModal(patient){
+    document.querySelector("#create_patient_modal_activator").click();
     // close open modals
-    let openModals = document.querySelectorAll(".modal.inview");
-    openModals.forEach(modal => modal.classList.remove("inview"));
-
-    // open the modal
-    const modalToOpen = document.querySelector("#create_patient_modal");
-    modalToOpen.querySelector(".modal-header").querySelector("h3").textContent = "Edit Patient";
-    modalToOpen.classList.add("inview");
     console.log(typeof patient, patient);
-
-    modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
-        modalToOpen.classList.remove("inview");
-    });
 }
 
 
 function triggerCreateVisitModal(){
-    // close open modals
-    let openModals = document.querySelectorAll(".modal.inview");
-    openModals.forEach(modal => modal.classList.remove("inview"));
-
-    // open the modal
-    const modalToOpen = document.querySelector("#create_visit_modal");
-    modalToOpen.classList.add("inview");
-
-    modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
-        modalToOpen.classList.remove("inview");
-    });
+    document.querySelector("#create_patient_modal_activator").click();
 }
 
 

@@ -27,3 +27,27 @@ The project will adapt a modular way of implementation; where each feature is im
 | HTML       |   Django   |
 | CSS        |   Nodejs   |
 | JAVASCRIPT |  Postgres  |
+
+
+## setting up django and postgres
+-----------------------------------------
+# postgres
+`
+sudo -u postgres psql
+CREATE DATABASE medsafe;
+CREATE USER medsafe WITH PASSWORD 'medsafe';
+ALTER ROLE medsafe SET client_encoding TO 'utf8';
+ALTER ROLE medsafe SET default_transaction_isolation TO 'read committed';
+ALTER ROLE medsafe SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE medsafe TO medsafe;
+`
+
+-----------------------------
+# django
+`
+sudo apt install python3:10
+python3 -m venv venv
+python3 -m pip install -r requirements.txt
+source ./venv/bin/activate
+python ./functional_tests/main.py
+`
