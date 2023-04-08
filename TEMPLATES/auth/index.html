@@ -225,7 +225,7 @@
     </div>
 
     <script>
-        const signinBtn = document.querySelector('#signin-btn');
+        const signinBtn = document.querySelector("#signin-btn");
 
         signinBtn.addEventListener('click', (event) => {
             event.preventDefault();
@@ -267,9 +267,12 @@
         showHidePassword.addEventListener("click", (event)=>{
 
             event.preventDefault();
-            let dataType = ("message")? "password ": "text"
+            // setting up 
+            let stringCheck = "password"
+
+            let dataType = (stringCheck == "password")? "text ": "password"
            
-            document.querySelector("#password").setAttribute("type","text")
+            document.querySelector("#password").setAttribute("type",dataType)
             console.log("hello")
 
         })
