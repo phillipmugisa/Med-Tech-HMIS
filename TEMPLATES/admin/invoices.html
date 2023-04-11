@@ -201,29 +201,6 @@
             </div>  
             </section>
             <section class="variable-section" id="tab_02">
-                <!-- <div>
-                    <div class="modal-section">
-                        <div class="section-label">
-                          <small>Select Company</small>
-                        </div>
-                        <div class="section-content">
-                          <div class="section-content-row flex">
-                            <div class="form-control flex flex-column">
-                                <label for="">Companies</label>
-                                <select name="companies" class="input">
-                                    <option value="jubilee">Jubilee Insurance</option>
-                                    <option value="sanlam">Sanlam Life Insurance Uganda</option>
-                                    <option value="aig">AIG Uganda Limited</option>
-                                    <option value="britam">Britam Insurance</option>
-                                </select>
-                            </div>
-                            <div class="form-control flex flex-column"></div>
-                            <div class="form-control flex flex-column"></div>
-                            <div class="form-control flex flex-column"></div>
-                          </div>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="flex date-range-filter date-range-filter-02">
                     <div class="flex">
                         <div class="form-control flex flex-column">
@@ -355,29 +332,6 @@
             </div>  
             </section>
             <section class="variable-section" id="tab_03">
-                <!-- <div>
-                    <div class="modal-section">
-                        <div class="section-label">
-                          <small>Select Company</small>
-                        </div>
-                        <div class="section-content">
-                          <div class="section-content-row flex">
-                            <div class="form-control flex flex-column">
-                                <label for="">Companies</label>
-                                <select name="companies" class="input">
-                                    <option value="rasl">Rapid Advisory Services Ltd</option>
-                                    <option value="servermatics">Servermatics Ltd</option>
-                                    <option value="greatoutdoors">Great Outdoors Uganda</option>
-                                    <option value="futuretechnologies">Future Technologies</option>
-                                </select>
-                            </div>
-                            <div class="form-control flex flex-column"></div>
-                            <div class="form-control flex flex-column"></div>
-                            <div class="form-control flex flex-column"></div>
-                          </div>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="flex date-range-filter date-range-filter-03">
                     <div class="flex">
                         <div class="form-control flex flex-column">
@@ -485,138 +439,140 @@
             </div>  
             </section>
          </section>
-        <aside class="preview-area preview-area___area___" id="patient-preview___">
-            <div class="img-wrapper">
-                <img src="../../STATIC/images/user.png" alt="">
-            </div>
-            <div class="details">
-                <div class="detail-group">
-                    <p class="part-title">Patient No.:</p>
-                    <p class="part-content">67834</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">First Name:</p>
-                    <p class="part-content">Alex</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Last No.:</p>
-                    <p class="part-content">Muhumuza</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">NIN:</p>
-                    <p class="part-content">CM2REK234423MFC</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Phone No:</p>
-                    <p class="part-content">+256728463968</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Birth Place:</p>
-                    <p class="part-content">Wakiso</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Gender:</p>
-                    <p class="part-content">Male</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Age:</p>
-                    <p class="part-content">24</p>
-                </div>
-            </div>
-            <div class="cta_area">
-                <button  class="modal-activators" id="edit_patient_modal_activator" data-modal="create_patient_modal">Edit Details</button>
-                <button class="modal-activators" id="create_visit_modal_activator" data-modal="create_visit_modal">Create Visit</button>
-            </div>
-        </aside>
+        <aside class="preview-area preview-area" id="patient-preview__disabled__"></aside>
     </main>
+    <div class="modal" id="edit_invoice_modal">
+        <div class="modal-header">
+          <div class="flex" style="justify-content: flex-start; gap: 10px">
+            <img src="../../STATIC/icons/invoices.png" alt="" style="inline-size: 28px; block-size: 28px" />
+            <h3 style="font-size: 20px">Edit Invoice</h3>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Patient Information</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">First Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Middle Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Last Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <div class="patient-image flex">
+                      <img src="../../STATIC/images/user.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">National ID No.</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex" style="gap: 20px">
+                    <div class="flex flex-column" style="flex: 1">
+                      <label for="">Age</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="flex flex-column" style="flex: 2">
+                      <label for="">Date of Birth</label>
+                      <input class="input" type="date" />
+                    </div>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Gender</label>
+                    <select name="gender" class="input">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Patient ID</label>
+                    <input class="input" type="text" value="MEDT00001" disabled />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Invoice Information</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="section-content-row flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                    <label for="">Invoice Number</label>
+                    <input class="input" type="text" value="INVO00001" disabled />
+                    </div>
+                    <div class="form-control flex flex-column">
+                        <label for="">Date of Issue</label>
+                        <input class="input" type="date" />
+                      </div>
+                  <div class="form-control flex flex-column">
+                  </div>
+                  <div class="form-control flex flex-column">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Service Information</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="section-content-row flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">Name of service</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Fees covered by Company</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Fees payable by patient</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Total Service fees</label>
+                    <input class="input" type="text" />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-control">
+            <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
+            <img class="save" src="../../STATIC/icons/save.png" alt="" />
+          </div>
+        </div>
+    </div>
 </body>
 
 
 <script src="../../STATIC/js/modals.js"></script>
 
 <script>
-    const previewArea___ = document.querySelector(".preview-area___area");
-    if(previewArea___){
-        // Clear patient on preview
-        const clearPatientOnPreview = (patient) => {
-            const previewArea = document.querySelector("#patient-preview");
-            const previewContent = "";
-            previewArea.innerHTML = previewContent;
 
-        }
-        // On page load, clear preview
-        clearPatientOnPreview();
-
-        // Load patient on preview
-        const loadPatientOnPreview = (patient) => {
-            const previewArea = document.querySelector("#patient-preview");
-            const previewContent = `
-            <div class="img-wrapper">
-                <img src="../../STATIC/images/user.png" alt="">
-            </div>
-            <div class="details">
-                <div class="detail-group">
-                    <p class="part-title">Patient No.:</p>
-                    <p class="part-content">${patient.id}</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">First Name:</p>
-                    <p class="part-content">${patient.name}</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Last No.:</p>
-                    <p class="part-content">Muhumuza</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">NIN:</p>
-                    <p class="part-content">CM2REK234423MFC</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Phone No:</p>
-                    <p class="part-content">+256728463968</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Birth Place:</p>
-                    <p class="part-content">Wakiso</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Gender:</p>
-                    <p class="part-content">${patient.gender}</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Age:</p>
-                    <p class="part-content">${patient.age}</p>
-                </div>
-            </div>
-            <div class="cta_area">
-                <button onclick=""  class="modal-activators">Send To Lab</button>
-            </div>
-            `;
-            previewArea.innerHTML = previewContent;
-
-        }
-
-        // Change patient on prview
-        const patientRows = document.querySelector("tbody").querySelectorAll("tr");
-        patientRows.forEach(patientRow => patientRow.addEventListener("click", (event) => {
-            if(event.target.parentElement.tagName === "TR"){
-            const patient = {
-                id:event.target.parentElement.querySelectorAll("td")[0].textContent,
-                name:event.target.parentElement.querySelectorAll("td")[1].textContent,
-                age:event.target.parentElement.querySelectorAll("td")[2].textContent,
-                visit:event.target.parentElement.querySelectorAll("td")[3].textContent,
-                gender:event.target.parentElement.querySelectorAll("td")[4].textContent
-            }
-            console.log(patient);
-            loadPatientOnPreview(patient);
-            }
-        }))
-    }
-  
-  // Set up your table
-  let table01 = $('#data-table-01').DataTable();
-  let table02 = $('#data-table-02').DataTable();
-  let table03 = $('#data-table-03').DataTable();
+    // Set up your table
+    let table01 = $('#data-table-01').DataTable();
+    let table02 = $('#data-table-02').DataTable();
+    let table03 = $('#data-table-03').DataTable();
 
     // Extend dataTables search
     $.fn.dataTable.ext.search.push(
@@ -646,6 +602,31 @@
         table03.draw();
     });
 
+    // Table rows
+    const tableRows = document.querySelectorAll("tr");
+    tableRows.forEach((tableRow) => {
+        tableRow.addEventListener("click", handleTableRowClick);
+    });
+
+    function handleTableRowClick(event){
+        const row = event.target.parentElement;
+        if(row.classList.contains("even") || row.classList.contains("odd")){
+            // console.log(row);
+            // Pass ID to the modal
+            // Or pass all the content for editing
+            triggerEditInvoiceModal(row);
+        }
+    }
+
+    // function triggerEditInvoiceModal(id){
+    //     console.log(id);
+    //     // id.classList.add("modal-activators");
+    //     // id.setAttribute("id", "edit_invoice_modal_activator");
+    //     // id.setAttribute("data-modal", "edit_invoice_modal");
+    // }
+
+    // document.querySelector("#edit_invoice_modal_activator").addEventListener("click", () => console.log(100))
+
 
 
     // Print table
@@ -674,16 +655,16 @@
     }
 
     document.querySelector("#print-data-table-01").addEventListener('click', ()=> {
-        printDataTable("Revenue", '01');
+        printDataTable("All Invoices", '01');
     });
 
 
     document.querySelector("#print-data-table-02").addEventListener('click', ()=> {
-        printDataTable("Expenses", '02');
+        printDataTable("Insurance Company", '02');
     });
 
     document.querySelector("#print-data-table-03").addEventListener('click', ()=> {
-        printDataTable("Income", '03');
+        printDataTable("Account Company", '03');
     });
 
 
@@ -731,8 +712,6 @@
     document.querySelector("#export-data-table-03").addEventListener('click', ()=> {
         downloadCSV('data-table-03', "income")
     });
-
-    
 
 
 

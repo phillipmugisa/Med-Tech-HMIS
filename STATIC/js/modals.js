@@ -99,3 +99,19 @@ function triggerCreateTriageModal(){
     });
 }
 
+
+
+function triggerEditInvoiceModal(id){
+    // close open modals
+    let openModals = document.querySelectorAll(".modal.inview");
+    openModals.forEach(modal => modal.classList.remove("inview"));
+
+    // open the modal
+    const modalToOpen = document.querySelector("#edit_invoice_modal");
+    modalToOpen.classList.add("inview");
+
+    modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
+        modalToOpen.classList.remove("inview");
+    });
+}
+
