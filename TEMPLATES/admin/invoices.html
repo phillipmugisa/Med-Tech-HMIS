@@ -96,10 +96,10 @@
             <img src="../../STATIC/icons/finances.png" alt="">
             <span class="department-name">Finances</span>
         </a>
-        <!-- <a href="" class="department disabled" disabled>
+        <a href="../admin/insurance.html" class="department">
             <img src="../../STATIC/icons/finances.png" alt="">
             <span class="department-name">Insurance</span>
-        </a> -->
+        </a>
         <a href="../admin/index.html" class="department">
           <img src="../../STATIC/icons/finances.png" alt="">
           <span class="department-name">Admin</span>
@@ -122,11 +122,23 @@
         </aside>
         <section class="main-content-area">
             <div class="main-cta-section">
+                <button class="accented section-togglers" data-section="tab_00" id="tab_00_toggler">Create Invoice</button>
                 <button class="accented section-togglers" data-section="tab_01" id="tab_01_toggler">All Invoices</button>
                 <button class="accented section-togglers" data-section="tab_02" id="tab_02_toggler">Insurance Companies</button>
                 <button class="accented section-togglers" data-section="tab_03" id="tab_03_toggler">Account Companies</button>
             </div>
-            <section class="variable-section inview" id="tab_01">
+            <section class="variable-section inview" id="tab_00" style="padding:0;">
+                <div class="main-cta-section">
+                    <button class="accented section-togglers" data-section="laboratory" id="lab_toggler">Laboratory</button>
+                    <button class="accented section-togglers" data-section="radiology" id="radiology_toggler">Radiology</button>
+                    <button class="accented section-togglers" data-section="cardiology" id="cardiology_toggler">Cardiology</button>
+                    <button class="accented section-togglers" data-section="urology" id="urology_toggler">Urology</button>
+                    <button disabled class="accented section-togglers disabled" data-section="dental" id="dental_toggler">Dental</button>
+                    <button disabled class="accented section-togglers disabled" data-section="theatre" id="theatre_toggler">Theatre</button>
+                    <button disabled class="accented section-togglers disabled" data-section="eye" id="eye_toggler">Eye</button>
+                </div>
+            </section>
+            <section class="variable-section" id="tab_01">
                 <div class="flex date-range-filter date-range-filter-01">
                     <div class="flex">
                         <div class="form-control flex flex-column">
@@ -617,17 +629,6 @@
             triggerEditInvoiceModal(row);
         }
     }
-
-    // function triggerEditInvoiceModal(id){
-    //     console.log(id);
-    //     // id.classList.add("modal-activators");
-    //     // id.setAttribute("id", "edit_invoice_modal_activator");
-    //     // id.setAttribute("data-modal", "edit_invoice_modal");
-    // }
-
-    // document.querySelector("#edit_invoice_modal_activator").addEventListener("click", () => console.log(100))
-
-
 
     // Print table
     function printDataTable(mTitle, table) {

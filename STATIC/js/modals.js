@@ -115,3 +115,23 @@ function triggerEditInvoiceModal(id){
     });
 }
 
+
+
+function triggerEditInsuranceCompanyModal(id){
+    // close open modals
+    let openModals = document.querySelectorAll(".modal.inview");
+    openModals.forEach(modal => modal.classList.remove("inview"));
+
+    // open the modal
+    const modalToOpen = document.querySelector("#create_new_insurance_company_modal");
+    modalToOpen.querySelector(".modal-header").querySelector("h3").textContent = "Update Insurance Company";
+    modalToOpen.classList.add("inview");
+    console.log(typeof id, id);
+
+    modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
+        modalToOpen.querySelector(".modal-header").querySelector("h3").textContent = "Register New Staff";
+        modalToOpen.classList.remove("inview");
+    });
+}
+
+
