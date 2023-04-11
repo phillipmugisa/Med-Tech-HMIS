@@ -122,9 +122,9 @@
         </aside>
         <section class="main-content-area">
             <div class="main-cta-section">
-                <button class="accented section-togglers" data-section="tab_01" id="tab_01_toggler">Revenue</button>
-                <button class="accented section-togglers" data-section="tab_02" id="tab_02_toggler">Expenses</button>
-                <button class="accented section-togglers" data-section="tab_03" id="tab_03_toggler">Income</button>
+                <button class="accented section-togglers" data-section="tab_01" id="tab_01_toggler">All Invoices</button>
+                <button class="accented section-togglers" data-section="tab_02" id="tab_02_toggler">Insurance Companies</button>
+                <button class="accented section-togglers" data-section="tab_03" id="tab_03_toggler">Account Companies</button>
             </div>
             <section class="variable-section inview" id="tab_01">
                 <div class="flex date-range-filter date-range-filter-01">
@@ -201,8 +201,40 @@
             </div>  
             </section>
             <section class="variable-section" id="tab_02">
+                <!-- <div>
+                    <div class="modal-section">
+                        <div class="section-label">
+                          <small>Select Company</small>
+                        </div>
+                        <div class="section-content">
+                          <div class="section-content-row flex">
+                            <div class="form-control flex flex-column">
+                                <label for="">Companies</label>
+                                <select name="companies" class="input">
+                                    <option value="jubilee">Jubilee Insurance</option>
+                                    <option value="sanlam">Sanlam Life Insurance Uganda</option>
+                                    <option value="aig">AIG Uganda Limited</option>
+                                    <option value="britam">Britam Insurance</option>
+                                </select>
+                            </div>
+                            <div class="form-control flex flex-column"></div>
+                            <div class="form-control flex flex-column"></div>
+                            <div class="form-control flex flex-column"></div>
+                          </div>
+                        </div>
+                    </div>
+                </div> -->
                 <div class="flex date-range-filter date-range-filter-02">
                     <div class="flex">
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">Select Company</label>
+                            <select name="companies" class="date-range-filter-field"  style="background-color: #fff;padding-block:10px;">
+                                <option value="jubilee">Jubilee Insurance</option>
+                                <option value="sanlam">Sanlam Life Insurance Uganda</option>
+                                <option value="aig">AIG Uganda Limited</option>
+                                <option value="britam">Britam Insurance</option>
+                            </select>
+                        </div>
                         <div class="form-control flex flex-column">
                             <label for="" style="font-weight:400;color:#9d9c9c">From Date</label>
                             <input type="date" name="from" id="from-date" class="date-range-filter-field" data-date-format="dd-mm-yyyy">
@@ -323,8 +355,40 @@
             </div>  
             </section>
             <section class="variable-section" id="tab_03">
+                <!-- <div>
+                    <div class="modal-section">
+                        <div class="section-label">
+                          <small>Select Company</small>
+                        </div>
+                        <div class="section-content">
+                          <div class="section-content-row flex">
+                            <div class="form-control flex flex-column">
+                                <label for="">Companies</label>
+                                <select name="companies" class="input">
+                                    <option value="rasl">Rapid Advisory Services Ltd</option>
+                                    <option value="servermatics">Servermatics Ltd</option>
+                                    <option value="greatoutdoors">Great Outdoors Uganda</option>
+                                    <option value="futuretechnologies">Future Technologies</option>
+                                </select>
+                            </div>
+                            <div class="form-control flex flex-column"></div>
+                            <div class="form-control flex flex-column"></div>
+                            <div class="form-control flex flex-column"></div>
+                          </div>
+                        </div>
+                    </div>
+                </div> -->
                 <div class="flex date-range-filter date-range-filter-03">
                     <div class="flex">
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">Select Company</label>
+                            <select name="companies" class="date-range-filter-field" style="background-color: #fff;padding-block:10px;">
+                                <option value="rasl">Rapid Advisory Services Ltd</option>
+                                <option value="servermatics">Servermatics Ltd</option>
+                                <option value="greatoutdoors">Great Outdoors Uganda</option>
+                                <option value="futuretechnologies">Future Technologies</option>
+                            </select>
+                        </div>
                         <div class="form-control flex flex-column">
                             <label for="" style="font-weight:400;color:#9d9c9c">From Date</label>
                             <input type="date" name="from" id="from-date" class="date-range-filter-field" data-date-format="dd-mm-yyyy">
@@ -422,7 +486,7 @@
             </section>
          </section>
         <aside class="preview-area preview-area___area___" id="patient-preview___">
-            <!-- <div class="img-wrapper">
+            <div class="img-wrapper">
                 <img src="../../STATIC/images/user.png" alt="">
             </div>
             <div class="details">
@@ -462,7 +526,7 @@
             <div class="cta_area">
                 <button  class="modal-activators" id="edit_patient_modal_activator" data-modal="create_patient_modal">Edit Details</button>
                 <button class="modal-activators" id="create_visit_modal_activator" data-modal="create_visit_modal">Create Visit</button>
-            </div> -->
+            </div>
         </aside>
     </main>
 </body>
