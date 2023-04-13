@@ -220,29 +220,27 @@
                     <button disabled class="section-togglers disabled" data-section="extras" id="extras_toggler">Extras</button>
                 </div>
                 <div class="section-tabs-content">
-                  <table style="inline-size: 100%;">
-                    <thead>
-                      <tr>
-                        <th>Test Name</th>
-                        <th>Total Fees</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <select onchange="createNextRow(this)" id="initial-select">
-                            <option value="">Select test</option>
-                            <option value="CBC test" data-price="15000">CBC test</option>
-                            <option value="Malaria test" data-price="20000">Malaria test</option>
-                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
-                          </select>
-                        </td>
-                        <td><input type="text"></td>
-                        <td><button disabled class="disabled">Delete</button></td>
-                      </tr>
-                    </tbody>
-                  </table>
+                    <table style="inline-size: 100%;" id="ab">
+                      <thead>
+                        <tr>
+                          <th>Test Name</th>
+                          <th>Fees</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <select onchange="addRow(this)">
+                              <option value="CBC test">CBC test</option>
+                              <option value="Malaria test">Malaria test</option>
+                              <option value="COVID-19 test">COVID-19 test</option>
+                            </select>
+                          </td>
+                          <td>25,000</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
                 </div>
             </section>
             <section class="variable-section" id="tab_01">
@@ -913,62 +911,6 @@ patientRows.forEach(patientRow => patientRow.addEventListener("click", (event) =
     });
 
 
-  // Add new invoice items
-  function createNextRow(selectElement) {
-    const tableRow = selectElement.parentElement.parentElement;
-    const tableBody = tableRow.parentElement;
-    const nextRow = document.createElement('tr');
-    const nextRowSelect = document.createElement('select');
-    const nextRowColumn1 = document.createElement('td');
-    const nextRowColumn2 = document.createElement('td');
-    const nextRowColumn3 = document.createElement('td');
-    const deleteButton = document.createElement('button');
-
-    // Add empty option
-    nextRowSelect.appendChild(document.createElement('option'));
-
-    // Add options from current row
-    const currentRowOptions = tableRow.querySelectorAll('option');
-    for (let i = 1; i < currentRowOptions.length; i++) {
-      const optionValue = currentRowOptions[i].value;
-      const optionPrice = currentRowOptions[i].dataset.price;
-      const option = document.createElement('option');
-      option.value = optionValue;
-      option.dataset.price = optionPrice;
-      option.textContent = optionValue;
-      nextRowSelect.appendChild(option);
-    }
-
-    // Add event listener to new select element
-    nextRowSelect.onchange = function() {
-      const priceInput = this.parentElement.nextElementSibling.querySelector('input');
-      const selectedOption = this.options[this.selectedIndex];
-      priceInput.value = selectedOption.dataset.price;
-      createNextRow(this);
-    }
-
-    // Add select and column to new row
-    nextRowColumn1.appendChild(nextRowSelect);
-    nextRow.appendChild(nextRowColumn1);
-
-    // Add input field for price to new row
-    const nextRowPrice = document.createElement('input');
-    nextRowPrice.type = 'text';
-    // nextRowPrice.readOnly = true;
-    nextRowColumn2.appendChild(nextRowPrice);
-    nextRow.appendChild(nextRowColumn2);
-
-    // Add button for deleting row to new row
-    deleteButton.textContent = 'Delete';
-    deleteButton.onclick = function() {
-      tableBody.removeChild(nextRow);
-    }
-    nextRowColumn3.appendChild(deleteButton);
-    nextRow.appendChild(nextRowColumn3);
-
-    // Add new row to table body
-    tableBody.appendChild(nextRow);
-  }
 
     
   // Signout
@@ -979,5 +921,69 @@ patientRows.forEach(patientRow => patientRow.addEventListener("click", (event) =
   });
 
 
+function addRow(select) {
+    // Get the selected value from the dropdown
+    const selectedValue = select.value;
+
+    // If no value was selected, do nothing
+    if (!selectedValue) {
+      return;
+    }
+
+    // Find the table element
+    const table = select.closest('table');
+
+    // Create a new row element
+    const newRow = document.createElement('tr');
+
+    // Create a new cell element for the first column
+    const firstCell = document.createElement('td');
+
+    // Create a new dropdown element for the first column
+    const dropdown = document.createElement('select');
+    dropdown.onchange = function() {
+      addRow(this);
+    };
+
+    // Add the default "Select an item" option to the dropdown
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.text = 'Select an item';
+    dropdown.appendChild(defaultOption);
+
+    // Add the selected item as an option in the dropdown
+    const selectedOption = document.createElement('option');
+    selectedOption.value = selectedValue;
+    selectedOption.text = selectedValue;
+    dropdown.appendChild(selectedOption);
+
+    // Add the dropdown to the first cell
+    firstCell.appendChild(dropdown);
+
+    // Add the first cell to the new row
+    newRow.appendChild(firstCell);
+
+    // Create a new cell element for the last column
+    const lastCell = document.createElement('td');
+
+    // Create a new delete button for the last column
+    const deleteButton = document.createElement('button');
+    deleteButton.innerHTML = 'Delete';
+    deleteButton.onclick = function() {
+      table.removeChild(newRow);
+    };
+
+    // Add the delete button to the last cell
+    lastCell.appendChild(deleteButton);
+
+    // Add the last cell to the new row
+    newRow.appendChild(lastCell);
+
+    // Add the new row to the table
+    table.appendChild(newRow);
+
+    // Reset the selected value in the original dropdown
+    select.value = '';
+  }
 </script>
 </html>
