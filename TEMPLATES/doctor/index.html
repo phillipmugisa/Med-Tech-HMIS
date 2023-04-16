@@ -112,12 +112,12 @@
                 <button class="accented section-togglers" data-section="assigned_patients" id="assigned_patients_toggler">Assigned Patients</button>
                 <button class="accented section-togglers" data-section="general_doctor" id="general_doctor_toggler">General</button>
                 <button class="accented section-togglers" data-section="clinical_findings" id="clinical_findings_toggler">Clinical Findings</button>
-                <button disabled class="accented section-togglers disabled" data-section="diagnosis" id="diagnosis_toggler">Diagnosis</button>
-                <button disabled class="accented section-togglers disabled" data-section="prescription" id="prescription_toggler">Prescription</button>
-                <button disabled class="accented section-togglers disabled" data-section="procedures" id="procedures_toggler">Procedures</button>
-                <button disabled class="accented section-togglers disabled" data-section="theatre" id="theatre_toggler">Theatre</button>
-                <button disabled class="accented section-togglers disabled" data-section="dental_lab" id="dental_lab_toggler">Dental Lab</button>
-                <button disabled class="accented section-togglers disabled" data-section="eye" id="eye_toggler">Eye</button>
+                <button class="accented section-togglers" data-section="diagnosis" id="diagnosis_toggler">Diagnosis</button>
+                <button class="accented section-togglers" data-section="prescription" id="prescription_toggler">Prescription</button>
+                <button class="accented section-togglers" data-section="procedures" id="procedures_toggler">Procedures</button>
+                <button class="accented section-togglers" data-section="theatre" id="theatre_toggler">Theatre</button>
+                <button class="accented section-togglers" data-section="dental_lab" id="dental_lab_toggler">Dental Lab</button>
+                <button class="accented section-togglers" data-section="eye" id="eye_toggler">Eye</button>
                 <button disabled class="accented section-togglers disabled" data-section="lab_results" id="lab_results_toggler">Lab Results</button>
                 <button disabled class="accented section-togglers disabled" data-section="cardiology_results" id="cardiology_results_toggler">Cardiology Results</button>
                 <button disabled class="accented section-togglers disabled" data-section="radiology_results" id="radiology_results_toggler">Radiology Results</button>
@@ -612,12 +612,402 @@
               </div></div>
               <div class="variable-section-part" id="gyn">gyn</div>
             </section>
-            <section class="variable-section" id="diagnosis">diagnosis</section>
-            <section class="variable-section" id="prescription">prescription</section>
-            <section class="variable-section" id="procedures">procedures</section>
-            <section class="variable-section" id="theatre">theatre</section>
-            <section class="variable-section" id="dental_lab">dental_lab</section>
-            <section class="variable-section" id="eye">eye</section>
+            <section class="variable-section" id="diagnosis">
+              <table style="inline-size: 100%;">
+                <thead>
+                  <tr>
+                    <th>Test Name</th>
+                    <th>Total Fees</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <select onchange="createNextRow(this)" id="initial-select">
+                        <option value="">Select test</option>
+                        <option value="CBC test" data-price="15000">CBC test</option>
+                        <option value="Malaria test" data-price="20000">Malaria test</option>
+                        <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                      </select>
+                    </td>
+                    <td><input type="text"></td>
+                    <td><button disabled class="disabled">Delete</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="variable-section" id="prescription">
+              <table style="inline-size: 100%;">
+                <thead>
+                  <tr>
+                    <th>Drug Name</th>
+                    <th>Prescription</th>
+                    <th>Total Number of Days</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <select onchange="createNextPrescriptionRow(this)" id="initial-select">
+                        <option value="">Select drug</option>
+                        <option value="Paracetamol" data-id="001">Paracetamol</option>
+                        <option value="Arbitel-H" data-id="002">Arbitel-H</option>
+                        <option value="Curamol" data-id="003">Curamol</option>
+                      </select>
+                    </td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><button disabled class="disabled">Delete</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="variable-section" id="procedures">
+              <table style="inline-size: 100%;">
+                <thead>
+                  <tr>
+                    <th>Procedure</th>
+                    <th>Total Fees</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <select onchange="createNextRow(this)" id="initial-select">
+                        <option value="">Select procedure</option>
+                        <option value="Wound dressing" data-price="45000">Wound dressing</option>
+                        <option value="Tooth extraction" data-price="20000">Tooth extraction</option>
+                        <option value="Circumcision" data-price="30000">Circumcision</option>
+                      </select>
+                    </td>
+                    <td><input type="text"></td>
+                    <td><button disabled class="disabled">Delete</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section class="variable-section" id="theatre">
+                <div class="section-form">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Procedure details</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row grid flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Type of surgery</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Location on body</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Considerations</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Requirements</label>
+                            <input class="input" type="text" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Anaesthesia requirements</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the requirements, either general or local for the procedure</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Surgeon & support staff</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row grid flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Surgeon</label>
+                            <select name="fullname" class="input">
+                              <option value="Muludiang Emmanuel">Dr. Muludiang Emmanuel</option>
+                              <option value="Mugisa Phillip">Dr. Mugisa Phillip</option>
+                              <option value="Barbra B">Dr. Barbra B</option>
+                              <option value="Peter P">Dr. Peter S</option>
+                              <option value="Mulondo Caxton">Dr. Mulondo Caxton</option>
+                              <option value="Abdoulanziz Ally">Dr. Abdoulanziz Ally</option>
+                            </select>
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Anaesthesist</label>
+                            <select name="fullname" class="input">
+                              <option value="Barbra B">Barbra B</option>
+                              <option value="Muludiang Emmanuel">Dr. Muludiang Emmanuel</option>
+                              <option value="Mugisa Phillip">Dr. Mugisa Phillip</option>
+                              <option value="Peter P">Dr. Peter S</option>
+                              <option value="Mulondo Caxton">Dr. Mulondo Caxton</option>
+                              <option value="Abdoulanziz Ally">Dr. Abdoulanziz Ally</option>
+                            </select>
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Nurse 01</label>
+                            <select name="fullname" class="input">
+                              <option value="Mugisa Phillip">Mugisa Phillip</option>
+                              <option value="Muludiang Emmanuel">Dr. Muludiang Emmanuel</option>
+                              <option value="Barbra B">Dr. Barbra B</option>
+                              <option value="Peter P">Dr. Peter S</option>
+                              <option value="Mulondo Caxton">Dr. Mulondo Caxton</option>
+                              <option value="Abdoulanziz Ally">Dr. Abdoulanziz Ally</option>
+                            </select>
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Nurse 02</label>
+                            <select name="fullname" class="input">
+                              <option value="Mulondo Caxton">Mulondo Caxton</option>
+                              <option value="Muludiang Emmanuel">Dr. Muludiang Emmanuel</option>
+                              <option value="Mugisa Phillip">Dr. Mugisa Phillip</option>
+                              <option value="Barbra B">Dr. Barbra B</option>
+                              <option value="Peter P">Dr. Peter S</option>
+                              <option value="Abdoulanziz Ally">Dr. Abdoulanziz Ally</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Date & Time</small>
+                      </div>
+                      <div class="section-content">
+                        <form action="">
+                          <div class="section-content-row flex flex-gap-40">
+                            <div class="form-control flex flex-column">
+                              <label for="">Date</label>
+                              <input class="input" type="date" />
+                            </div>
+                            <div class="form-control flex flex-column">
+                              <label for="">Time</label>
+                              <input class="input" type="time" />
+                            </div>
+                            <div class="form-control flex flex-column">
+                            </div>
+                            <div class="form-control flex flex-column">
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="modal-section cta-area">
+                      <button class="accented section-form-cta accented">Save</button>
+                    </div>
+                </div>
+            </section>
+            <section class="variable-section" id="dental_lab">
+              <div class="section-form">
+                <form action="">
+                  <div class="modal-section">
+                    <div class="section-label">
+                      <small>Tooth details</small>
+                    </div>
+                    <div class="section-content">
+                      <div class="section-content-row grid flex-gap-40">
+                        <div class="form-control flex flex-column">
+                          <label for="">Tooth name</label>
+                          <select name="name" class="input">
+                            <option value="Incisor">Incisor</option>
+                            <option value="Canine">Canine</option>
+                            <option value="Pre-molar">Pre-molar</option>
+                            <option value="Molar">Molar</option>
+                          </select>
+                        </div>
+                        <div class="form-control flex flex-column">
+                          <label for="">Diagnosis</label>
+                          <select name="diagnosis" class="input">
+                            <option value="extraction">Extraction</option>
+                            <option value="root-canal">Root Canal</option>
+                            <option value="filling">Filling</option>
+                            <option value="whitening">Whitening</option>
+                          </select>
+                        </div>
+                        <div class="form-control flex flex-column">
+                          <label for="">Procedure</label>
+                          <select name="diagnosis" class="input">
+                            <option value="extraction">Extraction</option>
+                            <option value="root-canal">Root Canal</option>
+                            <option value="filling">Filling</option>
+                            <option value="whitening">Whitening</option>
+                          </select>
+                        </div>
+                        <div class="form-control flex flex-column">
+                          <div class="form-control flex flex-column">
+                            <label for="">Fee</label>
+                            <input class="input" type="text" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-section">
+                    <div class="section-label">
+                      <small>Observation notes</small>
+                    </div>
+                    <div class="section-content">
+                      <div class="section-content-row flex">
+                        <div class="form-control flex flex-column">
+                          <div class="form-control flex flex-column" style="inline-size: 100%">
+                            <label for="">Fill any observations here</label>
+                            <textarea class="input" cols="100%" rows="2"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-section">
+                    <div class="section-label">
+                      <small>Description notes</small>
+                    </div>
+                    <div class="section-content">
+                      <div class="section-content-row flex">
+                        <div class="form-control flex flex-column">
+                          <div class="form-control flex flex-column" style="inline-size: 100%">
+                            <label for="">Fill the description notes</label>
+                            <textarea class="input" cols="100%" rows="2"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-section">
+                    <div class="section-label">
+                      <small>Date & Time</small>
+                    </div>
+                    <div class="section-content">
+                      <form action="">
+                        <div class="section-content-row flex flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Date</label>
+                            <input class="input" type="date" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Time</label>
+                            <input class="input" type="time" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                          </div>
+                          <div class="form-control flex flex-column">
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="modal-section cta-area">
+                    <button class="accented section-form-cta accented">Save</button>
+                  </div>
+              </div>
+            </section>
+            <section class="variable-section" id="eye">
+              <div class="section-form">
+                <form action="">
+                  <div class="modal-section">
+                    <div class="section-label">
+                      <small>Eye details</small>
+                    </div>
+                    <div class="section-content">
+                      <div class="section-content-row grid flex-gap-40">
+                        <div class="form-control flex flex-column">
+                          <label for="">Specific Eye</label>
+                          <select name="name" class="input">
+                            <option value="left-eye">Left eye</option>
+                            <option value="right-eye">Right eye</option>
+                          </select>
+                        </div>
+                        <div class="form-control flex flex-column">
+                          <label for="">Diagnosis</label>
+                          <select name="diagnosis" class="input">
+                            <option value="vision-test">Vision test</option>
+                            <option value="eye-pressure-test">Eye pressure test</option>
+                          </select>
+                        </div>
+                        <div class="form-control flex flex-column">
+                          <div class="form-control flex flex-column">
+                            <label for="">Fee</label>
+                            <input class="input" type="text" />
+                          </div>
+                        </div>
+                        <div class="form-control flex flex-column">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-section">
+                    <div class="section-label">
+                      <small>Observation notes</small>
+                    </div>
+                    <div class="section-content">
+                      <div class="section-content-row flex">
+                        <div class="form-control flex flex-column">
+                          <div class="form-control flex flex-column" style="inline-size: 100%">
+                            <label for="">Fill any observations here</label>
+                            <textarea class="input" cols="100%" rows="2"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-section">
+                    <div class="section-label">
+                      <small>Description notes</small>
+                    </div>
+                    <div class="section-content">
+                      <div class="section-content-row flex">
+                        <div class="form-control flex flex-column">
+                          <div class="form-control flex flex-column" style="inline-size: 100%">
+                            <label for="">Fill the description notes</label>
+                            <textarea class="input" cols="100%" rows="2"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-section">
+                    <div class="section-label">
+                      <small>Date & Time</small>
+                    </div>
+                    <div class="section-content">
+                      <form action="">
+                        <div class="section-content-row flex flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Date</label>
+                            <input class="input" type="date" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Time</label>
+                            <input class="input" type="time" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                          </div>
+                          <div class="form-control flex flex-column">
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="modal-section cta-area">
+                    <button class="accented section-form-cta accented">Save</button>
+                  </div>
+              </div>
+            </section>
             <section class="variable-section" id="lab_results">lab_results</section>
             <section class="variable-section" id="cardiology_results">cardiology_results</section>
             <section class="variable-section" id="radiology_results">radiology_results</section>
@@ -1053,9 +1443,6 @@
             <p class="part-content">${patient.age}</p>
         </div>
     </div>
-    <div class="cta_area">
-        <button onclick=""  class="modal-activators">Send To Lab</button>
-    </div>
     `;
     previewArea.innerHTML = previewContent;
 
@@ -1079,6 +1466,129 @@
 
   // Set up your table
   let table = $('#data-table').DataTable();
+
+
+  // Add new diagnosis items
+  function createNextRow(selectElement) {
+    const tableRow = selectElement.parentElement.parentElement;
+    const tableBody = tableRow.parentElement;
+    const nextRow = document.createElement('tr');
+    const nextRowSelect = document.createElement('select');
+    const nextRowColumn1 = document.createElement('td');
+    const nextRowColumn2 = document.createElement('td');
+    const nextRowColumn3 = document.createElement('td');
+    const deleteButton = document.createElement('button');
+
+    // Add empty option
+    nextRowSelect.appendChild(document.createElement('option'));
+
+    // Add options from current row
+    const currentRowOptions = tableRow.querySelectorAll('option');
+    for (let i = 1; i < currentRowOptions.length; i++) {
+      const optionValue = currentRowOptions[i].value;
+      const optionPrice = currentRowOptions[i].dataset.price;
+      const option = document.createElement('option');
+      option.value = optionValue;
+      option.dataset.price = optionPrice;
+      option.textContent = optionValue;
+      nextRowSelect.appendChild(option);
+    }
+
+    // Add event listener to new select element
+    nextRowSelect.onchange = function() {
+      const priceInput = this.parentElement.nextElementSibling.querySelector('input');
+      const selectedOption = this.options[this.selectedIndex];
+      priceInput.value = selectedOption.dataset.price;
+      createNextRow(this);
+    }
+
+    // Add select and column to new row
+    nextRowColumn1.appendChild(nextRowSelect);
+    nextRow.appendChild(nextRowColumn1);
+
+    // Add input field for price to new row
+    const nextRowPrice = document.createElement('input');
+    nextRowPrice.type = 'text';
+    // nextRowPrice.readOnly = true;
+    nextRowColumn2.appendChild(nextRowPrice);
+    nextRow.appendChild(nextRowColumn2);
+
+    // Add button for deleting row to new row
+    deleteButton.textContent = 'Delete';
+    deleteButton.onclick = function() {
+      tableBody.removeChild(nextRow);
+    }
+    nextRowColumn3.appendChild(deleteButton);
+    nextRow.appendChild(nextRowColumn3);
+
+    // Add new row to table body
+    tableBody.appendChild(nextRow);
+  }
+    
+
+  // Add new prescription items
+  function createNextPrescriptionRow(selectElement) {
+    const tableRow = selectElement.parentElement.parentElement;
+    const tableBody = tableRow.parentElement;
+    const nextRow = document.createElement('tr');
+    const nextRowSelect = document.createElement('select');
+    const nextRowColumn1 = document.createElement('td');
+    const nextRowColumn2 = document.createElement('td');
+    const nextRowColumn3 = document.createElement('td');
+    const nextRowColumn4 = document.createElement('td');
+    const deleteButton = document.createElement('button');
+
+    // Add empty option
+    nextRowSelect.appendChild(document.createElement('option'));
+
+    // Add options from current row
+    const currentRowOptions = tableRow.querySelectorAll('option');
+    for (let i = 1; i < currentRowOptions.length; i++) {
+      const optionValue = currentRowOptions[i].value;
+      const option = document.createElement('option');
+      option.value = optionValue;
+      option.textContent = optionValue;
+      nextRowSelect.appendChild(option);
+    }
+
+    // Add event listener to new select element
+    nextRowSelect.onchange = function() {
+      const selectedOption = this.options[this.selectedIndex];
+      createNextPrescriptionRow(this);
+    }
+
+    // Add select and column to new row
+    nextRowColumn1.appendChild(nextRowSelect);
+    nextRow.appendChild(nextRowColumn1);
+
+    // Add input field for prescription to new row
+    const nextRowPrescription = document.createElement('input');
+    nextRowPrescription.type = 'text';
+    // nextRowPrescription.readOnly = true;
+    nextRowColumn2.appendChild(nextRowPrescription);
+    nextRow.appendChild(nextRowColumn2);
+
+
+    // Add input field for total number of days to new row
+    const nextRowTotalNumberOfdays = document.createElement('input');
+    nextRowTotalNumberOfdays.type = 'text';
+    // nextRowTotalNumberOfdays.readOnly = true;
+    nextRowColumn3.appendChild(nextRowTotalNumberOfdays);
+    nextRow.appendChild(nextRowColumn3);
+
+    // Add button for deleting row to new row
+    deleteButton.textContent = 'Delete';
+    deleteButton.onclick = function() {
+      tableBody.removeChild(nextRow);
+    }
+
+    nextRowColumn4.appendChild(deleteButton);
+    nextRow.appendChild(nextRowColumn4);
+
+    // Add new row to table body
+    tableBody.appendChild(nextRow);
+  }
+    
 
   // Signout
   const signoutBtn = document.querySelector('.fa-sign-out');

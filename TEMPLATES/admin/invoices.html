@@ -214,10 +214,10 @@
                     <button class="section-part-toggler" data-section="radiology" id="radiology_toggler">Radiology</button>
                     <button class="section-part-toggler" data-section="cardiology" id="cardiology_toggler">Cardiology</button>
                     <button class="section-part-toggler" data-section="urology" id="urology_toggler">Urology</button>
-                    <button disabled class="section-part-toggler disabled" data-section="dental" id="dental_toggler">Dental</button>
-                    <button disabled class="section-part-toggler disabled" data-section="theatre" id="theatre_toggler">Theatre</button>
-                    <button disabled class="section-part-toggler disabled" data-section="eye" id="eye_toggler">Eye</button>
-                    <button disabled class="section-part-toggler disabled" data-section="extras" id="extras_toggler">Extras</button>
+                    <button class="section-part-toggler" data-section="dental" id="dental_toggler">Dental</button>
+                    <button class="section-part-toggler" data-section="theatre" id="theatre_toggler">Theatre</button>
+                    <button class="section-part-toggler" data-section="eye" id="eye_toggler">Eye</button>
+                    <button class="section-part-toggler" data-section="extras" id="extras_toggler">Extras</button>
                 </div>
                 <section class="variable-section-part inview" id="admissions">
                   <table style="inline-size: 100%;">
@@ -348,7 +348,112 @@
                     </tbody>
                   </table>
                 
-                </section>               
+                </section>  
+                <section class="variable-section-part" id="dental">
+                  <table style="inline-size: 100%;">
+                    <thead>
+                      <tr>
+                        <th>Test Name</th>
+                        <th>Total Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select onchange="createNextRow(this)" id="initial-select">
+                            <option value="">Select test</option>
+                            <option value="CBC test" data-price="15000">CBC test</option>
+                            <option value="Malaria test" data-price="20000">Malaria test</option>
+                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                          </select>
+                        </td>
+                        <td><input type="text"></td>
+                        <td><button disabled class="disabled">Delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+                </section>  
+                 <section class="variable-section-part" id="theatre">
+                  <table style="inline-size: 100%;">
+                    <thead>
+                      <tr>
+                        <th>Test Name</th>
+                        <th>Total Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select onchange="createNextRow(this)" id="initial-select">
+                            <option value="">Select test</option>
+                            <option value="CBC test" data-price="15000">CBC test</option>
+                            <option value="Malaria test" data-price="20000">Malaria test</option>
+                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                          </select>
+                        </td>
+                        <td><input type="text"></td>
+                        <td><button disabled class="disabled">Delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+                </section>  
+                 <section class="variable-section-part" id="eye">
+                  <table style="inline-size: 100%;">
+                    <thead>
+                      <tr>
+                        <th>Test Name</th>
+                        <th>Total Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select onchange="createNextRow(this)" id="initial-select">
+                            <option value="">Select test</option>
+                            <option value="CBC test" data-price="15000">CBC test</option>
+                            <option value="Malaria test" data-price="20000">Malaria test</option>
+                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                          </select>
+                        </td>
+                        <td><input type="text"></td>
+                        <td><button disabled class="disabled">Delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+                </section>  
+                 <section class="variable-section-part" id="extras">
+                  <table style="inline-size: 100%;">
+                    <thead>
+                      <tr>
+                        <th>Test Name</th>
+                        <th>Total Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select onchange="createNextRow(this)" id="initial-select">
+                            <option value="">Select test</option>
+                            <option value="CBC test" data-price="15000">CBC test</option>
+                            <option value="Malaria test" data-price="20000">Malaria test</option>
+                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                          </select>
+                        </td>
+                        <td><input type="text"></td>
+                        <td><button disabled class="disabled">Delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+                </section>  
+             
             </section>
             <section class="variable-section" id="tab_01">
                 <div class="flex date-range-filter date-range-filter-01">
