@@ -22,7 +22,9 @@
     <script src="../../STATIC/js/scripts.js"></script>
 
     <style>
-      
+      #prescription table input {
+        inline-size: 160px;
+      }
     </style>
 </head>
 <body>
@@ -637,13 +639,21 @@
                 </tbody>
               </table>
             </section>
-            <section class="variable-section" id="prescription">
+            <section class="variable-section" id="prescription" style="block-size:600px;overflow: scroll !important;">
               <table style="inline-size: 100%;">
                 <thead>
                   <tr>
                     <th>Drug Name</th>
-                    <th>Prescription</th>
-                    <th>Total Number of Days</th>
+                    <th>Dosage</th>
+                    <th>Duration</th>
+                    <th>Quantity</th>
+                    <th>Notes</th>
+                    <th>Stock Left</th>
+                    <th>Prescribed Qty</th>
+                    <th>Measure</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                    <th>Prescribed By</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -657,6 +667,14 @@
                         <option value="Curamol" data-id="003">Curamol</option>
                       </select>
                     </td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
                     <td><input type="text"></td>
                     <td><input type="text"></td>
                     <td><button disabled class="disabled">Delete</button></td>
@@ -1536,6 +1554,14 @@
     const nextRowColumn2 = document.createElement('td');
     const nextRowColumn3 = document.createElement('td');
     const nextRowColumn4 = document.createElement('td');
+    const nextRowColumn5 = document.createElement('td');
+    const nextRowColumn6 = document.createElement('td');
+    const nextRowColumn7 = document.createElement('td');
+    const nextRowColumn8 = document.createElement('td');
+    const nextRowColumn9 = document.createElement('td');
+    const nextRowColumn10 = document.createElement('td');
+    const nextRowColumn11 = document.createElement('td');
+    const nextRowColumn12 = document.createElement('td');
     const deleteButton = document.createElement('button');
 
     // Add empty option
@@ -1561,20 +1587,80 @@
     nextRowColumn1.appendChild(nextRowSelect);
     nextRow.appendChild(nextRowColumn1);
 
-    // Add input field for prescription to new row
-    const nextRowPrescription = document.createElement('input');
-    nextRowPrescription.type = 'text';
-    // nextRowPrescription.readOnly = true;
-    nextRowColumn2.appendChild(nextRowPrescription);
+    // Add input field for dosage to new row
+    const nextRowDosage = document.createElement('input');
+    nextRowDosage.type = 'text';
+    // nextRowDosage.readOnly = true;
+    nextRowColumn2.appendChild(nextRowDosage);
     nextRow.appendChild(nextRowColumn2);
 
 
-    // Add input field for total number of days to new row
-    const nextRowTotalNumberOfdays = document.createElement('input');
-    nextRowTotalNumberOfdays.type = 'text';
-    // nextRowTotalNumberOfdays.readOnly = true;
-    nextRowColumn3.appendChild(nextRowTotalNumberOfdays);
+    // Add input field for duration to new row
+    const nextRowDuration = document.createElement('input');
+    nextRowDuration.type = 'text';
+    // nextRowDuration.readOnly = true;
+    nextRowColumn3.appendChild(nextRowDuration);
     nextRow.appendChild(nextRowColumn3);
+
+
+
+    // Add input field for quantity of drug
+    const nextRowQunatity = document.createElement('input');
+    nextRowQunatity.type = 'text';
+    // nextRowQunatity.readOnly = true;
+    nextRowColumn4.appendChild(nextRowQunatity);
+    nextRow.appendChild(nextRowColumn4);
+
+
+    // Add input field for drug notes
+    const nextRowNotes = document.createElement('input');
+    nextRowNotes.type = 'text';
+    // nextRowNotes.readOnly = true;
+    nextRowColumn5.appendChild(nextRowNotes);
+    nextRow.appendChild(nextRowColumn5);
+
+
+    // Add input field for stock left
+    const nextRowStockLeft = document.createElement('input');
+    nextRowStockLeft.type = 'text';
+    // nextRowStockLeft.readOnly = true;
+    nextRowColumn6.appendChild(nextRowStockLeft);
+    nextRow.appendChild(nextRowColumn6);
+
+    // Add input field for prescribed qty
+    const nextRowPrescribedQty = document.createElement('input');
+    nextRowPrescribedQty.type = 'text';
+    // nextRowPrescribedQty.readOnly = true;
+    nextRowColumn7.appendChild(nextRowPrescribedQty);
+    nextRow.appendChild(nextRowColumn7);
+
+    // Add input field for measure
+    const nextRowMeasure = document.createElement('input');
+    nextRowMeasure.type = 'text';
+    // nextRowMeasure.readOnly = true;
+    nextRowColumn8.appendChild(nextRowMeasure);
+    nextRow.appendChild(nextRowColumn8);
+
+    // Add input field for price
+    const nextRowPrice = document.createElement('input');
+    nextRowPrice.type = 'text';
+    // nextRowPrice.readOnly = true;
+    nextRowColumn9.appendChild(nextRowPrice);
+    nextRow.appendChild(nextRowColumn9);
+
+    // Add input field for amount
+    const nextRowAmount = document.createElement('input');
+    nextRowAmount.type = 'text';
+    // nextRowAmount.readOnly = true;
+    nextRowColumn10.appendChild(nextRowAmount);
+    nextRow.appendChild(nextRowColumn10);
+
+    // Add input field for prescribed by
+    const nextRowPrescribedBy = document.createElement('input');
+    nextRowPrescribedBy.type = 'text';
+    // nextRowPrescribedBy.readOnly = true;
+    nextRowColumn11.appendChild(nextRowPrescribedBy);
+    nextRow.appendChild(nextRowColumn11);
 
     // Add button for deleting row to new row
     deleteButton.textContent = 'Delete';
@@ -1582,8 +1668,8 @@
       tableBody.removeChild(nextRow);
     }
 
-    nextRowColumn4.appendChild(deleteButton);
-    nextRow.appendChild(nextRowColumn4);
+    nextRowColumn12.appendChild(deleteButton);
+    nextRow.appendChild(nextRowColumn12);
 
     // Add new row to table body
     tableBody.appendChild(nextRow);
