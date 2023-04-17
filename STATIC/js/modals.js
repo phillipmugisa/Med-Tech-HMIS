@@ -57,13 +57,59 @@ function triggerUserRolesModal(user){
 
 function triggerEditPatientModal(patient){
     document.querySelector("#create_patient_modal_activator").click();
-    // close open modals
-    console.log(typeof patient, patient);
+
+    document.querySelector("#firstName").value = patient.firstname
+    document.querySelector("#middleName").value = patient.middlename
+    document.querySelector("#lastName").value = patient.lastname
+    document.querySelector("#NIN").value = patient.nin
+    document.querySelector("#age").value = patient.age
+    document.querySelector("#dateOfBirth").value = patient.date_of_birth
+    document.querySelector("#gender").value = patient.gender
+    document.querySelector("#phoneNumber").value = patient.telnumber
+    document.querySelector("#AltNumber").value = patient.alttelnumber
+    document.querySelector("#email").value = patient.email
+    document.querySelector("#address").value = patient.address
+    document.querySelector("#patient_id").value = patient.patient_id
+
+    // create nok of kin data
+    makeRequest(`${api_routes.nok_list}${patient.id}/`, method="GET")
+    .then(response => {
+        document.querySelector("#NOK_firstName").value = response.firstname
+        // setting nok id
+        document.querySelector("#NOK_firstName").dataset.nokid = response.id
+        document.querySelector("#NOK_middleName").value = response.middlename
+        document.querySelector("#NOK_lastName").value = response.lastname
+        document.querySelector("#NOK_relationship").value = response.relationship
+        document.querySelector("#NOK_nin").value = response.nin
+        document.querySelector("#NOK_phoneNumber").value = response.telnumber
+        document.querySelector("#NOK_Gender").value = response.gender
+        document.querySelector("#NOK_address").value = response.address
+
+        // the modal action is changed to edit to show that its edit mode
+        document.querySelector("#create_patient_modal").dataset.action = "edit"
+        // document.querySelector("#create_patient_modal #modal_title").textContent = "Edit Patient"
+    })
+    .catch(response => {
+        // render error
+    })
+    .finally(() => $(`table#patientsTable`).DataTable())
+
 }
 
 
 function triggerCreateVisitModal(){
-    document.querySelector("#create_patient_modal_activator").click();
+    let modalToOpen = document.querySelector(`#create_visit_modal`);
+            
+    // close open modals
+    let openModals = document.querySelectorAll(".modal.inview");
+    openModals.forEach(modal => modal.classList.remove("inview"));
+
+    modalToOpen.classList.add("inview");
+
+    modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
+        modalToOpen.classList.remove("inview");
+    })
+    
 }
 
 

@@ -48,14 +48,21 @@ INSTALLED_APPS = [
 CUSTOM_APPS = [
     "manager",
     "patients",
-    "finance"
+    "finance",
+    "app_api"
 ]
 
-INSTALLED_APPS = INSTALLED_APPS + CUSTOM_APPS
+THIRD_PARTY_APPS = [
+    "corsheaders",
+    "rest_framework"
+]
+
+INSTALLED_APPS = INSTALLED_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -134,7 +141,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
+# USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
@@ -158,3 +165,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "MEDIA/")
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# # api config
+CORS_ALLOW_ALL_ORIGINS = True
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ]
+}
+CORS_URLS_REGEX = r"^/api/.*$"

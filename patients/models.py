@@ -6,8 +6,10 @@ from django.utils.translation import gettext_lazy as _
 import os
 import uuid
 import string
+import datetime
 
 from manager import models as ManagerModels
+from finance import models as FinanceModels
 
 class Patient(ManagerModels.Person):
     patient_id = models.CharField(_("relationship"), max_length=256, null=True, blank=True)
@@ -39,8 +41,10 @@ class Visit(models.Model):
     patient = models.OneToOneField(to=Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(to=ManagerModels.Doctor, on_delete=models.SET_NULL, null=True)
     speciality = models.ForeignKey(to=ManagerModels.DoctorSpeciality, on_delete=models.SET_NULL, null=True)
-    updated_on = models.DateField(_("Updated on"), null=True, blank=True)
-    created_on = models.DateField(_("Created on"), default=timezone.now)
+    billing = models.OneToOneField(to=FinanceModels.Billing, on_delete=models.SET_NULL, null=True)
+    complete = models.BooleanField(_("Completed"), default=False)
+    updated_on = models.DateTimeField(_("Updated on"), null=True, blank=True)
+    created_on = models.DateTimeField(_("Created on"), default=timezone.now)
 
     def __str__(self) -> str:
         return f"{self.patient}"
@@ -50,3 +54,28 @@ class Visit(models.Model):
         self.updated_on = datetime.datetime.now()
 
         super().save(*args, **kwargs)
+
+class Triage(models.Model):
+    visit = models.OneToOneField(to=Visit, on_delete=models.CASCADE)
+    blood_pressure = models.CharField(_("Blood Pressure"), max_length=256, null=True, blank=True)
+    heart_rate = models.CharField(_("Heart Rate"), max_length=256, null=True, blank=True)
+    respiratory_rate = models.CharField(_("Respiratory Rate"), max_length=256, null=True, blank=True)
+    temperature = models.CharField(_("Temperature"), max_length=256, null=True, blank=True)
+    sign_symptoms = models.TextField(_("Signs and Symptoms"), null=True, blank=True) 
+    injury_details = models.TextField(_("injury Details"), null=True, blank=True) 
+    created_on = models.DateTimeField(_("Created on"), default=timezone.now)
+    updated_on = models.DateTimeField(_("Updated on"), null=True, blank=True)
+
+    def __str__(self) -> str:
+        return f"{self.visit}"
+
+
+class Allergy(models.Model):
+    visit = models.OneToOneField(to=Visit, on_delete=models.CASCADE)
+    name = models.CharField(_("Name"), max_length=256, null=True, blank=True)
+    comments = models.TextField(_("Doctor's Comments"), null=True, blank=True) 
+    created_on = models.DateTimeField(_("Created on"), default=timezone.now)
+    updated_on = models.DateTimeField(_("Updated on"), null=True, blank=True)
+
+    def __str__(self) -> str:
+        return f"{self.name}"

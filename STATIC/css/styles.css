@@ -279,6 +279,12 @@ select {
   outline: none;
 }
 
+.modal-section .section-content input.error,
+.modal-section .section-content textarea.error,
+.modal-section .section-content select.error {
+  border: 2px solid #e21b1b;
+}
+
 .modal-section .section-content .flex {
   justify-content: flex-start;
   align-items: flex-start;
@@ -359,4 +365,62 @@ select {
 
 .display-block {
   display: block;
+}
+
+
+/* lists */
+table {
+  border-collapse: collapse;
+}
+table tr {
+  border-block-end: 1px solid hsla(213, 28%, 80%, 70%);
+  border-inline: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  border-color: hsla(213, 28%, 80%, 70%);
+}
+table tbody tr:hover {
+  background-color: hsla(213, 28%, 70%, 10%);
+  border-inline: 3px solid var(--secondary-color);
+}
+
+tr th,
+tr td {
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+
+tr th {
+  text-transform: capitalize;
+}
+
+tbody tr:nth-child(even) {
+  background-color: hsla(213, 28%, 85%, 20%);
+}
+tbody tr td:nth-child(even) {
+  background-color: hsla(213, 28%, 95%, 20%);
+}
+
+tbody tr td {
+  color: hsla(213, 28%, 35%, 100%);
+}
+
+tbody tr td.delete {
+  display: grid;
+  place-items: center;
+}
+
+table tbody tr.alert {
+  background-color: hsl(195, 53%, 85%);
+}
+table tbody tr.alert:hover {
+  background-color: hsl(195, 53%, 80%);
+}
+table tbody tr.alert td,
+table tbody tr.active td {
+  background-color: inherit;
+}
+
+table tbody tr.active {
+  background-color: hsl(145, 61%, 64%);
 }

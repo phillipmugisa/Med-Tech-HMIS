@@ -25,7 +25,7 @@
                   <table id="patientsTable" class="display" style="width:100%;margin-top:.5rem;">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Patient ID</th>
                             <th>Name</th>
                             <th>Gender</th>
                             <th>Age</th>
@@ -33,131 +33,10 @@
                             <th>Created At</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr data-row="1">
-                            <td data-value="patient_id">FLH230300</td>
-                            <td data-value="name">John Mukama Blue</td>
-                            <td data-value="gender">M</td>
-                            <td data-value="age">25</td>
-                            <td data-value="has_visit">No</td>
-                            <td data-value="creation_time">08:30</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230385</td>
-                            <td>Grace Sasira Lusuku</td>
-                            <td>F</td>
-                            <td>47</td>
-                            <td>Yes</td>
-                            <td>10:54</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230326</td>
-                            <td>Mohamed Baker L.</td>
-                            <td>M</td>
-                            <td>21</td>
-                            <td>No</td>
-                            <td>10:53</td>
-                        </tr>
-                        <tr>
-                            <td>FLH230301</td>
-                            <td>Phillip Naturinda M.</td>
-                            <td>M</td>
-                            <td>35</td>
-                            <td>No</td>
-                            <td>10:59</td>
-                        </tr>
-                        <tr>
-                          <td>FLH230311</td>
-                          <td>Deodat Aganyira</td>
-                          <td>M</td>
-                          <td>68</td>
-                          <td>No</td>
-                          <td>12:02</td>
-                      </tr>
-                      <tr>
-                        <td>FLH230313</td>
-                        <td>Joram Bwambale</td>
-                        <td>M</td>
-                        <td>28</td>
-                        <td>No</td>
-                        <td>13:15</td>
-                      </tr>
-                      <tr>
-                        <td>FLH230316</td>
-                        <td>Matthew Musoke</td>
-                        <td>M</td>
-                        <td>26</td>
-                        <td>No</td>
-                        <td>13:42</td>
-                      </tr>
-                      <tr>
-                        <td>FLH230366</td>
-                        <td>Juma Kiyinji Moses</td>
-                        <td>M</td>
-                        <td>43</td>
-                        <td>No</td>
-                        <td>14:33</td>
-                      </tr>
-                      <tr>
-                        <td>FLH230336</td>
-                        <td>Alert Kapallaga</td>
-                        <td>M</td>
-                        <td>23</td>
-                        <td>No</td>
-                        <td>14:43</td>
-                      </tr>
-                      <tr>
-                        <td>FLH230361</td>
-                        <td>Martin Tukesiga Joel</td>
-                        <td>M</td>
-                        <td>22</td>
-                        <td>No</td>
-                        <td>14:36</td>
-                      </tr>
-                      <tr>
-                        <td>FLH230386</td>
-                        <td>Jane Nantongo Nakato</td>
-                        <td>F</td>
-                        <td>24</td>
-                        <td>No</td>
-                        <td>14:38</td>
-                      </tr>
-                      <tr>
-                        <td>FLH230386</td>
-                        <td>Hassan Dahalane</td>
-                        <td>M</td>
-                        <td>32</td>
-                        <td>No</td>
-                        <td>14:42</td>
-                      </tr>
-                      <tr>
-                        <td>FLH230377</td>
-                        <td>Ssempala Moses</td>
-                        <td>M</td>
-                        <td>55</td>
-                        <td>No</td>
-                        <td>14:50</td>
-                      </tr>
-                      <tr>
-                        <td>FLH230656</td>
-                        <td>Robert Mulenda Mwiru</td>
-                        <td>M</td>
-                        <td>26</td>
-                        <td>No</td>
-                        <td>15:08</td>
-                      </tr>
-                      <tr>
-                        <td>FLH230116</td>
-                        <td>Johnson Orone Nathan</td>
-                        <td>M</td>
-                        <td>20</td>
-                        <td>No</td>
-                        <td>15:15</td>
-                      </tr>
-                    </tbody>
+                    <tbody></tbody>
                     <tfoot>
                       <tr>
-                        <th>ID</th>
+                        <th>Patient ID</th>
                         <th>Name</th>
                         <th>Gender</th>
                         <th>Age</th>
@@ -175,100 +54,22 @@
     {% include "./utils/modals/patient_modal.html" %}
     {% include "./utils/modals/visits_modal.html" %}
     <script>
-      // Load patient on preview
-      const loadPatientOnPreview = (patient) => {
-        const previewArea = document.querySelector("#patient-preview");
-        const previewContent = `
-        <div class="img-wrapper">
-            <img src="{% static 'images/user.png' %}" alt="">
-        </div>
-        <div class="details" id="preview_detials">
-            <div class="detail-group">
-                <p class="part-title">Patient No.:</p>
-                <p class="part-content">${patient.id}</p>
-            </div>
-            <div class="detail-group">
-                <p class="part-title">Full Name:</p>
-                <p class="part-content" id="preview_patient_name">${patient.name}</p>
-            </div>
-            <div class="detail-group">
-                <p class="part-title">NIN:</p>
-                <p class="part-content">CM2REK234423MFC</p>
-            </div>
-            <div class="detail-group">
-                <p class="part-title">Phone No:</p>
-                <p class="part-content">+256728463968</p>
-            </div>
-            <div class="detail-group">
-                <p class="part-title">Birth Place:</p>
-                <p class="part-content">Wakiso</p>
-            </div>
-            <div class="detail-group">
-                <p class="part-title">Gender:</p>
-                <p class="part-content">${patient.gender}</p>
-            </div>
-            <div class="detail-group">
-                <p class="part-title">Age:</p>
-                <p class="part-content">${patient.age}</p>
-            </div>
-        </div>
-        <div class="cta_area">
-            <button id="editPatientDetails" class="modal-activators">Edit Detials</button>
-            <button onclick="triggerCreateVisitModal()" class="modal-activators">Create Visit</button>
-        </div>
-        `;
-        previewArea.innerHTML = previewContent;
-        
-        previewArea.querySelector("#editPatientDetails")
-          .addEventListener("click", () => triggerEditPatientModal(patient))
-      }
-    
-    
-      // Change patient on prview
-      const patientRows = document.querySelector("tbody").querySelectorAll("tr");
-      patientRows.forEach(patientRow => patientRow.addEventListener("click", (event) => {
-        if(event.target.parentElement.tagName === "TR"){
-          const patient = {
-            id:event.target.parentElement.querySelectorAll("td")[0].textContent,
-            name:event.target.parentElement.querySelectorAll("td")[1].textContent,
-            age:event.target.parentElement.querySelectorAll("td")[3].textContent,
-            visit:event.target.parentElement.querySelectorAll("td")[4].textContent,
-            gender:event.target.parentElement.querySelectorAll("td")[2].textContent
-          }
-        loadPatientOnPreview(patient);
-        }
-      }))
-    
-    
-      // Set up your table
-      // let table = $('#data-table').DataTable();
-    
-      // Signout
-      const signoutBtn = document.querySelector('.fa-sign-out');
-    
-      signoutBtn.addEventListener('click', (event) => {
-        window.location.href = "../auth/index.html";
-      });
-    
-    
-    
-      // Billing
-      // Display field for insurance company
-      // When insurance is selected as the payment mode
-    
-      const billingMethodsDropdown = document.querySelector("#billing_methods");
-      billingMethodsDropdown.addEventListener("change", function() {
-        const selectedOption = billingMethodsDropdown.value;
-        if(selectedOption === "insurance"){
-          // The more elegant way causes the billing mode field to overflow
-          document.querySelectorAll(".to_billing_company")[0].classList.remove("visibility-hidden");
-          document.querySelectorAll(".to_billing_company")[1].classList.remove("visibility-hidden");
-        }else{
-          // The more elegant way causes the billing mode field to overflow
-          document.querySelectorAll(".to_billing_company")[0].classList.add("visibility-hidden");
-          document.querySelectorAll(".to_billing_company")[1].classList.add("visibility-hidden");
-        }
-    });
+        document.addEventListener("DOMContentLoaded", () => {
+          
+          
+            // Set up your table
+            // $(`#${document.querySelector("table").id}`).DataTable();
+          
+            // Signout
+            const signoutBtn = document.querySelector('.fa-sign-out');
+          
+            signoutBtn.addEventListener('click', (event) => {
+              window.location.href = "../auth/index.html";
+            });
+
+            // load data
+            renderPatientData(1)
+        })
     
     
     </script>

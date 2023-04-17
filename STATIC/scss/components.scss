@@ -94,6 +94,7 @@ main {
     grid-template-columns: 3% 97%;
     padding: .5rem;
     gap: .5rem;
+    min-block-size: 100vw;
     
     &.split {
         grid-template-columns: 3% 73% 23%;
@@ -110,9 +111,8 @@ main {
     .main-content-area {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: .1fr auto;
         gap: .5rem;
-        align-items: flex-start;
+        align-content: flex-start;
 
         .main-cta-section {
             display: flex;
@@ -127,7 +127,6 @@ main {
                 padding: 5px 10px;
             }
         }
-
         
         .records-part {
             display: grid;
@@ -217,7 +216,7 @@ main {
         display: grid;
         align-content: flex-start;
         gap: 1rem;
-        grid-template-rows: .1fr .7fr .2fr;
+        grid-template-rows: .1fr .35fr .1fr;
 
         .img-wrapper {
             display: grid;

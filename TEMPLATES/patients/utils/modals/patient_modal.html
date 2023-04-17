@@ -4,7 +4,7 @@
     <div class="modal-header">
         <div class="flex" style="justify-content: flex-start; gap: 10px">
         <img src="{% static 'icons/add.png' %}" alt="" style="inline-size: 28px; block-size: 28px" />
-        <h3 style="font-size: 20px">Register Patient</h3>
+        <h3 style="font-size: 20px" id="modal_title">Patient Details</h3>
         </div>
     </div>
     <div class="modal-body">
@@ -17,15 +17,15 @@
             <div class="flex flex-gap-40">
                 <div class="form-control flex flex-column">
                 <label for="">First Name</label>
-                <input class="input" type="text" />
+                <input class="input" type="text" id="firstName" />
                 </div>
                 <div class="form-control flex flex-column">
                 <label for="">Middle Name</label>
-                <input class="input" type="text" />
+                <input class="input" type="text" id="middleName"/>
                 </div>
                 <div class="form-control flex flex-column">
                 <label for="">Last Name</label>
-                <input class="input" type="text" />
+                <input class="input" type="text" id="lastName"/>
                 </div>
                 <div class="form-control flex flex-column">
                 <div class="patient-image flex">
@@ -36,28 +36,28 @@
             <div class="flex flex-gap-40">
                 <div class="form-control flex flex-column">
                 <label for="">National ID No.</label>
-                <input class="input" type="text" />
+                <input class="input" type="text" id="NIN"/>
                 </div>
                 <div class="form-control flex" style="gap: 20px">
                 <div class="flex flex-column" style="flex: 1">
                     <label for="">Age</label>
-                    <input class="input" type="text" />
+                    <input class="input" type="text" id="age"/>
                 </div>
                 <div class="flex flex-column" style="flex: 2">
                     <label for="">Date of Birth</label>
-                    <input class="input" type="date" />
+                    <input class="input" type="date" id="dateOfBirth"/>
                 </div>
                 </div>
                 <div class="form-control flex flex-column">
                 <label for="">Gender</label>
-                <select name="gender" class="input">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                <select name="gender" class="input" id="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
                 </select>
                 </div>
                 <div class="form-control flex flex-column">
                 <label for="">Patient ID</label>
-                <input class="input" type="text" value="MEDT00001" disabled />
+                <input class="input" type="text" disabled id="patient_id"/>
                 </div>
             </div>
             </form>
@@ -72,19 +72,19 @@
             <div class="section-content-row flex flex-gap-40">
                 <div class="form-control flex flex-column">
                 <label for="">Phone Number</label>
-                <input class="input" type="text" />
+                <input class="input" type="text" id="phoneNumber"/>
                 </div>
                 <div class="form-control flex flex-column">
                 <label for="">Alternative</label>
-                <input class="input" type="text" />
+                <input class="input" type="text" id="AltNumber"/>
                 </div>
                 <div class="form-control flex flex-column">
                 <label for="">Email Address</label>
-                <input class="input" type="text" />
+                <input class="input" type="text" id="email"/>
                 </div>
                 <div class="form-control flex flex-column">
                 <label for="">Home Address</label>
-                <input class="input" type="text" />
+                <input class="input" type="text" id="address"/>
                 </div>
             </div>
             </form>
@@ -99,19 +99,19 @@
             <div class="section-content-row flex flex-gap-40">
                 <div class="form-control flex flex-column">
                 <label for="">First Name</label>
-                <input class="input" type="text" />
+                <input class="input" type="text" id="NOK_firstName" />
                 </div>
                 <div class="form-control flex flex-column">
                 <label for="">Middle Name</label>
-                <input class="input" type="text" />
+                <input class="input" type="text" id="NOK_middleName" />
                 </div>
                 <div class="form-control flex flex-column">
                 <label for="">Last Name</label>
-                <input class="input" type="text" />
+                <input class="input" type="text" id="NOK_lastName" />
                 </div>
                 <div class="form-control flex flex-column">
                 <label for="">Relationship</label>
-                <select name="relationship" class="input">
+                <select name="relationship" class="input" id="NOK_relationship" >
                     <option value="husband">Husband</option>
                     <option value="wife">Wife</option>
                     <option value="brother">Brother</option>
@@ -123,18 +123,24 @@
             </div>
             <div class="section-content-row flex flex-gap-40">
                 <div class="form-control flex flex-column">
-                <label for="">Phone Number</label>
-                <input class="input" type="text" />
+                    <label for="">National ID No.(NiN)</label>
+                    <input class="input" type="text" id="NOK_nin" />
                 </div>
                 <div class="form-control flex flex-column">
-                <label for="">Alternative</label>
-                <input class="input" type="text" />
+                    <label for="">Phone Number</label>
+                    <input class="input" type="text" id="NOK_phoneNumber" />
                 </div>
                 <div class="form-control flex flex-column">
-                <label for="">Home Address</label>
-                <input class="input" type="text" />
+                    <label for="">Gender</label>
+                    <select name="Next_of_Kin_Gender" class="input" id="NOK_Gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
                 </div>
-                <div class="form-control flex flex-column" style="visibility: hidden"></div>
+                <div class="form-control flex flex-column">
+                    <label for="">Home Address</label>
+                    <input class="input" type="text" id="NOK_address" />
+                </div>
             </div>
             </form>
         </div>
@@ -175,7 +181,172 @@
     <div class="modal-footer">
         <div class="form-control">
         <img class="cancel" src="{% static 'icons/cancel.png' %}" alt="" />
-        <img class="save" src="{% static 'icons/save.png' %}" alt="" />
+        <img class="save" src="{% static 'icons/save.png' %}" alt="" onclick="submitForm()" />
         </div>
     </div>
 </div>
+
+<script>
+        // Billing
+        // Display field for insurance company
+        // When insurance is selected as the payment mode
+    
+        const billingMethodsDropdown = document.querySelector("#billing_methods");
+        billingMethodsDropdown.addEventListener("change", function() {
+            const selectedOption = billingMethodsDropdown.value;
+            if(selectedOption === "insurance"){
+                // The more elegant way causes the billing mode field to overflow
+                document.querySelectorAll(".to_billing_company")[0].classList.remove("visibility-hidden");
+                document.querySelectorAll(".to_billing_company")[1].classList.remove("visibility-hidden");
+            }else{
+                // The more elegant way causes the billing mode field to overflow
+                document.querySelectorAll(".to_billing_company")[0].classList.add("visibility-hidden");
+                document.querySelectorAll(".to_billing_company")[1].classList.add("visibility-hidden");
+            }
+        });
+
+        // form submission
+        async function submitForm () {
+
+            let firstName = document.querySelector("#firstName");
+            let middleName = document.querySelector("#middleName");
+            let lastName = document.querySelector("#lastName");
+            let NIN = document.querySelector("#NIN");
+            let age = document.querySelector("#age");
+            let dateOfBirth = document.querySelector("#dateOfBirth");
+            let gender = document.querySelector("#gender");
+            let phoneNumber = document.querySelector("#phoneNumber");
+            let AltNumber = document.querySelector("#AltNumber");
+            let email = document.querySelector("#email");
+            let address = document.querySelector("#address");
+            let NOK_firstName = document.querySelector("#NOK_firstName");
+            let NOK_middleName = document.querySelector("#NOK_middleName");
+            let NOK_lastName = document.querySelector("#NOK_lastName");
+            let NOK_relationship = document.querySelector("#NOK_relationship");
+            let NOK_nin = document.querySelector("#NOK_nin");
+            let NOK_phoneNumber = document.querySelector("#NOK_phoneNumber");
+            let NOK_Gender = document.querySelector("#NOK_Gender");
+            let NOK_address = document.querySelector("#NOK_address");
+            let billing_methods = document.querySelector("#billing_methods");
+            let to_billing_company = document.querySelector("#to_billing_company");
+
+            let required_fields = [firstName, lastName, gender, phoneNumber]
+            required_fields.forEach(field => {
+                if (field.value == "" || field.value == undefined) {
+                    field.classList.add("error")
+                    return
+                }
+                if (field.classList.contains("error")) {
+                    field.classList.remove("error")
+                }
+            })
+
+            if ((age.value == "" || age.value == undefined) && (dateOfBirth.value == "" || dateOfBirth.value == undefined)) {
+                age.classList.add("error")
+                dateOfBirth.classList.add("error")
+                return;
+            }
+            else {
+                if (age.classList.contains("error") || dateOfBirth.classList.contains("error")) {
+                    age.classList.remove("error")
+                    dateOfBirth.classList.remove("error")
+                }
+            }
+
+            // make api call
+            let patientData = {
+                "firstname" : firstName.value,
+                "middlename" : middleName.value,
+                "lastname" : lastName.value,
+                "nin" : NIN.value,
+                "age" : age.value,
+                "date_of_birth" : dateOfBirth.value,
+                "gender" : gender.value,
+                "telnumber" : phoneNumber.value,
+                "alttelnumber" : AltNumber.value,
+                "email" : email.value,
+                "address" : address.value
+            }
+            let next_of_kin = {
+                "firstname" : NOK_firstName.value,
+                "middlename" : NOK_middleName.value,
+                "lastname" : NOK_lastName.value,
+                "relationship" : NOK_relationship.value,
+                "telnumber" : NOK_phoneNumber.value,
+                "address" : NOK_address.value,
+                "nin": NOK_nin.value,
+                "gender": NOK_Gender.value
+            }
+
+
+            if (document.querySelector("#create_patient_modal").dataset.action == "edit") {
+                let patient_id = document.querySelector("#patient_id").value
+                
+                try {
+
+                    // edit patient
+                    makeRequest(`/api/patients/${patient_id}/update/`, method="PATCH", data=patientData)
+                    .then(response => {
+                    })
+                    .catch(response => {
+                        // render error
+                    })
+    
+                    // edit next of kin and attach him to patient
+                    let nok_id = document.querySelector("#NOK_firstName").dataset.nokid
+                    makeRequest(`/api/nextOfKin/${nok_id}/update/`, method="PATCH", data=next_of_kin)
+                    .then(response => {
+                    })
+                    .catch(response => {
+                        // render error
+                    })
+                    refreshPatientView();
+                }
+                catch(err) {
+                    
+                }
+
+            }
+            else { 
+                // create patient
+                makeRequest("{% url 'app_api:patient_create' %}", method="POST", data=patientData)
+                .then(response => {
+    
+                    if (NOK_firstName.value != "" && NOK_firstName.value != undefined)
+                    {
+                        next_of_kin["patient"] = response["id"]
+                        // patient created successfully
+                        // create next of kin and attach him to patient
+                        makeRequest("{% url 'app_api:patient_create_nok' %}", method="POST", data=next_of_kin)
+                        .then(response => {
+                            refreshPatientView();
+                        })
+                        .catch(response => {
+                            // render error
+                        })
+                    }
+                    else {
+                        refreshPatientView();
+                    }
+    
+                    // handle billing methods
+                    let billing = {
+                        // "billing_methods" : billing_methods.value,
+                        // "to_billing_company" : to_billing_company.value
+                    }
+    
+                })
+                .catch(response => {
+                    // render error
+                })
+            }
+        }
+
+        function refreshPatientView() {
+            // close modal, refresh table
+            document.querySelector("#create_patient_modal .modal-footer .cancel").click();
+            renderPatientData();
+        }
+
+
+</script>

@@ -22,6 +22,7 @@ class PatientTest(TestCase):
             telnumber = "+256786273721",
             email = "markalex@test.com",
             address = "Kampala",
+            age = 22
         )
         self.assertEqual(test_patient.getFullName(), "mark alex peter")
 
@@ -35,8 +36,10 @@ class PatientTest(TestCase):
             email = "flex.mugalu@test.com",
             address = "Jinja",
             relationship="Father",
+            age = 40
         )
         test_patient.next_of_kin.add(n_o_k)
+        self.assertEqual(n_o_k.patient, test_patient)
         test_patient.save()
 
         self.assertEqual(test_patient, n_o_k.patient)
@@ -49,6 +52,7 @@ class PatientTest(TestCase):
             gender = "Male",
             telnumber = "+256786273721",
             address = "Kampala",
+            age = 22
         )
 
         speciality = ManagerModels.DoctorSpeciality.objects.create(
@@ -80,8 +84,52 @@ class PatientTest(TestCase):
             patient = test_patient,
             doctor = test_doctor,
             speciality = test_doctor.speciality.first(),
-            # billing = billing,
+            billing = billing,
         )
         # visit.services.add(lab)
 
         self.assertEqual(visit, PatientModels.Visit.objects.filter(patient=test_patient).first())
+
+    def test_patients_triage(self):
+        test_patient = PatientModels.Patient.objects.create(
+            firstname = "mark",
+            lastname = "peter",
+            nin = "NIOV234923F9VNEVWE",
+            gender = "Male",
+            telnumber = "+256786273721",
+            address = "Kampala",
+            age = 22
+        )
+        visit = PatientModels.Visit.objects.create(
+            patient = test_patient
+        )
+
+        traige = PatientModels.Triage(
+            visit = visit,
+            blood_pressure="test",
+            heart_rate="test",
+            respiratory_rate="test",
+            temperature="test",
+            sign_symptoms = "this is a test",
+            injury_details = "this is a test"
+        )
+
+    def test_patient_allergies(self):
+        test_patient = PatientModels.Patient.objects.create(
+            firstname = "mark",
+            lastname = "peter",
+            nin = "NIOV234923F9VNEVWE",
+            gender = "Male",
+            telnumber = "+256786273721",
+            address = "Kampala",
+            age = 22
+        )
+        visit = PatientModels.Visit.objects.create(
+            patient = test_patient
+        )
+
+        traige = PatientModels.Allergy(
+            visit = visit,
+            name="flue",
+            comments = "This is a test"
+        )
