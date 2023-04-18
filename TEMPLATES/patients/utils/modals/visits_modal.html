@@ -56,8 +56,9 @@
               </select>
               </div>
               <div class="form-control flex flex-column">
-              <label for="">Patient ID</label>
+              <label for="" id="patient_id_label">Patient ID</label>
               <input class="input" type="text" disabled id="patient_id"/>
+              <button id="load_patient_activator" style="padding-block: .5rem; background-color: #1da1f2;color:white;border-radius: 5px;display: none;">Load Patient</button>
               </div>
           </div>
           </form>
@@ -157,12 +158,13 @@
     <div class="modal-footer">
       <div class="form-control">
         <img class="cancel" src="{% static 'icons/cancel.png' %}" alt="" />
-        <img class="save" src="{% static 'icons/save.png' %}" alt="" />
+        <img onclick="submitVisitData()" class="save" src="{% static 'icons/save.png' %}" alt="" />
       </div>
     </div>
 </div>
 
 <script>
+  let create_visit_modal = document.querySelector("#create_visit_modal")
     document.addEventListener("DOMContentLoaded", () => {
       let visit_specialty = document.querySelector("#visit_specialty")
       let doctors_options = document.querySelectorAll(".doctors_options")
@@ -180,26 +182,27 @@
 
         })
       })
+
     })
     // form submission
-    async function submitPatientData () {
+    async function submitVisitData () {
 
       let firstname = create_visit_modal.querySelector("#firstName")
       let middlename = create_visit_modal.querySelector("#middleName")
       let lastname = create_visit_modal.querySelector("#lastName")
       let nin = create_visit_modal.querySelector("#NIN")
       let age = create_visit_modal.querySelector("#age")
-      let date_of_birth = create_patient_modal.querySelector("#dateOfBirth")
+      let date_of_birth = create_visit_modal.querySelector("#dateOfBirth")
       let gender = create_visit_modal.querySelector("#gender")
       let patient_id = create_visit_modal.querySelector("#patient_id")
 
 
-      let visit_date = create_patient_modal.querySelector("#visit_date")
-      let doctor = create_visit_modal.querySelector("#visit_category")
+      let visit_date = create_visit_modal.querySelector("#visit_date")
+      let doctor = create_visit_modal.querySelector("#visit_doctor")
       let speciality = create_visit_modal.querySelector("#visit_specialty")
-      let category = create_visit_modal.querySelector("#visit_doctor")
+      let category = create_visit_modal.querySelector("#visit_category")
 
-      let required_fields = [firstName, lastName, gender, nin]
+      let required_fields = [firstname, lastname, gender, nin]
       required_fields.forEach(field => {
           if (field.value == "" || field.value == undefined) {
               field.classList.add("error")
@@ -210,15 +213,15 @@
           }
       })
 
-      if ((age.value == "" || age.value == undefined) && (date_of_birth.value == "" || dateOfBirth.value == undefined)) {
+      if ((age.value == "" || age.value == undefined) && (date_of_birth.value == "" || date_of_birth.value == undefined)) {
           age.classList.add("error")
-          dateOfBirth.classList.add("error")
+          date_of_birth.classList.add("error")
           return;
       }
       else {
-          if (age.classList.contains("error") || dateOfBirth.classList.contains("error")) {
+          if (age.classList.contains("error") || date_of_birth.classList.contains("error")) {
               age.classList.remove("error")
-              dateOfBirth.classList.remove("error")
+              date_of_birth.classList.remove("error")
           }
       }
 
@@ -252,12 +255,15 @@
           "category" : category.value,
       }
       let request_method = "POST"
+      let url = `{% url 'app_api:visit_create' %}`
       if (document.querySelector("#create_visit_modal").dataset.action == "edit")
         request_method = "PATCH"
+        url = `/api/visits/${create_visit_modal.dataset.visit}/update`
 
       // edit patient
-      makeRequest(`{% url 'app_api:visit_create' %}`, method=request_method, data=visitData)
+      makeRequest(url, method=request_method, data=visitData)
       .then(response => {
+        refreshPatientView();
       })
       .catch(response => {
         // render error
@@ -268,6 +274,6 @@
     function refreshPatientView() {
         // close modal, refresh table
         document.querySelector("#create_visit_modal .modal-footer .cancel").click();
-        // renderPatientData();
+        refreshView()
     }
 </script>

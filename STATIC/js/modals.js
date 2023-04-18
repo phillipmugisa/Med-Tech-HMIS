@@ -13,18 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // When insurance is selected as the payment mode
 
     const billingMethodsDropdown = document.querySelector("#billing_methods");
-    billingMethodsDropdown.addEventListener("change", function() {
-        const selectedOption = billingMethodsDropdown.value;
-        if(selectedOption === "insurance"){
-            // The more elegant way causes the billing mode field to overflow
-            document.querySelectorAll(".to_billing_company")[0].classList.remove("visibility-hidden");
-            document.querySelectorAll(".to_billing_company")[1].classList.remove("visibility-hidden");
-        }else{
-            // The more elegant way causes the billing mode field to overflow
-            document.querySelectorAll(".to_billing_company")[0].classList.add("visibility-hidden");
-            document.querySelectorAll(".to_billing_company")[1].classList.add("visibility-hidden");
-        }
-    });
+    if (billingMethodsDropdown) {
+        billingMethodsDropdown.addEventListener("change", function() {
+            const selectedOption = billingMethodsDropdown.value;
+            if(selectedOption === "insurance"){
+                // The more elegant way causes the billing mode field to overflow
+                document.querySelectorAll(".to_billing_company")[0].classList.remove("visibility-hidden");
+                document.querySelectorAll(".to_billing_company")[1].classList.remove("visibility-hidden");
+            }else{
+                // The more elegant way causes the billing mode field to overflow
+                document.querySelectorAll(".to_billing_company")[0].classList.add("visibility-hidden");
+                document.querySelectorAll(".to_billing_company")[1].classList.add("visibility-hidden");
+            }
+        });
+    }
 })
 
 function openModal(activator) {
@@ -35,8 +37,11 @@ function openModal(activator) {
     openModals.forEach(modal => modal.classList.remove("inview"));
 
     modalToOpen.classList.add("inview");
+    modalToOpen.dataset.action = "create"
 
     modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
+        modalToOpen.querySelectorAll("form")
+            .forEach(form => form.reset())
         modalToOpen.classList.remove("inview");
     })
 }
@@ -118,11 +123,45 @@ function triggerEditPatientModal(patient){
 
 }
 
+function getPatientData() {
+    // this function opens a modal in which a user can search for and select a patient
+    // return: patient data
+}
 
-function triggerCreateVisitModal(patient){
+
+function triggerCreateVisitModal(data, edit=false){
     openModal(document.querySelector("#create_visit_modal_activator"))
-
     const create_visit_modal = document.querySelector("#create_visit_modal");
+
+    if (!data) {
+      
+        if (create_visit_modal.dataset.action == "create" && (create_visit_modal.querySelector("#patient_id").value != undefined || create_visit_modal.querySelector("#patient_id").value != "")) {
+            let load_patient_activator = document.querySelector("#load_patient_activator")
+            load_patient_activator.style.display = "grid";
+            create_visit_modal.querySelector("#patient_id").style.display = "none";
+            create_visit_modal.querySelector("#patient_id_label").style.display = "none";
+            load_patient_activator.addEventListener("click", () => {
+                data = getPatientData()
+                triggerCreateVisitModal(data)
+            })
+          }
+    }
+
+    if (edit ==true) {
+        create_visit_modal.dataset.action = "edit"
+        
+        create_visit_modal.dataset.visit = data.id
+        create_visit_modal.querySelector("#visit_date").value = new Date(data.visit_date)
+        create_visit_modal.querySelector("#visit_doctor").value = data.doctor
+        create_visit_modal.querySelector("#visit_specialty").value = data.speciality
+        create_visit_modal.querySelector("#visit_category").value = data.category
+        
+        patient = data.patient
+    }
+    else {
+        create_visit_modal.dataset.action = "create"
+        patient = data
+    }
 
     create_visit_modal.querySelector("#firstName").value = patient.firstname
     create_visit_modal.querySelector("#middleName").value = patient.middlename

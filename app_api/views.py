@@ -56,13 +56,13 @@ class VisitsViews(generics.GenericAPIView):
     serializer_class = serializers.VisitSerializer
     lookup_field = "pk"
 
-class VisitsListView(generics.ListAPIView, PatientAPIViews):
+class VisitsListView(generics.ListAPIView, VisitsViews):
     pagination_class = CustomListPagination
 
-class VisitsRetrieveView(generics.RetrieveAPIView, PatientAPIViews):
+class VisitsRetrieveView(generics.RetrieveAPIView, VisitsViews):
     pass
 class VisitCreateView(generics.CreateAPIView, VisitsViews):
     pass
 
-class VisitsUpdateView(generics.UpdateAPIView, PatientAPIViews):
+class VisitsUpdateView(generics.UpdateAPIView, VisitsViews):
     pass

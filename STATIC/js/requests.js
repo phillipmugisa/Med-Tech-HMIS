@@ -1,6 +1,7 @@
 const api_routes = {
     "patients_list": "/api/patients/",
     "nok_list": "/api/nextOfKin/",
+    "visits_list": "/api/visits/",
 }
 
 function removeEmpty(obj) {

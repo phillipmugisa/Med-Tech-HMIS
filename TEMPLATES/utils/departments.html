@@ -1,15 +1,15 @@
 {% load static %}
 
 <header class="departments">
-    <a href="../patients/index.html" class="department">
+    <a href="{% url 'patients:patients-home' %}" class="department">
         <img src="{% static 'icons/create-patient.png' %}" alt="">
         <span class="department-name">Patients</span>
     </a>
-    <a href="../patients/visits.html" class="department">
+    <a href="{% url 'patients:patients-visits' %}" class="department">
         <img src="{% static 'icons/visits.svg' %}" alt="">
         <span class="department-name">Visits</span>
     </a>
-    <a href="" class="department">
+    <a href="{% url 'patients:patients-triage' %}" class="department">
         <img src="{% static 'icons/triage.png' %}" alt="">
         <span class="department-name">Triage</span>
     </a>
