@@ -39,13 +39,17 @@ const loadPatientOnPreview = (patient) => {
         </div>
     </div>
     <div class="cta_area">
-        <button id="editPatientDetails" class="modal-activators">Edit Detials</button>
-        <button onclick="triggerCreateVisitModal()" class="modal-activators">Create Visit</button>
+        <button  class="modal-activators" id="edit_patient_modal_activator" data-modal="create_patient_modal">Edit Detials</button>
+        <button class="modal-activators" id="create_visit_modal_activator" data-modal="create_visit_modal">Create Visit</button>
     </div>
     `;
     previewArea.innerHTML = previewContent
 
-    previewArea.querySelector("#editPatientDetails")
+    previewArea.querySelector("#edit_patient_modal_activator")
         .addEventListener("click", () => triggerEditPatientModal(patient))
+
+        
+    previewArea.querySelector("#create_visit_modal_activator")
+        .addEventListener("click", () => triggerCreateVisitModal(patient))
 }
 

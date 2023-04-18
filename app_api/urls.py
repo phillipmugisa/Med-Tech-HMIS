@@ -12,4 +12,9 @@ urlpatterns = [
     path("nextOfKin/<int:pk>/", AppApiViews.NextOfKinRetrieveView.as_view(), name='nok_list'),
     path("nextOfKin/<int:pk>/update/", AppApiViews.NextOfKinUpdateView.as_view(), name='nok_update'),
     path("patients/create/nextOfKin/", AppApiViews.PatientNokCreateView.as_view(), name='patient_create_nok'),
+    
+    path("visits/", AppApiViews.VisitsListView.as_view(), name='visit_list'),
+    path("visits/<int:pk>", AppApiViews.VisitsRetrieveView.as_view(), name='visit_retrieve'),
+    path("visits/<int:pk>/update", AppApiViews.VisitsUpdateView.as_view(), name='visit_update'),
+    path("visits/create/", AppApiViews.VisitCreateView.as_view(), name='visit_create'),
 ]

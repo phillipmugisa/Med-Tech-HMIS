@@ -40,11 +40,13 @@ class NextOfKin(ManagerModels.Person):
 class Visit(models.Model):
     patient = models.OneToOneField(to=Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(to=ManagerModels.Doctor, on_delete=models.SET_NULL, null=True)
+    category = models.CharField(_("Category"), max_length=256, null=True, blank=True)
     speciality = models.ForeignKey(to=ManagerModels.DoctorSpeciality, on_delete=models.SET_NULL, null=True)
     billing = models.OneToOneField(to=FinanceModels.Billing, on_delete=models.SET_NULL, null=True)
     complete = models.BooleanField(_("Completed"), default=False)
     updated_on = models.DateTimeField(_("Updated on"), null=True, blank=True)
     created_on = models.DateTimeField(_("Created on"), default=timezone.now)
+    visit_date = models.DateTimeField(_("Date"), default=timezone.now)
 
     def __str__(self) -> str:
         return f"{self.patient}"

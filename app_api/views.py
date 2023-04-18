@@ -49,3 +49,20 @@ class PatientNokCreateView(generics.CreateAPIView, NextOfKinViews):
 
 class NextOfKinUpdateView(generics.UpdateAPIView, NextOfKinViews):
     pass
+
+
+class VisitsViews(generics.GenericAPIView):
+    queryset = PatientModals.Visit.objects.all()
+    serializer_class = serializers.VisitSerializer
+    lookup_field = "pk"
+
+class VisitsListView(generics.ListAPIView, PatientAPIViews):
+    pagination_class = CustomListPagination
+
+class VisitsRetrieveView(generics.RetrieveAPIView, PatientAPIViews):
+    pass
+class VisitCreateView(generics.CreateAPIView, VisitsViews):
+    pass
+
+class VisitsUpdateView(generics.UpdateAPIView, PatientAPIViews):
+    pass

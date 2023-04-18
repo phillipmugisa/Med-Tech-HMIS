@@ -181,172 +181,147 @@
     <div class="modal-footer">
         <div class="form-control">
         <img class="cancel" src="{% static 'icons/cancel.png' %}" alt="" />
-        <img class="save" src="{% static 'icons/save.png' %}" alt="" onclick="submitForm()" />
+        <img class="save" src="{% static 'icons/save.png' %}" alt="" onclick="submitPatientData()" />
         </div>
     </div>
 </div>
 
 <script>
-        // Billing
-        // Display field for insurance company
-        // When insurance is selected as the payment mode
-    
-        const billingMethodsDropdown = document.querySelector("#billing_methods");
-        billingMethodsDropdown.addEventListener("change", function() {
-            const selectedOption = billingMethodsDropdown.value;
-            if(selectedOption === "insurance"){
-                // The more elegant way causes the billing mode field to overflow
-                document.querySelectorAll(".to_billing_company")[0].classList.remove("visibility-hidden");
-                document.querySelectorAll(".to_billing_company")[1].classList.remove("visibility-hidden");
-            }else{
-                // The more elegant way causes the billing mode field to overflow
-                document.querySelectorAll(".to_billing_company")[0].classList.add("visibility-hidden");
-                document.querySelectorAll(".to_billing_company")[1].classList.add("visibility-hidden");
+
+    // form submission
+    async function submitPatientData () {
+
+        let firstName = document.querySelector("#firstName");
+        let middleName = document.querySelector("#middleName");
+        let lastName = document.querySelector("#lastName");
+        let NIN = document.querySelector("#NIN");
+        let age = document.querySelector("#age");
+        let dateOfBirth = document.querySelector("#dateOfBirth");
+        let gender = document.querySelector("#gender");
+        let phoneNumber = document.querySelector("#phoneNumber");
+        let AltNumber = document.querySelector("#AltNumber");
+        let email = document.querySelector("#email");
+        let address = document.querySelector("#address");
+        let NOK_firstName = document.querySelector("#NOK_firstName");
+        let NOK_middleName = document.querySelector("#NOK_middleName");
+        let NOK_lastName = document.querySelector("#NOK_lastName");
+        let NOK_relationship = document.querySelector("#NOK_relationship");
+        let NOK_nin = document.querySelector("#NOK_nin");
+        let NOK_phoneNumber = document.querySelector("#NOK_phoneNumber");
+        let NOK_Gender = document.querySelector("#NOK_Gender");
+        let NOK_address = document.querySelector("#NOK_address");
+        let billing_methods = document.querySelector("#billing_methods");
+        let to_billing_company = document.querySelector("#to_billing_company");
+
+        let required_fields = [firstName, lastName, gender, phoneNumber, NIN]
+        required_fields.forEach(field => {
+            if (field.value == "" || field.value == undefined) {
+                field.classList.add("error")
+                return
             }
-        });
+            if (field.classList.contains("error")) {
+                field.classList.remove("error")
+            }
+        })
 
-        // form submission
-        async function submitForm () {
+        if ((age.value == "" || age.value == undefined) && (dateOfBirth.value == "" || dateOfBirth.value == undefined)) {
+            age.classList.add("error")
+            dateOfBirth.classList.add("error")
+            return;
+        }
+        else {
+            if (age.classList.contains("error") || dateOfBirth.classList.contains("error")) {
+                age.classList.remove("error")
+                dateOfBirth.classList.remove("error")
+            }
+        }
 
-            let firstName = document.querySelector("#firstName");
-            let middleName = document.querySelector("#middleName");
-            let lastName = document.querySelector("#lastName");
-            let NIN = document.querySelector("#NIN");
-            let age = document.querySelector("#age");
-            let dateOfBirth = document.querySelector("#dateOfBirth");
-            let gender = document.querySelector("#gender");
-            let phoneNumber = document.querySelector("#phoneNumber");
-            let AltNumber = document.querySelector("#AltNumber");
-            let email = document.querySelector("#email");
-            let address = document.querySelector("#address");
-            let NOK_firstName = document.querySelector("#NOK_firstName");
-            let NOK_middleName = document.querySelector("#NOK_middleName");
-            let NOK_lastName = document.querySelector("#NOK_lastName");
-            let NOK_relationship = document.querySelector("#NOK_relationship");
-            let NOK_nin = document.querySelector("#NOK_nin");
-            let NOK_phoneNumber = document.querySelector("#NOK_phoneNumber");
-            let NOK_Gender = document.querySelector("#NOK_Gender");
-            let NOK_address = document.querySelector("#NOK_address");
-            let billing_methods = document.querySelector("#billing_methods");
-            let to_billing_company = document.querySelector("#to_billing_company");
+        // make api call
+        let patientData = {
+            "firstname" : firstName.value,
+            "middlename" : middleName.value,
+            "lastname" : lastName.value,
+            "nin" : NIN.value,
+            "age" : age.value,
+            "date_of_birth" : dateOfBirth.value,
+            "gender" : gender.value,
+            "telnumber" : phoneNumber.value,
+            "alttelnumber" : AltNumber.value,
+            "email" : email.value,
+            "address" : address.value
+        }
+        let next_of_kin = {
+            "firstname" : NOK_firstName.value,
+            "middlename" : NOK_middleName.value,
+            "lastname" : NOK_lastName.value,
+            "relationship" : NOK_relationship.value,
+            "telnumber" : NOK_phoneNumber.value,
+            "address" : NOK_address.value,
+            "nin": NOK_nin.value,
+            "gender": NOK_Gender.value
+        }
 
-            let required_fields = [firstName, lastName, gender, phoneNumber]
-            required_fields.forEach(field => {
-                if (field.value == "" || field.value == undefined) {
-                    field.classList.add("error")
-                    return
-                }
-                if (field.classList.contains("error")) {
-                    field.classList.remove("error")
-                }
+
+        if (document.querySelector("#create_patient_modal").dataset.action == "edit") {
+            let patient_id = document.querySelector("#patient_id").value
+            // edit patient
+            makeRequest(`/api/patients/${patient_id}/update/`, method="PATCH", data=patientData)
+            .then(response => {
+            })
+            .catch(response => {
+                // render error
             })
 
-            if ((age.value == "" || age.value == undefined) && (dateOfBirth.value == "" || dateOfBirth.value == undefined)) {
-                age.classList.add("error")
-                dateOfBirth.classList.add("error")
-                return;
-            }
-            else {
-                if (age.classList.contains("error") || dateOfBirth.classList.contains("error")) {
-                    age.classList.remove("error")
-                    dateOfBirth.classList.remove("error")
+            // edit next of kin and attach him to patient
+            let nok_id = document.querySelector("#NOK_firstName").dataset.nokid
+            makeRequest(`/api/nextOfKin/${nok_id}/update/`, method="PATCH", data=next_of_kin)
+            .then(response => {
+            })
+            .catch(response => {
+                // render error
+            })
+            refreshPatientView();
+        }
+        else { 
+            // create patient
+            makeRequest("{% url 'app_api:patient_create' %}", method="POST", data=patientData)
+            .then(response => {
+
+                if (NOK_firstName.value != "" && NOK_firstName.value != undefined)
+                {
+                    next_of_kin["patient"] = response["id"]
+                    // patient created successfully
+                    // create next of kin and attach him to patient
+                    makeRequest("{% url 'app_api:patient_create_nok' %}", method="POST", data=next_of_kin)
+                    .then(response => {
+                        refreshPatientView();
+                    })
+                    .catch(response => {
+                        // render error
+                    })
                 }
-            }
-
-            // make api call
-            let patientData = {
-                "firstname" : firstName.value,
-                "middlename" : middleName.value,
-                "lastname" : lastName.value,
-                "nin" : NIN.value,
-                "age" : age.value,
-                "date_of_birth" : dateOfBirth.value,
-                "gender" : gender.value,
-                "telnumber" : phoneNumber.value,
-                "alttelnumber" : AltNumber.value,
-                "email" : email.value,
-                "address" : address.value
-            }
-            let next_of_kin = {
-                "firstname" : NOK_firstName.value,
-                "middlename" : NOK_middleName.value,
-                "lastname" : NOK_lastName.value,
-                "relationship" : NOK_relationship.value,
-                "telnumber" : NOK_phoneNumber.value,
-                "address" : NOK_address.value,
-                "nin": NOK_nin.value,
-                "gender": NOK_Gender.value
-            }
-
-
-            if (document.querySelector("#create_patient_modal").dataset.action == "edit") {
-                let patient_id = document.querySelector("#patient_id").value
-                
-                try {
-
-                    // edit patient
-                    makeRequest(`/api/patients/${patient_id}/update/`, method="PATCH", data=patientData)
-                    .then(response => {
-                    })
-                    .catch(response => {
-                        // render error
-                    })
-    
-                    // edit next of kin and attach him to patient
-                    let nok_id = document.querySelector("#NOK_firstName").dataset.nokid
-                    makeRequest(`/api/nextOfKin/${nok_id}/update/`, method="PATCH", data=next_of_kin)
-                    .then(response => {
-                    })
-                    .catch(response => {
-                        // render error
-                    })
+                else {
                     refreshPatientView();
                 }
-                catch(err) {
-                    
+
+                // handle billing methods
+                let billing = {
+                    // "billing_methods" : billing_methods.value,
+                    // "to_billing_company" : to_billing_company.value
                 }
 
-            }
-            else { 
-                // create patient
-                makeRequest("{% url 'app_api:patient_create' %}", method="POST", data=patientData)
-                .then(response => {
-    
-                    if (NOK_firstName.value != "" && NOK_firstName.value != undefined)
-                    {
-                        next_of_kin["patient"] = response["id"]
-                        // patient created successfully
-                        // create next of kin and attach him to patient
-                        makeRequest("{% url 'app_api:patient_create_nok' %}", method="POST", data=next_of_kin)
-                        .then(response => {
-                            refreshPatientView();
-                        })
-                        .catch(response => {
-                            // render error
-                        })
-                    }
-                    else {
-                        refreshPatientView();
-                    }
-    
-                    // handle billing methods
-                    let billing = {
-                        // "billing_methods" : billing_methods.value,
-                        // "to_billing_company" : to_billing_company.value
-                    }
-    
-                })
-                .catch(response => {
-                    // render error
-                })
-            }
+            })
+            .catch(response => {
+                // render error
+            })
         }
+    }
 
-        function refreshPatientView() {
-            // close modal, refresh table
-            document.querySelector("#create_patient_modal .modal-footer .cancel").click();
-            renderPatientData();
-        }
+    function refreshPatientView() {
+        // close modal, refresh table
+        document.querySelector("#create_patient_modal .modal-footer .cancel").click();
+        renderPatientData();
+    }
 
 
 </script>

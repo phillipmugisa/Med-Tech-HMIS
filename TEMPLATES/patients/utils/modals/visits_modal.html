@@ -9,59 +9,59 @@
     </div>
     <div class="modal-body">
       <div class="modal-section">
-        <div class="section-label">
-          <small>Patient Information</small>
-        </div>
-        <div class="section-content">
+      <div class="section-label">
+          <small>Personal Information</small>
+      </div>
+      <div class="section-content">
           <form action="">
-            <div class="flex flex-gap-40">
+          <div class="flex flex-gap-40">
               <div class="form-control flex flex-column">
-                <label for="">First Name</label>
-                <input class="input" type="text" />
+              <label for="">First Name</label>
+              <input class="input" type="text" id="firstName" />
               </div>
               <div class="form-control flex flex-column">
-                <label for="">Middle Name</label>
-                <input class="input" type="text" />
+              <label for="">Middle Name</label>
+              <input class="input" type="text" id="middleName"/>
               </div>
               <div class="form-control flex flex-column">
-                <label for="">Last Name</label>
-                <input class="input" type="text" />
+              <label for="">Last Name</label>
+              <input class="input" type="text" id="lastName"/>
               </div>
               <div class="form-control flex flex-column">
-                <div class="patient-image flex">
+              <div class="patient-image flex">
                   <img src="{% static 'images/user.png' %}" alt="" />
-                </div>
               </div>
-            </div>
-            <div class="flex flex-gap-40">
+              </div>
+          </div>
+          <div class="flex flex-gap-40">
               <div class="form-control flex flex-column">
-                <label for="">National ID No.</label>
-                <input class="input" type="text" />
+              <label for="">National ID No.</label>
+              <input class="input" type="text" id="NIN"/>
               </div>
               <div class="form-control flex" style="gap: 20px">
-                <div class="flex flex-column" style="flex: 1">
+              <div class="flex flex-column" style="flex: 1">
                   <label for="">Age</label>
-                  <input class="input" type="text" />
-                </div>
-                <div class="flex flex-column" style="flex: 2">
+                  <input class="input" type="text" id="age"/>
+              </div>
+              <div class="flex flex-column" style="flex: 2">
                   <label for="">Date of Birth</label>
-                  <input class="input" type="date" />
-                </div>
+                  <input class="input" type="date" id="dateOfBirth"/>
+              </div>
               </div>
               <div class="form-control flex flex-column">
-                <label for="">Gender</label>
-                <select name="gender" class="input">
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
+              <label for="">Gender</label>
+              <select name="gender" class="input" id="gender">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+              </select>
               </div>
               <div class="form-control flex flex-column">
-                <label for="">Patient ID</label>
-                <input class="input" type="text" disabled />
+              <label for="">Patient ID</label>
+              <input class="input" type="text" disabled id="patient_id"/>
               </div>
-            </div>
+          </div>
           </form>
-        </div>
+      </div>
       </div>
       <div class="modal-section">
         <div class="section-label">
@@ -72,33 +72,29 @@
             <div class="section-content-row flex flex-gap-40">
               <div class="form-control flex flex-column">
                 <label for="">Visit Date</label>
-                <input class="input" type="date" />
+                <input class="input" type="date" id="visit_date"/>
               </div>
               <div class="form-control flex flex-column">
                 <label for="">Category</label>
-                <select name="category" class="input">
+                <select name="category" class="input" id="visit_category">
                   <option value="consultation">Consultation</option>
                   <option value="other">Other</option>
                 </select>
               </div>
               <div class="form-control flex flex-column">
                 <label for="">Doctor Specialty</label>
-                <select name="specialty" class="input">
-                  <option value="gynacology">Gynacology</option>
-                  <option value="urology">Urology</option>
-                  <option value="cardiology">Cardiology</option>
-                  <option value="generalDoctor">General Doctor</option>
+                <select name="specialty" class="input" id="visit_specialty">
+                  {% for speciality in doctor_specialities %}
+                    <option value="{{speciality.id}}" data-name="{{speciality}}">{{ speciality }}</option>
+                  {% endfor %}
                 </select>
               </div>
               <div class="form-control flex flex-column">
                 <label for="">To See Doctor</label>
-                <select name="fullname" class="input">
-                  <option value="Muludiang Emmanuel">Dr. Muludiang Emmanuel</option>
-                  <option value="Mugisa Phillip">Dr. Mugisa Phillip</option>
-                  <option value="Barbra B">Dr. Barbra B</option>
-                  <option value="Peter P">Dr. Peter S</option>
-                  <option value="Mulondo Caxton">Dr. Mulondo Caxton</option>
-                  <option value="Abdoulanziz Ally">Dr. Abdoulanziz Ally</option>
+                <select name="fullname" class="input" id="visit_doctor">
+                  {% for doctor in doctors %}
+                    <option class="doctors_options" value="{{doctor.doctor.id}}" data-speciality="{{doctor.speciality}}">{{ doctor.doctor }}</option>
+                  {% endfor %}
                 </select>
               </div>
             </div>
@@ -165,3 +161,113 @@
       </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let visit_specialty = document.querySelector("#visit_specialty")
+      let doctors_options = document.querySelectorAll(".doctors_options")
+      visit_specialty.addEventListener("change", () => {
+        doctors_options.forEach(elem => {
+          elem.style.display = "block";
+          
+        visit_specialty.querySelectorAll("option").forEach(option => {
+          if (option.value === visit_specialty.value) {
+            if (elem.dataset.speciality !== option.dataset.name) {
+              elem.style.display = 'none'
+            }
+          }
+        })
+
+        })
+      })
+    })
+    // form submission
+    async function submitPatientData () {
+
+      let firstname = create_visit_modal.querySelector("#firstName")
+      let middlename = create_visit_modal.querySelector("#middleName")
+      let lastname = create_visit_modal.querySelector("#lastName")
+      let nin = create_visit_modal.querySelector("#NIN")
+      let age = create_visit_modal.querySelector("#age")
+      let date_of_birth = create_patient_modal.querySelector("#dateOfBirth")
+      let gender = create_visit_modal.querySelector("#gender")
+      let patient_id = create_visit_modal.querySelector("#patient_id")
+
+
+      let visit_date = create_patient_modal.querySelector("#visit_date")
+      let doctor = create_visit_modal.querySelector("#visit_category")
+      let speciality = create_visit_modal.querySelector("#visit_specialty")
+      let category = create_visit_modal.querySelector("#visit_doctor")
+
+      let required_fields = [firstName, lastName, gender, nin]
+      required_fields.forEach(field => {
+          if (field.value == "" || field.value == undefined) {
+              field.classList.add("error")
+              return
+          }
+          if (field.classList.contains("error")) {
+              field.classList.remove("error")
+          }
+      })
+
+      if ((age.value == "" || age.value == undefined) && (date_of_birth.value == "" || dateOfBirth.value == undefined)) {
+          age.classList.add("error")
+          dateOfBirth.classList.add("error")
+          return;
+      }
+      else {
+          if (age.classList.contains("error") || dateOfBirth.classList.contains("error")) {
+              age.classList.remove("error")
+              dateOfBirth.classList.remove("error")
+          }
+      }
+
+
+      // incase of change in patient data, update it
+      let patientData = {
+          "firstname" : firstname.value,
+          "middlename" : middlename.value,
+          "lastname" : lastname.value,
+          "nin" : nin.value,
+          "age" : age.value,
+          "date_of_birth" : date_of_birth.value,
+          "gender" : gender.value
+      }
+      
+      // edit patient
+      makeRequest(`/api/patients/${patient_id.value}/update/`, method="PATCH", data=patientData)
+      .then(response => {
+      })
+      .catch(response => {
+        // render error
+      })
+      
+      
+      // create of edit visit
+      let visitData = {
+          "patient" : create_visit_modal.querySelector("#firstName").dataset.pid,
+          "visit_date" : visit_date.value,
+          "doctor" : doctor.value,
+          "speciality" : speciality.value,
+          "category" : category.value,
+      }
+      let request_method = "POST"
+      if (document.querySelector("#create_visit_modal").dataset.action == "edit")
+        request_method = "PATCH"
+
+      // edit patient
+      makeRequest(`{% url 'app_api:visit_create' %}`, method=request_method, data=visitData)
+      .then(response => {
+      })
+      .catch(response => {
+        // render error
+      })
+      
+    }
+
+    function refreshPatientView() {
+        // close modal, refresh table
+        document.querySelector("#create_visit_modal .modal-footer .cancel").click();
+        // renderPatientData();
+    }
+</script>

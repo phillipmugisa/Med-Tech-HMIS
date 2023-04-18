@@ -69,4 +69,7 @@ class DoctorSpeciality(models.Model):
 
 class Doctor(Person):
     speciality = models.ManyToManyField(to=DoctorSpeciality, related_name="doctor_speciality")
+
+    def __str__(self) -> str:
+        return f"Dr. {self.getFullName()}"
     

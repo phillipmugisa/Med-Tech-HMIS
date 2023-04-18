@@ -30,3 +30,11 @@ class PatientNokSerializer(serializers.ModelSerializer):
         representation = super().to_representation(instance)
         representation["fullname"] = instance.getFullName()
         return representation
+
+
+class VisitSerializer(serializers.ModelSerializer):
+    patient = serializers.PrimaryKeyRelatedField(queryset=PatientModals.Visit.objects.all())
+
+    class Meta:
+        model = PatientModals.Visit
+        fields = "__all__"

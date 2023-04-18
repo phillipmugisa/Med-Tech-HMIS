@@ -2,24 +2,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // declare modal activators
     const modal_activators = document.querySelectorAll(".modal-activators")
+
     modal_activators.forEach(
-        activator => activator.addEventListener("click", () => {
-            let modalToOpen = document.querySelector(`#${activator.dataset.modal}`);
-            
-            // close open modals
-            let openModals = document.querySelectorAll(".modal.inview");
-            openModals.forEach(modal => modal.classList.remove("inview"));
-
-            modalToOpen.classList.add("inview");
-
-            modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
-                modalToOpen.classList.remove("inview");
-            })
-        })
+        activator => activator.addEventListener("click", () => openModal(activator))
     )
 
+
+    // Billing
+    // Display field for insurance company
+    // When insurance is selected as the payment mode
+
+    const billingMethodsDropdown = document.querySelector("#billing_methods");
+    billingMethodsDropdown.addEventListener("change", function() {
+        const selectedOption = billingMethodsDropdown.value;
+        if(selectedOption === "insurance"){
+            // The more elegant way causes the billing mode field to overflow
+            document.querySelectorAll(".to_billing_company")[0].classList.remove("visibility-hidden");
+            document.querySelectorAll(".to_billing_company")[1].classList.remove("visibility-hidden");
+        }else{
+            // The more elegant way causes the billing mode field to overflow
+            document.querySelectorAll(".to_billing_company")[0].classList.add("visibility-hidden");
+            document.querySelectorAll(".to_billing_company")[1].classList.add("visibility-hidden");
+        }
+    });
 })
 
+function openModal(activator) {
+    let modalToOpen = document.querySelector(`#${activator.dataset.modal}`);
+        
+    // close open modals
+    let openModals = document.querySelectorAll(".modal.inview");
+    openModals.forEach(modal => modal.classList.remove("inview"));
+
+    modalToOpen.classList.add("inview");
+
+    modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
+        modalToOpen.classList.remove("inview");
+    })
+}
 
 function triggerEditUserModal(user){
     // close open modals
@@ -58,36 +78,38 @@ function triggerUserRolesModal(user){
 function triggerEditPatientModal(patient){
     document.querySelector("#create_patient_modal_activator").click();
 
-    document.querySelector("#firstName").value = patient.firstname
-    document.querySelector("#middleName").value = patient.middlename
-    document.querySelector("#lastName").value = patient.lastname
-    document.querySelector("#NIN").value = patient.nin
-    document.querySelector("#age").value = patient.age
-    document.querySelector("#dateOfBirth").value = patient.date_of_birth
-    document.querySelector("#gender").value = patient.gender
-    document.querySelector("#phoneNumber").value = patient.telnumber
-    document.querySelector("#AltNumber").value = patient.alttelnumber
-    document.querySelector("#email").value = patient.email
-    document.querySelector("#address").value = patient.address
-    document.querySelector("#patient_id").value = patient.patient_id
+    const create_patient_modal = document.querySelector("#create_patient_modal");
+
+    // the modal action is changed to edit to show that its edit mode
+    create_patient_modal.dataset.action = "edit"
+    // document.querySelector("#create_patient_modal #modal_title").textContent = "Edit Patient"
+
+    create_patient_modal.querySelector("#firstName").value = patient.firstname
+    create_patient_modal.querySelector("#middleName").value = patient.middlename
+    create_patient_modal.querySelector("#lastName").value = patient.lastname
+    create_patient_modal.querySelector("#NIN").value = patient.nin
+    create_patient_modal.querySelector("#age").value = patient.age
+    create_patient_modal.querySelector("#dateOfBirth").value = new Date(patient.date_of_birth)
+    create_patient_modal.querySelector("#gender").value = patient.gender
+    create_patient_modal.querySelector("#phoneNumber").value = patient.telnumber
+    create_patient_modal.querySelector("#AltNumber").value = patient.alttelnumber
+    create_patient_modal.querySelector("#email").value = patient.email
+    create_patient_modal.querySelector("#address").value = patient.address
+    create_patient_modal.querySelector("#patient_id").value = patient.patient_id
 
     // create nok of kin data
     makeRequest(`${api_routes.nok_list}${patient.id}/`, method="GET")
     .then(response => {
-        document.querySelector("#NOK_firstName").value = response.firstname
+        create_patient_modal.querySelector("#NOK_firstName").value = response.firstname
         // setting nok id
-        document.querySelector("#NOK_firstName").dataset.nokid = response.id
-        document.querySelector("#NOK_middleName").value = response.middlename
-        document.querySelector("#NOK_lastName").value = response.lastname
-        document.querySelector("#NOK_relationship").value = response.relationship
-        document.querySelector("#NOK_nin").value = response.nin
-        document.querySelector("#NOK_phoneNumber").value = response.telnumber
-        document.querySelector("#NOK_Gender").value = response.gender
-        document.querySelector("#NOK_address").value = response.address
-
-        // the modal action is changed to edit to show that its edit mode
-        document.querySelector("#create_patient_modal").dataset.action = "edit"
-        // document.querySelector("#create_patient_modal #modal_title").textContent = "Edit Patient"
+        create_patient_modal.querySelector("#NOK_firstName").dataset.nokid = response.id
+        create_patient_modal.querySelector("#NOK_middleName").value = response.middlename
+        create_patient_modal.querySelector("#NOK_lastName").value = response.lastname
+        create_patient_modal.querySelector("#NOK_relationship").value = response.relationship
+        create_patient_modal.querySelector("#NOK_nin").value = response.nin
+        create_patient_modal.querySelector("#NOK_phoneNumber").value = response.telnumber
+        create_patient_modal.querySelector("#NOK_Gender").value = response.gender
+        create_patient_modal.querySelector("#NOK_address").value = response.address
     })
     .catch(response => {
         // render error
@@ -97,19 +119,21 @@ function triggerEditPatientModal(patient){
 }
 
 
-function triggerCreateVisitModal(){
-    let modalToOpen = document.querySelector(`#create_visit_modal`);
-            
-    // close open modals
-    let openModals = document.querySelectorAll(".modal.inview");
-    openModals.forEach(modal => modal.classList.remove("inview"));
+function triggerCreateVisitModal(patient){
+    openModal(document.querySelector("#create_visit_modal_activator"))
 
-    modalToOpen.classList.add("inview");
+    const create_visit_modal = document.querySelector("#create_visit_modal");
 
-    modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
-        modalToOpen.classList.remove("inview");
-    })
-    
+    create_visit_modal.querySelector("#firstName").value = patient.firstname
+    create_visit_modal.querySelector("#middleName").value = patient.middlename
+    create_visit_modal.querySelector("#lastName").value = patient.lastname
+    create_visit_modal.querySelector("#NIN").value = patient.nin
+    create_visit_modal.querySelector("#age").value = patient.age
+    create_visit_modal.querySelector("#dateOfBirth").value = new Date(patient.date_of_birth)
+    create_visit_modal.querySelector("#gender").value = patient.gender
+    create_visit_modal.querySelector("#patient_id").value = patient.patient_id
+    // setting patient id
+    create_visit_modal.querySelector("#firstName").dataset.pid = patient.id
 }
 
 
@@ -126,4 +150,3 @@ function triggerCreateTriageModal(){
         modalToOpen.classList.remove("inview");
     });
 }
-
