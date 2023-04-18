@@ -31,7 +31,7 @@ The project will adapt a modular way of implementation; where each feature is im
 
 ## setting up django and postgres
 -----------------------------------------
-# postgres
+### postgres
 ```
 sudo -u postgres psql
 CREATE DATABASE medsafe;
@@ -43,7 +43,7 @@ GRANT ALL PRIVILEGES ON DATABASE medsafe TO medsafe;
 ```
 
 -----------------------------
-# django
+### django
 ```
 sudo apt install python3:10
 python3 -m venv venv
