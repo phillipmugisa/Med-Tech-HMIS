@@ -71,7 +71,7 @@
             <img src="../../STATIC/icons/appointment.png" alt="">
             <span class="department-name">Appointments</span>
         </a>
-        <a href="" class="department disabled" disabled>
+        <a href="../admin/invoices.html" class="department">
             <img src="../../STATIC/icons/invoices.png" alt="">
             <span class="department-name">Invoices</span>
         </a>
@@ -79,10 +79,10 @@
             <img src="../../STATIC/icons/finances.png" alt="">
             <span class="department-name">Finances</span>
         </a>
-        <!-- <a href="" class="department disabled" disabled>
-            <img src="../../STATIC/icons/finances.png" alt="">
+        <a href="../admin/insurance.html" class="department">
+            <img src="../../STATIC/icons/insurance.png" alt="">
             <span class="department-name">Insurance</span>
-        </a> -->
+        </a>
         <a href="../admin/index.html" class="department active">
           <img src="../../STATIC/icons/finances.png" alt="">
           <span class="department-name">Admin</span>
@@ -105,7 +105,7 @@
         </aside>
         <section class="main-content-area">
             <div class="main-cta-section">
-                <button class="modal-activators" id="create_patient_modal_activator" data-modal="create_new_user_modal">New Staff</button>
+                <button class="modal-activators" id="create_user_modal_activator" data-modal="create_new_user_modal">New Staff</button>
             </div>
             <div class="records-part" id="recent-patients">
                 <div class="body">
@@ -322,7 +322,6 @@
             </div>
         </div>
     </div>
-
     <div class="modal" id="create_user_roles_modal">
         <div class="modal-header">
             <div class="flex" style="justify-content: flex-start; gap: 10px">
@@ -544,7 +543,7 @@
             <p class="part-content">${user.id}</p>
         </div>
         <div class="detail-group">
-            <p class="part-title">Full Name:</p>
+            <p class="part-title">Name:</p>
             <p class="part-content">${user.name}</p>
         </div>
         <div class="detail-group">

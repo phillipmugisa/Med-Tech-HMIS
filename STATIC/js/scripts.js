@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
         activator => activator.addEventListener("click", () => {
             let sectionToShow = document.querySelector(`#${activator.dataset.section}`)
             console.log(sectionToShow)
+
+            section_togglers.forEach(a=>{
+                a.style.backgroundColor = "#1da1f2";
+            })
+            activator.style.backgroundColor = "hsl(203, 89%, 40%)";
             
             // close open modals
             let openSections = document.querySelectorAll(".variable-section.inview");
@@ -20,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     section_part_toggler.forEach(
         activator => activator.addEventListener("click", () => {
             let sectionToShow = document.querySelector(`#${activator.dataset.section}`)
-            console.log(sectionToShow)
+            console.log('Testing..' ,sectionToShow)
             
             // close open modals
             let openSections = document.querySelectorAll(".variable-section-part.inview");

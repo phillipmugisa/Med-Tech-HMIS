@@ -360,10 +360,11 @@ select {
 }
 
 .display-none {
-  display: none;
+  display: none !important;
 }
 
 .display-block {
+<<<<<<< HEAD
   display: block;
 }
 
@@ -423,4 +424,11 @@ table tbody tr.active td {
 
 table tbody tr.active {
   background-color: hsl(145, 61%, 64%);
+=======
+  display: block !important;
+}
+
+.data-grid {
+  display: none;
+>>>>>>> 434bcfdab5432ca2bf8491d5b801545f54001d1e
 }

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMIS</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../STATIC/css/table.min.css">
+    <link rel="stylesheet" href="../../STATIC/themify/icons/themify-icons.css">
+
+    <link rel="stylesheet" href="../../STATIC/css/styles.css">
+    <link rel="stylesheet" href="../../STATIC/css/components.css">
+    <link rel="stylesheet" href="../../STATIC/css/utils.css">
+    <link rel="stylesheet" href="../../STATIC/icons/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <!-- js -->
+    <script src="../../STATIC/js/jquery-3.5.1.js"></script>
+    <script src="../../STATIC/js/jquery.dataTables.min.js"></script>
+
+    <script src="../../STATIC/js/scripts.js"></script>
+</head>
+<body>
+    <header class="departments">
+        <a href="../patients/index.html" class="department">
+            <img src="../../STATIC/icons/create-patient.png" alt="">
+            <span class="department-name">Patients</span>
+        </a>
+        <a href="../patients/visits.html" class="department">
+            <img src="../../STATIC/icons/visits.svg" alt="">
+            <span class="department-name">Visits</span>
+        </a>
+        <a href="../patients/triage.html" class="department">
+            <img src="../../STATIC/icons/triage.png" alt="">
+            <span class="department-name">Triage</span>
+        </a>
+        <a href="../doctor/index.html" class="department">
+            <img src="../../STATIC/icons/doctor.png" alt="">
+            <span class="department-name">Doctor</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+          <img src="../../STATIC/icons/lab.png" alt="">
+          <span class="department-name">Laboratory</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/cardiology.png" alt="">
+            <span class="department-name">Cardiology</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/radiology.png" alt="">
+            <span class="department-name">Radiology</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/pharmacy.png" alt="">
+            <span class="department-name">Pharmacy</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/inventory.png" alt="">
+            <span class="department-name">Inventory</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/theatre.png" alt="">
+            <span class="department-name">Theatre</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/dental.png" alt="">
+            <span class="department-name">Dental</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/appointment.png" alt="">
+            <span class="department-name">Appointments</span>
+        </a>
+        <a href="../admin/invoices.html" class="department">
+            <img src="../../STATIC/icons/invoices.png" alt="">
+            <span class="department-name">Invoices</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/finances.png" alt="">
+            <span class="department-name">Finances</span>
+        </a>
+        <a href="../admin/insurance.html" class="department active">
+            <img src="../../STATIC/icons/insurance.png" alt="">
+            <span class="department-name">Insurance</span>
+        </a>
+        <a href="../admin/index.html" class="department">
+          <img src="../../STATIC/icons/finances.png" alt="">
+          <span class="department-name">Admin</span>
+        </a>
+    </header>
+    <main class="split">
+        <aside class="sidebar-cta-section">
+            <button class="accented">
+                <i class="fa fa-search"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-cog"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-user"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-sign-out"></i>
+            </button>
+        </aside>
+        <section class="main-content-area">
+            <div class="main-cta-section">
+                <button class="section-togglers accented grid-activators" id="view_insurance_company_grid_activator" data-table="view_insurance_company_grid">All Insurance Companies</button>
+                <button class="section-togglers accented modal-activators" id="create_insurance_company_modal_activator" data-modal="create_new_insurance_company_modal">New Insurance</button>
+                <button class="section-togglers accented grid-activators" id="view_account_company_grid_activator" data-table="view_account_company_grid">All Account Companies</button>
+                <button class="section-togglers accented modal-activators" id="create_account_modal_activator" data-modal="create_new_account_modal">New Account</button>
+            </div>
+            <div class="data-grid display-block" id="view_insurance_company_grid">
+                <div class="body">
+                  <table id="data-table-01" class="display" style="width:100%;margin-top:.5rem;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Website</th>
+                            <th>Contact Person</th>
+                            <th>Telephone</th>
+                            <th>Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>INS230300</td>
+                            <td>ICEA Lion</td>
+                            <td>https://www.icea.co.ug</td>
+                            <td>Ian Matthew</td>
+                            <td>+256786495321</td>
+                            <td>23-04-2022</td>
+                        </tr>
+                        <tr>
+                            <td>INS230385</td>
+                            <td>Prudential</td>
+                            <td>hhtps://www.prudential.com</td>
+                            <td>Sandra Nabossa</td>
+                            <td>+256782615136</td>
+                            <td>23-01-2022</td>
+                        </tr>
+                        <tr>
+                            <td>INS230326</td>
+                            <td>Sanlam Insurance</td>
+                            <td>https://www.sanlam.co.ug</td>
+                            <td>Timothy Mwebaza</td>
+                            <td>+256774856321</td>
+                            <td>23-04-2023</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Website</th>
+                            <th>Contact Person</th>
+                            <th>Telephone</th>
+                            <th>Created At</th>
+                        </tr>
+                    </tfoot>
+                  </table>
+                </div>
+            </div> 
+            <div class="data-grid" id="view_account_company_grid">
+                <div class="body">
+                  <table id="data-table-02" class="display" style="width:100%;margin-top:.5rem;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Website</th>
+                            <th>Contact Person</th>
+                            <th>Telephone</th>
+                            <th>Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CO230300</td>
+                            <td>Rapid Advisory</td>
+                            <td>https://www.rapidadvisory.com</td>
+                            <td>Grace Mwiru</td>
+                            <td>+256789654478</td>
+                            <td>23-04-2022</td>
+                        </tr>
+                        <tr>
+                            <td>CO230385</td>
+                            <td>FutuTech</td>
+                            <td>https://www.fututech.com</td>
+                            <td>Baliruno Francis</td>
+                            <td>+256788987887</td>
+                            <td>23-01-2022</td>
+                        </tr>
+                        <tr>
+                            <td>CO230326</td>
+                            <td>Servermatics</td>
+                            <td>https://www.servermatics.org</td>
+                            <td>Matthew H.</td>
+                            <td>+256325789645</td>
+                            <td>23-04-2023</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Website</th>
+                            <th>Contact Person</th>
+                            <th>Telephone</th>
+                            <th>Created At</th>
+                        </tr>
+                    </tfoot>
+                  </table>
+                </div>
+            </div>            
+        </section>
+        <aside class="preview-area" id="insurance-company-preview">
+        </aside>
+    </main>
+
+
+    <div class="modal" id="create_new_insurance_company_modal">
+        <div class="modal-header">
+            <div class="flex" style="justify-content: flex-start; gap: 10px">
+            <img src="../../STATIC/icons/add.png" alt="" style="inline-size: 28px; block-size: 28px" />
+            <h3 style="font-size: 20px">Register New Insurance Company</h3>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Company Information</small>
+            </div>
+            <div class="section-content">
+                <form action="">
+                <div class="flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                        <label for="">Company Name</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                        <label for="">Company Email</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                        <label for="">Telephone</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                        <label for="">Website URL</label>
+                        <input class="input" type="text" />
+                    </div>
+                </div>
+                <div class="flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                        <label for="">Physical Address</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                        <label for="">P.O. Box</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    </div>
+                    <div class="form-control flex flex-column">
+                    </div>
+                </div>                
+                </form>
+            </div>
+            </div>
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Contact Person</small>
+            </div>
+            <div class="section-content">
+                <form action="">
+                <div class="section-content-row flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                    <label for="">Phone Number</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Alternative</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Email Address</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Location</label>
+                    <input class="input" type="text" />
+                    </div>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="form-control">
+            <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
+            <img class="save" src="../../STATIC/icons/save.png" alt="" />
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="create_new_account_modal">
+        <div class="modal-header">
+            <div class="flex" style="justify-content: flex-start; gap: 10px">
+            <img src="../../STATIC/icons/add.png" alt="" style="inline-size: 28px; block-size: 28px" />
+            <h3 style="font-size: 20px">Register New Company Account</h3>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Company Information</small>
+            </div>
+            <div class="section-content">
+                <form action="">
+                <div class="flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                        <label for="">Company Name</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                        <label for="">Company Email</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                        <label for="">Telephone</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                        <label for="">Website URL</label>
+                        <input class="input" type="text" />
+                    </div>
+                </div>
+                <div class="flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                        <label for="">Physical Address</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                        <label for="">P.O. Box</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    </div>
+                    <div class="form-control flex flex-column">
+                    </div>
+                </div>                
+                </form>
+            </div>
+            </div>
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Contact Person</small>
+            </div>
+            <div class="section-content">
+                <form action="">
+                <div class="section-content-row flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                    <label for="">Phone Number</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Alternative</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Email Address</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Location</label>
+                    <input class="input" type="text" />
+                    </div>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="form-control">
+            <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
+            <img class="save" src="../../STATIC/icons/save.png" alt="" />
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+<script>
+  // Clear insurance company on preview
+  const clearInsuranceCompanyOnPreview = (company) => {
+    const previewArea = document.querySelector("#insurance-company-preview");
+    const previewContent = "";
+    previewArea.innerHTML = previewContent;
+
+  }
+  // On page load, clear preview
+  clearInsuranceCompanyOnPreview();
+
+  // Load insurance company on preview
+  const loadInsuranceCompanyOnPreview = (company) => {
+    const previewArea = document.querySelector("#insurance-company-preview");
+    const previewContent = `
+    <div class="img-wrapper">
+        <img src="../../STATIC/images/icea-logo.png" alt="">
+    </div>
+    <div class="details">
+        <div class="detail-group">
+            <p class="part-title">Company:</p>
+            <p class="part-content">${company.name}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Represen..:</p>
+            <p class="part-content">${company.designition}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Contact:</p>
+            <p class="part-content">+256728463968</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Website:</p>
+            <p class="part-content">${company.gender}</p>
+        </div>
+    </div>
+    <div class="cta_area">
+        <button onclick="triggerEditInsuranceCompanyModal({id:${parseInt(company.id)}})"  class="modal-activators">Update Company</button>
+    </div>
+    `;
+    previewArea.innerHTML = previewContent;
+
+  }
+
+  // Change company on prview
+  const companyRows = document.querySelector("tbody").querySelectorAll("tr");
+  companyRows.forEach(companyRow => companyRow.addEventListener("click", (event) => {
+    if(event.target.parentElement.tagName === "TR"){
+      const insuranceCompany = {
+        id:event.target.parentElement.querySelectorAll("td")[0].textContent,
+        name:event.target.parentElement.querySelectorAll("td")[1].textContent,
+        gender:event.target.parentElement.querySelectorAll("td")[2].textContent,
+        designition:event.target.parentElement.querySelectorAll("td")[3].textContent,
+        accountStatus:event.target.parentElement.querySelectorAll("td")[4].textContent
+      }
+    loadInsuranceCompanyOnPreview(insuranceCompany);
+    }
+  }));
+
+
+  // Set up your table
+  let table01 = $('#data-table-01').DataTable();
+
+  let table02 = $('#data-table-02').DataTable();
+
+  // Signout
+  const signoutBtn = document.querySelector('.fa-sign-out');
+
+  signoutBtn.addEventListener('click', (event) => {
+    window.location.href = "../auth/index.html";
+  });
+</script>
+<script src="../../STATIC/js/modals.js"></script>
+<script src="../../STATIC/js/grids.js"></script>
+
+</html>

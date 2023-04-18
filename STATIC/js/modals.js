@@ -128,7 +128,6 @@ function getPatientData() {
     // return: patient data
 }
 
-
 function triggerCreateVisitModal(data, edit=false){
     openModal(document.querySelector("#create_visit_modal_activator"))
     const create_visit_modal = document.querySelector("#create_visit_modal");
@@ -174,7 +173,6 @@ function triggerCreateVisitModal(data, edit=false){
     // setting patient id
     create_visit_modal.querySelector("#firstName").dataset.pid = patient.id
 }
-
 
 function triggerCreateTriageModal(){
     // close open modals
