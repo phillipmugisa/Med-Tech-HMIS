@@ -6,9 +6,185 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="inline-size=device-inline-size, initial-scale=1.0">
     <link rel="stylesheet" href="../../STATIC/themify/icons/themify-icons.css">
-    <link rel="stylesheet" href="../../STATIC/css/auth-index.css">
     <title>Med Tech — HMIS</title>
     <script src="../STATIC/js/auth-index.js"></script>
+
+    <style>
+
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap');
+
+    :root {
+    --brand-primary: #1da1f2;
+    --brand-primary-dark: #1da1f2;
+    --brand-primary-light: #dfeff8;
+    --brand-secondary: #fafbfc;
+
+    --text-grey: #65735b;
+    --text-white: #ffffff; 
+
+
+    --font-poppins: "Poppins", sans-serif;
+    --font-quicksand: "Quicksand", sans-serif;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        block-size: 100%;
+    }
+
+    body {
+        color: var(--text-grey);
+        background: var(--brand-secondary);
+        font-family: var(--font-quicksand);
+        line-block-size: 1.6;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .flex {
+        block-size: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .btn {
+        display: inline-block;
+        padding: 10px 30px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        color: var(--text-white);
+        background-color: var(--brand-primary);
+    }
+
+    .btn:hover {
+        background-color: var(--brand-primary-dark);
+    }
+
+    .btn-sm {
+        padding: .5rem 1rem;
+    }
+
+    .btn-lg {
+        padding: .8rem 2rem;
+    }
+
+    .card {
+        color: var(--text-1);
+        background-color: var(--bg-7);
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        margin: 10px 0;
+        inline-size: 100%;
+    }
+
+    .form-control input,
+    .form-control button {
+        border: none;
+        border-radius: .2rem;
+    }
+
+    .form-control input:focus,
+    .form-control textarea:focus {
+        outline: none;
+        border: 1px solid var(--brand-primary);
+    }
+
+    .form-control button i {
+        font-weight: bold;
+    }
+
+    .auth-card {
+        inline-size: 100%;
+    }
+
+    .auth-card * {
+        inline-size: 100%;
+    }
+
+    .auth-card-title {
+        font-weight: unset;
+    }
+
+    .auth-form .form-control {
+        margin-bottom: .3rem;
+    }
+
+    .auth-form .form-control.flex {
+        flex-direction: column;
+    }
+
+    .auth-form .form-control label {
+        inline-size: 100%;
+    }
+
+    .auth-form .form-control input {
+        border: 1px solid var(--brand-primary);
+        border-radius: .2rem;
+        inline-size: 100%;
+        padding: .4rem .6rem;
+        font-size: large;
+    }
+
+    .auth-form .form-control input[type='password'] {
+        letter-spacing: .2rem;
+        font-weight: bold;
+    }
+
+    .auth-form .form-control input:focus {
+        outline: none;
+        border: 1px solid var(--brand-primary);
+    }
+
+    .auth-card-actions {
+        margin: .6rem 0 0 0;
+    }
+
+    .auth-card-actions * {
+        font-weight: unset;
+        line-block-size: 1.4;
+    }
+
+
+    /* putting the eye in the login */
+    .form-control{
+        position: relative;
+    }
+
+    .ti-eye{
+        position: absolute;
+        top: 50%;
+        left: 92%; /*Not stable*/
+    }
+
+    /* progress bar  */
+    #myProgress {
+        width: 100%;
+        background-color: transparent;
+        margin-top: 5px;
+    }
+
+    #myBar {
+        margin-block-start: 14px;
+        width: 0%;
+        height: 20px;
+        background-color: #04AA6D;
+        text-align: center;
+        line-height: 20px;
+        color: white;
+    }
+
+    </style>
 </head>
 
 <body style="background-color: var(--brand-primary-dark);">
@@ -45,7 +221,10 @@
         </div>
     </div>
 
-    
+    <script>
+        
+
+    </script>
 </body>
 
 </html>
