@@ -182,7 +182,7 @@ main .main-content-area .variable-section .section-form .cta-area .section-form-
 main .preview-area {
   background-color: white;
   border: 1px solid hsl(0, 0%, 90%);
-  padding: 1rem;
+  padding: 0.4rem;
   display: grid;
   align-content: flex-start;
   gap: 1rem;
@@ -201,20 +201,34 @@ main .preview-area .details {
   display: grid;
   align-content: flex-start;
   border: 1px solid hsl(0, 0%, 90%);
-  padding: 0.5rem;
+  padding: 0.2rem;
   gap: 0.25rem;
 }
 main .preview-area .details .detail-group {
   display: grid;
-  grid-template-columns: 0.5fr 1fr;
+  grid-template-columns: 0.4fr 1fr;
   gap: 1rem;
   padding: 0.25rem;
+}
+main .preview-area .details .detail-group:nth-child(2) p:last-child {
+  white-space: nowrap;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+main .preview-area .details .detail-group p:first-child {
+  color: rgb(136, 135, 135);
+  font-size: 17px;
+}
+main .preview-area .details .detail-group p:last-child {
+  color: rgb(91, 90, 90);
 }
 main .preview-area .details .detail-group:hover {
   background-color: hsl(0, 0%, 98%);
 }
 main .preview-area .details .detail-group .part-title {
-  font-weight: 500;
+  font-weight: 400;
 }
 main .preview-area .cta_area {
   display: grid;
@@ -233,3 +247,45 @@ main .preview-area .cta_area button {
   outline: transparent;
   cursor: pointer;
 }/*# sourceMappingURL=components.css.map */
+
+/* Finance tables */
+table.fin {
+  color: rgb(136, 135, 135) !important;
+  font-weight: 300 !important;
+}
+
+table.fin thead tr,
+table.fin tbody tr,
+table.fin tfoot tr {
+  border: 1px solid transparent;
+  background-color: #fff;
+}
+
+table.fin thead tr {
+  border-block: 1px solid rgb(190, 190, 191);
+  background-color: transparent;
+  text-align: end;
+} 
+
+table.fin tbody tr:hover {
+  background-color: transparent;
+}
+
+table.fin tbody tr:last-child {
+  border-block-end: 1px solid rgb(190, 190, 191);
+}
+
+table.fin tbody tr input[type="text"] {
+  border: 1px solid rgb(233, 233, 234);
+  inline-size: 150px;
+  text-align: right;
+}
+
+table.fin tbody tr input[type="checkbox"] {
+}
+
+table.fin tfoot tr {
+  border-block: 1px solid rgb(190, 190, 191);
+  background-color: transparent;
+}  
+/* Finance tables */

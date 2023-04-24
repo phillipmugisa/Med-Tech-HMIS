@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMIS</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../STATIC/css/table.min.css">
+    <link rel="stylesheet" href="../../STATIC/themify/icons/themify-icons.css">
+
+    <link rel="stylesheet" href="../../STATIC/css/styles.css">
+    <link rel="stylesheet" href="../../STATIC/css/components.css">
+    <link rel="stylesheet" href="../../STATIC/css/utils.css">
+    <link rel="stylesheet" href="../../STATIC/icons/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <!-- js -->
+    <script src="../../STATIC/js/jquery-3.5.1.js"></script>
+    <script src="../../STATIC/js/jquery.dataTables.min.js"></script>
+    <script src="../../STATIC/js/moment.min.js"></script>
+
+
+    <script src="../../STATIC/js/scripts.js"></script>
+
+    <style>
+        .date-range-filter{
+            justify-content: flex-start;
+            margin-block-end: 14px;
+        }
+        .date-range-filter .flex{
+            gap:14px;
+        }
+        .date-range-filter-field {
+            padding: 6px;
+            border: 1px solid #e1e4e8;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header class="departments">
+        <a href="../patients/index.html" class="department">
+            <img src="../../STATIC/icons/create-patient.png" alt="">
+            <span class="department-name">Patients</span>
+        </a>
+        <a href="../patients/visits.html" class="department">
+            <img src="../../STATIC/icons/visits.svg" alt="">
+            <span class="department-name">Visits</span>
+        </a>
+        <a href="../patients/triage.html" class="department">
+          <img src="../../STATIC/icons/triage.png" alt="">
+          <span class="department-name">Triage</span>
+        </a>
+        <a href="../cashier/index.html" class="department active">
+          <img src="../../STATIC/icons/cashier.png" alt="">
+          <span class="department-name">Cashier</span>
+        </a>
+        <a href="../doctor/index.html" class="department">
+            <img src="../../STATIC/icons/doctor.png" alt="">
+            <span class="department-name">Doctor</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/lab.png" alt="">
+            <span class="department-name">Laboratory</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/cardiology.png" alt="">
+            <span class="department-name">Cardiology</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/radiology.png" alt="">
+            <span class="department-name">Radiology</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/pharmacy.png" alt="">
+            <span class="department-name">Pharmacy</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/inventory.png" alt="">
+            <span class="department-name">Inventory</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/theatre.png" alt="">
+            <span class="department-name">Theatre</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/dental.png" alt="">
+            <span class="department-name">Dental</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/appointment.png" alt="">
+            <span class="department-name">Appointments</span>
+        </a>
+        <a href="../admin/invoices.html" class="department">
+            <img src="../../STATIC/icons/invoices.png" alt="">
+            <span class="department-name">Invoices</span>
+        </a>
+        <a href="" class="department disabled" disabled>
+            <img src="../../STATIC/icons/finances.png" alt="">
+            <span class="department-name">Finances</span>
+        </a>
+        <a href="../admin/insurance.html" class="department">
+            <img src="../../STATIC/icons/insurance.png" alt="">
+            <span class="department-name">Insurance</span>
+        </a>
+        <a href="../admin/index.html" class="department">
+          <img src="../../STATIC/icons/finances.png" alt="">
+          <span class="department-name">Admin</span>
+        </a>
+    </header>
+    <main class="split">
+        <aside class="sidebar-cta-section">
+            <button class="accented">
+                <i class="fa fa-search"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-cog"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-user"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-sign-out"></i>
+            </button>
+        </aside>
+        <section class="main-content-area">
+            <div class="main-cta-section">
+                <button class="accented section-togglers" data-section="tab_01" id="tab_01_toggler">Patient Visits</button>
+                <button /*disabled*/ class="accented section-togglers disabled" data-section="tab_00" id="tab_00_toggler">Work on Patient</button>
+                <!-- <button class="accented section-togglers" data-section="tab_02" id="tab_02_toggler">Insurance Companies</button>
+                <button class="accented section-togglers" data-section="tab_03" id="tab_03_toggler">Account Companies</button> -->
+            </div>
+            <section class="variable-section inview" id="tab_01">
+              <div class="body">
+                <table id="data-table-01" class="display" style="width:100%;margin-top:.5rem;">
+                  <thead>
+                      <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Gender</th>
+                          <th>Age</th>
+                          <th>Created At</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>FLH230300</td>
+                          <td>John Mukama Blue</td>
+                          <td>M</td>
+                          <td>25</td>
+                          <td>08:30</td>
+                      </tr>
+                      <tr>
+                          <td>FLH230385</td>
+                          <td>Grace Sasira Lusuku</td>
+                          <td>F</td>
+                          <td>47</td>
+                          <td>10:54</td>
+                      </tr>
+                      <tr>
+                          <td>FLH230326</td>
+                          <td>Mohamed Baker L.</td>
+                          <td>M</td>
+                          <td>21</td>
+                          <td>10:53</td>
+                      </tr>
+                      <tr>
+                          <td>FLH230301</td>
+                          <td>Phillip Naturinda M.</td>
+                          <td>M</td>
+                          <td>35</td>
+                          <td>10:59</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230311</td>
+                        <td>Deodat Aganyira</td>
+                        <td>M</td>
+                        <td>68</td>
+                        <td>12:02</td>
+                    </tr>
+                    <tr>
+                      <td>FLH230313</td>
+                      <td>Joram Bwambale</td>
+                      <td>M</td>
+                      <td>28</td>
+                      <td>13:15</td>
+                    </tr>
+                    <tr>
+                      <td>FLH230316</td>
+                      <td>Matthew Musoke</td>
+                      <td>M</td>
+                      <td>26</td>
+                      <td>13:42</td>
+                    </tr>
+                    <tr>
+                      <td>FLH230366</td>
+                      <td>Juma Kiyinji Moses</td>
+                      <td>M</td>
+                      <td>43</td>
+                      <td>14:33</td>
+                    </tr>
+                    <tr>
+                      <td>FLH230336</td>
+                      <td>Alert Kapallaga</td>
+                      <td>M</td>
+                      <td>23</td>
+                      <td>14:43</td>
+                    </tr>
+                    <tr>
+                      <td>FLH230361</td>
+                      <td>Martin Tukesiga Joel</td>
+                      <td>M</td>
+                      <td>22</td>
+                      <td>14:36</td>
+                    </tr>
+                    <tr>
+                      <td>FLH230386</td>
+                      <td>Jane Nantongo Nakato</td>
+                      <td>F</td>
+                      <td>24</td>
+                      <td>14:38</td>
+                    </tr>
+                    <tr>
+                      <td>FLH230386</td>
+                      <td>Hassan Dahalane</td>
+                      <td>M</td>
+                      <td>32</td>
+                      <td>14:42</td>
+                    </tr>
+                    <tr>
+                      <td>FLH230377</td>
+                      <td>Ssempala Moses</td>
+                      <td>M</td>
+                      <td>55</td>
+                      <td>14:50</td>
+                    </tr>
+                    <tr>
+                      <td>FLH230656</td>
+                      <td>Robert Mulenda Mwiru</td>
+                      <td>M</td>
+                      <td>26</td>
+                      <td>15:08</td>
+                    </tr>
+                    <tr>
+                      <td>FLH230116</td>
+                      <td>Johnson Orone Nathan</td>
+                      <td>M</td>
+                      <td>20</td>
+                      <td>15:15</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Gender</th>
+                      <th>Age</th>
+                      <th>Created At</th>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </section>            
+            <section class="variable-section" id="tab_00" style="padding:8px 4px;">
+                <div class="section_cta_area">
+                    <button class="section-part-toggler" data-section="admissions" id="admissions_toggler">Receipt Bill</button>
+                    <!-- <button class="section-part-toggler" data-section="laboratory" id="lab_toggler">Receipt Expenditure</button>
+                    <button class="section-part-toggler" data-section="radiology" id="radiology_toggler">Payout Money</button> -->
+                    <!-- <button class="section-part-toggler" data-section="cardiology" id="cardiology_toggler">Cardiology</button>
+                    <button class="section-part-toggler" data-section="urology" id="urology_toggler">Urology</button>
+                    <button class="section-part-toggler" data-section="dental" id="dental_toggler">Dental</button>
+                    <button class="section-part-toggler" data-section="theatre" id="theatre_toggler">Theatre</button>
+                    <button class="section-part-toggler" data-section="eye" id="eye_toggler">Eye</button>
+                    <button class="section-part-toggler" data-section="extras" id="extras_toggler">Extras</button> -->
+                </div>
+                <section class="variable-section-part inview" id="admissions">
+                  <!-- <table style="inline-size: 100%;">
+                    <thead>
+                      <tr>
+                        <th>Test Name</th>
+                        <th>Total Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select onchange="createNextRow(this)" id="initial-select">
+                            <option value="">Select test</option>
+                            <option value="CBC test" data-price="15000">CBC test</option>
+                            <option value="Malaria test" data-price="20000">Malaria test</option>
+                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                          </select>
+                        </td>
+                        <td><input type="text"></td>
+                        <td><button disabled class="disabled">Delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table> -->
+                  <table id="data-table" class="display fin" style="width:100%;margin-top:.5rem;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Service Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>230311</td>
+                          <td>CBC test</td>
+                          <td>1</td>
+                          <td><input type="text" value="25,000"></td>
+                          <td><input type="text" value="25,000"></td>
+                          <td><input type="checkbox"></td>
+                      </tr>
+                      <tr>
+                        <td>230313</td>
+                        <td>Malaria test</td>
+                        <td>1</td>
+                        <td><input type="text" value="5,000"></td>
+                        <td><input type="text" value="5,000"></td>
+                        <td><input type="checkbox"></td>
+                      </tr>
+                      <tr>
+                        <td>230316</td>
+                        <td>Curamol Plus</td>
+                        <td>10</td>
+                        <td><input type="text" value="250"></td>
+                        <td><input type="text" value="2,500"></td>
+                        <td><input type="checkbox"></td>
+                      </tr>
+                      <tr>
+                        <td>230366</td>
+                        <td>Esomeprazol Ocid</td>
+                        <td>4</td>
+                        <td><input type="text" value="1,000"></td>
+                        <td><input type="text" value="4,000"></td>
+                        <td><input type="checkbox"></td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th style="font-weight: bolder;color: #1f1f1f !important;">TOTAL AMOUNT</th>
+                        <th style="font-weight: bolder;color: #1f1f1f !important;font-size:28px;text-align: right;">35,500</th>
+                        <th></th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                  <div class="ctas">
+                    <div class="flex" style="justify-content: flex-end;gap:25px;margin-block-start: 40px;margin-inline-end: 14px;">
+                      <button class="printSave" style="inline-size: 200px;">Print & Save</button>
+                      <button class="save" style="inline-size: 200px;">Save</button>
+                    </div>
+                  </div>
+                </section>
+                <section class="variable-section-part" id="laboratory">
+                  <table style="inline-size: 100%;">
+                    <thead>
+                      <tr>
+                        <th>Test Name</th>
+                        <th>Total Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select onchange="createNextRow(this)" id="initial-select">
+                            <option value="">Select test</option>
+                            <option value="CBC test" data-price="15000">CBC test</option>
+                            <option value="Malaria test" data-price="20000">Malaria test</option>
+                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                          </select>
+                        </td>
+                        <td><input type="text"></td>
+                        <td><button disabled class="disabled">Delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+                </section>             
+                <section class="variable-section-part" id="radiology">
+                  <table style="inline-size: 100%;">
+                    <thead>
+                      <tr>
+                        <th>Test Name</th>
+                        <th>Total Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select onchange="createNextRow(this)" id="initial-select">
+                            <option value="">Select test</option>
+                            <option value="CBC test" data-price="15000">CBC test</option>
+                            <option value="Malaria test" data-price="20000">Malaria test</option>
+                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                          </select>
+                        </td>
+                        <td><input type="text"></td>
+                        <td><button disabled class="disabled">Delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+                </section> 
+                <section class="variable-section-part" id="cardiology">
+                  <table style="inline-size: 100%;">
+                    <thead>
+                      <tr>
+                        <th>Test Name</th>
+                        <th>Total Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select onchange="createNextRow(this)" id="initial-select">
+                            <option value="">Select test</option>
+                            <option value="CBC test" data-price="15000">CBC test</option>
+                            <option value="Malaria test" data-price="20000">Malaria test</option>
+                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                          </select>
+                        </td>
+                        <td><input type="text"></td>
+                        <td><button disabled class="disabled">Delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+                </section> 
+                <section class="variable-section-part" id="urology">
+                  <table style="inline-size: 100%;">
+                    <thead>
+                      <tr>
+                        <th>Test Name</th>
+                        <th>Total Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select onchange="createNextRow(this)" id="initial-select">
+                            <option value="">Select test</option>
+                            <option value="CBC test" data-price="15000">CBC test</option>
+                            <option value="Malaria test" data-price="20000">Malaria test</option>
+                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                          </select>
+                        </td>
+                        <td><input type="text"></td>
+                        <td><button disabled class="disabled">Delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+                </section>  
+                <section class="variable-section-part" id="dental">
+                  <table style="inline-size: 100%;">
+                    <thead>
+                      <tr>
+                        <th>Test Name</th>
+                        <th>Total Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select onchange="createNextRow(this)" id="initial-select">
+                            <option value="">Select test</option>
+                            <option value="CBC test" data-price="15000">CBC test</option>
+                            <option value="Malaria test" data-price="20000">Malaria test</option>
+                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                          </select>
+                        </td>
+                        <td><input type="text"></td>
+                        <td><button disabled class="disabled">Delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+                </section>  
+                 <section class="variable-section-part" id="theatre">
+                  <table style="inline-size: 100%;">
+                    <thead>
+                      <tr>
+                        <th>Test Name</th>
+                        <th>Total Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select onchange="createNextRow(this)" id="initial-select">
+                            <option value="">Select test</option>
+                            <option value="CBC test" data-price="15000">CBC test</option>
+                            <option value="Malaria test" data-price="20000">Malaria test</option>
+                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                          </select>
+                        </td>
+                        <td><input type="text"></td>
+                        <td><button disabled class="disabled">Delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+                </section>  
+                 <section class="variable-section-part" id="eye">
+                  <table style="inline-size: 100%;">
+                    <thead>
+                      <tr>
+                        <th>Test Name</th>
+                        <th>Total Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select onchange="createNextRow(this)" id="initial-select">
+                            <option value="">Select test</option>
+                            <option value="CBC test" data-price="15000">CBC test</option>
+                            <option value="Malaria test" data-price="20000">Malaria test</option>
+                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                          </select>
+                        </td>
+                        <td><input type="text"></td>
+                        <td><button disabled class="disabled">Delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+                </section>  
+                 <section class="variable-section-part" id="extras">
+                  <table style="inline-size: 100%;">
+                    <thead>
+                      <tr>
+                        <th>Test Name</th>
+                        <th>Total Fees</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <select onchange="createNextRow(this)" id="initial-select">
+                            <option value="">Select test</option>
+                            <option value="CBC test" data-price="15000">CBC test</option>
+                            <option value="Malaria test" data-price="20000">Malaria test</option>
+                            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+                          </select>
+                        </td>
+                        <td><input type="text"></td>
+                        <td><button disabled class="disabled">Delete</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+                </section>  
+             
+            </section>
+            <section class="variable-section" id="tab_02">
+                <div class="flex date-range-filter date-range-filter-02">
+                    <div class="flex">
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">Select Company</label>
+                            <select name="companies" class="date-range-filter-field"  style="background-color: #fff;padding-block:10px;">
+                                <option value="jubilee">Jubilee Insurance</option>
+                                <option value="sanlam">Sanlam Life Insurance Uganda</option>
+                                <option value="aig">AIG Uganda Limited</option>
+                                <option value="britam">Britam Insurance</option>
+                            </select>
+                        </div>
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">From Date</label>
+                            <input type="date" name="from" id="from-date" class="date-range-filter-field" data-date-format="dd-mm-yyyy">
+                        </div>
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">To Date</label>
+                            <input type="date" name="to" id="to-date" class="date-range-filter-field" data-date-format="dd-mm-yyyy">
+                        </div>
+
+                        <div class="form-control flex flex-column">
+                            <h4 class="" style="font-weight:400;color:#9d9c9c">Generate report</h4>
+                            <button id="print-data-table-02" class="btn" style="padding-block:7px;border-radius:3px;">Print Table</button>
+                        </div>
+                        <div class="form-control flex flex-column">
+                            <h4 class="" style="font-weight:400;color:#9d9c9c">Generate report</h4>
+                            <button id="export-data-table-02" class="btn" style="padding-block:7px;border-radius:3px;">Export CSV</button>
+                        </div>                         
+                    </div>
+                </div>
+                <div class="body">
+                    <table id="data-table-02" class="display" style="width:100%;margin-top:.5rem;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Patient ID</th>
+                                <th>Service</th>
+                                <th>Created At</th>
+                                <th>Payment Status</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>FLH230300</td>
+                                <td>CBC Scan</td>
+                                <td>04/23/2022</td>
+                                <td>Pending</td>
+                                <td>25,000</td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>FLH230300</td>
+                                <td>CBC Scan</td>
+                                <td>04/23/2022</td>
+                                <td>Pending</td>
+                                <td>25,000</td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>FLH230385</td>
+                                <td>Malaria Test</td>
+                                <td>01/23/2022</td>
+                                <td>Paid</td>
+                                <td>5,000</td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>FLH230300</td>
+                                <td>CBC Scan</td>
+                                <td>04/23/2022</td>
+                                <td>Pending</td>
+                                <td>25,000</td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>FLH230385</td>
+                                <td>Malaria Test</td>
+                                <td>01/23/2022</td>
+                                <td>Paid</td>
+                                <td>5,000</td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>FLH230326</td>
+                                <td>Drug purchase</td>
+                                <td>04/06/2023</td>
+                                <td>Paid</td>
+                                <td>150,000</td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>FLH230326</td>
+                                <td>Drug purchase</td>
+                                <td>04/06/2023</td>
+                                <td>Paid</td>
+                                <td>150,000</td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>FLH230385</td>
+                                <td>Malaria Test</td>
+                                <td>01/23/2022</td>
+                                <td>Paid</td>
+                                <td>5,000</td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>FLH230326</td>
+                                <td>Drug purchase</td>
+                                <td>04/06/2023</td>
+                                <td>Paid</td>
+                                <td>150,000</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>TOTAL</th>
+                                <th>5,000,000</th>
+                            </tr>
+                        </tfoot>
+                      </table>
+                </div>
+            </div>  
+            </section>
+            <section class="variable-section" id="tab_03">
+                <div class="flex date-range-filter date-range-filter-03">
+                    <div class="flex">
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">Select Company</label>
+                            <select name="companies" class="date-range-filter-field" style="background-color: #fff;padding-block:10px;">
+                                <option value="rasl">Rapid Advisory Services Ltd</option>
+                                <option value="servermatics">Servermatics Ltd</option>
+                                <option value="greatoutdoors">Great Outdoors Uganda</option>
+                                <option value="futuretechnologies">Future Technologies</option>
+                            </select>
+                        </div>
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">From Date</label>
+                            <input type="date" name="from" id="from-date" class="date-range-filter-field" data-date-format="dd-mm-yyyy">
+                        </div>
+                        <div class="form-control flex flex-column">
+                            <label for="" style="font-weight:400;color:#9d9c9c">To Date</label>
+                            <input type="date" name="to" id="to-date" class="date-range-filter-field" data-date-format="dd-mm-yyyy">
+                        </div>
+
+                        <div class="form-control flex flex-column">
+                            <h4 class="" style="font-weight:400;color:#9d9c9c">Generate report</h4>
+                            <button id="print-data-table-03" class="btn" style="padding-block:7px;border-radius:3px;">Print Table</button>
+                        </div>
+                        <div class="form-control flex flex-column">
+                            <h4 class="" style="font-weight:400;color:#9d9c9c">Generate report</h4>
+                            <button id="export-data-table-03" class="btn" style="padding-block:7px;border-radius:3px;">Export CSV</button>
+                        </div>                          
+                    </div>
+                </div>
+                <div class="body">
+                    <table id="data-table-03" class="display" style="width:100%;margin-top:.5rem;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Patient ID</th>
+                                <th>Service</th>
+                                <th>Created At</th>
+                                <th>Payment Status</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>FLH230300</td>
+                                <td>CBC Scan</td>
+                                <td>04/23/2022</td>
+                                <td>Pending</td>
+                                <td>25,000</td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>FLH230385</td>
+                                <td>Malaria Test</td>
+                                <td>01/23/2022</td>
+                                <td>Paid</td>
+                                <td>5,000</td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>FLH230326</td>
+                                <td>Drug purchase</td>
+                                <td>04/06/2023</td>
+                                <td>Paid</td>
+                                <td>150,000</td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>FLH230300</td>
+                                <td>CBC Scan</td>
+                                <td>04/23/2022</td>
+                                <td>Pending</td>
+                                <td>25,000</td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>FLH230385</td>
+                                <td>Malaria Test</td>
+                                <td>01/23/2022</td>
+                                <td>Paid</td>
+                                <td>5,000</td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>FLH230326</td>
+                                <td>Drug purchase</td>
+                                <td>04/06/2023</td>
+                                <td>Paid</td>
+                                <td>150,000</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>TOTAL</th>
+                                <th>5,000,000</th>
+                            </tr>
+                        </tfoot>
+                      </table>
+                </div>
+            </div>  
+            </section>
+         </section>
+        <aside class="preview-area" id="patient-preview"></aside>
+    </main>
+    <!-- <div class="modal" id="edit_invoice_modal">
+        <div class="modal-header">
+          <div class="flex" style="justify-content: flex-start; gap: 10px">
+            <img src="../../STATIC/icons/invoices.png" alt="" style="inline-size: 28px; block-size: 28px" />
+            <h3 style="font-size: 20px">Edit Invoice</h3>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Patient Information</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">First Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Middle Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Last Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <div class="patient-image flex">
+                      <img src="../../STATIC/images/user.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">National ID No.</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex" style="gap: 20px">
+                    <div class="flex flex-column" style="flex: 1">
+                      <label for="">Age</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="flex flex-column" style="flex: 2">
+                      <label for="">Date of Birth</label>
+                      <input class="input" type="date" />
+                    </div>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Gender</label>
+                    <select name="gender" class="input">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Patient ID</label>
+                    <input class="input" type="text" value="MEDT00001" disabled />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Invoice Information</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="section-content-row flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                    <label for="">Invoice Number</label>
+                    <input class="input" type="text" value="INVO00001" disabled />
+                    </div>
+                    <div class="form-control flex flex-column">
+                        <label for="">Date of Issue</label>
+                        <input class="input" type="date" />
+                      </div>
+                  <div class="form-control flex flex-column">
+                  </div>
+                  <div class="form-control flex flex-column">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Service Information</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="section-content-row flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">Name of service</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Fees covered by Company</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Fees payable by patient</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Total Service fees</label>
+                    <input class="input" type="text" />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-control">
+            <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
+            <img class="save" src="../../STATIC/icons/save.png" alt="" />
+          </div>
+        </div>
+    </div> -->
+</body>
+
+
+<script src="../../STATIC/js/modals.js"></script>
+
+<script>
+  // Clear patient on preview
+  const clearPatientOnPreview = (patient) => {
+    const previewArea = document.querySelector("#patient-preview");
+    const previewContent = "";
+    previewArea.innerHTML = previewContent;
+
+  }
+  
+  // On page load, clear preview
+  clearPatientOnPreview();
+
+  // Load patient on preview
+  const loadPatientOnPreview = (patient) => {
+  const previewArea = document.querySelector("#patient-preview");
+  const previewContent = `
+  <div class="img-wrapper">
+      <img src="../../STATIC/images/user.png" alt="">
+  </div>
+  <div class="details">
+      <div class="detail-group">
+          <p class="part-title">Patient No:</p>
+          <p class="part-content">${patient.id}</p>
+      </div>
+      <div class="detail-group">
+          <p class="part-title">Full Name:</p>
+          <p class="part-content">${patient.name}</p>
+      </div>
+      <div class="detail-group">
+          <p class="part-title">NIN:</p>
+          <p class="part-content">CM2REK234423MFC</p>
+      </div>
+      <div class="detail-group">
+          <p class="part-title">Phone:</p>
+          <p class="part-content">+256728463968</p>
+      </div>
+      <div class="detail-group">
+          <p class="part-title">Bill Mode:</p>
+          <p class="part-content">Insurance</p>
+      </div>
+      <div class="detail-group">
+          <p class="part-title">Company:</p>
+          <p class="part-content">ICEA Lion</p>
+      </div>
+      <div class="detail-group">
+          <p class="part-title">Gender:</p>
+          <p class="part-content">${patient.gender}</p>
+      </div>
+      <div class="detail-group">
+          <p class="part-title">Age:</p>
+          <p class="part-content">${patient.age}</p>
+      </div>
+      <div class="detail-group">
+          <p class="part-title">Visits:</p>
+          <p class="part-content">14</p>
+      </div>
+  </div>
+  `;
+  previewArea.innerHTML = previewContent;
+
+}
+
+  // Change patient on prview
+  const patientRows = document.querySelector("tbody").querySelectorAll("tr");
+  patientRows.forEach(patientRow => patientRow.addEventListener("click", (event) => {
+    if(event.target.parentElement.tagName === "TR"){
+      const patient = {
+        id:event.target.parentElement.querySelectorAll("td")[0].textContent,
+        name:event.target.parentElement.querySelectorAll("td")[1].textContent,
+        age:event.target.parentElement.querySelectorAll("td")[3].textContent,
+        visit:event.target.parentElement.querySelectorAll("td")[4].textContent,
+        gender:event.target.parentElement.querySelectorAll("td")[2].textContent
+      }
+
+      // document.querySelector(".section-togglers.disabled").removeAttribute("disabled");
+      // document.querySelector(".section-togglers.disabled").classList.remove("disabled");
+      loadPatientOnPreview(patient);
+    }
+  }))
+
+  // Set up search table
+  let table = $('#data-table-search-patient').DataTable();
+
+  // Set up your table
+  let table01 = $('#data-table-01').DataTable();
+  let table02 = $('#data-table-02').DataTable();
+  let table03 = $('#data-table-03').DataTable();
+
+  // Extend dataTables search
+  $.fn.dataTable.ext.search.push(
+      function(settings, data, dataIndex) {
+          var min = $('#from-date').val();
+          var max = $('#to-date').val();
+          var createdAt = data[3] || 0; // Our date column in the table
+          if ((min == "" || max == "") || (moment(createdAt).isSameOrAfter(min) && moment(createdAt).isSameOrBefore(max))) {
+              return true;
+          }
+          return false;
+      }
+  );
+
+  // Re-draw the table when the a date range filter changes
+  $('.date-range-filter-01').change(function() {
+      table01.draw();
+  });
+
+  // Re-draw the table when the a date range filter changes
+  $('.date-range-filter-02').change(function() {
+      table02.draw();
+  });
+
+  // Re-draw the table when the a date range filter changes
+  $('.date-range-filter-03').change(function() {
+      table03.draw();
+  });
+
+  // Table rows
+  const tableRows = document.querySelectorAll("tr");
+  tableRows.forEach((tableRow) => {
+      tableRow.addEventListener("click", handleTableRowClick);
+  });
+
+  // Handle table row clicks
+  function handleTableRowClick(event){
+      const row = event.target.parentElement;
+      // console.log(row)
+      // Ignore the search patient table
+      if(!row.classList.contains("search-patient-row")){
+          if(row.classList.contains("even") || row.classList.contains("odd")){
+              // console.log(row);
+              // Pass ID to the modal
+              // Or pass all the content for editing
+              // triggerEditInvoiceModal(row);
+          }
+      }
+      // Handle search patient table here
+      else if(row.classList.contains("search-patient-row")){
+          if(row.classList.contains("even") || row.classList.contains("odd")){
+              // console.log(row.cells[0].textContent.trim());
+              // const currentPatient = {
+              //     firstName: row.cells[1].textContent.trim().split(" ")[0],
+              //     middleName: row.cells[1].textContent.trim().split(" ")[1],
+              //     lastName: row.cells[1].textContent.trim().split(" ")[2],
+              // };
+              // console.log(currentPatient);
+              const form = document.querySelector("#patient-information");
+              form.elements.firstName.value = row.cells[1].textContent.trim().split(" ")[0];
+              form.elements.middleName.value = row.cells[1].textContent.trim().split(" ")[1];
+              form.elements.lastName.value = row.cells[1].textContent.trim().split(" ")[2];
+              form.elements.age.value = row.cells[3].textContent.trim();
+          }
+      }
+  }
+
+  // Add new invoice items
+  function createNextRow(selectElement) {
+    const tableRow = selectElement.parentElement.parentElement;
+    const tableBody = tableRow.parentElement;
+    const nextRow = document.createElement('tr');
+    const nextRowSelect = document.createElement('select');
+    const nextRowColumn1 = document.createElement('td');
+    const nextRowColumn2 = document.createElement('td');
+    const nextRowColumn3 = document.createElement('td');
+    const deleteButton = document.createElement('button');
+
+    // Add empty option
+    nextRowSelect.appendChild(document.createElement('option'));
+
+    // Add options from current row
+    const currentRowOptions = tableRow.querySelectorAll('option');
+    for (let i = 1; i < currentRowOptions.length; i++) {
+      const optionValue = currentRowOptions[i].value;
+      const optionPrice = currentRowOptions[i].dataset.price;
+      const option = document.createElement('option');
+      option.value = optionValue;
+      option.dataset.price = optionPrice;
+      option.textContent = optionValue;
+      nextRowSelect.appendChild(option);
+    }
+
+    // Add event listener to new select element
+    nextRowSelect.onchange = function() {
+      const priceInput = this.parentElement.nextElementSibling.querySelector('input');
+      const selectedOption = this.options[this.selectedIndex];
+      priceInput.value = selectedOption.dataset.price;
+      createNextRow(this);
+    }
+
+    // Add select and column to new row
+    nextRowColumn1.appendChild(nextRowSelect);
+    nextRow.appendChild(nextRowColumn1);
+
+    // Add input field for price to new row
+    const nextRowPrice = document.createElement('input');
+    nextRowPrice.type = 'text';
+    // nextRowPrice.readOnly = true;
+    nextRowColumn2.appendChild(nextRowPrice);
+    nextRow.appendChild(nextRowColumn2);
+
+    // Add button for deleting row to new row
+    deleteButton.textContent = 'Delete';
+    deleteButton.onclick = function() {
+      tableBody.removeChild(nextRow);
+    }
+    nextRowColumn3.appendChild(deleteButton);
+    nextRow.appendChild(nextRowColumn3);
+
+    // Add new row to table body
+    tableBody.appendChild(nextRow);
+  }
+    
+  // Signout
+  const signoutBtn = document.querySelector('.fa-sign-out');
+
+  signoutBtn.addEventListener('click', (event) => {
+    window.location.href = "../auth/index.html";
+  });
+
+
+</script>
+</html>
