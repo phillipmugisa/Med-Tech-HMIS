@@ -832,9 +832,41 @@
                 </div>
             </section>
             <section class="variable-section" id="dental_lab">
+              <table style="inline-size: 100%;" class="display fin">
+                <thead>
+                  <tr>
+                    <th>Tooth Name</th>
+                    <th>Diagnosis</th>
+                    <th>Procedure</th>
+                    <th>Fees</th>
+                    <th>Description</th>
+                    <th>Notes</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="inline-size: 400px;">
+                      <select style="inline-size: 150px;" onchange="createNextDentalRow(this)" id="initial-select">
+                        <option value="">Select Tooth</option>
+                        <option value="Incisor">Incisor</option>
+                        <option value="Canine">Canine</option>
+                        <option value="Pre-Molar">Pre-Molar</option>
+                        <option value="Molar">Molar</option>
+                      </select>
+                    </td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><i disabled class="disabled ti-trash"></i></td>
+                  </tr>
+                </tbody>
+              </table>
               <div class="section-form">
                 <form action="">
-                  <div class="modal-section">
+                  <!-- <div class="modal-section">
                     <div class="section-label">
                       <small>Tooth details</small>
                     </div>
@@ -875,8 +907,8 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="modal-section">
+                  </div> -->
+                  <!-- <div class="modal-section">
                     <div class="section-label">
                       <small>Observation notes</small>
                     </div>
@@ -928,7 +960,7 @@
                         </div>
                       </form>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="modal-section cta-area">
                     <button class="accented section-form-cta accented">Save</button>
                   </div>
@@ -1674,7 +1706,101 @@
     // Add new row to table body
     tableBody.appendChild(nextRow);
   }
-    
+
+
+  // Add new dental items
+  function createNextDentalRow(selectElement) {
+    const tableRow = selectElement.parentElement.parentElement;
+    const tableBody = tableRow.parentElement;
+    const nextRow = document.createElement('tr');
+    const nextRowSelect = document.createElement('select');
+    const nextRowColumn1 = document.createElement('td');
+    const nextRowColumn2 = document.createElement('td');
+    const nextRowColumn3 = document.createElement('td');
+    const nextRowColumn4 = document.createElement('td');
+    const nextRowColumn5 = document.createElement('td');
+    const nextRowColumn6 = document.createElement('td');
+    const nextRowColumn7 = document.createElement('td');
+    const deleteIcon = document.createElement('i');
+
+    // Add empty option
+    nextRowSelect.appendChild(document.createElement('option'));
+
+    // Add options from current row
+    const currentRowOptions = tableRow.querySelectorAll('option');
+    for (let i = 1; i < currentRowOptions.length; i++) {
+      const optionValue = currentRowOptions[i].value;
+      const option = document.createElement('option');
+      option.value = optionValue;
+      option.textContent = optionValue;
+      nextRowSelect.style.width = "150px";
+      nextRowSelect.appendChild(option);
+    }
+
+    // Add event listener to new select element
+    nextRowSelect.onchange = function() {
+      const priceInput = this.parentElement.nextElementSibling.querySelector('input');
+      const selectedOption = this.options[this.selectedIndex];
+      createNextDentalRow(this);
+    }
+
+    // Add select and column to new row
+    nextRowColumn1.appendChild(nextRowSelect);
+    nextRow.appendChild(nextRowColumn1);
+
+    // Add input field for price to new row
+    const nextRowPrice = document.createElement('input');
+    nextRowPrice.type = 'text';
+    // nextRowPrice.readOnly = true;
+    nextRowColumn2.appendChild(nextRowPrice);
+    nextRow.appendChild(nextRowColumn2);
+
+    // Add input field for narration to new row
+    const nextRowNarration = document.createElement('input');
+    nextRowNarration.type = 'text';
+    // nextRowNarration.readOnly = true;
+    nextRowColumn3.appendChild(nextRowNarration);
+    nextRow.appendChild(nextRowColumn3);
+
+    // Add input field for narration to new row
+    const nextRowNarration2 = document.createElement('input');
+    nextRowNarration2.type = 'text';
+    // nextRowNarration.readOnly = true;
+    nextRowColumn5.appendChild(nextRowNarration2);
+    nextRow.appendChild(nextRowColumn5);
+
+    // Add input field for narration to new row
+    const nextRowNarration3 = document.createElement('input');
+    nextRowNarration3.type = 'text';
+    // nextRowNarration.readOnly = true;
+    nextRowColumn6.appendChild(nextRowNarration3);
+    nextRow.appendChild(nextRowColumn6);
+
+    // Add input field for narration to new row
+    const nextRowNarration4 = document.createElement('input');
+    nextRowNarration4.type = 'text';
+    // nextRowNarration.readOnly = true;
+    nextRowColumn7.appendChild(nextRowNarration4);
+    nextRow.appendChild(nextRowColumn7);
+
+    // Add button for deleting row to new row
+    deleteIcon.classList.add("ti-trash");
+    deleteIcon.onclick = function() {
+      tableBody.removeChild(nextRow);
+    }
+
+    // Add icon for deleting row to new row
+    // deleteIcon.classList.add("ti-trash");
+    // deleteButton.appendChild(deleteIcon);
+
+    nextRowColumn4.appendChild(deleteIcon);
+    nextRow.appendChild(nextRowColumn4);
+
+    // Add new row to table body
+    tableBody.appendChild(nextRow);
+  }
+  
+  
 
   // Signout
   const signoutBtn = document.querySelector('.fa-sign-out');
