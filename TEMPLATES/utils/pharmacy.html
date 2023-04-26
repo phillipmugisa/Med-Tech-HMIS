@@ -109,12 +109,163 @@
         </aside>
         <section class="main-content-area">
             <div class="main-cta-section">
+                <button class="accented section-togglers" data-section="assigned_patients" id="patient_list">Patient list</button>
                 <button class="accented section-togglers" data-section="assigned_patients" id="prescription_toggler">Prescription</button>
                 <button class="accented section-togglers" data-section="general_doctor" id="consumables_toggler">Consumables</button>
                 <button class="accented section-togglers" data-section="clinical_findings" id="diagnosis_toggler">Diagnosis</button>
             </div>
-            <section class="variable-section inview" id="assigned_patients">
+             <section class="variable-section inview" id="assigned_patients">
               <div class="records-part" id="recent-patients">
+                <div class="body">
+                  <table id="data-table" class="display" style="width:100%;margin-top:.5rem;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>Visit</th>
+                            <th>Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>FLH230300</td>
+                            <td>John Mukama Blue</td>
+                            <td>M</td>
+                            <td>25</td>
+                            <td>No</td>
+                            <td>08:30</td>
+                        </tr>
+                        <tr>
+                            <td>FLH230385</td>
+                            <td>Grace Sasira Lusuku</td>
+                            <td>F</td>
+                            <td>47</td>
+                            <td>Yes</td>
+                            <td>10:54</td>
+                        </tr>
+                        <tr>
+                            <td>FLH230326</td>
+                            <td>Mohamed Baker L.</td>
+                            <td>M</td>
+                            <td>21</td>
+                            <td>No</td>
+                            <td>10:53</td>
+                        </tr>
+                        <tr>
+                            <td>FLH230301</td>
+                            <td>Phillip Naturinda M.</td>
+                            <td>M</td>
+                            <td>35</td>
+                            <td>No</td>
+                            <td>10:59</td>
+                        </tr>
+                        <tr>
+                          <td>FLH230311</td>
+                          <td>Deodat Aganyira</td>
+                          <td>M</td>
+                          <td>68</td>
+                          <td>No</td>
+                          <td>12:02</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230313</td>
+                        <td>Joram Bwambale</td>
+                        <td>M</td>
+                        <td>28</td>
+                        <td>No</td>
+                        <td>13:15</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230316</td>
+                        <td>Matthew Musoke</td>
+                        <td>M</td>
+                        <td>26</td>
+                        <td>No</td>
+                        <td>13:42</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230366</td>
+                        <td>Juma Kiyinji Moses</td>
+                        <td>M</td>
+                        <td>43</td>
+                        <td>No</td>
+                        <td>14:33</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230336</td>
+                        <td>Alert Kapallaga</td>
+                        <td>M</td>
+                        <td>23</td>
+                        <td>No</td>
+                        <td>14:43</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230361</td>
+                        <td>Martin Tukesiga Joel</td>
+                        <td>M</td>
+                        <td>22</td>
+                        <td>No</td>
+                        <td>14:36</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230386</td>
+                        <td>Jane Nantongo Nakato</td>
+                        <td>F</td>
+                        <td>24</td>
+                        <td>No</td>
+                        <td>14:38</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230386</td>
+                        <td>Hassan Dahalane</td>
+                        <td>M</td>
+                        <td>32</td>
+                        <td>No</td>
+                        <td>14:42</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230377</td>
+                        <td>Ssempala Moses</td>
+                        <td>M</td>
+                        <td>55</td>
+                        <td>No</td>
+                        <td>14:50</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230656</td>
+                        <td>Robert Mulenda Mwiru</td>
+                        <td>M</td>
+                        <td>26</td>
+                        <td>No</td>
+                        <td>15:08</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230116</td>
+                        <td>Johnson Orone Nathan</td>
+                        <td>M</td>
+                        <td>20</td>
+                        <td>No</td>
+                        <td>15:15</td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Visit</th>
+                        <th>Created At</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+            </div>  
+            </section>
+            <section class="variable-section inview" id="prescription_toggler">
+            <div class="records-part" id="prescription_toggler">
                 <div class="body">
                   <table id="data-table" class="display" style="width:100%;margin-top:.5rem;">
                     <thead>
