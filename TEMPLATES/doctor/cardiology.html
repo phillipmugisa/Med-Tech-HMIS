@@ -25,6 +25,60 @@
       #prescription table input {
         inline-size: 160px;
       }
+
+      /* Report */
+      .report {
+        font-family: Arial, sans-serif;
+        margin: 0 auto;
+        background-color: #f7f7f7;
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .report h1 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .report p {
+        margin-top: 0;
+      }
+
+      .report hr {
+        border: none;
+        height: 1px;
+        background-color: #ccc;
+        margin: 20px 0;
+      }
+
+      .report table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      .report table th,
+      .report table td {
+        padding: 10px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .report table th {
+        background-color: #f7f7f7;
+        font-weight: bold;
+      }
+
+      .report table td.value {
+        font-weight: bold;
+      }
+
+      .report table td.comment {
+        font-style: italic;
+      }
     </style>
 </head>
 <body>
@@ -133,7 +187,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                      <tr class="modal-activators" data-modal="create_cardiology_results_modal">
+                      <tr>
                         <td>FLH230300</td>
                         <td>John Mukama Blue</td>
                         <td>M</td>
@@ -141,23 +195,6 @@
                         <td>Pending</td>
                         <td>24-04-2023</td>
                       </tr>
-                      <tr class="modal-activators" data-modal="create_cardiology_results_modal">
-                        <td>FLH230300</td>
-                        <td>Emmanuel Mark Black</td>
-                        <td>M</td>
-                        <td>22</td>
-                        <td>Pending</td>
-                        <td>24-04-2023</td>
-                      </tr>
-                      <tr class="modal-activators" data-modal="create_cardiology_results_modal">
-                        <td>FLH230300</td>
-                        <td>Tilther Jemimah G.</td>
-                        <td>M</td>
-                        <td>21</td>
-                        <td>Pending</td>
-                        <td>24-04-2023</td>
-                      </tr>
-                      
                     </tbody>
                     <tfoot>
                       <tr>
@@ -171,104 +208,56 @@
                     </tfoot>
                   </table>
                 </div>
-                <!-- <div class="body">
+                <div class="body">
                   <table style="inline-size: 100%;" class="display fin">
                     <thead>
                       <tr>
-                        <th>Tooth Name</th>
-                        <th>Diagnosis</th>
-                        <th>Procedure</th>
-                        <th>Fees</th>
-                        <th>Description</th>
-                        <th>Notes</th>
-                        <th>Action</th>
+                        <th>#</th>
+                        <th>Test Name</th>
+                        <th>Narration</th>
+                        <th>Create Report</th>
+                        <th>Edit Report</th>
+                        <th>Created At</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td style="inline-size: 400px;">
-                          <select style="inline-size: 150px;" onchange="createNextDentalRow(this)" id="initial-select">
-                            <option value="">Select Tooth</option>
-                            <option value="Incisor">Incisor</option>
-                            <option value="Canine">Canine</option>
-                            <option value="Pre-Molar">Pre-Molar</option>
-                            <option value="Molar">Molar</option>
-                          </select>
-                        </td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><i disabled class="disabled ti-trash"></i></td>
+                        <td>TEST001224</td>
+                        <td>ECG scan</td>
+                        <td>More emphasis on the left lumbar..</td>
+                        <td class="modal-activators" data-modal="create_cardiology_results_modal"><button>Create</button></td>
+                        <td class="modal-activators" data-modal="edit_cardiology_results_modal"><button>Edit</button></td>
+                        <td >24-04-2023</td>
                       </tr>
-                    </tbody>
-                  </table>
-                </div> -->
-              </div>  
-            </section>
-            <section class="variable-section" id="general_doctor" style="padding: 4px;">
-              <div class="records-part" id="recent-patients">
-                <div class="body">
-                  <div class="modal-section">
-                    <div class="section-label">
-                      <small>Create Cardiology Service</small>
-                    </div>
-                    <div class="section-content" style="margin-block: 18px 6px;">
-                      <div class="section-content-row grid flex-gap-40">
-                        <div class="form-control flex flex-column">
-                          <label for="">Service Name</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="">Fee</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="" style="visibility: hidden;">Save</label>
-                          <button style="padding: 5px 60px;border-radius: 8px;">Save</button>
-                        </div>
-                        <div class="form-control flex flex-column">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <table id="data-table-01" class="display" style="width:100%;margin-top:.5rem;">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Service Name</th>
-                            <th>Service Fee</th>
-                            <th>Created At</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>CARD230300</td>
-                            <td><input type="text" value="ECG scan"></td>
-                            <td><input type="text" value="15,000"></td>
-                            <td>24-04-2023</td>
-                        </tr>
-                        <tr>
-                          <td>CARD230300</td>
-                          <td><input type="text" value="CAD test"></td>
-                          <td><input type="text" value="50,000"></td>
-                          <td>24-04-2023</td>
-                        </tr>
-                        <tr>
-                          <td>CARD230300</td>
-                          <td><input type="text" value="Stress test"></td>
-                          <td><input type="text" value="10,000"></td>
-                          <td>24-04-2023</td>
-                        </tr>
+                      <tr>
+                        <td>TEST001224</td>
+                        <td>CAD scan</td>
+                        <td>Perform on the left upper chest..</td>
+                        <td class="modal-activators" data-modal="create_cardiology_results_modal"><button>Create</button></td>
+                        <td class="modal-activators" data-modal="edit_cardiology_results_modal"><button>Edit</button></td>
+                        <td >24-04-2023</td>
+                      </tr>
+                      <tr>
+                        <td>TEST001224</td>
+                        <td>Blood Pressure</td>
+                        <td>Measure the BP before performing the tests..</td>
+                        <td class="modal-activators" data-modal="create_cardiology_results_modal"><button>Create</button></td>
+                        <td class="modal-activators" data-modal="edit_cardiology_results_modal"><button>Edit</button></td>
+                        <td >24-04-2023</td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
               </div>  
+              <div class="ctas">
+                <div class="flex" style="justify-content: flex-end;gap:25px;margin-block-start: 40px;margin-inline-end: 14px;">
+                  <button class="modal-activators" data-modal="view_cardiology_results_modal" id="viewPrint" style="inline-size: 200px;">View & Print</button>
+                  <button class="modal-activators" data-modal="view_cardiology_results_modal" id="view" style="inline-size: 200px;">View</button>
+                </div>
+              </div> 
             </section>
          </section>
         <aside class="preview-area" id="patient-preview">
-
         </aside>
     </main>
 
@@ -442,7 +431,7 @@
         <div class="modal-header">
           <div class="flex" style="justify-content: flex-start; gap: 10px">
             <img src="../../STATIC/icons/visits.svg" alt="" style="inline-size: 28px; block-size: 28px" />
-            <h3 style="font-size: 20px">Post Cardiology Results</h3>
+            <h3 style="font-size: 20px">Create Report</h3>
           </div>
         </div>
         <div class="modal-body">
@@ -456,7 +445,7 @@
                   <div class="form-control flex flex-column">
                     <div class="form-control flex flex-column" style="inline-size: 100%">
                       <label for="">Notes</label>
-                      <textarea class="input" cols="100%" rows="3"></textarea>
+                      <textarea class="input" cols="100%" rows="15"></textarea>
                     </div>
                   </div>
                 </div>
@@ -470,6 +459,90 @@
             <img class="save" src="../../STATIC/icons/save.png" alt="" />
           </div>
         </div>
+    </div>
+
+    <div class="modal" id="edit_cardiology_results_modal">
+      <div class="modal-header">
+        <div class="flex" style="justify-content: flex-start; gap: 10px">
+          <img src="../../STATIC/icons/visits.svg" alt="" style="inline-size: 28px; block-size: 28px" />
+          <h3 style="font-size: 20px">Edit Report</h3>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <div class="section-label">
+            <small>Fill Results</small>
+          </div>
+          <div class="section-content">
+            <form action="">
+              <div class="section-content-row flex">
+                <div class="form-control flex flex-column">
+                  <div class="form-control flex flex-column" style="inline-size: 100%">
+                    <label for="">Notes</label>
+                    <textarea class="input" cols="100%" rows="15"></textarea>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="form-control">
+          <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
+          <img class="save" src="../../STATIC/icons/save.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="view_cardiology_results_modal">
+      <div class="modal-header">
+        <div class="flex" style="justify-content: flex-start; gap: 10px">
+          <img src="../../STATIC/icons/visits.svg" alt="" style="inline-size: 28px; block-size: 28px" />
+          <h3 style="font-size: 20px">View Report</h3>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="report">
+          <h1>Cardiology Report for John Mukama Blue</h1>
+          <p>Patient ID: FLH230300</p>
+          <hr />
+          <table>
+            <tr>
+              <th>Test Name</th>
+              <th>Result</th>
+              <th>Reference Range</th>
+              <th>Comments</th>
+            </tr>
+            <tr>
+              <td>Echocardiogram</td>
+              <td class="value">Normal</td>
+              <td>NA</td>
+              <td class="comment">No significant abnormalities were detected.</td>
+            </tr>
+            <tr>
+              <td>Electrocardiogram</td>
+              <td class="value">Abnormal</td>
+              <td>NA</td>
+              <td class="comment">ST segment elevation in leads II, III, and aVF.</td>
+            </tr>
+            <tr>
+              <td>Blood Pressure</td>
+              <td class="value">130/80 mmHg</td>
+              <td>Less than 140/90 mmHg</td>
+              <td class="comment">Slightly elevated, follow up in 6 months.</td>
+            </tr>
+          </table>
+          <p>Additional Notes:</p>
+          <p>The patient is currently taking medication for high blood pressure and has a family history of heart disease. Further testing may be necessary to determine the cause of the abnormal ECG results.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="form-control">
+          <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
+          <img class="save" src="../../STATIC/icons/save.png" alt="" />
+        </div>
+      </div>
     </div>
 </body>
 
