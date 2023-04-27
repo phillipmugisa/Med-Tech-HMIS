@@ -57,7 +57,7 @@
         <img src="../../STATIC/icons/cardiology.png" alt="">
         <span class="department-name">Cardiology</span>
     </a>
-    <a href="../doctor/radiology.html" class="department">
+    <a href="../doctor/radiology.html" class="department active">
         <img src="../../STATIC/icons/radiology.png" alt="">
         <span class="department-name">Radiology</span>
     </a>
@@ -73,7 +73,7 @@
         <img src="../../STATIC/icons/theatre.png" alt="">
         <span class="department-name">Theatre</span>
     </a>
-    <a href="../doctor/dental.html" class="department active">
+    <a href="../doctor/dental.html" class="department">
         <img src="../../STATIC/icons/dental.png" alt="">
         <span class="department-name">Dental</span>
     </a>
@@ -115,7 +115,7 @@
         </aside>
         <section class="main-content-area">
             <div class="main-cta-section">
-                <button class="accented section-togglers" data-section="assigned_patients" id="assigned_patients_toggler">Dental Clinic</button>
+                <button class="accented section-togglers" data-section="assigned_patients" id="assigned_patients_toggler">Radiology Clinic</button>
                 <button class="accented section-togglers" data-section="general_doctor" id="general_doctor_toggler">Create Services</button>
              </div>
             <section class="variable-section inview" id="assigned_patients" style="padding: 4px;">
@@ -128,23 +128,51 @@
                             <th>Name</th>
                             <th>Gender</th>
                             <th>Age</th>
-                            <th>Visit</th>
+                            <th>Status</th>
                             <th>Created At</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>FLH230300</td>
-                            <td>John Mukama Blue</td>
-                            <td>M</td>
-                            <td>25</td>
-                            <td>No</td>
-                            <td>08:30</td>
-                        </tr>
-                    </tbody>
-                  </table>
+                      <tr class="modal-activators" data-modal="create_cardiology_results_modal">
+                        <td>FLH230300</td>
+                        <td>John Mukama Blue</td>
+                        <td>M</td>
+                        <td>25</td>
+                        <td>Pending</td>
+                        <td>24-04-2023</td>
+                      </tr>
+                      <tr class="modal-activators" data-modal="create_cardiology_results_modal">
+                        <td>FLH230300</td>
+                        <td>Emmanuel Mark Black</td>
+                        <td>M</td>
+                        <td>22</td>
+                        <td>Pending</td>
+                        <td>24-04-2023</td>
+                      </tr>
+                      <tr class="modal-activators" data-modal="create_cardiology_results_modal">
+                        <td>FLH230300</td>
+                        <td>Tilther Jemimah G.</td>
+                        <td>M</td>
+                        <td>21</td>
+                        <td>Pending</td>
+                        <td>24-04-2023</td>
+                      </tr>
 
-                  <table class="display fin" style="inline-size: 100%;">
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Gender</th>
+                          <th>Age</th>
+                          <th>Status</th>
+                          <th>Created At</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- <div class="body">
+                  <table style="inline-size: 100%;" class="display fin">
                     <thead>
                       <tr>
                         <th>Tooth Name</th>
@@ -158,8 +186,8 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>
-                          <select style="inline-size: 100px;" onchange="createNextDentalRow(this)" id="initial-select">
+                        <td style="inline-size: 400px;">
+                          <select style="inline-size: 150px;" onchange="createNextDentalRow(this)" id="initial-select">
                             <option value="">Select Tooth</option>
                             <option value="Incisor">Incisor</option>
                             <option value="Canine">Canine</option>
@@ -176,7 +204,7 @@
                       </tr>
                     </tbody>
                   </table>
-                </div>
+                </div> -->
               </div>  
             </section>
             <section class="variable-section" id="general_doctor" style="padding: 4px;">
@@ -184,7 +212,7 @@
                 <div class="body">
                   <div class="modal-section">
                     <div class="section-label">
-                      <small>Create Dental Service</small>
+                      <small>Create Cardiology Service</small>
                     </div>
                     <div class="section-content" style="margin-block: 18px 6px;">
                       <div class="section-content-row grid flex-gap-40">
@@ -216,21 +244,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>SER230300</td>
-                            <td><input type="text" value="Root canal"></td>
-                            <td><input type="text" value="25,000"></td>
+                            <td>CARD230300</td>
+                            <td><input type="text" value="ECG scan"></td>
+                            <td><input type="text" value="15,000"></td>
                             <td>24-04-2023</td>
                         </tr>
                         <tr>
-                          <td>SER230300</td>
-                          <td><input type="text" value="Tooth extraction"></td>
-                          <td><input type="text" value="10,000"></td>
+                          <td>CARD230300</td>
+                          <td><input type="text" value="CAD test"></td>
+                          <td><input type="text" value="50,000"></td>
                           <td>24-04-2023</td>
                         </tr>
                         <tr>
-                          <td>SER230300</td>
-                          <td><input type="text" value="Filling"></td>
-                          <td><input type="text" value="50,000"></td>
+                          <td>CARD230300</td>
+                          <td><input type="text" value="Stress test"></td>
+                          <td><input type="text" value="10,000"></td>
                           <td>24-04-2023</td>
                         </tr>
                     </tbody>
@@ -240,47 +268,7 @@
             </section>
          </section>
         <aside class="preview-area" id="patient-preview">
-            <div class="img-wrapper">
-                <img src="../../STATIC/images/user.png" alt="">
-            </div>
-            <div class="details">
-                <div class="detail-group">
-                    <p class="part-title">Patient No.:</p>
-                    <p class="part-content">67834</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">First Name:</p>
-                    <p class="part-content">Alex</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Last No.:</p>
-                    <p class="part-content">Muhumuza</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">NIN:</p>
-                    <p class="part-content">CM2REK234423MFC</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Phone No:</p>
-                    <p class="part-content">+256728463968</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Birth Place:</p>
-                    <p class="part-content">Wakiso</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Gender:</p>
-                    <p class="part-content">Male</p>
-                </div>
-                <div class="detail-group">
-                    <p class="part-title">Age:</p>
-                    <p class="part-content">24</p>
-                </div>
-            </div>
-            <div class="cta_area">
-                <button  class="modal-activators" id="edit_patient_modal_activator" data-modal="create_patient_modal">Edit Details</button>
-                <button class="modal-activators" id="create_visit_modal_activator" data-modal="create_visit_modal">Create Visit</button>
-            </div>
+
         </aside>
     </main>
 
@@ -450,154 +438,24 @@
         </div>
     </div>
 
-    <div class="modal" id="create_visit_modal">
+    <div class="modal" id="create_cardiology_results_modal">
         <div class="modal-header">
           <div class="flex" style="justify-content: flex-start; gap: 10px">
             <img src="../../STATIC/icons/visits.svg" alt="" style="inline-size: 28px; block-size: 28px" />
-            <h3 style="font-size: 20px">Create Visit</h3>
+            <h3 style="font-size: 20px">Post Cardiology Results</h3>
           </div>
         </div>
         <div class="modal-body">
           <div class="modal-section">
             <div class="section-label">
-              <small>Patient Information</small>
-            </div>
-            <div class="section-content">
-              <form action="">
-                <div class="flex flex-gap-40">
-                  <div class="form-control flex flex-column">
-                    <label for="">First Name</label>
-                    <input class="input" type="text" />
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Middle Name</label>
-                    <input class="input" type="text" />
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Last Name</label>
-                    <input class="input" type="text" />
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <div class="patient-image flex">
-                      <img src="../../STATIC/images/user.png" alt="" />
-                    </div>
-                  </div>
-                </div>
-                <div class="flex flex-gap-40">
-                  <div class="form-control flex flex-column">
-                    <label for="">National ID No.</label>
-                    <input class="input" type="text" />
-                  </div>
-                  <div class="form-control flex" style="gap: 20px">
-                    <div class="flex flex-column" style="flex: 1">
-                      <label for="">Age</label>
-                      <input class="input" type="text" />
-                    </div>
-                    <div class="flex flex-column" style="flex: 2">
-                      <label for="">Date of Birth</label>
-                      <input class="input" type="date" />
-                    </div>
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Gender</label>
-                    <select name="gender" class="input">
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-                    </select>
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Patient ID</label>
-                    <input class="input" type="text" value="MEDT00001" disabled />
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="modal-section">
-            <div class="section-label">
-              <small>Doctor Information</small>
-            </div>
-            <div class="section-content">
-              <form action="">
-                <div class="section-content-row flex flex-gap-40">
-                  <div class="form-control flex flex-column">
-                    <label for="">Full Name</label>
-                    <select name="fullname" class="input">
-                      <option value="Muludiang Emmanuel">Dr. Muludiang Emmanuel</option>
-                      <option value="Mugisa Phillip">Dr. Mugisa Phillip</option>
-                      <option value="Lorika Mario">Dr. Lorika Mario</option>
-                      <option value="Barbra B">Dr. Barbra B</option>
-                      <option value="Peter P">Dr. Peter P</option>
-                      <option value="Mulondo Caxton">Dr. Mulondo Caxton</option>
-                      <option value="Abdoulanziz Ally">Dr. Abdoulanziz Ally</option>
-                    </select>
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Doctor ID</label>
-                    <input class="input" type="text" value="MEDZ12001" disabled />
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Speciality</label>
-                    <select name="speciality" class="input">
-                      <option value="general">General</option>
-                      <option value="padeatrics">Paedeatrics</option>
-                      <option value="gynacology">Gynacology</option>
-                      <option value="dentist">Dentist</option>
-                      <option value="radiology">Radiology</option>
-                    </select>
-                  </div>
-                  <div class="form-control flex flex-column" style="visibility: hidden">
-                    <label for="">Home Address</label>
-                    <input class="input" type="text" />
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="modal-section">
-            <div class="section-label">
-              <small>Visit Time</small>
-            </div>
-            <div class="section-content">
-              <form action="">
-                <div class="section-content-row flex flex-gap-40">
-                  <div class="form-control flex flex-column">
-                    <label for="">Date</label>
-                    <input class="input" type="date" />
-                  </div>
-                  <div class="form-control flex flex-column">
-                    <label for="">Time</label>
-                    <input class="input" type="time" />
-                  </div>
-                  <div class="form-control flex flex-column" style="visibility: hidden">
-                    <label for="">Last Name</label>
-                    <input class="input" type="text" />
-                  </div>
-                  <div class="form-control flex flex-column" style="visibility: hidden">
-                    <label for="">Relationship</label>
-                    <select name="relationship" class="input">
-                      <option value="husband">Husband</option>
-                      <option value="wife">Wife</option>
-                      <option value="brother">Brother</option>
-                      <option value="sister">Sister</option>
-                      <option value="son">Son</option>
-                      <option value="daughter">Daughter</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="modal-section">
-            <div class="section-label">
-              <small>Other Information</small>
+              <small>Fill Results</small>
             </div>
             <div class="section-content">
               <form action="">
                 <div class="section-content-row flex">
                   <div class="form-control flex flex-column">
                     <div class="form-control flex flex-column" style="inline-size: 100%">
-                      <label for="">Visit Reason</label>
+                      <label for="">Notes</label>
                       <textarea class="input" cols="100%" rows="3"></textarea>
                     </div>
                   </div>
@@ -677,7 +535,7 @@
 
   // Change patient on prview
   const patientRows = document.querySelector("tbody").querySelectorAll("tr");
-  patientRows.forEach(patientRow => patientRow.addEventListener("click", (event) => {
+  patientRows.forEach((patientRow, index) => patientRow.addEventListener("click", (event) => {
     if(event.target.parentElement.tagName === "TR"){
       const patient = {
         id:event.target.parentElement.querySelectorAll("td")[0].textContent,
@@ -686,8 +544,7 @@
         visit:event.target.parentElement.querySelectorAll("td")[3].textContent,
         gender:event.target.parentElement.querySelectorAll("td")[4].textContent
       }
-    console.log(patient);
-    loadPatientOnPreview(patient);
+      loadPatientOnPreview(patient);
     }
   }))
 
@@ -753,7 +610,7 @@
     // Add new row to table body
     tableBody.appendChild(nextRow);
   }
-    
+
 
   // Add new prescription items
   function createNextPrescriptionRow(selectElement) {
@@ -912,7 +769,7 @@
       const option = document.createElement('option');
       option.value = optionValue;
       option.textContent = optionValue;
-      nextRowSelect.style.width = "100px";
+      nextRowSelect.style.width = "150px";
       nextRowSelect.appendChild(option);
     }
 
@@ -978,8 +835,8 @@
     // Add new row to table body
     tableBody.appendChild(nextRow);
   }
-  
-  
+
+
 
   // Signout
   const signoutBtn = document.querySelector('.fa-sign-out');
