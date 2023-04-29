@@ -21,6 +21,68 @@
 
     <script src="../../STATIC/js/scripts.js"></script>
 </head>
+<style>
+
+  .main-cta-section{
+    display: flex;
+    flex-direction: column;
+  }
+  .header{
+      
+      display: flex;
+      padding: 1px;
+  }
+
+  .sidebar-cta-section ul {
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+
+
+   .sidebar-cta-section ul li{
+    background-color: #1da1f2;
+    padding: 5px;
+    overflow: hidden;
+
+    
+   }
+
+  input[type=text]{
+      width: 100%;
+      margin-left: 2px;
+      border-radius: 5px;
+  }
+  label , button{
+      padding: 2px;
+      /* background-color:#1da1f2; */
+    
+  }
+
+  li{
+      list-style: none;
+      color: #f2f2f2;
+      padding-left: 0;
+      margin: 2px;
+      padding: 3px;
+           
+  }
+
+  ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .below_search >ul >li {
+      list-style: none;
+      display: inline;
+      background-color: #1da1f2;
+      
+
+  }
+</style>
 <body>
     <header class="departments">
         <a href="../patients/index.html" class="department">
@@ -90,7 +152,7 @@
     </header>
     <main class="split">
         <aside class="sidebar-cta-section">
-            <button class="accented" id="search">
+            <!-- <button class="accented">
                 <i class="fa fa-search"></i>
             </button>
             <button class="accented">
@@ -101,23 +163,44 @@
             </button>
             <button class="accented">
                 <i class="fa fa-sign-out"></i>
-            </button>
+            </button> -->
+            <ul>
+              <li>Patients</li>
+              <li>Drug</li>
+              <li>Visits</li>
+          </ul>
         </aside>
         <section class="main-content-area">
             <div class="main-cta-section">
-                <button class="modal-activators" id="create_visit_modal_activator" data-modal="create_visit_modal">Create Visit</button>
+                <!-- <button class="modal-activators" id="create_visit_modal_activator" data-modal="create_visit_modal">Search</button> -->
+                 
+        <div class="header">
+            <button><label for="search">Search</label></button>
+            <input type="text" placeholder="type Search">
+        </div>
+        <div>
+            <div class="below_search">
+                <ul>
+                <li>First Name</li>
+                <li>Last Name</li>
+                <li>Images</li>
+            </ul>
             </div>
+
+        </div>
+            </div>
+              
             <div class="records-part" id="recent-patients">
               <div class="body">
                 <table id="data-table" class="display" style="width:100%;margin-top:.5rem;">
                   <thead>
                       <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Gender</th>
-                        <th>Age</th>
-                        <th>Visit</th>
-                        <th>Created At</th>
+                        <th>Drug Name</th>
+                        <th>Unit cost</th>
+                        <th>Disease</th>
+                        <th>prescription</th>
+                        <th>Total cost</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -611,16 +694,6 @@
   signoutBtn.addEventListener('click', (event) => {
     window.location.href = "../auth/index.html";
   });
-
-
-  // search functionality
-
-const searchButton = document.getElementById("search")
-
-searchButton.addEventListener("click",function(){
-
-    console.log("hello world")
-})
 
 </script>
 </html>
