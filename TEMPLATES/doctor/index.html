@@ -117,10 +117,10 @@
                 <button class="accented section-togglers" data-section="diagnosis" id="diagnosis_toggler">Diagnosis</button>
                 <button class="accented section-togglers" data-section="prescription" id="prescription_toggler">Prescription</button>
                 <button class="accented section-togglers" data-section="procedures" id="procedures_toggler">Procedures</button>
+                <button class="accented section-togglers" data-section="laboratory_section" id="laboratory">Laboratory</button>
                 <button class="accented section-togglers" data-section="theatre" id="theatre_toggler">Theatre</button>
                 <button class="accented section-togglers" data-section="dental_lab" id="dental_lab_toggler">Dental Lab</button>
                 <button class="accented section-togglers" data-section="eye" id="eye_toggler">Eye</button>
-                <button disabled class="accented section-togglers disabled" data-section="lab_results" id="lab_results_toggler">Lab Results</button>
                 <button disabled class="accented section-togglers disabled" data-section="cardiology_results" id="cardiology_results_toggler">Cardiology Results</button>
                 <button disabled class="accented section-togglers disabled" data-section="radiology_results" id="radiology_results_toggler">Radiology Results</button>
             </div>
@@ -272,7 +272,7 @@
                     </tfoot>
                   </table>
                 </div>
-            </div>  
+              </div>  
             </section>
             <section class="variable-section" id="general_doctor">
               <div class="section_cta_area">
@@ -612,11 +612,9 @@
                     <div class="modal-section cta-area">
                       <button class="accented section-form-cta accented">Save</button>
                     </div>
-<<<<<<< HEAD
                   </form>
                 </div></div>
               <div class="variable-section-part" id="medical_conditions">medical_conditions</div>
-=======
               </div></div>
               <div class="variable-section-part" id="gyn">gyn</div>
             </section>
@@ -712,6 +710,184 @@
                   </tr>
                 </tbody>
               </table>
+            </section>
+            <section class="variable-section" id="laboratory_section">
+              <div class="section_cta_area">
+                <button class="section-part-toggler" data-section="lab_results">Lab Results</button>
+                <button class="section-part-toggler" data-section="create_lab_request">Create Lab Request</button>
+              </div>
+              <div class="variable-section-part inview" id="lab_results">
+                <div class="records-part" id="lab_results_table">
+                  <div class="body">
+                    <table id="data-table" class="display" style="width:100%;margin-top:.5rem;">
+                      <thead>
+                          <tr>
+                              <th>ID</th>
+                              <th>Name</th>
+                              <th>Gender</th>
+                              <th>Age</th>
+                              <th>Visit</th>
+                              <th>Created At</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                            <td>FLH230311</td>
+                            <td>Deodat Aganyira</td>
+                            <td>M</td>
+                            <td>68</td>
+                            <td>No</td>
+                            <td>12:02</td>
+                        </tr>
+                        <tr>
+                          <td>FLH230313</td>
+                          <td>Joram Bwambale</td>
+                          <td>M</td>
+                          <td>28</td>
+                          <td>No</td>
+                          <td>13:15</td>
+                        </tr>
+                        <tr>
+                          <td>FLH230316</td>
+                          <td>Matthew Musoke</td>
+                          <td>M</td>
+                          <td>26</td>
+                          <td>No</td>
+                          <td>13:42</td>
+                        </tr>
+                        <tr>
+                          <td>FLH230366</td>
+                          <td>Juma Kiyinji Moses</td>
+                          <td>M</td>
+                          <td>43</td>
+                          <td>No</td>
+                          <td>14:33</td>
+                        </tr>
+                        <tr>
+                          <td>FLH230336</td>
+                          <td>Alert Kapallaga</td>
+                          <td>M</td>
+                          <td>23</td>
+                          <td>No</td>
+                          <td>14:43</td>
+                        </tr>
+                        <tr>
+                          <td>FLH230361</td>
+                          <td>Martin Tukesiga Joel</td>
+                          <td>M</td>
+                          <td>22</td>
+                          <td>No</td>
+                          <td>14:36</td>
+                        </tr>
+                        <tr>
+                          <td>FLH230386</td>
+                          <td>Jane Nantongo Nakato</td>
+                          <td>F</td>
+                          <td>24</td>
+                          <td>No</td>
+                          <td>14:38</td>
+                        </tr>
+                        <tr>
+                          <td>FLH230386</td>
+                          <td>Hassan Dahalane</td>
+                          <td>M</td>
+                          <td>32</td>
+                          <td>No</td>
+                          <td>14:42</td>
+                        </tr>
+                        <tr>
+                          <td>FLH230377</td>
+                          <td>Ssempala Moses</td>
+                          <td>M</td>
+                          <td>55</td>
+                          <td>No</td>
+                          <td>14:50</td>
+                        </tr>
+                        <tr>
+                          <td>FLH230656</td>
+                          <td>Robert Mulenda Mwiru</td>
+                          <td>M</td>
+                          <td>26</td>
+                          <td>No</td>
+                          <td>15:08</td>
+                        </tr>
+                        <tr>
+                          <td>FLH230116</td>
+                          <td>Johnson Orone Nathan</td>
+                          <td>M</td>
+                          <td>20</td>
+                          <td>No</td>
+                          <td>15:15</td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Gender</th>
+                          <th>Age</th>
+                          <th>Visit</th>
+                          <th>Created At</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>  
+              </div>
+              <div class="variable-section-part" id="create_lab_request">
+                <div class="request-view">
+                  <div class="request-view-body">
+                    <div class="request-column" id="tests-list">
+                      <header>
+                        <h3>Select Test</h3>
+                      </header>
+                      <div class="test-search-area">
+                        <input type="search">
+                      </div>
+                      <ul id="request-test-list">
+                        <li data-test-id="1">
+                          <h4 class="test_name">Malaria A</h4>
+                          <p class="test_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ex nostrum, necessitatibus corporis non quos?</p>
+                        </li>
+                        <li data-test-id="2">
+                          <h4 class="test_name">Malaria A</h4>
+                          <p class="test_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ex nostrum, necessitatibus corporis non quos?</p>
+                        </li>
+                        <li data-test-id="3">
+                          <h4 class="test_name">Malaria A</h4>
+                          <p class="test_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ex nostrum, necessitatibus corporis non quos?</p>
+                        </li>
+                        <li data-test-id="4">
+                          <h4 class="test_name">Malaria A</h4>
+                          <p class="test_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ex nostrum, necessitatibus corporis non quos?</p>
+                        </li>
+                        <li data-test-id="5">
+                          <h4 class="test_name">Malaria A</h4>
+                          <p class="test_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ex nostrum, necessitatibus corporis non quos?</p>
+                        </li>
+                        <li data-test-id="6">
+                          <h4 class="test_name">Malaria A</h4>
+                          <p class="test_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ex nostrum, necessitatibus corporis non quos?</p>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="request-column" id="selected_tests">
+                      <header>
+                        <h3>Selected Test</h3>
+                      </header>
+                      <ul>
+                      </ul>
+                    </div>
+                    <div class="request-column" id="selected_test_details">
+                      <header>
+                        <h3>Test Narations</h3>
+                      </header>
+                      <ul>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </section>
             <section class="variable-section" id="theatre">
                 <div class="section-form">
@@ -1031,9 +1207,7 @@
                     <button class="accented section-form-cta accented">Save</button>
                   </div>
               </div>
->>>>>>> 434bcfdab5432ca2bf8491d5b801545f54001d1e
             </section>
-            <section class="variable-section" id="lab_results">lab_results</section>
             <section class="variable-section" id="cardiology_results">cardiology_results</section>
             <section class="variable-section" id="radiology_results">radiology_results</section>
         </section>
