@@ -30,57 +30,68 @@
   .header{
       
       display: flex;
-      padding: 1px;
+      padding: 2px;
   }
 
-  .sidebar-cta-section ul {
+  .sidebar-cta-section {
     display: flex;
     flex-direction: column;
     
   }
 
 
+   .sidebar-cta-section ul {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
 
-   .sidebar-cta-section ul li{
-    background-color: #1da1f2;
-    padding: 5px;
-    overflow: hidden;
-
-    
    }
+   .sidebar-cta-section li{
+    background-color: #1da1f2;
+    width: 100%;
+    text-align: center;
+
+   }
+
+ 
 
   input[type=text]{
       width: 100%;
       margin-left: 2px;
+      border-color: aliceblue;
       border-radius: 3px;
   }
+
   label , button{
-      padding: 2px;
-      /* background-color:#1da1f2; */
-    
+      padding: 4px;
+         
   }
 
   li{
       list-style: none;
       color: #f2f2f2;
       padding-left: 0;
-      margin: 2px;
-      padding: 3px;
+      margin: 5px;
+      padding: 5px;
            
   }
 
+
   ul{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: flex; 
+    margin: 2px;
   }
 
-  .below_search >ul >li {
+  .below_search li {
       list-style: none;
       display: inline;
       background-color: #1da1f2;
       
+    
+  }
 
+  .main-content-area{
+    margin-left: 11%;
   }
 </style>
 <body>
@@ -151,7 +162,7 @@
         </a>
     </header>
     <main class="split">
-        <aside class="sidebar-cta-section">
+        <aside class="sidebar-cta-section" style="width: 150px;">
             <!-- <button class="accented">
                 <i class="fa fa-search"></i>
             </button>
@@ -166,7 +177,7 @@
             </button> 
             hjfhhf -->
             <ul>
-              <li>Patients</li>
+              <li style="border-bottom: 2px;">Patients</li>
               <li>Drugs</li>
               <li>Staff</li>
           </ul>
@@ -218,7 +229,7 @@
               </div>
           </div>             
         </section>
-        <aside class="preview-area" id="patient-preview">
+        <!-- <aside class="preview-area" id="patient-preview">
             <div class="img-wrapper">
                 <img src="../../STATIC/images/user.png" alt="">
             </div>
@@ -267,7 +278,7 @@
             <div class="cta_area">
                 <button class="modal-activators" id="edit_visit_modal_activator" data-modal="create_patient_modal">Edit Details</button>
             </div>
-        </aside>
+        </aside> -->
     </main>
 
     <div class="modal" id="create_patient_modal">
