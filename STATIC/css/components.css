@@ -217,4 +217,74 @@ main .preview-area .cta_area button {
   border: none;
   outline: transparent;
   cursor: pointer;
+}
+main .request-view {
+  display: grid;
+  gap: 0.5rem;
+}
+main .request-view .test-search-area {
+  margin: 0.5rem 0.5rem 0;
+}
+main .request-view .test-search-area input {
+  border: 1px solid #d6dde4;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  inline-size: 100% !important;
+  background-color: hsl(208, 57%, 98%);
+  outline: none;
+}
+main .request-view .request-view-body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.25rem;
+}
+main .request-view .request-view-body .request-column {
+  border: 1px solid hsl(0, 0%, 90%);
+  border-radius: 5px;
+}
+main .request-view .request-view-body .request-column header {
+  padding: 0.5rem 1rem;
+  background-color: hsl(202, 22%, 93%);
+}
+main .request-view .request-view-body .request-column header h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0078D7;
+}
+main .request-view .request-view-body .request-column ul {
+  list-style-type: none;
+  display: grid;
+  align-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem 0.25rem;
+  block-size: 60vh;
+  overflow: hidden;
+  overflow-y: auto;
+}
+main .request-view .request-view-body .request-column ul li {
+  display: grid;
+  gap: 0.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s linear;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 99%);
+  position: relative;
+}
+main .request-view .request-view-body .request-column ul li:hover {
+  background-color: hsl(0, 0%, 100%);
+}
+main .request-view .request-view-body .request-column ul li .test_name {
+  color: hsl(0, 0%, 25%);
+}
+main .request-view .request-view-body .request-column ul li .test_description {
+  color: hsl(0, 0%, 35%);
+}
+main .request-view .request-view-body .request-column ul li .action {
+  justify-self: flex-end;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  color: gray;
 }/*# sourceMappingURL=components.css.map */
