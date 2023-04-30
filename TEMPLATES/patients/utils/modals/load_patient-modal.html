@@ -1,0 +1,97 @@
+{% load static %}
+<div class="modal" id="load_patient_modal">
+    <div class="modal-header">
+        <div class="flex" style="justify-content: flex-start; gap: 10px">
+          <img src="{%static 'icons/triage.png' %}" alt="" style="inline-size: 28px; block-size: 28px" />
+          <h3 style="font-size: 20px">Load Patient</h3>
+        </div>
+      </div>
+      <div class="modal-body">
+        <form action="">
+            <input type="search" class="modal_search" placeholder="Search ..." name="" id="">
+        </form>
+        <table id="load_patient_table" class="display" style="width:100%;margin-top:.5rem;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Visit</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+      </div>
+      <div class="modal-footer">
+        <div class="form-control">
+            <button id="loadPreviousPatients" onclick="nextPrevious()">Previous</button>
+            <button id="loadNextPatients" onclick="nextPage()">Next</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let patientLoadPage = 1;
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        loadPatient(page=patientLoadPage)
+    })
+    function loadPatient(page) {
+        // fetch data
+        makeRequest(`${api_routes.patients_list}?page=${page}`, method="GET")
+        .then(response => {
+            if (response.next === null) {
+                document.querySelector("#loadNextPatients").disabled = true;
+            }
+            else {
+                document.querySelector("#loadNextPatients").disabled = false;
+            }
+
+            
+            if (response.previous === null) {
+                document.querySelector("#loadPreviousPatients").disabled = true;
+            }
+            else {
+                document.querySelector("#loadPreviousPatients").disabled = false;
+            }
+
+            const tableBody = document.querySelector("table#load_patient_table tbody")
+            // clear table body
+            tableBody.innerHTML = "";
+            createTableRows(tableBody, response.results, field=["patient_id", "fullname", "gender", "age", "visit", "created_on"], listener=getPatientRecord)
+        })
+        .catch(response => {
+            // render error
+        })
+    }
+    function nextPage() {
+        patientLoadPage++;
+        loadPatient(page=patientLoadPage)
+    }
+    function nextPrevious() {
+        patientLoadPage--;
+        loadPatient(page=patientLoadPage)
+    }
+
+    function getPatientRecord(data) {
+        
+        let load_patient_modal = document.querySelector("#load_patient_modal")
+        load_patient_modal.classList.remove("inview");
+
+        switch (load_patient_modal.dataset.view) {
+            case "visit":
+                triggerCreateVisitModal(data)
+                break
+            case "triage":
+                triggerCreateTriageModal(data)
+                break
+            default:
+                break
+        }
+
+        load_patient_modal.dataset.view = null
+    }
+</script>

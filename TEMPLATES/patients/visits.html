@@ -49,9 +49,10 @@
               </div>
           </div>             
         </section>
-        <aside class="preview-area" id="patient-preview"></aside>
+        <aside class="preview-area" id="visit-preview"></aside>
     </main>
     {% include "./utils/modals/visits_modal.html" with doctor_specialities=doctor_specialities doctors=doctors %}
+    {% include "./utils/modals/load_patient-modal.html" %}
     <script>
         document.addEventListener("DOMContentLoaded", () => {
           

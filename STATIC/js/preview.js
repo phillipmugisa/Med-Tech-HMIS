@@ -55,7 +55,7 @@ const loadPatientOnPreview = (patient) => {
 
 
 const loadVisitPreview = (visit) => {
-    let previewArea = document.querySelector("#patient-preview");
+    let previewArea = document.querySelector("#visit-preview");
     let previewContent = `
     <div class="img-wrapper">
         <img src="${backend_url}/static/images/user.png" alt="">
@@ -98,4 +98,54 @@ const loadVisitPreview = (visit) => {
 
     previewArea.querySelector("#edit_visit_modal_activator")
         .addEventListener("click", () => triggerCreateVisitModal(visit, edit=true))
+}
+
+const loadTriagePreview = (triage) => {
+    let previewArea = document.querySelector("#triage-preview");
+    let previewContent = `
+    <div class="img-wrapper">
+        <img src="${backend_url}/static/images/user.png" alt="">
+    </div>
+    <div class="details" id="preview_detials">
+        <div class="detail-group">
+            <p class="part-title">Patient:</p>
+            <p class="part-content">${triage.patient_id}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Fullname:</p>
+            <p class="part-content">${triage.patient.fullname}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Nin:</p>
+            <p class="part-content">${triage.patient.nin}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Blood Pressure</p>
+            <p class="part-content" id="preview_patient_name">${triage.blood_pressure}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Heart Rate:</p>
+            <p class="part-content">${triage.heart_rate}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Respiratory Rate:</p>
+            <p class="part-content">${triage.respiratory_rate}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Temperature:</p>
+            <p class="part-content">${triage.temperature}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Updated On:</p>
+            <p class="part-content">${triage.updated_on}</p>
+        </div>
+    </div>
+    <div class="cta_area">
+        <button class="modal-activators" id="edit_visit_modal_activator" data-modal="create_patient_modal">Edit Details</button>
+    </div
+    `;
+    previewArea.innerHTML = previewContent
+
+    previewArea.querySelector("#edit_visit_modal_activator")
+        .addEventListener("click", () => triggerCreateTriageModal(triage, edit=true))
 }

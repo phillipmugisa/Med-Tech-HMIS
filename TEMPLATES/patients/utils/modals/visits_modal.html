@@ -9,60 +9,60 @@
     </div>
     <div class="modal-body">
       <div class="modal-section">
-      <div class="section-label">
-          <small>Personal Information</small>
-      </div>
-      <div class="section-content">
-          <form action="">
-          <div class="flex flex-gap-40">
-              <div class="form-control flex flex-column">
-              <label for="">First Name</label>
-              <input class="input" type="text" id="firstName" />
-              </div>
-              <div class="form-control flex flex-column">
-              <label for="">Middle Name</label>
-              <input class="input" type="text" id="middleName"/>
-              </div>
-              <div class="form-control flex flex-column">
-              <label for="">Last Name</label>
-              <input class="input" type="text" id="lastName"/>
-              </div>
-              <div class="form-control flex flex-column">
-              <div class="patient-image flex">
-                  <img src="{% static 'images/user.png' %}" alt="" />
-              </div>
-              </div>
-          </div>
-          <div class="flex flex-gap-40">
-              <div class="form-control flex flex-column">
-              <label for="">National ID No.</label>
-              <input class="input" type="text" id="NIN"/>
-              </div>
-              <div class="form-control flex" style="gap: 20px">
-              <div class="flex flex-column" style="flex: 1">
-                  <label for="">Age</label>
-                  <input class="input" type="text" id="age"/>
-              </div>
-              <div class="flex flex-column" style="flex: 2">
-                  <label for="">Date of Birth</label>
-                  <input class="input" type="date" id="dateOfBirth"/>
-              </div>
-              </div>
-              <div class="form-control flex flex-column">
-              <label for="">Gender</label>
-              <select name="gender" class="input" id="gender">
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-              </select>
-              </div>
-              <div class="form-control flex flex-column">
-              <label for="" id="patient_id_label">Patient ID</label>
-              <input class="input" type="text" disabled id="patient_id"/>
-              <button id="load_patient_activator" style="padding-block: .5rem; background-color: #1da1f2;color:white;border-radius: 5px;display: none;">Load Patient</button>
-              </div>
-          </div>
-          </form>
-      </div>
+        <div class="section-label">
+            <small>Personal Information</small>
+        </div>
+        <div class="section-content">
+            <form action="">
+            <div class="flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                <label for="">First Name</label>
+                <input class="input" type="text" id="firstName" />
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Middle Name</label>
+                <input class="input" type="text" id="middleName"/>
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Last Name</label>
+                <input class="input" type="text" id="lastName"/>
+                </div>
+                <div class="form-control flex flex-column">
+                <div class="patient-image flex">
+                    <img src="{% static 'images/user.png' %}" alt="" />
+                </div>
+                </div>
+            </div>
+            <div class="flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                <label for="">National ID No.</label>
+                <input class="input" type="text" id="NIN"/>
+                </div>
+                <div class="form-control flex" style="gap: 20px">
+                <div class="flex flex-column" style="flex: 1">
+                    <label for="">Age</label>
+                    <input class="input" type="text" id="age"/>
+                </div>
+                <div class="flex flex-column" style="flex: 2">
+                    <label for="">Date of Birth</label>
+                    <input class="input" type="date" id="dateOfBirth"/>
+                </div>
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="">Gender</label>
+                <select name="gender" class="input" id="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                </div>
+                <div class="form-control flex flex-column">
+                <label for="" id="patient_id_label">Patient ID</label>
+                <input class="input" type="text" disabled id="patient_id"/>
+                <button class="load_patient_activator" style="padding-block: .5rem; background-color: #1da1f2;color:white;border-radius: 5px;display: none;">Load Patient</button>
+                </div>
+            </div>
+            </form>
+        </div>
       </div>
       <div class="modal-section">
         <div class="section-label">
@@ -129,31 +129,6 @@
           </form>
         </div>
       </div>
-      <!-- <div class="modal-section">
-        <div class="section-label">
-          <small>Financials</small>
-        </div>
-        <div class="section-content">
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Doctor</th>
-                <th>Consultation Fees</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>01</td>
-                <td>Dr. Muludiang Emmanuel</td>
-                <td>UGX 25,000</td>
-                <td>03-03-2023</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div> -->
     </div>
     <div class="modal-footer">
       <div class="form-control">
@@ -164,7 +139,7 @@
 </div>
 
 <script>
-  let create_visit_modal = document.querySelector("#create_visit_modal")
+    // create_visit_modal = document.querySelector("#create_visit_modal")
     document.addEventListener("DOMContentLoaded", () => {
       let visit_specialty = document.querySelector("#visit_specialty")
       let doctors_options = document.querySelectorAll(".doctors_options")
@@ -256,11 +231,14 @@
       }
       let request_method = "POST"
       let url = `{% url 'app_api:visit_create' %}`
-      if (document.querySelector("#create_visit_modal").dataset.action == "edit")
+      if (document.querySelector("#create_visit_modal").dataset.action == "edit") {
         request_method = "PATCH"
         url = `/api/visits/${create_visit_modal.dataset.visit}/update`
+      }
 
-      // edit patient
+      // edit patient if any change was made
+      // TODO: WATCH ALL FIELDS RELATED TO PATIENT DATA
+      // IF A CHANGE WAS MADE, THEN THIS REQUEST IS MADE, ELSE REQUEST IS NOT MADE
       makeRequest(url, method=request_method, data=visitData)
       .then(response => {
         refreshPatientView();

@@ -34,12 +34,29 @@ function openModal(activator) {
         
     // close open modals
     let openModals = document.querySelectorAll(".modal.inview");
-    openModals.forEach(modal => modal.classList.remove("inview"));
+    if (openModals)
+        openModals.forEach(modal => modal.classList.remove("inview"));
 
     modalToOpen.classList.add("inview");
     modalToOpen.dataset.action = "create"
 
+    modalToOpen.querySelectorAll("form")
+        .forEach(form => {
+            form.addEventListener("submit", e => {
+                e.preventDefault()
+                return;
+            })
+        })
+
     modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
+        const dataAttributes = modalToOpen.dataset;
+
+        // Iterate through the data attributes and delete each one
+        for (const attribute in dataAttributes) {
+          if (dataAttributes.hasOwnProperty(attribute)) {
+            delete dataAttributes[attribute];
+          }
+        }
         modalToOpen.querySelectorAll("form")
             .forEach(form => form.reset())
         modalToOpen.classList.remove("inview");
@@ -123,9 +140,24 @@ function triggerEditPatientModal(patient){
 
 }
 
-function getPatientData() {
+function getPatientData(listener) {
     // this function opens a modal in which a user can search for and select a patient
     // return: patient data
+    let load_patient_modal = document.querySelector("#load_patient_modal")
+    load_patient_modal.classList.add("inview");
+    load_patient_modal.dataset.view = listener
+
+}
+
+function setModalPatientDetails(patient, modal) {
+    modal.querySelector("#firstName").value = patient.firstname
+    modal.querySelector("#middleName").value = patient.middlename
+    modal.querySelector("#lastName").value = patient.lastname
+    modal.querySelector("#NIN").value = patient.nin
+    modal.querySelector("#age").value = patient.age
+    modal.querySelector("#dateOfBirth").value = new Date(patient.date_of_birth)
+    modal.querySelector("#gender").value = patient.gender
+    modal.querySelector("#patient_id").value = patient.patient_id
 }
 
 function triggerCreateVisitModal(data, edit=false){
@@ -135,15 +167,20 @@ function triggerCreateVisitModal(data, edit=false){
     if (!data) {
       
         if (create_visit_modal.dataset.action == "create" && (create_visit_modal.querySelector("#patient_id").value != undefined || create_visit_modal.querySelector("#patient_id").value != "")) {
-            let load_patient_activator = document.querySelector("#load_patient_activator")
+            let load_patient_activator = create_visit_modal.querySelector(".load_patient_activator")
             load_patient_activator.style.display = "grid";
             create_visit_modal.querySelector("#patient_id").style.display = "none";
             create_visit_modal.querySelector("#patient_id_label").style.display = "none";
             load_patient_activator.addEventListener("click", () => {
-                data = getPatientData()
-                triggerCreateVisitModal(data)
+                getPatientData("visit")
             })
           }
+          else {
+              load_patient_activator.style.display = "none";
+              create_triage_modal.querySelector("#patient_id").style.display = "grid";
+              create_triage_modal.querySelector("#patient_id_label").style.display = "grid";
+          }
+          return
     }
 
     if (edit ==true) {
@@ -161,29 +198,52 @@ function triggerCreateVisitModal(data, edit=false){
         create_visit_modal.dataset.action = "create"
         patient = data
     }
-
-    create_visit_modal.querySelector("#firstName").value = patient.firstname
-    create_visit_modal.querySelector("#middleName").value = patient.middlename
-    create_visit_modal.querySelector("#lastName").value = patient.lastname
-    create_visit_modal.querySelector("#NIN").value = patient.nin
-    create_visit_modal.querySelector("#age").value = patient.age
-    create_visit_modal.querySelector("#dateOfBirth").value = new Date(patient.date_of_birth)
-    create_visit_modal.querySelector("#gender").value = patient.gender
-    create_visit_modal.querySelector("#patient_id").value = patient.patient_id
     // setting patient id
     create_visit_modal.querySelector("#firstName").dataset.pid = patient.id
+    setModalPatientDetails(patient, create_visit_modal)
 }
 
-function triggerCreateTriageModal(){
-    // close open modals
-    let openModals = document.querySelectorAll(".modal.inview");
-    openModals.forEach(modal => modal.classList.remove("inview"));
+function triggerCreateTriageModal(data, edit=false) {sign_symptoms
+    openModal(document.querySelector("#create_triage_modal_activator"))
+    let create_triage_modal = document.querySelector("#create_triage_modal");
 
-    // open the modal
-    const modalToOpen = document.querySelector("#create_triage_modal");
-    modalToOpen.classList.add("inview");
+    if (!data) {
+      
+        if (create_triage_modal.dataset.action == "create" && (create_triage_modal.querySelector("#patient_id").value != undefined || create_triage_modal.querySelector("#patient_id").value != "")) {
+            let load_patient_activator = create_triage_modal.querySelector(".load_patient_activator")
+            load_patient_activator.style.display = "grid";
+            create_triage_modal.querySelector("#patient_id").style.display = "none";
+            create_triage_modal.querySelector("#patient_id_label").style.display = "none";
+            load_patient_activator.addEventListener("click", () => {
+                getPatientData("triage")
+            })
+        }
+        else {
+            load_patient_activator.style.display = "none";
+            create_triage_modal.querySelector("#patient_id").style.display = "grid";
+            create_triage_modal.querySelector("#patient_id_label").style.display = "grid";
+        }
+        return
+    }
 
-    modalToOpen.querySelector("img.cancel").addEventListener("click", () => {
-        modalToOpen.classList.remove("inview");
-    });
+    
+
+    if (edit ==true) {
+        create_triage_modal.dataset.action = "edit"
+        
+        create_triage_modal.dataset.visit = data.visit
+        create_triage_modal.dataset.triage = data.id
+        create_triage_modal.querySelector("#blood_pressure").value = data.blood_pressure
+        create_triage_modal.querySelector("#heart_rate").value = data.heart_rate
+        create_triage_modal.querySelector("#respiratory_rate").value = data.respiratory_rate
+        create_triage_modal.querySelector("#temperature").value = data.temperature
+        create_triage_modal.querySelector("#sign_symptoms").value = data.sign_symptoms
+        create_triage_modal.querySelector("#injury_details").value = data.injury_details
+        patient = data.patient
+    }
+    else {
+        create_triage_modal.dataset.action = "create"
+    }
+    
+    setModalPatientDetails(patient, create_triage_modal)
 }

@@ -255,6 +255,7 @@ select {
   padding-block: 4.6px;
   inline-size: 100% !important;
   background-color: hsl(208, 57%, 98%);
+  outline: none;
 }
 
 .modal-section .section-content select,
@@ -364,7 +365,6 @@ select {
 }
 
 .display-block {
-<<<<<<< HEAD
   display: block;
 }
 
@@ -424,11 +424,18 @@ table tbody tr.active td {
 
 table tbody tr.active {
   background-color: hsl(145, 61%, 64%);
-=======
   display: block !important;
 }
 
 .data-grid {
   display: none;
->>>>>>> 434bcfdab5432ca2bf8491d5b801545f54001d1e
+}
+
+.modal_search {
+  border: 1px solid #cce5f9;
+  border-radius: 6px;
+  padding: .5rem 1rem;
+  margin-block-end: 1rem;
+  inline-size: 100% !important;
+  background-color: #edf4fa;
 }

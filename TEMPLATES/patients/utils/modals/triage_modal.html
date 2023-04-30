@@ -1,0 +1,247 @@
+{% load static %}
+<div class="modal" id="create_triage_modal">
+    <div class="modal-header">
+        <div class="flex" style="justify-content: flex-start; gap: 10px">
+          <img src="{%static 'icons/triage.png' %}" alt="" style="inline-size: 28px; block-size: 28px" />
+          <h3 style="font-size: 20px">Patient Triage Details</h3>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <div class="section-label">
+              <small>Personal Information</small>
+          </div>
+          <div class="section-content">
+              <form action="">
+              <div class="flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                  <label for="">First Name</label>
+                  <input class="input" type="text" id="firstName" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                  <label for="">Middle Name</label>
+                  <input class="input" type="text" id="middleName"/>
+                  </div>
+                  <div class="form-control flex flex-column">
+                  <label for="">Last Name</label>
+                  <input class="input" type="text" id="lastName"/>
+                  </div>
+                  <div class="form-control flex flex-column">
+                  <div class="patient-image flex">
+                      <img src="{% static 'images/user.png' %}" alt="" />
+                  </div>
+                  </div>
+              </div>
+              <div class="flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                  <label for="">National ID No.</label>
+                  <input class="input" type="text" id="NIN"/>
+                  </div>
+                  <div class="form-control flex" style="gap: 20px">
+                  <div class="flex flex-column" style="flex: 1">
+                      <label for="">Age</label>
+                      <input class="input" type="text" id="age"/>
+                  </div>
+                  <div class="flex flex-column" style="flex: 2">
+                      <label for="">Date of Birth</label>
+                      <input class="input" type="date" id="dateOfBirth"/>
+                  </div>
+                  </div>
+                  <div class="form-control flex flex-column">
+                  <label for="">Gender</label>
+                  <select name="gender" class="input" id="gender">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                  </select>
+                  </div>
+                  <div class="form-control flex flex-column">
+                  <label for="" id="patient_id_label">Patient ID</label>
+                  <input class="input" type="text" disabled id="patient_id"/>
+                  <button class="load_patient_activator" style="padding-block: .5rem; background-color: #1da1f2;color:white;border-radius: 5px;display: none;" >Load Patient</button>
+                  </div>
+              </div>
+              </form>
+          </div>
+        </div>
+        <div class="modal-section">
+          <div class="section-label">
+            <small>Vital Signs</small>
+          </div>
+          <div class="section-content">
+            <form action="">
+              <div class="section-content-row flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                  <label for="">Blood Pressure</label>
+                  <input class="input" type="text" id="blood_pressure"/>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Heart Rate</label>
+                  <input class="input" type="text" id="heart_rate"/>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Respiratory Rate</label>
+                  <input class="input" type="text" id="respiratory_rate"/>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Temperature</label>
+                  <input class="input" type="text" id="temperature"/>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-section">
+          <div class="section-label">
+            <small>Signs & Symptoms</small>
+          </div>
+          <div class="section-content">
+            <form action="">
+              <div class="section-content-row flex">
+                <div class="form-control flex flex-column">
+                  <div class="form-control flex flex-column" style="inline-size: 100%">
+                    <label for="">Fill the signs and symptoms from the patient</label>
+                    <textarea class="input" cols="100%" rows="2" id="sign_symptoms"></textarea>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-section">
+          <div class="section-label">
+            <small>Injury Details</small>
+          </div>
+          <div class="section-content">
+            <form action="">
+              <div class="section-content-row flex">
+                <div class="form-control flex flex-column">
+                  <div class="form-control flex flex-column" style="inline-size: 100%">
+                    <label for="">Fill the type, location and severity of injury</label>
+                    <textarea class="input" cols="100%" rows="2" id="injury_details"></textarea>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="form-control">
+          <img class="cancel" src="{%static 'icons/cancel.png' %}" alt="" />
+          <img class="save" onclick="sumbitTriageData()" src="{%static 'icons/save.png' %}" alt="" />
+        </div>
+    </div>
+</div>
+
+
+<script>
+    async function sumbitTriageData () {
+      let create_triage_modal =  document.querySelector("#create_triage_modal")
+
+      let firstname = create_triage_modal.querySelector("#firstName")
+      let middlename = create_triage_modal.querySelector("#middleName")
+      let lastname = create_triage_modal.querySelector("#lastName")
+      let nin = create_triage_modal.querySelector("#NIN")
+      let age = create_triage_modal.querySelector("#age")
+      let date_of_birth = create_triage_modal.querySelector("#dateOfBirth")
+      let gender = create_triage_modal.querySelector("#gender")
+      let patient_id = create_triage_modal.querySelector("#patient_id")
+
+
+      let blood_pressure = create_triage_modal.querySelector("#blood_pressure")
+      let heart_rate = create_triage_modal.querySelector("#heart_rate")
+      let respiratory_rate = create_triage_modal.querySelector("#respiratory_rate")
+      let temperature = create_triage_modal.querySelector("#temperature")
+      let sign_symptoms = create_triage_modal.querySelector("#sign_symptoms")
+      let injury_details = create_triage_modal.querySelector("#injury_details")
+
+      let required_fields = [firstname, lastname, gender, nin]
+      required_fields.forEach(field => {
+          if (field.value == "" || field.value == undefined) {
+              field.classList.add("error")
+              return
+          }
+          if (field.classList.contains("error")) {
+              field.classList.remove("error")
+          }
+      })
+
+      if ((age.value == "" || age.value == undefined) && (date_of_birth.value == "" || date_of_birth.value == undefined)) {
+          age.classList.add("error")
+          date_of_birth.classList.add("error")
+          return;
+      }
+      else {
+          if (age.classList.contains("error") || date_of_birth.classList.contains("error")) {
+              age.classList.remove("error")
+              date_of_birth.classList.remove("error")
+          }
+      }
+
+
+      // incase of change in patient data, update it
+      let patientData = {
+          "firstname" : firstname.value,
+          "middlename" : middlename.value,
+          "lastname" : lastname.value,
+          "nin" : nin.value,
+          "age" : age.value,
+          "date_of_birth" : date_of_birth.value,
+          "gender" : gender.value
+      }
+      
+      // edit patient if any change was made
+      // TODO: WATCH ALL FIELDS RELATED TO PATIENT DATA
+      // IF A CHANGE WAS MADE, THEN THIS REQUEST IS MADE, ELSE REQUEST IS NOT MADE
+      makeRequest(`/api/patients/${patient_id.value}/update/`, method="PATCH", data=patientData)
+      .then(response => {
+      })
+      .catch(response => {
+        // render error
+      })
+
+      let triageData = {
+          "blood_pressure" : blood_pressure.value,
+          "heart_rate" : heart_rate.value,
+          "respiratory_rate" : respiratory_rate.value,
+          "temperature" : temperature.value,
+          "sign_symptoms" : sign_symptoms.value,
+          "injury_details" : injury_details.value
+      }
+
+      
+      if (!create_triage_modal.dataset.action == "edit") {
+        // fetch visit data, triage is associated with a visit
+        makeRequest(`/api/patients/${patient_id.value}/visit/`, method="GET")
+        .then(response => {
+          let lastTriage = response[0]
+          triageData["visit"] = lastTriage.id;
+          makeTriageCreateRequest(`{% url 'api:triage_create' %}`, "POST", triageData)
+        })
+        .catch(response => {
+          // render error
+        })
+      }
+      else {
+        triageData["visit"] = create_triage_modal.dataset.visit
+        makeTriageCreateRequest(`/api/triage/${create_triage_modal.dataset.triage}/update/`, "PATCH", triageData)
+      }
+    }
+
+    function makeTriageCreateRequest(url, method, triageData) {
+      // create triage
+      makeRequest(url, method=method, data=triageData)
+      .then(response => {
+        refreshTriageView()
+      })
+      .catch(response => {
+        // render error
+      })
+    }
+
+    function refreshTriageView() {
+        // close modal, refresh table
+        document.querySelector("#create_triage_modal .modal-footer .cancel").click();
+        refreshView(1)
+    }
+</script>

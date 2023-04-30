@@ -2,6 +2,7 @@ const api_routes = {
     "patients_list": "/api/patients/",
     "nok_list": "/api/nextOfKin/",
     "visits_list": "/api/visits/",
+    "triage_list": "/api/triage/",
 }
 
 function removeEmpty(obj) {
@@ -19,9 +20,10 @@ async function makeRequest (url, method, data={}, access_token=null) {
     const backend_url = `http://localhost:8000`;
     let requestData = {
         method: method,
-        mode: "same-origin",
+        mode: "cors",
         cache: "no-cache",
-        credentials: 'same-origin'
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
         // "headers" : {
         //     Authorization: "JWT " + localStorage.getItem("ext_access_token"),
         // }

@@ -38,7 +38,7 @@ class NextOfKin(ManagerModels.Person):
     patient = models.ForeignKey(to=Patient, on_delete=models.CASCADE, related_name="next_of_kin", null=True, blank=True)
 
 class Visit(models.Model):
-    patient = models.OneToOneField(to=Patient, on_delete=models.CASCADE)
+    patient = models.ForeignKey(to=Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(to=ManagerModels.Doctor, on_delete=models.SET_NULL, null=True)
     category = models.CharField(_("Category"), max_length=256, null=True, blank=True)
     speciality = models.ForeignKey(to=ManagerModels.DoctorSpeciality, on_delete=models.SET_NULL, null=True)
@@ -68,6 +68,11 @@ class Triage(models.Model):
     created_on = models.DateTimeField(_("Created on"), default=timezone.now)
     updated_on = models.DateTimeField(_("Updated on"), null=True, blank=True)
 
+    def save(self, *args, **kwargs):
+        self.updated_on = datetime.datetime.now()
+
+        super().save(*args, **kwargs)
+
     def __str__(self) -> str:
         return f"{self.visit}"
 
@@ -78,6 +83,11 @@ class Allergy(models.Model):
     comments = models.TextField(_("Doctor's Comments"), null=True, blank=True) 
     created_on = models.DateTimeField(_("Created on"), default=timezone.now)
     updated_on = models.DateTimeField(_("Updated on"), null=True, blank=True)
+    
+    def save(self, *args, **kwargs):
+        self.updated_on = datetime.datetime.now()
+
+        super().save(*args, **kwargs)
 
     def __str__(self) -> str:
         return f"{self.name}"

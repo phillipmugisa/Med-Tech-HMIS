@@ -18,39 +18,39 @@
         </aside>
         <section class="main-content-area">
             <div class="main-cta-section">
-                <button class="modal-activators" id="create_patient_modal_activator" data-modal="create_triage_modal">Create Triage</button>
+                <button class="modal-activators" id="create_triage_modal_activator" data-modal="create_triage_modal">Create Triage</button>
             </div>
             <div class="records-part" id="recent-patients">
                 <div class="body">
-                  <table id="data-table" class="display" style="width:100%;margin-top:.5rem;">
+                  <table id="triage_table" class="display" style="width:100%;margin-top:.5rem;">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Gender</th>
-                            <th>Age</th>
-                            <th>Visit</th>
+                            <th>Patient ID</th>
+                            <th>Blood Pressure</th>
+                            <th>Heart Rate</th>
+                            <th>Respiratory Rate</th>
+                            <th>Temperature</th>
                             <th>Created At</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
                     <tfoot>
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Gender</th>
-                            <th>Age</th>
-                            <th>Visit</th>
+                            <th>Patient ID</th>
+                            <th>Blood Pressure</th>
+                            <th>Heart Rate</th>
+                            <th>Respiratory Rate</th>
+                            <th>Temperature</th>
                             <th>Created At</th>
-                        </tr>
                     </tfoot>
                   </table>
                 </div>
             </div>            
         </section>
-        <aside class="preview-area" id="patient-preview"></aside>
+        <aside class="preview-area" id="triage-preview"></aside>
     </main>
-    {% include "./utils/modals/visits_modal.html" with doctor_specialities=doctor_specialities doctors=doctors %}
+    {% include "./utils/modals/triage_modal.html" %}
+    {% include "./utils/modals/load_patient-modal.html" %}
     <script>
         document.addEventListener("DOMContentLoaded", () => {
           
@@ -69,8 +69,8 @@
             refreshView(1);
         })
 
-        document.querySelector("#create_visit_modal_activator")
-          .addEventListener("click", () => triggerCreateVisitModal(data=false))
+        document.querySelector("#create_triage_modal_activator")
+          .addEventListener("click", () => triggerCreateTriageModal(data=false))
     
     
     </script>
