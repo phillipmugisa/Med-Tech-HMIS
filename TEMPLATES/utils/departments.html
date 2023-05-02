@@ -17,7 +17,7 @@
         <img src="{% static 'icons/invoices.png' %}" alt="">
         <span class="department-name">invoices</span>
     </a>
-    <a href="../doctor/index.html" class="department">
+    <a href="{% url 'doctor:doctor-home' %}" class="department">
         <img src="{% static 'icons/doctor.png' %}" alt="">
         <span class="department-name">Doctor</span>
     </a>

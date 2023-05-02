@@ -280,6 +280,10 @@ main .request-view .request-view-body .request-column ul li .test_name {
 main .request-view .request-view-body .request-column ul li .test_description {
   color: hsl(0, 0%, 35%);
 }
+main .request-view .request-view-body .request-column ul li .test_price {
+  justify-self: flex-end;
+  color: rgb(22, 21, 21);
+}
 main .request-view .request-view-body .request-column ul li .action {
   justify-self: flex-end;
   inset-block-start: 0;

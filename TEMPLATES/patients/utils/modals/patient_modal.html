@@ -280,7 +280,7 @@
             .catch(response => {
                 // render error
             })
-            refreshPatientView();
+            refreshVisitView();
         }
         else { 
             // create patient
@@ -294,14 +294,14 @@
                     // create next of kin and attach him to patient
                     makeRequest("{% url 'app_api:patient_create_nok' %}", method="POST", data=next_of_kin)
                     .then(response => {
-                        refreshPatientView();
+                        refreshVisitView();
                     })
                     .catch(response => {
                         // render error
                     })
                 }
                 else {
-                    refreshPatientView();
+                    refreshVisitView();
                 }
 
                 // handle billing methods
@@ -317,9 +317,9 @@
         }
     }
 
-    function refreshPatientView() {
+    function refreshVisitView() {
         // close modal, refresh table
-        document.querySelector("#create_patient_modal .modal-footer .cancel").click();
+        document.querySelector("#create_patient_modal .cancel").click();
         refreshView(1)
     }
 

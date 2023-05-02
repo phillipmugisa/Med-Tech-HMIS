@@ -203,7 +203,7 @@ function triggerCreateVisitModal(data, edit=false){
     setModalPatientDetails(patient, create_visit_modal)
 }
 
-function triggerCreateTriageModal(data, edit=false) {sign_symptoms
+function triggerCreateTriageModal(data, edit=false) {
     openModal(document.querySelector("#create_triage_modal_activator"))
     let create_triage_modal = document.querySelector("#create_triage_modal");
 
@@ -243,7 +243,8 @@ function triggerCreateTriageModal(data, edit=false) {sign_symptoms
     }
     else {
         create_triage_modal.dataset.action = "create"
+        patient = data
     }
-    
     setModalPatientDetails(patient, create_triage_modal)
+    
 }

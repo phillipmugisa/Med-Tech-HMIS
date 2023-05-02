@@ -34,11 +34,11 @@ The project will adapt a modular way of implementation; where each feature is im
 ### postgres
 ```
 sudo -u postgres psql
-CREATE DATABASE medsafe;
 CREATE USER medsafe WITH PASSWORD 'medsafe';
 ALTER ROLE medsafe SET client_encoding TO 'utf8';
 ALTER ROLE medsafe SET default_transaction_isolation TO 'read committed';
 ALTER ROLE medsafe SET timezone TO 'UTC';
+CREATE DATABASE medsafe OWNER medsafe;
 GRANT ALL PRIVILEGES ON DATABASE medsafe TO medsafe;
 ```
 
@@ -47,7 +47,7 @@ GRANT ALL PRIVILEGES ON DATABASE medsafe TO medsafe;
 ```
 sudo apt install python3:10
 python3 -m venv venv
-python3 -m pip install -r requirements.txt
 source ./venv/bin/activate
+python3 -m pip install -r requirements.txt
 python ./functional_tests/main.py
 `

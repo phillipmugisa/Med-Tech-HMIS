@@ -42,7 +42,6 @@ class VisitSerializer(serializers.ModelSerializer):
         
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation["patient_id"] = instance.patient.patient_id
         representation["patient"] = PatientSerializer(instance.patient).data
         representation["Doctor"] = ManagerModels.Doctor.objects.filter(pk=instance.doctor.id).first().getFullName()
         representation["Speciality"] = ManagerModels.Doctor.objects.filter(pk=instance.doctor.id).first().speciality.all().first().name
@@ -58,6 +57,5 @@ class TriageSerializer(serializers.ModelSerializer):
         
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation["patient_id"] = instance.visit.patient.patient_id
         representation["patient"] = PatientSerializer(instance.visit.patient).data
         return representation

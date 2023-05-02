@@ -14,6 +14,7 @@ import datetime
 class Person(models.Model):
     class Meta:
         abstract = True
+        ordering = ("-id","-updated_on")
 
     GenderChoices = (
         ("Male", "Male"),
@@ -25,7 +26,7 @@ class Person(models.Model):
     lastname = models.CharField(_("Last Name"), max_length=256, null=False, blank=False)
     age = models.IntegerField(_("Age"), default=0, null=True, blank=True)
     date_of_birth = models.DateTimeField(_("Date of Birth"), null=True, blank=True)
-    nin = models.CharField(_("National Identification Number"), max_length=256, null=False, blank=False)
+    nin = models.CharField(_("National Identification Number"), max_length=256, null=True, blank=True)
     gender = models.CharField(_("Gender"), max_length=256, choices=GenderChoices, null=False, blank=False)
     telnumber = models.CharField(_("Phone Number"), max_length=256, null=False, blank=False)
     alttelnumber = models.CharField(_("Alternative Phone Number"), max_length=256, null=True, blank=True)
@@ -49,8 +50,7 @@ class Person(models.Model):
             self.date_of_birth = dob.strftime("%Y-%m-%d")
             
         elif not self.age and self.date_of_birth:
-            dob = datetime.datetime.strptime(dob, self.date_of_birth)
-            self.age = (datetime.datetime.now() - dob).days // 365
+            self.age = (datetime.datetime.now() - self.date_of_birth).days // 365
 
         super().save(*args, **kwargs)
 
@@ -61,15 +61,15 @@ class Person(models.Model):
 
     def __str__(self) -> str:
         return f"{self.getFullName()}"
-    
-class DoctorSpeciality(models.Model):
+
+class VisitCategory(models.Model):
     name = models.CharField(_("Name"), max_length=256, null=False, blank=False)
+    created_on = models.DateTimeField(_("Created on"), default=timezone.now)
+    updated_on = models.DateTimeField(_("Updated on"), null=True, blank=True)
+    
     def __str__(self) -> str:
         return f"{self.name}"
 
-class Doctor(Person):
-    speciality = models.ManyToManyField(to=DoctorSpeciality, related_name="doctor_speciality")
-
-    def __str__(self) -> str:
-        return f"Dr. {self.getFullName()}"
-    
+    def save(self, *args, **kwargs):
+        self.updated_on = datetime.datetime.now()
+        super().save(*args, **kwargs)

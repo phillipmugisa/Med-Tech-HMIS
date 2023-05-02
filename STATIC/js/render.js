@@ -3,8 +3,9 @@ function refreshView() {
     // then calls the render functions
 
     // user has to reclick recond so that the preview is updated
-    if (document.querySelector(".preview-area"))
+    if (document.querySelector(".preview-area")) {
         document.querySelector(".preview-area").innerHTML = "";
+    }
 
     let url = window.location.href
     if (url.includes("patients")) {
@@ -26,7 +27,15 @@ function createTableRows (parentElem, data, fields, listener) {
         fields.map(field => {
             const cell = document.createElement("td");
             cell.dataset.value = field
-            cell.textContent = record[field]
+            if (field === "patient") {
+                cell.textContent = record["patient"]["fullname"]
+            }
+            else if (field === "patientID") {
+                cell.textContent = record["patient"]["patient_id"]
+            }
+            else {
+                cell.textContent = record[field]
+            }
             rowElem.appendChild(cell)
         })
 
@@ -61,7 +70,7 @@ function renderVisitData(page=1) {
         const tableBody = document.querySelector("table#visitsTable tbody")
         // clear table body
         tableBody.innerHTML = "";
-        createTableRows(tableBody, response.results, field=["patient_id", "category", "Speciality", "Doctor", "complete", "visit_date"], listener=loadVisitPreview)
+        createTableRows(tableBody, response.results, field=["patientID", "patient", "category", "Speciality", "Doctor", "complete", "visit_date"], listener=loadVisitPreview)
     })
     .catch(response => {
         // render error
@@ -76,7 +85,7 @@ function rendertriageData(page=1) {
         const tableBody = document.querySelector("table#triage_table tbody")
         // clear table body
         tableBody.innerHTML = "";
-        createTableRows(tableBody, response, field=["patient_id", "blood_pressure", "heart_rate", "respiratory_rate", "temperature", "created_on"], listener=loadTriagePreview)
+        createTableRows(tableBody, response, field=["patientID", "patient", "blood_pressure", "heart_rate", "respiratory_rate", "temperature", "created_on"], listener=loadTriagePreview)
     })
     .catch(response => {
         // render error

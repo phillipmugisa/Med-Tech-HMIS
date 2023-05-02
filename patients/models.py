@@ -9,6 +9,7 @@ import string
 import datetime
 
 from manager import models as ManagerModels
+from doctor import models as DoctorModels
 from finance import models as FinanceModels
 
 class Patient(ManagerModels.Person):
@@ -38,10 +39,13 @@ class NextOfKin(ManagerModels.Person):
     patient = models.ForeignKey(to=Patient, on_delete=models.CASCADE, related_name="next_of_kin", null=True, blank=True)
 
 class Visit(models.Model):
+    class Meta:
+        ordering = ("-id","-updated_on")
+
     patient = models.ForeignKey(to=Patient, on_delete=models.CASCADE)
-    doctor = models.ForeignKey(to=ManagerModels.Doctor, on_delete=models.SET_NULL, null=True)
-    category = models.CharField(_("Category"), max_length=256, null=True, blank=True)
-    speciality = models.ForeignKey(to=ManagerModels.DoctorSpeciality, on_delete=models.SET_NULL, null=True)
+    doctor = models.ForeignKey(to=DoctorModels.Doctor, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(to=ManagerModels.VisitCategory, on_delete=models.CASCADE)
+    speciality = models.ForeignKey(to=DoctorModels.DoctorSpeciality, on_delete=models.SET_NULL, null=True)
     billing = models.OneToOneField(to=FinanceModels.Billing, on_delete=models.SET_NULL, null=True)
     complete = models.BooleanField(_("Completed"), default=False)
     updated_on = models.DateTimeField(_("Updated on"), null=True, blank=True)

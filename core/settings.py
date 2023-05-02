@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
 CUSTOM_APPS = [
     "manager",
+    "doctor",
     "patients",
     "finance",
     "app_api"

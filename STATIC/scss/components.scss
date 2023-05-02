@@ -342,6 +342,10 @@ main {
                         .test_description {
                             color: hsl(0, 0%, 35%);
                         }
+                        .test_price {
+                            justify-self: flex-end;
+                            color: rgb(22, 21, 21);
+                        }
 
                         .action {
                             // position: absolute;

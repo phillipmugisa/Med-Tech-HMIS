@@ -78,8 +78,9 @@
               <div class="form-control flex flex-column">
                 <label for="">Category</label>
                 <select name="category" class="input" id="visit_category">
-                  <option value="consultation">Consultation</option>
-                  <option value="other">Other</option>
+                  {% for category in visit_categories %}
+                    <option value="{{category.id}}" data-name="{{category}}">{{ category }}</option>
+                  {% endfor %}
                 </select>
               </div>
               <div class="form-control flex flex-column">
