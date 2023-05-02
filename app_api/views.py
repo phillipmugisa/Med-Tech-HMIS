@@ -62,7 +62,14 @@ class VisitsListView(generics.ListAPIView, VisitsViews):
 class VisitsRetrieveView(generics.RetrieveAPIView, VisitsViews):
     pass
 class VisitCreateView(generics.CreateAPIView, VisitsViews):
-    pass
+    def post(self, request, *args, **kwargs):
+        print("\n"*5)
+        print(request.data.get("patient"))
+        print(PatientModals.Visit.objects.filter(patient__pk=request.data.get("patient"), complete=False))
+        print("\n"*5)
+        if PatientModals.Visit.objects.filter(patient__pk=request.data.get("patient"), complete=False):
+            return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
+        return self.create(request, *args, **kwargs)
 
 class VisitsUpdateView(generics.UpdateAPIView, VisitsViews):
     pass
@@ -71,7 +78,7 @@ class PatientVisitListView(generics.ListAPIView, VisitsViews):
     def get(self, request, patient_id):
         patient = PatientModals.Patient.objects.filter(patient_id=patient_id)
         if patient:
-            visit = PatientModals.Visit.objects.filter(patient=patient.first(), complete=False).order_by("-id")
+            visit = PatientModals.Visit.objects.filter(patient=patient.first(), complete=False)
             serializer = self.get_serializer(visit, many=True)
             return Response(serializer.data)
         return Response(status=status.HTTP_400_BAD_REQUEST)
@@ -97,7 +104,7 @@ class VisitTriageListView(generics.ListAPIView, TriageViews):
     def get(self, request, pk):
         visit = PatientModals.Visit.objects.filter(pk=pk)
         if visit:
-            visit = PatientModals.Triage.objects.filter(visit=visit).first()
+            triage = PatientModals.Triage.objects.filter(visit=visit.first()).first()
             serializer = self.get_serializer(triage)
             return Response(serializer.data)
         return Response(status=status.HTTP_400_BAD_REQUEST)

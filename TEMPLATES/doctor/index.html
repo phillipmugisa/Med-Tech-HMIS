@@ -28,153 +28,34 @@
               <button class="accented section-togglers" data-section="theatre" id="theatre_toggler">Theatre</button>
               <button class="accented section-togglers" data-section="dental_lab" id="dental_lab_toggler">Dental Lab</button>
               <button class="accented section-togglers" data-section="eye" id="eye_toggler">Eye</button>
-              <button disabled class="accented section-togglers disabled" data-section="cardiology_results" id="cardiology_results_toggler">Cardiology Results</button>
-              <button disabled class="accented section-togglers disabled" data-section="radiology_results" id="radiology_results_toggler">Radiology Results</button>
+              <button class="accented section-togglers disabled" data-section="cardiology_results" id="cardiology_results_toggler">Cardiology Results</button>
+              <button class="accented section-togglers disabled" data-section="radiology_results" id="radiology_results_toggler">Radiology Results</button>
           </div>
           <section class="variable-section inview" id="assigned_patients">
             <div class="records-part" id="recent-patients">
               <div class="body">
-                <table id="data-table" class="display" style="width:100%;margin-top:.5rem;">
+                <table id="visitsTable" class="display" style="width:100%;margin-top:.5rem;">
                   <thead>
-                      <tr>
-                          <th>ID</th>
-                          <th>Name</th>
-                          <th>Gender</th>
-                          <th>Age</th>
-                          <th>Visit</th>
-                          <th>Created At</th>
-                      </tr>
+                    <tr>
+                      <th>Patient ID</th>
+                      <th>Patient</th>
+                      <th>Category</th>
+                      <th>Speciality</th>
+                      <th>Doctor</th>
+                      <th>Complete</th>
+                      <th>Visit Date</th>
+                    </tr>
                   </thead>
-                  <tbody>
-                      <tr>
-                          <td>FLH230300</td>
-                          <td>John Mukama Blue</td>
-                          <td>M</td>
-                          <td>25</td>
-                          <td>No</td>
-                          <td>08:30</td>
-                      </tr>
-                      <tr>
-                          <td>FLH230385</td>
-                          <td>Grace Sasira Lusuku</td>
-                          <td>F</td>
-                          <td>47</td>
-                          <td>Yes</td>
-                          <td>10:54</td>
-                      </tr>
-                      <tr>
-                          <td>FLH230326</td>
-                          <td>Mohamed Baker L.</td>
-                          <td>M</td>
-                          <td>21</td>
-                          <td>No</td>
-                          <td>10:53</td>
-                      </tr>
-                      <tr>
-                          <td>FLH230301</td>
-                          <td>Phillip Naturinda M.</td>
-                          <td>M</td>
-                          <td>35</td>
-                          <td>No</td>
-                          <td>10:59</td>
-                      </tr>
-                      <tr>
-                        <td>FLH230311</td>
-                        <td>Deodat Aganyira</td>
-                        <td>M</td>
-                        <td>68</td>
-                        <td>No</td>
-                        <td>12:02</td>
-                    </tr>
-                    <tr>
-                      <td>FLH230313</td>
-                      <td>Joram Bwambale</td>
-                      <td>M</td>
-                      <td>28</td>
-                      <td>No</td>
-                      <td>13:15</td>
-                    </tr>
-                    <tr>
-                      <td>FLH230316</td>
-                      <td>Matthew Musoke</td>
-                      <td>M</td>
-                      <td>26</td>
-                      <td>No</td>
-                      <td>13:42</td>
-                    </tr>
-                    <tr>
-                      <td>FLH230366</td>
-                      <td>Juma Kiyinji Moses</td>
-                      <td>M</td>
-                      <td>43</td>
-                      <td>No</td>
-                      <td>14:33</td>
-                    </tr>
-                    <tr>
-                      <td>FLH230336</td>
-                      <td>Alert Kapallaga</td>
-                      <td>M</td>
-                      <td>23</td>
-                      <td>No</td>
-                      <td>14:43</td>
-                    </tr>
-                    <tr>
-                      <td>FLH230361</td>
-                      <td>Martin Tukesiga Joel</td>
-                      <td>M</td>
-                      <td>22</td>
-                      <td>No</td>
-                      <td>14:36</td>
-                    </tr>
-                    <tr>
-                      <td>FLH230386</td>
-                      <td>Jane Nantongo Nakato</td>
-                      <td>F</td>
-                      <td>24</td>
-                      <td>No</td>
-                      <td>14:38</td>
-                    </tr>
-                    <tr>
-                      <td>FLH230386</td>
-                      <td>Hassan Dahalane</td>
-                      <td>M</td>
-                      <td>32</td>
-                      <td>No</td>
-                      <td>14:42</td>
-                    </tr>
-                    <tr>
-                      <td>FLH230377</td>
-                      <td>Ssempala Moses</td>
-                      <td>M</td>
-                      <td>55</td>
-                      <td>No</td>
-                      <td>14:50</td>
-                    </tr>
-                    <tr>
-                      <td>FLH230656</td>
-                      <td>Robert Mulenda Mwiru</td>
-                      <td>M</td>
-                      <td>26</td>
-                      <td>No</td>
-                      <td>15:08</td>
-                    </tr>
-                    <tr>
-                      <td>FLH230116</td>
-                      <td>Johnson Orone Nathan</td>
-                      <td>M</td>
-                      <td>20</td>
-                      <td>No</td>
-                      <td>15:15</td>
-                    </tr>
-                  </tbody>
+                  <tbody></tbody>
                   <tfoot>
                     <tr>
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Gender</th>
-                      <th>Age</th>
-                      <th>Visit</th>
-                      <th>Created At</th>
+                      <th>Patient ID</th>
+                      <th>Patient</th>
+                      <th>Category</th>
+                      <th>Speciality</th>
+                      <th>Doctor</th>
+                      <th>Complete</th>
+                      <th>Visit Date</th>
                     </tr>
                   </tfoot>
                 </table>
@@ -195,38 +76,40 @@
                       <small>Vital Signs</small>
                     </div>
                     <div class="section-content">
-                      <div class="section-content-row grid flex-gap-40">
+                      <div class="section-content-row flex flex-gap-40">
                         <div class="form-control flex flex-column">
                           <label for="">Blood Pressure</label>
-                          <input class="input" type="text" />
+                          <input class="input" type="number" id="blood_pressure"/>
                         </div>
                         <div class="form-control flex flex-column">
                           <label for="">Heart Rate</label>
-                          <input class="input" type="text" />
+                          <input class="input" type="number" id="heart_rate"/>
                         </div>
                         <div class="form-control flex flex-column">
                           <label for="">Respiratory Rate</label>
-                          <input class="input" type="text" />
+                          <input class="input" type="number" id="respiratory_rate"/>
                         </div>
                         <div class="form-control flex flex-column">
                           <label for="">Temperature</label>
-                          <input class="input" type="text" />
+                          <input class="input" type="number" id="temperature"/>
                         </div>
+                      </div>
+                      <div class="section-content-row flex flex-gap-40">
                         <div class="form-control flex flex-column">
                           <label for="">Weight(Kg)</label>
-                          <input class="input" type="text" />
+                          <input class="input" type="number" id="weight"/>
                         </div>
                         <div class="form-control flex flex-column">
                           <label for="">Height(cm)</label>
-                          <input class="input" type="text" />
+                          <input class="input" type="number" id="height"/>
                         </div>
                         <div class="form-control flex flex-column">
                           <label for="">Oxygen Saturation</label>
-                          <input class="input" type="text" />
+                          <input class="input" type="number" id="oxygen_saturation"/>
                         </div>
                         <div class="form-control flex flex-column">
                           <label for="">MUAC</label>
-                          <input class="input" type="text" />
+                          <input class="input" type="number" id="MUAC"/>
                         </div>
                       </div>
                     </div>
@@ -240,7 +123,7 @@
                         <div class="form-control flex flex-column">
                           <div class="form-control flex flex-column" style="inline-size: 100%">
                             <label for="">Fill the signs and symptoms from the patient</label>
-                            <textarea class="input" cols="100%" rows="2"></textarea>
+                            <textarea class="input" cols="100%" rows="2" id="sign_symptoms"></textarea>
                           </div>
                         </div>
                       </div>
@@ -255,7 +138,7 @@
                         <div class="form-control flex flex-column">
                           <div class="form-control flex flex-column" style="inline-size: 100%">
                             <label for="">Fill the type, location and severity of injury</label>
-                            <textarea class="input" cols="100%" rows="2"></textarea>
+                            <textarea class="input" cols="100%" rows="2" id="injury_details"></textarea>
                           </div>
                         </div>
                       </div>
@@ -264,6 +147,7 @@
                   <div class="modal-section cta-area">
                     <button class="accented section-form-cta accented">Save</button>
                   </div>
+                </form>
               </div>
             </div>
             <div class="variable-section-part" id="allergies">
@@ -1127,4 +1011,49 @@
       <aside class="preview-area" id="patient-preview">
       </aside>
   </main>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      var currentVisitState = new State(null);
+      document.querySelectorAll(".section-togglers:not(#assigned_patients_toggler)")
+        .forEach(elem => {
+          elem.disabled = true;
+          elem.classList.add("disabled")
+        })
+      // Signout
+      const signoutBtn = document.querySelector('.fa-sign-out');
+    
+      signoutBtn.addEventListener('click', (event) => {
+        window.location.href = "../auth/index.html";
+      });
+
+      // load data
+      refreshView(1, "visit_list")
+      .then(() => {
+        document.querySelectorAll("#visitsTable tbody tr")
+          .forEach(elem => elem.addEventListener("click", () => {
+            currentVisitState.setState(elem.dataset.record_db_id)
+            document.querySelectorAll(".section-togglers:not(#assigned_patients_toggler)")
+            .forEach(elem => {
+              elem.disabled = false;
+              elem.classList.remove("disabled")
+            })
+          }))
+      })
+
+      document.querySelector("#general_doctor_toggler")
+        .addEventListener("click", () => {
+          // fetch triage data
+          makeRequest(`/api/visit/${currentVisitState.state}/triage/`, method="GET")
+          .then(response => {
+            displayTriageFormData(response, document.querySelector(".variable-section-part#triage"))
+          })
+          .catch(response => {
+            // ERROR: prompt reload
+          })
+        })
+
+    })   
+  
+  </script>
+
 {% endblock %}

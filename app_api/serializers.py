@@ -2,6 +2,7 @@ import datetime
 from rest_framework import serializers
 from patients import models as PatientModals
 from manager import models as ManagerModels
+from doctor import models as DoctorModels
 
 class PatientSerializer(serializers.ModelSerializer):
     class Meta:
@@ -43,8 +44,8 @@ class VisitSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation["patient"] = PatientSerializer(instance.patient).data
-        representation["Doctor"] = ManagerModels.Doctor.objects.filter(pk=instance.doctor.id).first().getFullName()
-        representation["Speciality"] = ManagerModels.Doctor.objects.filter(pk=instance.doctor.id).first().speciality.all().first().name
+        representation["Doctor"] = DoctorModels.Doctor.objects.filter(pk=instance.doctor.id).first().getFullName()
+        representation["Speciality"] = DoctorModels.Doctor.objects.filter(pk=instance.doctor.id).first().speciality.all().first().name
         return representation
 
 

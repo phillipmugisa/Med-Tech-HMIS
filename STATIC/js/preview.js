@@ -3,7 +3,7 @@
 const backend_url = "http://localhost:8000"
 
 const loadPatientOnPreview = (patient) => {
-    let previewArea = document.querySelector("#patient-preview");
+    let previewArea = document.querySelector(".preview-area");
     let previewContent = `
     <div class="img-wrapper">
         <img src="${backend_url}/static/images/user.png" alt="">
@@ -55,7 +55,7 @@ const loadPatientOnPreview = (patient) => {
 
 
 const loadVisitPreview = (visit) => {
-    let previewArea = document.querySelector("#visit-preview");
+    let previewArea = document.querySelector(".preview-area");
     let previewContent = `
     <div class="img-wrapper">
         <img src="${backend_url}/static/images/user.png" alt="">
@@ -63,7 +63,7 @@ const loadVisitPreview = (visit) => {
     <div class="details" id="preview_detials">
         <div class="detail-group">
             <p class="part-title">Patient:</p>
-            <p class="part-content">${visit.patient_id}</p>
+            <p class="part-content">${visit.patient.patient_id}</p>
         </div>
         <div class="detail-group">
             <p class="part-title">Fullname:</p>
@@ -78,12 +78,12 @@ const loadVisitPreview = (visit) => {
             <p class="part-content" id="preview_patient_name">${visit.category}</p>
         </div>
         <div class="detail-group">
-            <p class="part-title">Speciality:</p>
-            <p class="part-content">${visit.Speciality}</p>
-        </div>
-        <div class="detail-group">
             <p class="part-title">Doctor:</p>
             <p class="part-content">${visit.Doctor}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Speciality:</p>
+            <p class="part-content">${visit.Speciality}</p>
         </div>
         <div class="detail-group">
             <p class="part-title">Complete:</p>
@@ -101,7 +101,7 @@ const loadVisitPreview = (visit) => {
 }
 
 const loadTriagePreview = (triage) => {
-    let previewArea = document.querySelector("#triage-preview");
+    let previewArea = document.querySelector(".preview-area");
     let previewContent = `
     <div class="img-wrapper">
         <img src="${backend_url}/static/images/user.png" alt="">

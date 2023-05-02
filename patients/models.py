@@ -63,10 +63,14 @@ class Visit(models.Model):
 
 class Triage(models.Model):
     visit = models.OneToOneField(to=Visit, on_delete=models.CASCADE)
-    blood_pressure = models.CharField(_("Blood Pressure"), max_length=256, null=True, blank=True)
-    heart_rate = models.CharField(_("Heart Rate"), max_length=256, null=True, blank=True)
-    respiratory_rate = models.CharField(_("Respiratory Rate"), max_length=256, null=True, blank=True)
-    temperature = models.CharField(_("Temperature"), max_length=256, null=True, blank=True)
+    blood_pressure = models.DecimalField(_("Blood Pressure"), decimal_places=2, max_digits=6, null=True, blank=True)
+    heart_rate = models.DecimalField(_("Heart Rate"), decimal_places=2, max_digits=6, null=True, blank=True)
+    respiratory_rate = models.DecimalField(_("Respiratory Rate"), decimal_places=2, max_digits=6, null=True, blank=True)
+    temperature = models.DecimalField(_("Temperature"), decimal_places=2, max_digits=6, null=True, blank=True)
+    weight = models.DecimalField(_("Weight"), decimal_places=2, max_digits=6, null=True, blank=True)
+    height = models.DecimalField(_("Height"), decimal_places=2, max_digits=6, null=True, blank=True)
+    oxygen_saturation = models.DecimalField(_("Oxygen Saturation"), decimal_places=2, max_digits=6, null=True, blank=True)
+    MUAC = models.DecimalField(_("MUAC"), decimal_places=2, max_digits=6, null=True, blank=True)
     sign_symptoms = models.TextField(_("Signs and Symptoms"), null=True, blank=True) 
     injury_details = models.TextField(_("injury Details"), null=True, blank=True) 
     created_on = models.DateTimeField(_("Created on"), default=timezone.now)

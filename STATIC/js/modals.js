@@ -160,6 +160,19 @@ function setModalPatientDetails(patient, modal) {
     modal.querySelector("#patient_id").value = patient.patient_id
 }
 
+function displayTriageFormData (data, parentElem) {
+    parentElem.querySelector("#blood_pressure").value = data.blood_pressure
+    parentElem.querySelector("#heart_rate").value = data.heart_rate
+    parentElem.querySelector("#respiratory_rate").value = data.respiratory_rate
+    parentElem.querySelector("#temperature").value = data.temperature
+    parentElem.querySelector("#weight").value = data.weight
+    parentElem.querySelector("#height").value = data.height
+    parentElem.querySelector("#oxygen_saturation").value = data.oxygen_saturation
+    parentElem.querySelector("#MUAC").value = data.MUAC
+    parentElem.querySelector("#sign_symptoms").value = data.sign_symptoms
+    parentElem.querySelector("#injury_details").value = data.injury_details
+}
+
 function triggerCreateVisitModal(data, edit=false){
     openModal(document.querySelector("#create_visit_modal_activator"))
     const create_visit_modal = document.querySelector("#create_visit_modal");
@@ -233,12 +246,7 @@ function triggerCreateTriageModal(data, edit=false) {
         
         create_triage_modal.dataset.visit = data.visit
         create_triage_modal.dataset.triage = data.id
-        create_triage_modal.querySelector("#blood_pressure").value = data.blood_pressure
-        create_triage_modal.querySelector("#heart_rate").value = data.heart_rate
-        create_triage_modal.querySelector("#respiratory_rate").value = data.respiratory_rate
-        create_triage_modal.querySelector("#temperature").value = data.temperature
-        create_triage_modal.querySelector("#sign_symptoms").value = data.sign_symptoms
-        create_triage_modal.querySelector("#injury_details").value = data.injury_details
+        displayTriageFormData(data, create_triage_modal)
         patient = data.patient
     }
     else {

@@ -72,19 +72,37 @@
               <div class="section-content-row flex flex-gap-40">
                 <div class="form-control flex flex-column">
                   <label for="">Blood Pressure</label>
-                  <input class="input" type="text" id="blood_pressure"/>
+                  <input class="input" type="number" id="blood_pressure"/>
                 </div>
                 <div class="form-control flex flex-column">
                   <label for="">Heart Rate</label>
-                  <input class="input" type="text" id="heart_rate"/>
+                  <input class="input" type="number" id="heart_rate"/>
                 </div>
                 <div class="form-control flex flex-column">
                   <label for="">Respiratory Rate</label>
-                  <input class="input" type="text" id="respiratory_rate"/>
+                  <input class="input" type="number" id="respiratory_rate"/>
                 </div>
                 <div class="form-control flex flex-column">
                   <label for="">Temperature</label>
-                  <input class="input" type="text" id="temperature"/>
+                  <input class="input" type="number" id="temperature"/>
+                </div>
+              </div>
+              <div class="section-content-row flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                  <label for="">Weight(Kg)</label>
+                  <input class="input" type="number" id="weight"/>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Height(cm)</label>
+                  <input class="input" type="number" id="height"/>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Oxygen Saturation</label>
+                  <input class="input" type="number" id="oxygen_saturation"/>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">MUAC</label>
+                  <input class="input" type="number" id="MUAC"/>
                 </div>
               </div>
             </form>
@@ -152,6 +170,10 @@
       let heart_rate = create_triage_modal.querySelector("#heart_rate")
       let respiratory_rate = create_triage_modal.querySelector("#respiratory_rate")
       let temperature = create_triage_modal.querySelector("#temperature")
+      let weight = create_triage_modal.querySelector("#weight")
+      let height = create_triage_modal.querySelector("#height")
+      let oxygen_saturation = create_triage_modal.querySelector("#oxygen_saturation")
+      let MUAC = create_triage_modal.querySelector("#MUAC")
       let sign_symptoms = create_triage_modal.querySelector("#sign_symptoms")
       let injury_details = create_triage_modal.querySelector("#injury_details")
 
@@ -205,12 +227,16 @@
           "heart_rate" : heart_rate.value,
           "respiratory_rate" : respiratory_rate.value,
           "temperature" : temperature.value,
+          "weight" : weight.value,
+          "height" : height.value,
+          "oxygen_saturation" : oxygen_saturation.value,
+          "MUAC" : MUAC.value,
           "sign_symptoms" : sign_symptoms.value,
           "injury_details" : injury_details.value
       }
 
-      
-      if (!create_triage_modal.dataset.action == "edit") {
+      if (!(document.querySelector("#create_triage_modal").dataset.action == "edit")) {
+        console.log("we are in here")
         // fetch visit data, triage is associated with a visit
         makeRequest(`/api/patients/${patient_id.value}/visit/`, method="GET")
         .then(response => {
