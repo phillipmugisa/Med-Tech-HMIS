@@ -176,6 +176,29 @@
         </aside>
         <section class="main-content-area">
             <div class="main-cta-section" style="display:inline-block">
+              <div class="main-cta-section section-content-row flex flex-gap-40" style="gap:6px !important;">
+                <div class="form-control flex flex-column">
+                  <label for="">Billing Method</label>
+                  <select name="method" class="input" style="inline-size: 164px;padding:4px;">
+                      <option value="cash">Cash</option>
+                      <option value="account">Account</option>
+                      <option value="insurance">Insurance</option>
+                  </select>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="" class="">To Billing Company</label>
+                  <select name="company" class="input" style="inline-size: 164px;padding:4px;">
+                      <option value="jubilee">Jubilee Insurance</option>
+                      <option value="sanlam">Sanlam Life Insurance Uganda</option>
+                      <option value="aig">AIG Uganda Limited</option>
+                      <option value="britam">Britam Insurance</option>
+                  </select>
+                </div>
+                <div class="form-control flex flex-column">
+                </div>
+                <div class="form-control flex flex-column">
+                </div>
+              </div>
             <div class="main-cta-section">
               <button class="accented section-togglers" data-section="tab_00" id="tab_00_toggler" style="inline-size: 164px;">Dental</button>
               <button class="accented section-togglers" data-section="tab_01" id="tab_01_toggler" style="inline-size: 164px;">Laboratory</button>
@@ -186,31 +209,8 @@
               <button class="accented section-togglers" data-section="tab_06" id="tab_06_toggler" style="inline-size: 164px;">Others</button>
             </div>
             <section class="variable-section inview" id="tab_00" style="padding: 4px;">
-              <div class="records-part">
+              <div class="records-part" id="tab_table_00">
                 <div class="body">
-                  <div class="modal-section">
-                    <div class="section-label">
-                      <small>Create Dental Service</small>
-                    </div>
-                    <div class="section-content" style="margin-block: 18px 6px;">
-                      <div class="section-content-row grid flex-gap-40">
-                        <div class="form-control flex flex-column">
-                          <label for="">Service Name</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="">Fee</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="" style="visibility: hidden;">Save</label>
-                          <button style="padding: 5px 60px;border-radius: 8px;">Create Service</button>
-                        </div>
-                        <div class="form-control flex flex-column">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <table id="table_00" class="display" style="width:100%;margin-top:.5rem;">
                     <thead>
                         <tr>
@@ -223,20 +223,20 @@
                     <tbody>
                       <tr>
                         <td>SER230300</td>
-                        <td>Malaria test</td>
-                        <td><input type="text" name="" id="" value="5,000"></td>
+                        <td>Tooth extraction</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                       <tr>
                         <td>SER230301</td>
-                        <td>Blood test</td>
-                        <td><input type="text" name="" id="" value="15,000"></td>
+                        <td>Dental amalgamation</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                       <tr>
                         <td>SER230314</td>
-                        <td>Typhoid test</td>
-                        <td><input type="text" name="" id="" value="10,000"></td>
+                        <td>Tooth extraction</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                     </tbody>
@@ -253,31 +253,8 @@
               </div>  
             </section>
             <section class="variable-section" id="tab_01" style="padding: 4px;">
-              <div class="records-part">
+              <div class="records-part" id="tab_table_01">
                 <div class="body">
-                  <div class="modal-section">
-                    <div class="section-label">
-                      <small>Create Lab Service</small>
-                    </div>
-                    <div class="section-content" style="margin-block: 18px 6px;">
-                      <div class="section-content-row grid flex-gap-40">
-                        <div class="form-control flex flex-column">
-                          <label for="">Service Name</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="">Fee</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="" style="visibility: hidden;">Save</label>
-                          <button style="padding: 5px 60px;border-radius: 8px;">Create Service</button>
-                        </div>
-                        <div class="form-control flex flex-column">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <table id="table_01" class="display" style="width:100%;margin-top:.5rem;">
                     <thead>
                         <tr>
@@ -320,31 +297,8 @@
               </div>  
             </section>
             <section class="variable-section" id="tab_02" style="padding: 4px;">
-              <div class="records-part">
+              <div class="records-part" id="tab_table_02">
                 <div class="body">
-                  <div class="modal-section">
-                    <div class="section-label">
-                      <small>Create Cardiology Service</small>
-                    </div>
-                    <div class="section-content" style="margin-block: 18px 6px;">
-                      <div class="section-content-row grid flex-gap-40">
-                        <div class="form-control flex flex-column">
-                          <label for="">Service Name</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="">Fee</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="" style="visibility: hidden;">Save</label>
-                          <button style="padding: 5px 60px;border-radius: 8px;">Create Service</button>
-                        </div>
-                        <div class="form-control flex flex-column">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <table id="table_02" class="display" style="width:100%;margin-top:.5rem;">
                     <thead>
                         <tr>
@@ -357,20 +311,20 @@
                     <tbody>
                       <tr>
                         <td>SER230300</td>
-                        <td>Malaria test</td>
-                        <td><input type="text" name="" id="" value="5,000"></td>
+                        <td>Tooth extraction</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                       <tr>
                         <td>SER230301</td>
-                        <td>Blood test</td>
-                        <td><input type="text" name="" id="" value="15,000"></td>
+                        <td>Dental amalgamation</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                       <tr>
                         <td>SER230314</td>
-                        <td>Typhoid test</td>
-                        <td><input type="text" name="" id="" value="10,000"></td>
+                        <td>Tooth extraction</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                     </tbody>
@@ -387,31 +341,8 @@
               </div>  
             </section>
             <section class="variable-section" id="tab_03" style="padding: 4px;">
-              <div class="records-part">
+              <div class="records-part" id="tab_table_03">
                 <div class="body">
-                  <div class="modal-section">
-                    <div class="section-label">
-                      <small>Create Radiology Service</small>
-                    </div>
-                    <div class="section-content" style="margin-block: 18px 6px;">
-                      <div class="section-content-row grid flex-gap-40">
-                        <div class="form-control flex flex-column">
-                          <label for="">Service Name</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="">Fee</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="" style="visibility: hidden;">Save</label>
-                          <button style="padding: 5px 60px;border-radius: 8px;">Create Service</button>
-                        </div>
-                        <div class="form-control flex flex-column">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <table id="table_03" class="display" style="width:100%;margin-top:.5rem;">
                     <thead>
                         <tr>
@@ -424,20 +355,20 @@
                     <tbody>
                       <tr>
                         <td>SER230300</td>
-                        <td>Malaria test</td>
-                        <td><input type="text" name="" id="" value="5,000"></td>
+                        <td>Tooth extraction</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                       <tr>
                         <td>SER230301</td>
-                        <td>Blood test</td>
-                        <td><input type="text" name="" id="" value="15,000"></td>
+                        <td>Dental amalgamation</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                       <tr>
                         <td>SER230314</td>
-                        <td>Typhoid test</td>
-                        <td><input type="text" name="" id="" value="10,000"></td>
+                        <td>Tooth extraction</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                     </tbody>
@@ -454,31 +385,8 @@
               </div>  
             </section>
             <section class="variable-section" id="tab_04" style="padding: 4px;">
-              <div class="records-part">
+              <div class="records-part" id="tab_table_04">
                 <div class="body">
-                  <div class="modal-section">
-                    <div class="section-label">
-                      <small>Create Medicine Service</small>
-                    </div>
-                    <div class="section-content" style="margin-block: 18px 6px;">
-                      <div class="section-content-row grid flex-gap-40">
-                        <div class="form-control flex flex-column">
-                          <label for="">Service Name</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="">Fee</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="" style="visibility: hidden;">Save</label>
-                          <button style="padding: 5px 60px;border-radius: 8px;">Create Service</button>
-                        </div>
-                        <div class="form-control flex flex-column">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <table id="table_04" class="display" style="width:100%;margin-top:.5rem;">
                     <thead>
                         <tr>
@@ -491,20 +399,20 @@
                     <tbody>
                       <tr>
                         <td>SER230300</td>
-                        <td>Malaria test</td>
-                        <td><input type="text" name="" id="" value="5,000"></td>
+                        <td>Tooth extraction</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                       <tr>
                         <td>SER230301</td>
-                        <td>Blood test</td>
-                        <td><input type="text" name="" id="" value="15,000"></td>
+                        <td>Dental amalgamation</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                       <tr>
                         <td>SER230314</td>
-                        <td>Typhoid test</td>
-                        <td><input type="text" name="" id="" value="10,000"></td>
+                        <td>Tooth extraction</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                     </tbody>
@@ -521,31 +429,8 @@
               </div>  
             </section>
             <section class="variable-section" id="tab_05" style="padding: 4px;">
-              <div class="records-part">
+              <div class="records-part" id="tab_table_05">
                 <div class="body">
-                  <div class="modal-section">
-                    <div class="section-label">
-                      <small>Create Consultation Service</small>
-                    </div>
-                    <div class="section-content" style="margin-block: 18px 6px;">
-                      <div class="section-content-row grid flex-gap-40">
-                        <div class="form-control flex flex-column">
-                          <label for="">Service Name</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="">Fee</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="" style="visibility: hidden;">Save</label>
-                          <button style="padding: 5px 60px;border-radius: 8px;">Create Service</button>
-                        </div>
-                        <div class="form-control flex flex-column">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <table id="table_05" class="display" style="width:100%;margin-top:.5rem;">
                     <thead>
                         <tr>
@@ -558,20 +443,20 @@
                     <tbody>
                       <tr>
                         <td>SER230300</td>
-                        <td>Malaria test</td>
-                        <td><input type="text" name="" id="" value="5,000"></td>
+                        <td>Tooth extraction</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                       <tr>
                         <td>SER230301</td>
-                        <td>Blood test</td>
-                        <td><input type="text" name="" id="" value="15,000"></td>
+                        <td>Dental amalgamation</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                       <tr>
                         <td>SER230314</td>
-                        <td>Typhoid test</td>
-                        <td><input type="text" name="" id="" value="10,000"></td>
+                        <td>Tooth extraction</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                     </tbody>
@@ -588,31 +473,8 @@
               </div>  
             </section>
             <section class="variable-section" id="tab_06" style="padding: 4px;">
-              <div class="records-part">
+              <div class="records-part" id="tab_table_06">
                 <div class="body">
-                  <div class="modal-section">
-                    <div class="section-label">
-                      <small>Create Other Service</small>
-                    </div>
-                    <div class="section-content" style="margin-block: 18px 6px;">
-                      <div class="section-content-row grid flex-gap-40">
-                        <div class="form-control flex flex-column">
-                          <label for="">Service Name</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="">Fee</label>
-                          <input class="input" type="text" />
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="" style="visibility: hidden;">Save</label>
-                          <button style="padding: 5px 60px;border-radius: 8px;">Create Service</button>
-                        </div>
-                        <div class="form-control flex flex-column">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <table id="table_06" class="display" style="width:100%;margin-top:.5rem;">
                     <thead>
                         <tr>
@@ -625,20 +487,20 @@
                     <tbody>
                       <tr>
                         <td>SER230300</td>
-                        <td>Malaria test</td>
-                        <td><input type="text" name="" id="" value="5,000"></td>
+                        <td>Tooth extraction</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                       <tr>
                         <td>SER230301</td>
-                        <td>Blood test</td>
-                        <td><input type="text" name="" id="" value="15,000"></td>
+                        <td>Dental amalgamation</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                       <tr>
                         <td>SER230314</td>
-                        <td>Typhoid test</td>
-                        <td><input type="text" name="" id="" value="10,000"></td>
+                        <td>Tooth extraction</td>
+                        <td><input type="text" name="" id="" value="25,000"></td>
                         <td>24-04-2023</td>
                       </tr>
                     </tbody>
@@ -744,12 +606,6 @@
   let tabTable02 = $('#table_02').DataTable();
 
   let tabTable03 = $('#table_03').DataTable();
-
-  let tabTable04 = $('#table_04').DataTable();
-
-  let tabTable05 = $('#table_05').DataTable();
-  
-  let tabTable06 = $('#table_06').DataTable();
 
 
 
