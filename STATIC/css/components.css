@@ -66,27 +66,13 @@ button.accented:hover {
   font-weight: 500;
 }
 
-.department {
-  inline-size: 100px;
-}
-
-.department.active {
-  background-color: #1da1f2;
-  color:#F8F8F8;
-}
-
-
-.department.active:hover {
-  background-color: #1da1f2;
-  color:#F8F8F8;
-}
-
 main {
   background-color: #F8F8F8;
   display: grid;
   grid-template-columns: 3% 97%;
   padding: 0.5rem;
   gap: 0.5rem;
+  min-block-size: 100vw;
 }
 main.split {
   grid-template-columns: 3% 73% 23%;
@@ -101,9 +87,8 @@ main .sidebar-cta-section {
 main .main-content-area {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.1fr auto;
   gap: 0.5rem;
-  align-items: flex-start;
+  align-content: flex-start;
 }
 main .main-content-area .main-cta-section {
   display: flex;
@@ -248,44 +233,82 @@ main .preview-area .cta_area button {
   cursor: pointer;
 }/*# sourceMappingURL=components.css.map */
 
-/* Finance tables */
-table.fin {
-  color: rgb(136, 135, 135) !important;
-  font-weight: 300 !important;
+main .request-view {
+  display: grid;
+  gap: 0.5rem;
 }
-
-table.fin thead tr,
-table.fin tbody tr,
-table.fin tfoot tr {
-  border: 1px solid transparent;
-  background-color: #fdf2e8;
+main .request-view .test-search-area {
+  margin: 0.5rem 0.5rem 0;
 }
-
-table.fin thead tr {
-  border-block: 1px solid rgb(190, 190, 191);
-  background-color: transparent;
-  text-align: end;
-} 
-
-table.fin tbody tr:hover {
-  background-color: transparent;
+main .request-view .test-search-area input {
+  border: 1px solid #d6dde4;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  inline-size: 100% !important;
+  background-color: hsl(208, 57%, 98%);
+  outline: none;
 }
-
-table.fin tbody tr:last-child {
-  border-block-end: 1px solid rgb(190, 190, 191);
+main .request-view .request-view-body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.25rem;
 }
-
-table.fin tbody tr input[type="text"] {
-  border: 1px solid rgb(233, 233, 234);
-  inline-size: 150px;
-  text-align: right;
+main .request-view .lab-view-body {
+  display: grid;
+  grid-template-columns: 1fr  2fr;
+  gap: 0.25rem;
 }
-
-table.fin tbody tr input[type="checkbox"] {
+main .request-view .request-view-body .request-column {
+  border: 1px solid hsl(0, 0%, 90%);
+  border-radius: 5px;
 }
-
-table.fin tfoot tr {
-  border-block: 1px solid rgb(190, 190, 191);
-  background-color: transparent;
-}  
-/* Finance tables */
+main .request-view .request-view-body .request-column header {
+  padding: 0.5rem 1rem;
+  background-color: hsl(202, 22%, 93%);
+}
+main .request-view .request-view-body .request-column header h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0078D7;
+}
+main .request-view .request-view-body .request-column ul {
+  list-style-type: none;
+  display: grid;
+  align-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem 0.25rem;
+  block-size: 60vh;
+  overflow: hidden;
+  overflow-y: auto;
+}
+main .request-view .request-view-body .request-column ul li {
+  display: grid;
+  gap: 0.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s linear;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 99%);
+  position: relative;
+}
+main .request-view .request-view-body .request-column ul li:hover {
+  background-color: hsl(0, 0%, 100%);
+}
+main .request-view .request-view-body .request-column ul li .test_name {
+  color: hsl(0, 0%, 25%);
+}
+main .request-view .request-view-body .request-column ul li .test_description {
+  color: hsl(0, 0%, 35%);
+}
+main .request-view .request-view-body .request-column ul li .test_price {
+  justify-self: flex-end;
+  color: rgb(22, 21, 21);
+}
+main .request-view .request-view-body .request-column ul li .action {
+  justify-self: flex-end;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  color: gray;
+}/*# sourceMappingURL=components.css.map */
