@@ -236,7 +236,6 @@
       }
 
       if (!(document.querySelector("#create_triage_modal").dataset.action == "edit")) {
-        console.log("we are in here")
         // fetch visit data, triage is associated with a visit
         makeRequest(`/api/patients/${patient_id.value}/visit/`, method="GET")
         .then(response => {

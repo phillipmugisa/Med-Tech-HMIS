@@ -38,7 +38,14 @@ class NextOfKin(ManagerModels.Person):
     relationship = models.CharField(_("relationship"), max_length=256, null=False, blank=False)
     patient = models.ForeignKey(to=Patient, on_delete=models.CASCADE, related_name="next_of_kin", null=True, blank=True)
 
+class ActiveVisitManager(models.Manager):
+    def get_queryset(self):
+        # Override the default queryset to exclude inactive items
+        return super().get_queryset().filter(complete=False)
+
 class Visit(models.Model):
+    objects = models.Manager()
+    active = ActiveVisitManager()
     class Meta:
         ordering = ("-id","-updated_on")
 
@@ -46,7 +53,7 @@ class Visit(models.Model):
     doctor = models.ForeignKey(to=DoctorModels.Doctor, on_delete=models.SET_NULL, null=True)
     category = models.ForeignKey(to=ManagerModels.VisitCategory, on_delete=models.CASCADE)
     speciality = models.ForeignKey(to=DoctorModels.DoctorSpeciality, on_delete=models.SET_NULL, null=True)
-    billing = models.OneToOneField(to=FinanceModels.Billing, on_delete=models.SET_NULL, null=True)
+    billing = models.OneToOneField(to=FinanceModels.Billing, on_delete=models.SET_NULL, null=True, blank=True)
     complete = models.BooleanField(_("Completed"), default=False)
     updated_on = models.DateTimeField(_("Updated on"), null=True, blank=True)
     created_on = models.DateTimeField(_("Created on"), default=timezone.now)

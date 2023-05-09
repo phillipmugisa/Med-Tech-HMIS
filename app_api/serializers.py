@@ -33,6 +33,10 @@ class PatientNokSerializer(serializers.ModelSerializer):
         representation["fullname"] = instance.getFullName()
         return representation
 
+class VisitCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ManagerModels.VisitCategory
+        fields = "__all__"
 
 class VisitSerializer(serializers.ModelSerializer):
     patient = serializers.PrimaryKeyRelatedField(queryset=PatientModals.Patient.objects.all())
@@ -44,6 +48,7 @@ class VisitSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation["patient"] = PatientSerializer(instance.patient).data
+        representation["category"] = VisitCategorySerializer(instance.category).data
         representation["Doctor"] = DoctorModels.Doctor.objects.filter(pk=instance.doctor.id).first().getFullName()
         representation["Speciality"] = DoctorModels.Doctor.objects.filter(pk=instance.doctor.id).first().speciality.all().first().name
         return representation

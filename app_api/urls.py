@@ -19,9 +19,11 @@ urlpatterns = [
     path("visits/create/", AppApiViews.VisitCreateView.as_view(), name='visit_create'),
     path("patients/<str:patient_id>/visit/", AppApiViews.PatientVisitListView.as_view(), name='patients_visit_retrieve'),
     path("visit/<int:pk>/triage/", AppApiViews.VisitTriageListView.as_view(), name='visit_triage_retrieve'),
+    path("visit/<int:pk>/patient/", AppApiViews.VisitPatientListView.as_view(), name='visit_patient_retrieve'),
     
     path("triage/", AppApiViews.TriageListView.as_view(), name='triage_list'),
     path("triage/<int:pk>", AppApiViews.TriageRetrieveView.as_view(), name='triage_retrieve'),
     path("triage/<int:pk>/update/", AppApiViews.TriageUpdateView.as_view(), name='triage_update'),
     path("triage/create/", AppApiViews.TriageCreateView.as_view(), name='triage_create'),
+    path("triage/<str:patient_id>/patient/", AppApiViews.PatientTriageListView.as_view(), name='patients_triage_list'),
 ]

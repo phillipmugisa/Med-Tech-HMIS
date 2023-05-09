@@ -16,20 +16,22 @@
     <!-- js -->
     <script src="{% static 'js/jquery-3.5.1.js' %}"></script>
     <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'js/state.js' %}"></script>
+    <script src="{% static 'js/requests.js' %}"></script>
+    <script src="{% static 'js/render.js' %}"></script>
+    <script defer src="{% static 'js/scripts.js' %}"></script>
+    <script defer src="{% static 'js/preview.js' %}"></script>
+    <script defer src="{% static 'js/modals.js' %}"></script>
 
 </head>
 <body>
     {% include "./departments.html" %}
     {% block content %}
+
+
     {% endblock %}
 </body>
 
 
 <!-- js -->
-<script src="{% static 'js/state.js' %}"></script>
-<script src="{% static 'js/scripts.js' %}"></script>
-<script src="{% static 'js/requests.js' %}"></script>
-<script src="{% static 'js/preview.js' %}"></script>
-<script src="{% static 'js/render.js' %}"></script>
-<script src="{% static 'js/modals.js' %}"></script>
 </html>

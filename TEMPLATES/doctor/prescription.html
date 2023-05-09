@@ -1,0 +1,46 @@
+{% load static  %}
+{% block content %}
+<section class="variable-section" id="prescription" style="block-size:600px;overflow: scroll !important;">
+  <table style="inline-size: 100%;">
+    <thead>
+      <tr>
+        <th>Drug Name</th>
+        <th>Dosage</th>
+        <th>Duration</th>
+        <th>Quantity</th>
+        <th>Notes</th>
+        <th>Stock Left</th>
+        <th>Prescribed Qty</th>
+        <th>Measure</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>Prescribed By</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <select onchange="createNextPrescriptionRow(this)" id="initial-select">
+            <option value="">Select drug</option>
+            <option value="Paracetamol" data-id="001">Paracetamol</option>
+            <option value="Arbitel-H" data-id="002">Arbitel-H</option>
+            <option value="Curamol" data-id="003">Curamol</option>
+          </select>
+        </td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><button disabled class="disabled">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+{% endblock %}

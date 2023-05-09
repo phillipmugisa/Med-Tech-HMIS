@@ -38,6 +38,9 @@ function createTableRows (parentElem, data, fields, listener) {
             else if (field === "patientID") {
                 cell.textContent = record["patient"]["patient_id"]
             }
+            else if (field === "category") {
+                cell.textContent = record["category"]["name"]
+            }
             else {
                 cell.textContent = record[field]
             }

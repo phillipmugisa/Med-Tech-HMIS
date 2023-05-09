@@ -1,0 +1,28 @@
+{% load static  %}
+{% block content %}
+<section class="variable-section" id="procedures">
+  <table style="inline-size: 100%;">
+    <thead>
+      <tr>
+        <th>Procedure</th>
+        <th>Total Fees</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <select onchange="createNextRow(this)" id="initial-select">
+            <option value="">Select procedure</option>
+            <option value="Wound dressing" data-price="45000">Wound dressing</option>
+            <option value="Tooth extraction" data-price="20000">Tooth extraction</option>
+            <option value="Circumcision" data-price="30000">Circumcision</option>
+          </select>
+        </td>
+        <td><input type="text"></td>
+        <td><button disabled class="disabled">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+{% endblock %}

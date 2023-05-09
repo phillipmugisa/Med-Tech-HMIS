@@ -52,7 +52,7 @@ class NextOfKinUpdateView(generics.UpdateAPIView, NextOfKinViews):
 
 
 class VisitsViews(generics.GenericAPIView):
-    queryset = PatientModals.Visit.objects.all()
+    queryset = PatientModals.Visit.active.all()
     serializer_class = serializers.VisitSerializer
     lookup_field = "pk"
 
@@ -81,7 +81,18 @@ class PatientVisitListView(generics.ListAPIView, VisitsViews):
             visit = PatientModals.Visit.objects.filter(patient=patient.first(), complete=False)
             serializer = self.get_serializer(visit, many=True)
             return Response(serializer.data)
-        return Response(status=status.HTTP_400_BAD_REQUEST)
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+class VisitPatientListView(generics.RetrieveAPIView):
+    queryset = PatientModals.Patient.objects.all()
+    serializer_class = serializers.PatientSerializer
+    
+    def get(self, request, pk):
+        visit = PatientModals.Visit.objects.filter(pk=pk)
+        if visit:
+            serializer = self.get_serializer(visit.first().patient)
+            return Response(serializer.data)
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
 class TriageViews(generics.GenericAPIView):
     queryset = PatientModals.Triage.objects.all()
@@ -106,5 +117,20 @@ class VisitTriageListView(generics.ListAPIView, TriageViews):
         if visit:
             triage = PatientModals.Triage.objects.filter(visit=visit.first()).first()
             serializer = self.get_serializer(triage)
+            return Response(serializer.data)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+class PatientTriageListView(generics.ListAPIView, TriageViews):
+    def get(self, request, patient_id):
+        visits = PatientModals.Visit.objects.filter(patient__patient_id=patient_id)
+        if visits:
+            # loop through visits
+            triages = []
+            for visit in visits:
+                triage = PatientModals.Triage.objects.filter(visit=visit)
+                if triage:
+                    triages.append(triage.first())
+            serializer = self.get_serializer(triages, many=True)
             return Response(serializer.data)
         return Response(status=status.HTTP_400_BAD_REQUEST)

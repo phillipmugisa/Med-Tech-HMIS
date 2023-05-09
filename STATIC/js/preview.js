@@ -75,7 +75,7 @@ const loadVisitPreview = (visit) => {
         </div>
         <div class="detail-group">
             <p class="part-title">Category</p>
-            <p class="part-content" id="preview_patient_name">${visit.category}</p>
+            <p class="part-content" id="preview_patient_name">${visit.category.name}</p>
         </div>
         <div class="detail-group">
             <p class="part-title">Doctor:</p>

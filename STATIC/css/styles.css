@@ -439,3 +439,12 @@ table tbody tr.active {
   inline-size: 100% !important;
   background-color: #edf4fa;
 }
+
+#allergies_form_area {
+  padding: 2rem auto;
+  block-size: 55vh;
+  overflow-y: auto;
+  display: grid;
+  gap: 1rem;
+  align-content: flex-start;
+}

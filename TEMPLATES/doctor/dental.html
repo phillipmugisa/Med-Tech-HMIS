@@ -1,0 +1,106 @@
+{% load static  %}
+{% block content %}
+<section class="variable-section" id="dental">
+  <div class="section-form">
+    <form action="">
+      <div class="modal-section">
+        <div class="section-label">
+          <small>Tooth details</small>
+        </div>
+        <div class="section-content">
+          <div class="section-content-row grid flex-gap-40">
+            <div class="form-control flex flex-column">
+              <label for="">Tooth name</label>
+              <select name="name" class="input">
+                <option value="Incisor">Incisor</option>
+                <option value="Canine">Canine</option>
+                <option value="Pre-molar">Pre-molar</option>
+                <option value="Molar">Molar</option>
+              </select>
+            </div>
+            <div class="form-control flex flex-column">
+              <label for="">Diagnosis</label>
+              <select name="diagnosis" class="input">
+                <option value="extraction">Extraction</option>
+                <option value="root-canal">Root Canal</option>
+                <option value="filling">Filling</option>
+                <option value="whitening">Whitening</option>
+              </select>
+            </div>
+            <div class="form-control flex flex-column">
+              <label for="">Procedure</label>
+              <select name="diagnosis" class="input">
+                <option value="extraction">Extraction</option>
+                <option value="root-canal">Root Canal</option>
+                <option value="filling">Filling</option>
+                <option value="whitening">Whitening</option>
+              </select>
+            </div>
+            <div class="form-control flex flex-column">
+              <div class="form-control flex flex-column">
+                <label for="">Fee</label>
+                <input class="input" type="text" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <div class="section-label">
+          <small>Observation notes</small>
+        </div>
+        <div class="section-content">
+          <div class="section-content-row flex">
+            <div class="form-control flex flex-column">
+              <div class="form-control flex flex-column" style="inline-size: 100%">
+                <label for="">Fill any observations here</label>
+                <textarea class="input" cols="100%" rows="2"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <div class="section-label">
+          <small>Description notes</small>
+        </div>
+        <div class="section-content">
+          <div class="section-content-row flex">
+            <div class="form-control flex flex-column">
+              <div class="form-control flex flex-column" style="inline-size: 100%">
+                <label for="">Fill the description notes</label>
+                <textarea class="input" cols="100%" rows="2"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <div class="section-label">
+          <small>Date & Time</small>
+        </div>
+        <div class="section-content">
+          <form action="">
+            <div class="section-content-row flex flex-gap-40">
+              <div class="form-control flex flex-column">
+                <label for="">Date</label>
+                <input class="input" type="date" />
+              </div>
+              <div class="form-control flex flex-column">
+                <label for="">Time</label>
+                <input class="input" type="time" />
+              </div>
+              <div class="form-control flex flex-column">
+              </div>
+              <div class="form-control flex flex-column">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-section cta-area">
+        <button class="accented section-form-cta accented">Save</button>
+      </div>
+  </div>
+</section>
+{% endblock %}

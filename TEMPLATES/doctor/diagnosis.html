@@ -1,0 +1,28 @@
+{% load static  %}
+{% block content %}
+<section class="variable-section" id="diagnosis">
+  <table style="inline-size: 100%;">
+    <thead>
+      <tr>
+        <th>Test Name</th>
+        <th>Total Fees</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <select onchange="createNextRow(this)" id="initial-select">
+            <option value="">Select test</option>
+            <option value="CBC test" data-price="15000">CBC test</option>
+            <option value="Malaria test" data-price="20000">Malaria test</option>
+            <option value="COVID-19 test" data-price="30000">COVID-19 test</option>
+          </select>
+        </td>
+        <td><input type="text"></td>
+        <td><button disabled class="disabled">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+{% endblock %}

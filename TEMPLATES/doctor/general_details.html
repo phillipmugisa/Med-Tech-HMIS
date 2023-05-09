@@ -1,0 +1,185 @@
+{% load static  %}
+{% block content %}
+<section class="variable-section" id="general_doctor">
+    <div class="section_cta_area">
+      <button class="section-part-toggler" data-section="triage" id="sp_triage">Triage</button>
+      <button class="section-part-toggler" data-section="allergies" id="sp_allergies">Allergies</button>
+      <button disabled class="section-part-toggler disabled" data-section="medical_conditions">Medical Conditions</button>
+    </div>
+    <div class="variable-section-part inview" id="triage">
+      <div class="section-form">
+        <form action="" id="triage_form">
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Vital Signs</small>
+            </div>
+            <div class="section-content">
+              <div class="section-content-row flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                  <label for="">Blood Pressure</label>
+                  <input class="input" type="number" id="blood_pressure"/>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Heart Rate</label>
+                  <input class="input" type="number" id="heart_rate"/>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Respiratory Rate</label>
+                  <input class="input" type="number" id="respiratory_rate"/>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Temperature</label>
+                  <input class="input" type="number" id="temperature"/>
+                </div>
+              </div>
+              <div class="section-content-row flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                  <label for="">Weight(Kg)</label>
+                  <input class="input" type="number" id="weight"/>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Height(cm)</label>
+                  <input class="input" type="number" id="height"/>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Oxygen Saturation</label>
+                  <input class="input" type="number" id="oxygen_saturation"/>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">MUAC</label>
+                  <input class="input" type="number" id="MUAC"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Signs & Symptoms</small>
+            </div>
+            <div class="section-content">
+              <div class="section-content-row flex">
+                <div class="form-control flex flex-column">
+                  <div class="form-control flex flex-column" style="inline-size: 100%">
+                    <label for="">Fill the signs and symptoms from the patient</label>
+                    <textarea class="input" cols="100%" rows="2" id="sign_symptoms"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Injury Details</small>
+            </div>
+            <div class="section-content">
+              <div class="section-content-row flex">
+                <div class="form-control flex flex-column">
+                  <div class="form-control flex flex-column" style="inline-size: 100%">
+                    <label for="">Fill the type, location and severity of injury</label>
+                    <textarea class="input" cols="100%" rows="2" id="injury_details"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-section cta-area" style="display: grid; justify-content: space-between; grid-template-columns: repeat(2, 1fr);align-items: baseline;">
+            <p id="triage_date" style="color: #121213;font-weight: 500;"></p>
+            <div style="display: grid; grid-auto-flow: column; gap: .5rem;">
+              <button class="accented section-form-cta accented" id="previous_triage"><i class="fa fa-arrow-left"></i></button>
+              <button class="accented section-form-cta accented" id="save_triage">Save</button>
+              <button class="accented section-form-cta accented" id="next_triage"><i class="fa fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="variable-section-part" id="allergies">
+      <div class="section-form">
+        <form action="" id="allergies_form">
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Allergies</small>
+            </div>
+            <div class="section-content">
+              <div class="section-content-row flex-gap-40" id="allergies_form_area"></div>
+            </div>
+          </div>
+          <div class="modal-section cta-area">
+            <button class="accented section-form-cta accented" id="save_allergies">Save</button>
+          </div>
+        </form>
+      </div>
+    <div class="variable-section-part" id="medical_conditions">medical_conditions</div>
+</section>
+
+<script>
+    document.querySelector("#save_allergies")
+      .addEventListener("click", e => {
+        e.preventDefault()
+        let allergies = new Array();
+        document.querySelectorAll("#allergies_form_area .addable-form-area:not(:last-of-type)")
+          .forEach(area => {
+            let name = area.querySelector(".allergy_name")
+            let comment = area.querySelector(".allergy_comment")
+            if ((name.value == "" || name.value == undefined) && area.parentNode.lastChild != area){
+              name.classList.add("error")
+              return
+            }
+            else {
+              if (name.classList.contains("error")) {
+                name.classList.remove("error")
+              }
+
+              // save allergies
+              let allergy_data = {
+                name: name.value,
+                comment: comment.value
+              }
+              allergies.push(allergy_data)
+            }
+          })
+
+          // create or update
+      })
+
+    document.querySelector("#save_triage")
+      .addEventListener("click", e => {
+        e.preventDefault()
+        let doctor_triage_form = document.querySelector("#triage_form")
+        let blood_pressure = doctor_triage_form.querySelector("#blood_pressure")
+        let heart_rate = doctor_triage_form.querySelector("#heart_rate")
+        let respiratory_rate = doctor_triage_form.querySelector("#respiratory_rate")
+        let temperature = doctor_triage_form.querySelector("#temperature")
+        let weight = doctor_triage_form.querySelector("#weight")
+        let height = doctor_triage_form.querySelector("#height")
+        let oxygen_saturation = doctor_triage_form.querySelector("#oxygen_saturation")
+        let MUAC = doctor_triage_form.querySelector("#MUAC")
+        let sign_symptoms = doctor_triage_form.querySelector("#sign_symptoms")
+        let injury_details = doctor_triage_form.querySelector("#injury_details")
+        
+        let triageData = {
+          "blood_pressure" : blood_pressure.value,
+          "heart_rate" : heart_rate.value,
+          "respiratory_rate" : respiratory_rate.value,
+          "temperature" : temperature.value,
+          "weight" : weight.value,
+          "height" : height.value,
+          "oxygen_saturation" : oxygen_saturation.value,
+          "MUAC" : MUAC.value,
+          "sign_symptoms" : sign_symptoms.value,
+          "injury_details" : injury_details.value
+        }
+
+        makeRequest(`/api/triage/${doctor_triage_form.dataset.triage}/update/`, method="PATCH", data=triageData)
+        .then(response => {
+          // show success message
+          alert("Edited")
+        })
+        .catch(response => {
+          // render error
+        })
+      })  
+
+</script>
+
+{% endblock %}
