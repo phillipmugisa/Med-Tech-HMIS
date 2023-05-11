@@ -13,12 +13,12 @@ class PatientView(View):
         "view_name" : f"{os.environ.get('APPLICATION_NAME')} - Patients",
         "doctor_specialities" : DoctorModels.DoctorSpeciality.objects.all(),
         "visit_categories" : ManagerModels.VisitCategory.objects.all(),
-        # "doctors" : [
-        #     {
-        #         "doctor" : doctor,
-        #         "speciality" : doctor.speciality.all().first()
-        #     } for doctor in DoctorModels.Doctor.objects.all()
-        # ]
+        "doctors" : [
+            {
+                "doctor" : doctor,
+                "speciality" : doctor.speciality.all().first()
+            } for doctor in DoctorModels.Doctor.objects.all()
+        ]
     }
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, context=self.context_data)
@@ -29,12 +29,12 @@ class VisitsView(View):
         "view_name" : f"{os.environ.get('APPLICATION_NAME')} - Visits",
         "doctor_specialities" : DoctorModels.DoctorSpeciality.objects.all(),
         "visit_categories" : ManagerModels.VisitCategory.objects.all(),
-        # "doctors" : [
-        #     {
-        #         "doctor" : doctor,
-        #         "speciality" : doctor.speciality.all().first()
-        #     } for doctor in DoctorModels.Doctor.objects.all()
-        # ]
+        "doctors" : [
+            {
+                "doctor" : doctor,
+                "speciality" : doctor.speciality.all().first()
+            } for doctor in DoctorModels.Doctor.objects.all()
+        ]
     }
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, context=self.context_data)
