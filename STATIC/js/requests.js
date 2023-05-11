@@ -20,7 +20,7 @@ async function makeRequest (url, method, data={}, access_token=null) {
     const backend_url = `http://localhost:8000`;
     let requestData = {
         method: method,
-        mode: "cors",
+        mode: "same-origin",
         cache: "no-cache",
         redirect: 'follow',
         referrerPolicy: 'no-referrer',
