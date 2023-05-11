@@ -17,7 +17,7 @@ function removeEmpty(obj) {
 }
 
 async function makeRequest (url, method, data={}, access_token=null) {
-    const backend_url = `http://localhost:8000`;
+    const backend_url = `http://localhost`;
     let requestData = {
         method: method,
         mode: "cors",
