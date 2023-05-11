@@ -2,11 +2,11 @@ var currentVisitState = new State(null);
 var currentPatientState = new State(null);
 document.querySelectorAll(".section-togglers:not(#assigned_patients_toggler)")
     .forEach(elem => {
-    elem.disabled = true;
-    elem.classList.add("disabled")
+        elem.disabled = true;
+        elem.classList.add("disabled")
     })
 
-function createAllergyElem() {
+function createAllergyElem(id= null, name="", comment="") {
     const elem = document.createElement("div")
     elem.className = "addable-form-area"
     elem.innerHTML = `
@@ -19,12 +19,43 @@ function createAllergyElem() {
         <textarea cols="100%" rows="3" class="allergy_comment input"></textarea>
     </div>
     `
+    elem.querySelector(".allergy_name").value = name;
+    elem.querySelector(".allergy_comment").value = comment;
+    if (id ==null) {
+        elem.dataset.newRecord = true;
+    }
+    else {
+        elem.dataset.allergyId = id;
+    }
+
     elem.querySelector(".allergy_name").addEventListener("keydown", () => {
         if (elem.parentElement.lastChild == elem){
             elem.parentElement.appendChild(createAllergyElem())
         }
     })
     return elem
+}
+
+function refreshDoctorAllergieslist() {
+
+    let allergies_form = document.querySelector("#allergies_form_area")
+    allergies_form.innerHTML = ""
+
+    // fetch allergies
+    makeRequest(`/api/allergy/${currentPatientState.state.patient_id}/patient/`, method="GET")
+    .then(response => {
+        response.forEach(record => {
+            allergies_form.prepend(createAllergyElem(id=record.id, name=record.name, comment=record.comment))
+        })
+    })
+    
+
+    if (allergies_form && allergies_form.querySelectorAll(".addable-form-area").length < 1){
+        allergies_form.prepend(createAllergyElem())
+    }
+
+    // scroll to the bottom
+    // allergies_form.querySelectorAll(".addable-form-area").scrollTo({bottom: 0})
 }
 
 // load data
@@ -35,27 +66,22 @@ refreshView(1, "visit_list")
         // fetch visit
         makeRequest(`/api/visits/${elem.dataset.record_db_id}`, method="GET")
         .then(response => {
-        currentVisitState.setState(response)
-        document.querySelectorAll(".section-togglers:not(#assigned_patients_toggler)")
-        .forEach(elem => {
-            elem.disabled = false;
-            elem.classList.remove("disabled")
-        })
-        
-        // fetch patient being worked on
-        makeRequest(`/api/visit/${response.id}/patient/`, method="GET")
-        .then(response => {
-            currentPatientState.setState(response)
-            document.querySelector("#general_doctor_toggler").click()
-            
-            document.querySelector("#sp_allergies")
-            .addEventListener("click", () => {
-                let allergies_form = document.querySelector("#allergies_form_area")
-                if (allergies_form && allergies_form.querySelectorAll(".addable-form-area").length < 1){
-                    allergies_form.appendChild(createAllergyElem())
-                }
+            currentVisitState.setState(response)
+            document.querySelectorAll(".section-togglers:not(#assigned_patients_toggler)")
+            .forEach(elem => {
+                elem.disabled = false;
+                elem.classList.remove("disabled")
             })
-        })
+            
+            // fetch patient being worked on
+            makeRequest(`/api/visit/${response.id}/patient/`, method="GET")
+            .then(response => {
+                currentPatientState.setState(response)
+                document.querySelector("#general_doctor_toggler").click()
+                
+                document.querySelector("#sp_allergies")
+                .addEventListener("click", () => refreshDoctorAllergieslist())
+            })
         })
         .catch(response => {
         // ERROR: prompt reload

@@ -116,7 +116,8 @@
     document.querySelector("#save_allergies")
       .addEventListener("click", e => {
         e.preventDefault()
-        let allergies = new Array();
+        let new_allergies = new Array();
+        let edited_allergies = new Array();
         document.querySelectorAll("#allergies_form_area .addable-form-area:not(:last-of-type)")
           .forEach(area => {
             let name = area.querySelector(".allergy_name")
@@ -133,13 +134,54 @@
               // save allergies
               let allergy_data = {
                 name: name.value,
-                comment: comment.value
+                comment: comment.value,
+                patient: currentPatientState.state.id
               }
-              allergies.push(allergy_data)
+              if (!area.dataset.allergyId){
+                new_allergies.push(allergy_data)
+              }
+              else {
+                allergy_data.id = area.dataset.allergyId
+                edited_allergies.push(allergy_data)
+              }
             }
           })
 
           // create or update
+          if (allergies.length < 1) {
+            document.querySelector("#allergies_form_area .addable-form-area .allergy_name")
+              .classList.add("error")
+            return
+          }
+          else {
+              if (document.querySelector("#allergies_form_area .addable-form-area .allergy_name").classList.contains("error")) {
+                document.querySelector("#allergies_form_area .addable-form-area .allergy_name").classList.remove("error")
+              }
+          }
+
+          if (new_allergies.length > 0) {
+            makeRequest(`/api/allergy/create/`, method="POST", data=new_allergies)
+            .then(response => {
+              // show success message
+              alert("saved")
+            })
+            .catch(response => {
+              // render error
+            })
+          }
+          
+          if (edited_allergies.length > 0) {
+            edited_allergies.forEach(record => {
+              makeRequest(`/api/allergy/${record.id}/update/`, method="PATCH", data=record)
+              .then(response => {
+                // show success message
+              })
+              .catch(response => {
+                // render error
+              })
+            })
+          }
+          
       })
 
     document.querySelector("#save_triage")

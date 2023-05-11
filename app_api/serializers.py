@@ -65,3 +65,16 @@ class TriageSerializer(serializers.ModelSerializer):
         representation = super().to_representation(instance)
         representation["patient"] = PatientSerializer(instance.visit.patient).data
         return representation
+
+
+class AllergySerializer(serializers.ModelSerializer):
+    patient = serializers.PrimaryKeyRelatedField(queryset=PatientModals.Patient.objects.all())
+
+    class Meta:
+        model = PatientModals.Allergy
+        fields = "__all__"
+        
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation["patient"] = PatientSerializer(instance.patient).data
+        return representation

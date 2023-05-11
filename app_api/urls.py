@@ -26,4 +26,10 @@ urlpatterns = [
     path("triage/<int:pk>/update/", AppApiViews.TriageUpdateView.as_view(), name='triage_update'),
     path("triage/create/", AppApiViews.TriageCreateView.as_view(), name='triage_create'),
     path("triage/<str:patient_id>/patient/", AppApiViews.PatientTriageListView.as_view(), name='patients_triage_list'),
+    
+    path("allergy/", AppApiViews.AllergyListView.as_view(), name='allergy_list'),
+    path("allergy/<int:pk>", AppApiViews.AllergyRetrieveView.as_view(), name='allergy_retrieve'),
+    path("allergy/<int:pk>/update/", AppApiViews.AllergyUpdateView.as_view(), name='allergy_update'),
+    path("allergy/create/", AppApiViews.AllergyCreateView.as_view(), name='allergy_create'),
+    path("allergy/<str:patient_id>/patient/", AppApiViews.PatientAllergyListView.as_view(), name='patients_allergy_list'),
 ]

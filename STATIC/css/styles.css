@@ -448,3 +448,9 @@ table tbody tr.active {
   gap: 1rem;
   align-content: flex-start;
 }
+
+.allergy_name,
+.allergy_comment {
+  margin-block: .25rem;
+  padding-inline: .25rem;
+}

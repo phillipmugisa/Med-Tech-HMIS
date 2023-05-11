@@ -93,9 +93,9 @@ class Triage(models.Model):
 
 
 class Allergy(models.Model):
-    visit = models.OneToOneField(to=Visit, on_delete=models.CASCADE)
+    patient = models.ForeignKey(to=Patient, on_delete=models.CASCADE)
     name = models.CharField(_("Name"), max_length=256, null=True, blank=True)
-    comments = models.TextField(_("Doctor's Comments"), null=True, blank=True) 
+    comment = models.TextField(_("Doctor's Comments"), null=True, blank=True) 
     created_on = models.DateTimeField(_("Created on"), default=timezone.now)
     updated_on = models.DateTimeField(_("Updated on"), null=True, blank=True)
     

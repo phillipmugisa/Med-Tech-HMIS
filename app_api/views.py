@@ -134,3 +134,33 @@ class PatientTriageListView(generics.ListAPIView, TriageViews):
             serializer = self.get_serializer(triages, many=True)
             return Response(serializer.data)
         return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+
+# allergies
+class AllergyViews(generics.GenericAPIView):
+    queryset = PatientModals.Allergy.objects.all()
+    serializer_class = serializers.AllergySerializer
+    lookup_field = "pk"
+    
+class AllergyListView(generics.ListAPIView, AllergyViews):
+    pass
+class AllergyRetrieveView(generics.RetrieveAPIView, AllergyViews):
+    pass
+class AllergyUpdateView(generics.UpdateAPIView, AllergyViews):
+    pass
+class AllergyCreateView(generics.CreateAPIView, AllergyViews):
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data, many=True)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+class PatientAllergyListView(generics.ListAPIView, AllergyViews):
+    def get(self, request, patient_id):
+        allergies = PatientModals.Allergy.objects.filter(patient__patient_id=patient_id)
+        if allergies:
+            serializer = self.get_serializer(allergies, many=True)
+            return Response(serializer.data)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
