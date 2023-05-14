@@ -396,53 +396,53 @@
 
   // Load patient on preview
   const loadPatientOnPreview = (patient) => {
-  const previewArea = document.querySelector("#patient-preview");
-  const previewContent = `
-  <div class="img-wrapper">
-      <img src="../../STATIC/images/user.png" alt="">
-  </div>
-  <div class="details">
-      <div class="detail-group">
-          <p class="part-title">Patient No:</p>
-          <p class="part-content">${patient.id}</p>
-      </div>
-      <div class="detail-group">
-          <p class="part-title">Full Name:</p>
-          <p class="part-content">${patient.name}</p>
-      </div>
-      <div class="detail-group">
-          <p class="part-title">NIN:</p>
-          <p class="part-content">CM2REK234423MFC</p>
-      </div>
-      <div class="detail-group">
-          <p class="part-title">Phone:</p>
-          <p class="part-content">+256728463968</p>
-      </div>
-      <div class="detail-group">
-          <p class="part-title">Bill Mode:</p>
-          <p class="part-content">Insurance</p>
-      </div>
-      <div class="detail-group">
-          <p class="part-title">Company:</p>
-          <p class="part-content">ICEA Lion</p>
-      </div>
-      <div class="detail-group">
-          <p class="part-title">Gender:</p>
-          <p class="part-content">${patient.gender}</p>
-      </div>
-      <div class="detail-group">
-          <p class="part-title">Age:</p>
-          <p class="part-content">${patient.age}</p>
-      </div>
-      <div class="detail-group">
-          <p class="part-title">Visits:</p>
-          <p class="part-content">14</p>
-      </div>
-  </div>
-  `;
-  previewArea.innerHTML = previewContent;
+    const previewArea = document.querySelector("#patient-preview");
+    const previewContent = `
+    <div class="img-wrapper">
+        <img src="../../STATIC/images/user.png" alt="">
+    </div>
+    <div class="details">
+        <div class="detail-group">
+            <p class="part-title">Patient No:</p>
+            <p class="part-content">${patient.id}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Full Name:</p>
+            <p class="part-content">${patient.name}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">NIN:</p>
+            <p class="part-content">CM2REK234423MFC</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Phone:</p>
+            <p class="part-content">+256728463968</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Bill Mode:</p>
+            <p class="part-content">Insurance</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Company:</p>
+            <p class="part-content">ICEA Lion</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Gender:</p>
+            <p class="part-content">${patient.gender}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Age:</p>
+            <p class="part-content">${patient.age}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Visits:</p>
+            <p class="part-content">14</p>
+        </div>
+    </div>
+    `;
+    previewArea.innerHTML = previewContent;
 
-}
+  }
 
   // Change patient on prview
   const patientRows = document.querySelector("tbody").querySelectorAll("tr");

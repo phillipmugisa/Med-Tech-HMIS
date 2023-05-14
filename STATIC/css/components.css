@@ -53,6 +53,7 @@ button.accented:hover {
   transition: background-color 0.2s linear;
   background-color: #fff;
   color: #0072C6;
+  inline-size: 100px;
 }
 .departments .department:hover {
   background-color: hsl(0, 14%, 95%);
