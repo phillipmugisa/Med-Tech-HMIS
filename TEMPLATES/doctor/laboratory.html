@@ -31,60 +31,6 @@
       #prescription table input {
         inline-size: 160px;
       }
-
-      /* Report */
-      .report {
-        font-family: Arial, sans-serif;
-        margin: 0 auto;
-        background-color: #f7f7f7;
-        padding: 20px;
-        border-radius: 0;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      .report h1 {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-
-      .report p {
-        margin-top: 0;
-      }
-
-      .report hr {
-        border: none;
-        height: 1px;
-        background-color: #ccc;
-        margin: 20px 0;
-      }
-
-      .report table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-      }
-
-      .report table th,
-      .report table td {
-        padding: 10px;
-        text-align: left;
-        vertical-align: top;
-        border-bottom: 1px solid #ccc;
-      }
-
-      .report table th {
-        background-color: #f7f7f7;
-        font-weight: bold;
-      }
-
-      .report table td.value {
-        font-weight: bold;
-      }
-
-      .report table td.comment {
-        font-style: italic;
-      }
     </style>
   </head>
   <body>
@@ -109,7 +55,7 @@
         <img src="../../STATIC/icons/doctor.png" alt="" />
         <span class="department-name">Doctor</span>
       </a>
-      <a href="../doctor/laboratory.html" class="department active">
+      <a href="" class="department active">
         <img src="../../STATIC/icons/lab.png" alt="" />
         <span class="department-name">Laboratory</span>
       </a>
@@ -117,7 +63,7 @@
         <img src="../../STATIC/icons/cardiology.png" alt="" />
         <span class="department-name">Cardiology</span>
       </a>
-      <a href="" class="department disabled" disabled>
+      <a href="../doctor/radiology.html" class="department">
         <img src="../../STATIC/icons/radiology.png" alt="" />
         <span class="department-name">Radiology</span>
       </a>
@@ -144,10 +90,6 @@
       <a href="../admin/invoices.html" class="department">
         <img src="../../STATIC/icons/invoices.png" alt="" />
         <span class="department-name">Invoices</span>
-      </a>
-      <a href="../admin/pricing.html" class="department">
-        <img src="../../STATIC/icons/finances.png" alt="" />
-        <span class="department-name">Pricing</span>
       </a>
       <a href="../admin/finances.html" class="department">
         <img src="../../STATIC/icons/finances.png" alt="" />
@@ -181,24 +123,27 @@
         <div class="main-cta-section">
           <button
             class="accented section-togglers"
-            data-section="assigned_patients"
-            id="assigned_patients_toggler"
+            data-section="tab_00"
+            id="tab_00_toggler"
           >
-            Lab section
+            All Patients
           </button>
           <button
             class="accented section-togglers"
-            data-section="general_doctor"
-            id="general_doctor_toggler"
+            data-section="tab_01"
+            id="tab_01_toggler"
           >
-            Create Services
+            Lab Requests
+          </button>
+          <button
+            class="accented section-togglers"
+            data-section="tab_02"
+            id="tab_02_toggler"
+          >
+            Create Lab Tests
           </button>
         </div>
-        <section
-          class="variable-section inview"
-          id="assigned_patients"
-          style="padding: 4px"
-        >
+        <section class="variable-section inview" id="tab_00">
           <div class="records-part" id="recent-patients">
             <div class="body">
               <table
@@ -212,7 +157,7 @@
                     <th>Name</th>
                     <th>Gender</th>
                     <th>Age</th>
-                    <th>Status</th>
+                    <th>Visit</th>
                     <th>Created At</th>
                   </tr>
                 </thead>
@@ -222,8 +167,120 @@
                     <td>John Mukama Blue</td>
                     <td>M</td>
                     <td>25</td>
-                    <td>Pending</td>
-                    <td>24-04-2023</td>
+                    <td>No</td>
+                    <td>08:30</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230385</td>
+                    <td>Grace Sasira Lusuku</td>
+                    <td>F</td>
+                    <td>47</td>
+                    <td>Yes</td>
+                    <td>10:54</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230326</td>
+                    <td>Mohamed Baker L.</td>
+                    <td>M</td>
+                    <td>21</td>
+                    <td>No</td>
+                    <td>10:53</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230301</td>
+                    <td>Phillip Naturinda M.</td>
+                    <td>M</td>
+                    <td>35</td>
+                    <td>No</td>
+                    <td>10:59</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230311</td>
+                    <td>Deodat Aganyira</td>
+                    <td>M</td>
+                    <td>68</td>
+                    <td>No</td>
+                    <td>12:02</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230313</td>
+                    <td>Joram Bwambale</td>
+                    <td>M</td>
+                    <td>28</td>
+                    <td>No</td>
+                    <td>13:15</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230316</td>
+                    <td>Matthew Musoke</td>
+                    <td>M</td>
+                    <td>26</td>
+                    <td>No</td>
+                    <td>13:42</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230366</td>
+                    <td>Juma Kiyinji Moses</td>
+                    <td>M</td>
+                    <td>43</td>
+                    <td>No</td>
+                    <td>14:33</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230336</td>
+                    <td>Alert Kapallaga</td>
+                    <td>M</td>
+                    <td>23</td>
+                    <td>No</td>
+                    <td>14:43</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230361</td>
+                    <td>Martin Tukesiga Joel</td>
+                    <td>M</td>
+                    <td>22</td>
+                    <td>No</td>
+                    <td>14:36</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230386</td>
+                    <td>Jane Nantongo Nakato</td>
+                    <td>F</td>
+                    <td>24</td>
+                    <td>No</td>
+                    <td>14:38</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230386</td>
+                    <td>Hassan Dahalane</td>
+                    <td>M</td>
+                    <td>32</td>
+                    <td>No</td>
+                    <td>14:42</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230377</td>
+                    <td>Ssempala Moses</td>
+                    <td>M</td>
+                    <td>55</td>
+                    <td>No</td>
+                    <td>14:50</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230656</td>
+                    <td>Robert Mulenda Mwiru</td>
+                    <td>M</td>
+                    <td>26</td>
+                    <td>No</td>
+                    <td>15:08</td>
+                  </tr>
+                  <tr>
+                    <td>FLH230116</td>
+                    <td>Johnson Orone Nathan</td>
+                    <td>M</td>
+                    <td>20</td>
+                    <td>No</td>
+                    <td>15:15</td>
                   </tr>
                 </tbody>
                 <tfoot>
@@ -232,192 +289,202 @@
                     <th>Name</th>
                     <th>Gender</th>
                     <th>Age</th>
-                    <th>Status</th>
+                    <th>Visit</th>
                     <th>Created At</th>
                   </tr>
                 </tfoot>
               </table>
             </div>
-            <div class="body">
-              <table style="inline-size: 100%" class="display fin">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Test Name</th>
-                    <th>Narration</th>
-                    <th>Create</th>
-                    <th>Edit</th>
-                    <th>View</th>
-                    <th>Print</th>
-                    <th>Created At</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>TES1224</td>
-                    <td>Complete Blood Count (CBC)</td>
-                    <td>More emphasis on RBC and Hb..</td>
-                    <td
-                      class="modal-activators"
-                      data-modal="create_cardiology_results_modal"
-                    >
-                      <button style="padding-block: 2px">Create</button>
-                    </td>
-                    <td
-                      class="modal-activators"
-                      data-modal="edit_cardiology_results_modal"
-                    >
-                      <button style="padding-block: 2px">Edit</button>
-                    </td>
-                    <td
-                      class="modal-activators"
-                      data-modal="view_cardiology_results_modal"
-                    >
-                      <button style="padding-block: 2px">View</button>
-                    </td>
-                    <td
-                      class="modal-activators"
-                      data-modal="view_cardiology_results_modal"
-                    >
-                      <button style="padding-block: 2px">Print</button>
-                    </td>
-                    <td>24-04-2023</td>
-                  </tr>
-                  <tr>
-                    <td>TES1224</td>
-                    <td>Blood Glucose Test</td>
-                    <td>Check for diabetes and Normal f..</td>
-                    <td
-                      class="modal-activators"
-                      data-modal="create_cardiology_results_modal"
-                    >
-                      <button style="padding-block: 2px">Create</button>
-                    </td>
-                    <td
-                      class="modal-activators"
-                      data-modal="edit_cardiology_results_modal"
-                    >
-                      <button style="padding-block: 2px">Edit</button>
-                    </td>
-                    <td
-                      class="modal-activators"
-                      data-modal="view_cardiology_results_modal"
-                    >
-                      <button style="padding-block: 2px">View</button>
-                    </td>
-                    <td
-                      class="modal-activators"
-                      data-modal="view_cardiology_results_modal"
-                    >
-                      <button style="padding-block: 2px">Print</button>
-                    </td>
-                    <td>24-04-2023</td>
-                  </tr>
-                  <tr>
-                    <td>TES1224</td>
-                    <td>Lipid profile</td>
-                    <td>Measure the triglycerides and total cholesterol..</td>
-                    <td
-                      class="modal-activators"
-                      data-modal="create_cardiology_results_modal"
-                    >
-                      <button style="padding-block: 2px">Create</button>
-                    </td>
-                    <td
-                      class="modal-activators"
-                      data-modal="edit_cardiology_results_modal"
-                    >
-                      <button style="padding-block: 2px">Edit</button>
-                    </td>
-                    <td
-                      class="modal-activators"
-                      data-modal="view_cardiology_results_modal"
-                    >
-                      <button style="padding-block: 2px">View</button>
-                    </td>
-                    <td
-                      class="modal-activators"
-                      data-modal="view_cardiology_results_modal"
-                    >
-                      <button style="padding-block: 2px">Print</button>
-                    </td>
-                    <td>24-04-2023</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
         </section>
-        <section
-          class="variable-section"
-          id="general_doctor"
-          style="padding: 4px"
-        >
-          <div class="records-part" id="recent-patients">
-            <div class="body">
-              <div class="modal-section">
-                <div class="section-label">
-                  <small>Create Laboratory Service</small>
-                </div>
-                <div class="section-content" style="margin-block: 18px 6px">
-                  <div class="section-content-row grid flex-gap-40">
-                    <div class="form-control flex flex-column">
-                      <label for="">Service Name</label>
-                      <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column">
-                      <label for="">Fee</label>
-                      <input class="input" type="text" />
-                    </div>
-                    <div class="form-control flex flex-column">
-                      <label for="" style="visibility: hidden">Save</label>
-                      <button style="padding: 5px 60px; border-radius: 8px">
-                        Save
-                      </button>
-                    </div>
-                    <div class="form-control flex flex-column"></div>
+        <section class="variable-section" id="tab_01">
+          <div class="variable-section-part inview" id="create_lab_request">
+            <div class="request-view">
+              <div class="request-view-body lab-view-body">
+                <div class="request-column" id="tests-list">
+                  <header>
+                    <h3>Test Requests</h3>
+                  </header>
+                  <div class="test-search-area">
+                    <input type="search" />
                   </div>
+                  <ul id="request-test-list">
+                    <li data-test-id="1">
+                      <h4 class="test_name">Complete Blood Count Test</h4>
+                    </li>
+                    <li data-test-id="2">
+                      <h4 class="test_name">Malaria Test</h4>
+                    </li>
+                    <li data-test-id="3">
+                      <h4 class="test_name">Urinalysis</h4>
+                    </li>
+                  </ul>
+                </div>
+                <div class="request-column" id="selected_tests">
+                  <table id="data-table" class="display fin">
+                    <thead>
+                      <tr>
+                        <th>Sub test</th>
+                        <th>Result</th>
+                        <th>Range</th>
+                        <th>Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>WBC</td>
+                        <td>
+                          <input
+                            style="inline-size: 200px"
+                            type="text"
+                            value=""
+                          />
+                        </td>
+                        <td>40 - 12.0</td>
+                        <td>
+                          <input
+                            style="inline-size: 200px"
+                            type="text"
+                            value=""
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Lymphocytes</td>
+                        <td>
+                          <input
+                            style="inline-size: 200px"
+                            type="text"
+                            value=""
+                          />
+                        </td>
+                        <td>0.8 - 0.7</td>
+                        <td>
+                          <input
+                            style="inline-size: 200px"
+                            type="text"
+                            value=""
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>RBC</td>
+                        <td>
+                          <input
+                            style="inline-size: 200px"
+                            type="text"
+                            value=""
+                          />
+                        </td>
+                        <td>0.8 - 0.7</td>
+                        <td>
+                          <input
+                            style="inline-size: 200px"
+                            type="text"
+                            value=""
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Mid%</td>
+                        <td>
+                          <input
+                            style="inline-size: 200px"
+                            type="text"
+                            value=""
+                          />
+                        </td>
+                        <td>0.8 - 0.7</td>
+                        <td>
+                          <input
+                            style="inline-size: 200px"
+                            type="text"
+                            value=""
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Gran</td>
+                        <td>
+                          <input
+                            style="inline-size: 200px"
+                            type="text"
+                            value=""
+                          />
+                        </td>
+                        <td>0.8 - 0.7</td>
+                        <td>
+                          <input
+                            style="inline-size: 200px"
+                            type="text"
+                            value=""
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
-              <table
-                id="data-table-01"
-                class="display"
-                style="width: 100%; margin-top: 0.5rem"
-              >
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Service Name</th>
-                    <th>Service Fee</th>
-                    <th>Created At</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>CARD230300</td>
-                    <td><input type="text" value="CBC test" /></td>
-                    <td><input type="text" value="15,000" /></td>
-                    <td>24-04-2023</td>
-                  </tr>
-                  <tr>
-                    <td>CARD230300</td>
-                    <td><input type="text" value="Blood Glucose test" /></td>
-                    <td><input type="text" value="30,000" /></td>
-                    <td>24-04-2023</td>
-                  </tr>
-                  <tr>
-                    <td>CARD230300</td>
-                    <td><input type="text" value="Lipid profile test" /></td>
-                    <td><input type="text" value="10,000" /></td>
-                    <td>24-04-2023</td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
           </div>
         </section>
+        <section class="variable-section" id="tab_02"></section>
       </section>
-      <aside class="preview-area" id="patient-preview"></aside>
+      <aside class="preview-area" id="patient-preview">
+        <div class="img-wrapper">
+          <img src="../../STATIC/images/user.png" alt="" />
+        </div>
+        <div class="details">
+          <div class="detail-group">
+            <p class="part-title">Patient No.:</p>
+            <p class="part-content">67834</p>
+          </div>
+          <div class="detail-group">
+            <p class="part-title">First Name:</p>
+            <p class="part-content">Alex</p>
+          </div>
+          <div class="detail-group">
+            <p class="part-title">Last No.:</p>
+            <p class="part-content">Muhumuza</p>
+          </div>
+          <div class="detail-group">
+            <p class="part-title">NIN:</p>
+            <p class="part-content">CM2REK234423MFC</p>
+          </div>
+          <div class="detail-group">
+            <p class="part-title">Phone No:</p>
+            <p class="part-content">+256728463968</p>
+          </div>
+          <div class="detail-group">
+            <p class="part-title">Birth Place:</p>
+            <p class="part-content">Wakiso</p>
+          </div>
+          <div class="detail-group">
+            <p class="part-title">Gender:</p>
+            <p class="part-content">Male</p>
+          </div>
+          <div class="detail-group">
+            <p class="part-title">Age:</p>
+            <p class="part-content">24</p>
+          </div>
+        </div>
+        <div class="cta_area">
+          <button
+            class="modal-activators"
+            id="edit_patient_modal_activator"
+            data-modal="create_patient_modal"
+          >
+            Edit Details
+          </button>
+          <button
+            class="modal-activators"
+            id="create_visit_modal_activator"
+            data-modal="create_visit_modal"
+          >
+            Create Visit
+          </button>
+        </div>
+      </aside>
     </main>
 
     <div class="modal" id="create_patient_modal">
@@ -596,7 +663,7 @@
       </div>
     </div>
 
-    <div class="modal" id="create_cardiology_results_modal">
+    <div class="modal" id="create_visit_modal">
       <div class="modal-header">
         <div class="flex" style="justify-content: flex-start; gap: 10px">
           <img
@@ -604,13 +671,156 @@
             alt=""
             style="inline-size: 28px; block-size: 28px"
           />
-          <h3 style="font-size: 20px">Create Lab Report</h3>
+          <h3 style="font-size: 20px">Create Visit</h3>
         </div>
       </div>
       <div class="modal-body">
         <div class="modal-section">
           <div class="section-label">
-            <small>Fill Results</small>
+            <small>Patient Information</small>
+          </div>
+          <div class="section-content">
+            <form action="">
+              <div class="flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                  <label for="">First Name</label>
+                  <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Middle Name</label>
+                  <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Last Name</label>
+                  <input class="input" type="text" />
+                </div>
+                <div class="form-control flex flex-column">
+                  <div class="patient-image flex">
+                    <img src="../../STATIC/images/user.png" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                  <label for="">National ID No.</label>
+                  <input class="input" type="text" />
+                </div>
+                <div class="form-control flex" style="gap: 20px">
+                  <div class="flex flex-column" style="flex: 1">
+                    <label for="">Age</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="flex flex-column" style="flex: 2">
+                    <label for="">Date of Birth</label>
+                    <input class="input" type="date" />
+                  </div>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Gender</label>
+                  <select name="gender" class="input">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Patient ID</label>
+                  <input class="input" type="text" value="MEDT00001" disabled />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-section">
+          <div class="section-label">
+            <small>Doctor Information</small>
+          </div>
+          <div class="section-content">
+            <form action="">
+              <div class="section-content-row flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                  <label for="">Full Name</label>
+                  <select name="fullname" class="input">
+                    <option value="Muludiang Emmanuel">
+                      Dr. Muludiang Emmanuel
+                    </option>
+                    <option value="Mugisa Phillip">Dr. Mugisa Phillip</option>
+                    <option value="Lorika Mario">Dr. Lorika Mario</option>
+                    <option value="Barbra B">Dr. Barbra B</option>
+                    <option value="Peter P">Dr. Peter P</option>
+                    <option value="Mulondo Caxton">Dr. Mulondo Caxton</option>
+                    <option value="Abdoulanziz Ally">
+                      Dr. Abdoulanziz Ally
+                    </option>
+                  </select>
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Doctor ID</label>
+                  <input class="input" type="text" value="MEDZ12001" disabled />
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Speciality</label>
+                  <select name="speciality" class="input">
+                    <option value="general">General</option>
+                    <option value="padeatrics">Paedeatrics</option>
+                    <option value="gynacology">Gynacology</option>
+                    <option value="dentist">Dentist</option>
+                    <option value="radiology">Radiology</option>
+                  </select>
+                </div>
+                <div
+                  class="form-control flex flex-column"
+                  style="visibility: hidden"
+                >
+                  <label for="">Home Address</label>
+                  <input class="input" type="text" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-section">
+          <div class="section-label">
+            <small>Visit Time</small>
+          </div>
+          <div class="section-content">
+            <form action="">
+              <div class="section-content-row flex flex-gap-40">
+                <div class="form-control flex flex-column">
+                  <label for="">Date</label>
+                  <input class="input" type="date" />
+                </div>
+                <div class="form-control flex flex-column">
+                  <label for="">Time</label>
+                  <input class="input" type="time" />
+                </div>
+                <div
+                  class="form-control flex flex-column"
+                  style="visibility: hidden"
+                >
+                  <label for="">Last Name</label>
+                  <input class="input" type="text" />
+                </div>
+                <div
+                  class="form-control flex flex-column"
+                  style="visibility: hidden"
+                >
+                  <label for="">Relationship</label>
+                  <select name="relationship" class="input">
+                    <option value="husband">Husband</option>
+                    <option value="wife">Wife</option>
+                    <option value="brother">Brother</option>
+                    <option value="sister">Sister</option>
+                    <option value="son">Son</option>
+                    <option value="daughter">Daughter</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-section">
+          <div class="section-label">
+            <small>Other Information</small>
           </div>
           <div class="section-content">
             <form action="">
@@ -620,114 +830,13 @@
                     class="form-control flex flex-column"
                     style="inline-size: 100%"
                   >
-                    <label for="">Notes</label>
-                    <textarea class="input" cols="100%" rows="15"></textarea>
+                    <label for="">Visit Reason</label>
+                    <textarea class="input" cols="100%" rows="3"></textarea>
                   </div>
                 </div>
               </div>
             </form>
           </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="form-control">
-          <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
-          <img class="save" src="../../STATIC/icons/save.png" alt="" />
-        </div>
-      </div>
-    </div>
-
-    <div class="modal" id="edit_cardiology_results_modal">
-      <div class="modal-header">
-        <div class="flex" style="justify-content: flex-start; gap: 10px">
-          <img
-            src="../../STATIC/icons/visits.svg"
-            alt=""
-            style="inline-size: 28px; block-size: 28px"
-          />
-          <h3 style="font-size: 20px">Edit Lab Report</h3>
-        </div>
-      </div>
-      <div class="modal-body">
-        <div class="modal-section">
-          <div class="section-label">
-            <small>Fill Results</small>
-          </div>
-          <div class="section-content">
-            <form action="">
-              <div class="section-content-row flex">
-                <div class="form-control flex flex-column">
-                  <div
-                    class="form-control flex flex-column"
-                    style="inline-size: 100%"
-                  >
-                    <label for="">Notes</label>
-                    <textarea class="input" cols="100%" rows="15"></textarea>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="form-control">
-          <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
-          <img class="save" src="../../STATIC/icons/save.png" alt="" />
-        </div>
-      </div>
-    </div>
-
-    <div class="modal" id="view_cardiology_results_modal">
-      <div class="modal-header">
-        <div class="flex" style="justify-content: flex-start; gap: 10px">
-          <img
-            src="../../STATIC/icons/visits.svg"
-            alt=""
-            style="inline-size: 28px; block-size: 28px"
-          />
-          <h3 style="font-size: 20px">View Lab Report</h3>
-        </div>
-      </div>
-      <div class="modal-body">
-        <div class="report">
-          <h1>Laboratory report for John Mukama Blue</h1>
-          <p>Patient ID: FLH230300</p>
-          <hr />
-          <table>
-            <tr>
-              <th>Test Name</th>
-              <th>Result</th>
-              <th>Reference Range</th>
-              <th>Comments</th>
-            </tr>
-            <tr>
-              <td>Complete Blood Count(CBC)</td>
-              <td class="value">Normal</td>
-              <td>NA</td>
-              <td class="comment">
-                No significant abnormalities were detected.
-              </td>
-            </tr>
-            <tr>
-              <td>Blood Glucose Test</td>
-              <td class="value">Abnormal</td>
-              <td>100-125 mg/dL</td>
-              <td class="comment">Impaired fasting glucose thus prediabetic</td>
-            </tr>
-            <tr>
-              <td>Lipid Profile</td>
-              <td class="value">Higher cholesterol levels</td>
-              <td>60 mg/dL and above</td>
-              <td class="comment">Slightly elevated, follow up in 6 months.</td>
-            </tr>
-          </table>
-          <p>Additional Notes:</p>
-          <p>
-            The patient is currently taking medication for pre diabetes and has
-            a family history of diabetes. Further testing may be necessary to
-            determine the cause and manage it.
-          </p>
         </div>
       </div>
       <div class="modal-footer">
@@ -798,7 +907,7 @@
 
     // Change patient on prview
     const patientRows = document.querySelector("tbody").querySelectorAll("tr");
-    patientRows.forEach((patientRow, index) =>
+    patientRows.forEach((patientRow) =>
       patientRow.addEventListener("click", (event) => {
         if (event.target.parentElement.tagName === "TR") {
           const patient = {
@@ -813,6 +922,7 @@
             gender:
               event.target.parentElement.querySelectorAll("td")[4].textContent,
           };
+          console.log(patient);
           loadPatientOnPreview(patient);
         }
       })
@@ -820,9 +930,6 @@
 
     // Set up your table
     let table = $("#data-table").DataTable();
-
-    // Set up your table
-    let table01 = $("#data-table-01").DataTable();
 
     // Add new diagnosis items
     function createNextRow(selectElement) {
