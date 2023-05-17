@@ -282,60 +282,94 @@
                         <input type="search">
                       </div>
                       <ul id="request-test-list">
-                        <li data-test-id="1">
+                        <li class="test-togglers" data-test="test_00" id="test_00_toggler">
                           <h4 class="test_name">Complete Blood Count Test</h4>
                         </li>
-                        <li data-test-id="2">
+                        <li class="test-togglers" data-test="test_01" id="test_01_toggler">
                           <h4 class="test_name">Malaria Test</h4>
                         </li>
-                        <li data-test-id="3">
+                        <li class="test-togglers" data-test="test_02" id="test_02_toggler">
                           <h4 class="test_name">Urinalysis</h4>
                         </li>
                       </ul>
                     </div>
                     <div class="request-column" id="selected_tests">
-                      <table id="data-table" class="display fin">
-                        <thead>
+                      <div class="variable-test inview" id="test_00">
+                        <table id="data-table" class="display fin">
+                          <thead>
+                              <tr>
+                                  <th>Sub test</th>
+                                  <th>Result</th>
+                                  <th>Range</th>
+                                  <th>Notes</th>
+                              </tr>
+                          </thead>
+                          <tbody>
                             <tr>
-                                <th>Sub test</th>
-                                <th>Result</th>
-                                <th>Range</th>
-                                <th>Notes</th>
+                              <td>WBC</td>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
+                              <td>40 - 12.0</td>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>WBC</td>
-                            <td><input style="inline-size: 200px;" type="text" value=""></td>
-                            <td>40 - 12.0</td>
-                            <td><input style="inline-size: 200px;" type="text" value=""></td>
-                          </tr>
-                          <tr>
-                            <td>Lymphocytes</td>
-                            <td><input style="inline-size: 200px;" type="text" value=""></td>
-                            <td>0.8 - 0.7</td>
-                            <td><input style="inline-size: 200px;" type="text" value=""></td>
-                          </tr>
-                          <tr>
-                            <td>RBC</td>
-                            <td><input style="inline-size: 200px;" type="text" value=""></td>
-                            <td>0.8 - 0.7</td>
-                            <td><input style="inline-size: 200px;" type="text" value=""></td>
-                          </tr>
-                          <tr>
-                            <td>Mid%</td>
-                            <td><input style="inline-size: 200px;" type="text" value=""></td>
-                            <td>0.8 - 0.7</td>
-                            <td><input style="inline-size: 200px;" type="text" value=""></td>
-                          </tr>
-                          <tr>
-                            <td>Gran</td>
-                            <td><input style="inline-size: 200px;" type="text" value=""></td>
-                            <td>0.8 - 0.7</td>
-                            <td><input style="inline-size: 200px;" type="text" value=""></td>
-                          </tr>
-                        </tbody>
-                      </table>
+                            <tr>
+                              <td>Lymphocytes</td>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
+                              <td>0.8 - 0.7</td>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
+                            </tr>
+                            <tr>
+                              <td>RBC</td>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
+                              <td>0.8 - 0.7</td>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
+                            </tr>
+                            <tr>
+                              <td>Mid%</td>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
+                              <td>0.8 - 0.7</td>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
+                            </tr>
+                            <tr>
+                              <td>Gran</td>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
+                              <td>0.8 - 0.7</td>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="variable-test" id="test_01">
+                        <table id="data-table" class="display fin">
+                          <thead>
+                              <tr>
+                                  <th>Result</th>
+                                  <th>Notes</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="variable-test" id="test_02">
+                        <table id="data-table" class="display fin">
+                          <thead>
+                              <tr>
+                                  <th>Result</th>
+                                  <th>Notes</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
+                              <td><input style="inline-size: 200px;" type="text" value=""></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   </div>
                 </div>

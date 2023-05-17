@@ -143,6 +143,17 @@ main .main-content-area .variable-section.inview {
   display: grid;
   gap: 0.5rem;
 }
+main .main-content-area .variable-test {
+  display: none;
+  border: 1px solid hsl(0, 0%, 90%);
+  block-size: 100%;
+  align-content: flex-start;
+  padding: 0.25rem 0.5rem;
+}
+main .main-content-area .variable-test.inview {
+  display: grid;
+  gap: 0.5rem;
+}
 main .main-content-area .variable-section .variable-section-part {
   display: none;
 }
