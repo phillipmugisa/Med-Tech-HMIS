@@ -650,6 +650,10 @@
             <p class="part-content">14</p>
         </div>
     </div>
+    <div class="cta_area">
+        <button onclick="triggerEditPatientModal({id:${parseInt(patient.id)}})"  class="modal-activators">Edit Detials</button>
+        <button onclick="triggerCreateVisitModal()" class="modal-activators">Create Visit</button>
+    </div>
     `;
     previewArea.innerHTML = previewContent;
 

@@ -55,6 +55,14 @@ button.accented:hover {
   color: #0072C6;
   inline-size: 100px;
 }
+.departments .department.active {
+  background-color: #1da1f2;
+  color:#F8F8F8;
+}
+.departments .department.active:hover {
+  background-color: #1da1f2;
+  color:#F8F8F8;
+}
 .departments .department:hover {
   background-color: hsl(0, 14%, 95%);
 }
@@ -66,7 +74,6 @@ button.accented:hover {
   font-size: 0.8rem;
   font-weight: 500;
 }
-
 main {
   background-color: #F8F8F8;
   display: grid;
