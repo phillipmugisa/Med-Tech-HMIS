@@ -21,6 +21,25 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     )
 
+    const test_togglers = document.querySelectorAll(".test-togglers")
+    test_togglers.forEach(
+        activator => activator.addEventListener("click", () => {
+            let testToShow = document.querySelector(`#${activator.dataset.test}`)
+            console.log(testToShow)
+
+            test_togglers.forEach(a=>{
+                a.style.backgroundColor = "#fff";
+            })
+            activator.style.backgroundColor = "hsl(203, 89%, 40%)";
+            
+            // close open modals
+            let openTests = document.querySelectorAll(".variable-test.inview");
+            openTests.forEach(test => test.classList.remove("inview"))
+
+            testToShow.classList.add("inview")
+        })
+    )
+
     const section_part_toggler = document.querySelectorAll(".section-part-toggler")
     section_part_toggler.forEach(
         activator => activator.addEventListener("click", () => {
