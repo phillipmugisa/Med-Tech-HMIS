@@ -128,9 +128,9 @@
                 <button class="accented section-togglers" data-section="theatre" id="theatre_toggler">Theatre</button>
                 <button class="accented section-togglers" data-section="dental_lab" id="dental_lab_toggler">Dental Lab</button>
                 <button class="accented section-togglers" data-section="eye" id="eye_toggler">Eye</button>
-                <button disabled class="accented section-togglers disabled" data-section="lab_results" id="lab_results_toggler">Lab Results</button>
-                <button disabled class="accented section-togglers disabled" data-section="cardiology_results" id="cardiology_results_toggler">Cardiology Results</button>
-                <button disabled class="accented section-togglers disabled" data-section="radiology_results" id="radiology_results_toggler">Radiology Results</button>
+                <button class="accented section-togglers" data-section="lab_results" id="lab_results_toggler">Lab Results</button>
+                <button class="accented section-togglers" data-section="cardiology_results" id="cardiology_results_toggler">Cardiology Results</button>
+                <button class="accented section-togglers" data-section="radiology_results" id="radiology_results_toggler">Radiology Results</button>
             </div>
             <section class="variable-section inview" id="assigned_patients">
               <div class="records-part" id="recent-patients">
@@ -840,138 +840,39 @@
                 </div>
             </section>
             <section class="variable-section" id="dental_lab">
-              <table style="inline-size: 100%;" class="display fin">
-                <thead>
-                  <tr>
-                    <th>Tooth Name</th>
-                    <th>Diagnosis</th>
-                    <th>Procedure</th>
-                    <th>Fees</th>
-                    <th>Description</th>
-                    <th>Notes</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style="inline-size: 400px;">
-                      <select style="inline-size: 150px;" onchange="createNextDentalRow(this)" id="initial-select">
-                        <option value="">Select Tooth</option>
-                        <option value="Incisor">Incisor</option>
-                        <option value="Canine">Canine</option>
-                        <option value="Pre-Molar">Pre-Molar</option>
-                        <option value="Molar">Molar</option>
-                      </select>
-                    </td>
-                    <td><input type="text"></td>
-                    <td><input type="text"></td>
-                    <td><input type="text"></td>
-                    <td><input type="text"></td>
-                    <td><input type="text"></td>
-                    <td><i disabled class="disabled ti-trash"></i></td>
-                  </tr>
-                </tbody>
-              </table>
               <div class="section-form">
-                <form action="">
-                  <!-- <div class="modal-section">
-                    <div class="section-label">
-                      <small>Tooth details</small>
-                    </div>
-                    <div class="section-content">
-                      <div class="section-content-row grid flex-gap-40">
-                        <div class="form-control flex flex-column">
-                          <label for="">Tooth name</label>
-                          <select name="name" class="input">
-                            <option value="Incisor">Incisor</option>
-                            <option value="Canine">Canine</option>
-                            <option value="Pre-molar">Pre-molar</option>
-                            <option value="Molar">Molar</option>
-                          </select>
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="">Diagnosis</label>
-                          <select name="diagnosis" class="input">
-                            <option value="extraction">Extraction</option>
-                            <option value="root-canal">Root Canal</option>
-                            <option value="filling">Filling</option>
-                            <option value="whitening">Whitening</option>
-                          </select>
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <label for="">Procedure</label>
-                          <select name="diagnosis" class="input">
-                            <option value="extraction">Extraction</option>
-                            <option value="root-canal">Root Canal</option>
-                            <option value="filling">Filling</option>
-                            <option value="whitening">Whitening</option>
-                          </select>
-                        </div>
-                        <div class="form-control flex flex-column">
-                          <div class="form-control flex flex-column">
-                            <label for="">Fee</label>
-                            <input class="input" type="text" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
-                  <!-- <div class="modal-section">
-                    <div class="section-label">
-                      <small>Observation notes</small>
-                    </div>
-                    <div class="section-content">
-                      <div class="section-content-row flex">
-                        <div class="form-control flex flex-column">
-                          <div class="form-control flex flex-column" style="inline-size: 100%">
-                            <label for="">Fill any observations here</label>
-                            <textarea class="input" cols="100%" rows="2"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal-section">
-                    <div class="section-label">
-                      <small>Description notes</small>
-                    </div>
-                    <div class="section-content">
-                      <div class="section-content-row flex">
-                        <div class="form-control flex flex-column">
-                          <div class="form-control flex flex-column" style="inline-size: 100%">
-                            <label for="">Fill the description notes</label>
-                            <textarea class="input" cols="100%" rows="2"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal-section">
-                    <div class="section-label">
-                      <small>Date & Time</small>
-                    </div>
-                    <div class="section-content">
-                      <form action="">
-                        <div class="section-content-row flex flex-gap-40">
-                          <div class="form-control flex flex-column">
-                            <label for="">Date</label>
-                            <input class="input" type="date" />
-                          </div>
-                          <div class="form-control flex flex-column">
-                            <label for="">Time</label>
-                            <input class="input" type="time" />
-                          </div>
-                          <div class="form-control flex flex-column">
-                          </div>
-                          <div class="form-control flex flex-column">
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div> -->
-                  <div class="modal-section cta-area">
-                    <button class="accented section-form-cta accented">Save</button>
-                  </div>
+                <table style="inline-size: 100%;" class="display fin">
+                  <thead>
+                    <tr>
+                      <th>Tooth Name</th>
+                      <th>Diagnosis</th>
+                      <th>Procedure</th>
+                      <th>Fees</th>
+                      <th>Description</th>
+                      <th>Notes</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <select style="inline-size: 150px;" onchange="createNextDentalRow(this)" id="initial-select">
+                          <option value="">Select Tooth</option>
+                          <option value="Incisor">Incisor</option>
+                          <option value="Canine">Canine</option>
+                          <option value="Pre-Molar">Pre-Molar</option>
+                          <option value="Molar">Molar</option>
+                        </select>
+                      </td>
+                      <td><input type="text" style="inline-size:120px !important" ></td>
+                      <td><input type="text" style="inline-size:120px !important" ></td>
+                      <td><input type="text" style="inline-size:120px !important" ></td>
+                      <td><input type="text" style="inline-size:120px !important" ></td>
+                      <td><input type="text" style="inline-size:120px !important" ></td>
+                      <td><i disabled class="disabled ti-trash"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </section>
             <section class="variable-section" id="eye">
@@ -1763,6 +1664,7 @@
     // Add input field for price to new row
     const nextRowPrice = document.createElement('input');
     nextRowPrice.type = 'text';
+    nextRowPrice.style.inlineSize = "120px";
     // nextRowPrice.readOnly = true;
     nextRowColumn2.appendChild(nextRowPrice);
     nextRow.appendChild(nextRowColumn2);
@@ -1770,6 +1672,7 @@
     // Add input field for narration to new row
     const nextRowNarration = document.createElement('input');
     nextRowNarration.type = 'text';
+    nextRowNarration.style.inlineSize = "120px";
     // nextRowNarration.readOnly = true;
     nextRowColumn3.appendChild(nextRowNarration);
     nextRow.appendChild(nextRowColumn3);
@@ -1777,6 +1680,7 @@
     // Add input field for narration to new row
     const nextRowNarration2 = document.createElement('input');
     nextRowNarration2.type = 'text';
+    nextRowNarration2.style.inlineSize = "120px";
     // nextRowNarration.readOnly = true;
     nextRowColumn5.appendChild(nextRowNarration2);
     nextRow.appendChild(nextRowColumn5);
@@ -1784,6 +1688,7 @@
     // Add input field for narration to new row
     const nextRowNarration3 = document.createElement('input');
     nextRowNarration3.type = 'text';
+    nextRowNarration3.style.inlineSize = "120px";
     // nextRowNarration.readOnly = true;
     nextRowColumn6.appendChild(nextRowNarration3);
     nextRow.appendChild(nextRowColumn6);
@@ -1791,6 +1696,7 @@
     // Add input field for narration to new row
     const nextRowNarration4 = document.createElement('input');
     nextRowNarration4.type = 'text';
+    nextRowNarration4.style.inlineSize = "120px";
     // nextRowNarration.readOnly = true;
     nextRowColumn7.appendChild(nextRowNarration4);
     nextRow.appendChild(nextRowColumn7);
