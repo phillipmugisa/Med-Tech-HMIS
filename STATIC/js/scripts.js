@@ -35,29 +35,5 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     )
 
-    // for selecting tests
-    function createSelectedTestElem(test_id) {
-        const elem = document.createElement("li");
-        elem.dataset.testId = test_id;
-        elem.innerHTML = `
-            <h4 class="test_name">Malaria A</h4>
-            <p class="test_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ex nostrum, necessitatibus corporis non quos?</p>
-            <span class="action"><i class="fa fa-trash"></i></span>
-        `
-        elem.querySelector(".action").addEventListener("click", () => {
-            elem.parentNode.removeChild(elem);
-        })
-        return elem
-    }
 
-    const request_tests = document.querySelectorAll("#request-test-list li")
-    request_tests.forEach(test => test.addEventListener("click", () => {
-        const selectedTestArea = document.querySelector("#selected_tests ul")
-        console.log(selectedTestArea.querySelectorAll(`li[data-test-id="${test.dataset.testId}"]`))
-        if (selectedTestArea.querySelectorAll(`li[data-test-id="${test.dataset.testId}"]`).length > 0)
-            return;
-
-        let selected_test_elem = createSelectedTestElem(test.dataset.testId);
-        selectedTestArea.appendChild(selected_test_elem)
-    }))
 })

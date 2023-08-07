@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     grid_activators.forEach(
         activator => activator.addEventListener("click", () => {
             let gridToOpen = document.querySelector(`#${activator.dataset.table}`);
-            console.log(10)
+            // console.log(10)
             
             // remove grids  from view
             let openGrids = document.querySelectorAll(".data-grid.display-block");

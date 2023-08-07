@@ -78,3 +78,27 @@ class AllergySerializer(serializers.ModelSerializer):
         representation = super().to_representation(instance)
         representation["patient"] = PatientSerializer(instance.patient).data
         return representation
+
+
+class GeneralFindingsSerializer(serializers.ModelSerializer):
+    visit = serializers.PrimaryKeyRelatedField(queryset=PatientModals.Visit.objects.all())
+
+    class Meta:
+        model = PatientModals.GeneralFinding
+        fields = "__all__"
+
+        
+
+class PaedeatricNoteSerializer(serializers.ModelSerializer):
+    visit = serializers.PrimaryKeyRelatedField(queryset=PatientModals.Visit.objects.all())
+
+    class Meta:
+        model = PatientModals.PaedeatricNote
+        fields = "__all__"
+
+class GynNoteSerializer(serializers.ModelSerializer):
+    visit = serializers.PrimaryKeyRelatedField(queryset=PatientModals.Visit.objects.all())
+
+    class Meta:
+        model = PatientModals.GynNote
+        fields = "__all__"

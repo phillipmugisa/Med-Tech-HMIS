@@ -26,7 +26,7 @@ class Person(models.Model):
     lastname = models.CharField(_("Last Name"), max_length=256, null=False, blank=False)
     age = models.IntegerField(_("Age"), default=0, null=True, blank=True)
     date_of_birth = models.DateTimeField(_("Date of Birth"), null=True, blank=True)
-    nin = models.CharField(_("National Identification Number"), max_length=256, null=True, blank=True)
+    nin = models.CharField(_("National Identification Number"), max_length=256, null=True, blank=True, unique=True)
     gender = models.CharField(_("Gender"), max_length=256, choices=GenderChoices, null=False, blank=False)
     telnumber = models.CharField(_("Phone Number"), max_length=256, null=False, blank=False)
     alttelnumber = models.CharField(_("Alternative Phone Number"), max_length=256, null=True, blank=True)
@@ -73,3 +73,4 @@ class VisitCategory(models.Model):
     def save(self, *args, **kwargs):
         self.updated_on = datetime.datetime.now()
         super().save(*args, **kwargs)
+

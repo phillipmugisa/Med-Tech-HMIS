@@ -113,80 +113,90 @@
 </section>
 
 <script>
-    document.querySelector("#save_allergies")
-      .addEventListener("click", e => {
-        e.preventDefault()
-        let new_allergies = new Array();
-        let edited_allergies = new Array();
-        document.querySelectorAll("#allergies_form_area .addable-form-area:not(:last-of-type)")
-          .forEach(area => {
-            let name = area.querySelector(".allergy_name")
-            let comment = area.querySelector(".allergy_comment")
-            if ((name.value == "" || name.value == undefined) && area.parentNode.lastChild != area){
-              name.classList.add("error")
-              return
-            }
-            else {
-              if (name.classList.contains("error")) {
-                name.classList.remove("error")
-              }
 
-              // save allergies
-              let allergy_data = {
-                name: name.value,
-                comment: comment.value,
-                patient: currentPatientState.state.id
-              }
-              if (!area.dataset.allergyId){
-                new_allergies.push(allergy_data)
-              }
-              else {
-                allergy_data.id = area.dataset.allergyId
-                edited_allergies.push(allergy_data)
-              }
-            }
-          })
-
-          // create or update
-          if (allergies.length < 1) {
-            document.querySelector("#allergies_form_area .addable-form-area .allergy_name")
-              .classList.add("error")
+    function save_new_allergy() {
+      let new_allergies = new Array();
+      let edited_allergies = new Array();
+      document.querySelectorAll("#allergies_form_area .addable-form-area:not(:last-of-type)")
+        .forEach(area => {
+          let name = area.querySelector(".allergy_name")
+          let comment = area.querySelector(".allergy_comment")
+          if ((name.value == "" || name.value == undefined) && area.parentNode.lastChild != area){
+            name.classList.add("error")
             return
           }
           else {
-              if (document.querySelector("#allergies_form_area .addable-form-area .allergy_name").classList.contains("error")) {
-                document.querySelector("#allergies_form_area .addable-form-area .allergy_name").classList.remove("error")
-              }
-          }
+            if (name.classList.contains("error")) {
+              name.classList.remove("error")
+            }
 
-          if (new_allergies.length > 0) {
-            makeRequest(`/api/allergy/create/`, method="POST", data=new_allergies)
+            // save allergies
+            let allergy_data = {
+              name: name.value,
+              comment: comment.value,
+              patient: currentPatientState.state.id
+            }
+            if (!area.dataset.allergyId){
+              new_allergies.push(allergy_data)
+            }
+            else {
+              allergy_data.id = area.dataset.allergyId
+              edited_allergies.push(allergy_data)
+            }
+          }
+        })
+
+        // create or update
+        if (allergies.length < 1) {
+          document.querySelector("#allergies_form_area .addable-form-area .allergy_name")
+            .classList.add("error")
+          return
+        }
+        else {
+            if (document.querySelector("#allergies_form_area .addable-form-area .allergy_name").classList.contains("error")) {
+              document.querySelector("#allergies_form_area .addable-form-area .allergy_name").classList.remove("error")
+            }
+        }
+
+        if (new_allergies.length > 0) {
+          makeRequest(`/api/allergy/create/`, method="POST", data=new_allergies)
+          .then(response => {
+            // show success message
+            alert("saved")
+          })
+          .catch(response => {
+            // render error
+          })
+        }
+        
+        if (edited_allergies.length > 0) {
+          edited_allergies.forEach(record => {
+            makeRequest(`/api/allergy/${record.id}/update/`, method="PATCH", data=record)
             .then(response => {
               // show success message
-              alert("saved")
             })
             .catch(response => {
               // render error
             })
-          }
-          
-          if (edited_allergies.length > 0) {
-            edited_allergies.forEach(record => {
-              makeRequest(`/api/allergy/${record.id}/update/`, method="PATCH", data=record)
-              .then(response => {
-                // show success message
-              })
-              .catch(response => {
-                // render error
-              })
-            })
-          }
-          
-      })
+          })
+        }
+    }
+    
+    document.querySelector("#allergies_form").addEventListener("submit", e => {
+      e.preventDefault()
+      if (e.target != document.querySelector("#save_allergies")) {
+          return;
+      }
+      save_new_triage()
+    })
 
-    document.querySelector("#save_triage")
+    document.querySelector("#save_allergies")
       .addEventListener("click", e => {
         e.preventDefault()
+        save_new_allergy()          
+      })
+
+    function save_new_triage () {
         let doctor_triage_form = document.querySelector("#triage_form")
         let blood_pressure = doctor_triage_form.querySelector("#blood_pressure")
         let heart_rate = doctor_triage_form.querySelector("#heart_rate")
@@ -220,6 +230,20 @@
         .catch(response => {
           // render error
         })
+    }
+
+    document.querySelector("#triage_form").addEventListener("submit", e => {
+      e.preventDefault()
+      if (e.target != document.querySelector("#save_triage")) {
+          return;
+      }
+      save_new_triage()
+    })
+
+    document.querySelector("#save_triage")
+      .addEventListener("click", e => {
+        e.preventDefault()
+        save_new_triage()
       })  
 
 </script>

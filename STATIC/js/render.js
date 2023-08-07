@@ -115,3 +115,23 @@ function rendertriageData(page=1) {
         })
     })
 }
+
+function renderLabRequestData(page=1, url=null, tableId=null, listener=null) {
+    return new Promise ((resolve, reject) => {
+        // fetch data
+        makeRequest(url, method="GET")
+        .then(response => {
+            const tableBody = document.querySelector(`table#${tableId} tbody`)
+            // clear table body
+            tableBody.innerHTML = "";
+            createTableRows(tableBody, response, field=["patientID","visit_id", "patient", "category", "doctor", "handled", "created_on"], listener=listener)
+        })
+        .catch(response => {
+            reject(response)
+        })
+        .finally(() => {
+            $(`table#${tableId}`).DataTable()
+            resolve()
+        })
+    })
+}

@@ -66,6 +66,10 @@ const loadVisitPreview = (visit) => {
             <p class="part-content">${visit.patient.patient_id}</p>
         </div>
         <div class="detail-group">
+            <p class="part-title">Visit:</p>
+            <p class="part-content">${visit.visit_id}</p>
+        </div>
+        <div class="detail-group">
             <p class="part-title">Fullname:</p>
             <p class="part-content">${visit.patient.fullname}</p>
         </div>

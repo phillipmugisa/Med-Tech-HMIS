@@ -233,35 +233,40 @@ main .request-view .test-search-area input {
   background-color: hsl(208, 57%, 98%);
   outline: none;
 }
-main .request-view .request-view-body {
+main .request-view .request-body-wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
-main .request-view .request-view-body .request-column {
+main .request-view .request-body-wrapper .request-view-body {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0.25rem;
+  block-size: 65vh;
+}
+main .request-view .request-body-wrapper .request-view-body .request-column {
   border: 1px solid hsl(0, 0%, 90%);
   border-radius: 5px;
 }
-main .request-view .request-view-body .request-column header {
+main .request-view .request-body-wrapper .request-view-body .request-column header {
   padding: 0.5rem 1rem;
   background-color: hsl(202, 22%, 93%);
 }
-main .request-view .request-view-body .request-column header h3 {
+main .request-view .request-body-wrapper .request-view-body .request-column header h3 {
   font-size: 1rem;
   font-weight: 500;
   color: #0078D7;
 }
-main .request-view .request-view-body .request-column ul {
+main .request-view .request-body-wrapper .request-view-body .request-column ul {
   list-style-type: none;
   display: grid;
   align-content: flex-start;
   gap: 0.5rem;
   padding: 0.5rem 0.25rem;
-  block-size: 60vh;
+  block-size: 52.5vh;
   overflow: hidden;
   overflow-y: auto;
 }
-main .request-view .request-view-body .request-column ul li {
+main .request-view .request-body-wrapper .request-view-body .request-column ul li {
   display: grid;
   gap: 0.2rem;
   cursor: pointer;
@@ -271,24 +276,46 @@ main .request-view .request-view-body .request-column ul li {
   background-color: hsl(0, 0%, 99%);
   position: relative;
 }
-main .request-view .request-view-body .request-column ul li:hover {
+main .request-view .request-body-wrapper .request-view-body .request-column ul li:hover {
   background-color: hsl(0, 0%, 100%);
 }
-main .request-view .request-view-body .request-column ul li .test_name {
+main .request-view .request-body-wrapper .request-view-body .request-column ul li .test_name {
   color: hsl(0, 0%, 25%);
 }
-main .request-view .request-view-body .request-column ul li .test_description {
+main .request-view .request-body-wrapper .request-view-body .request-column ul li .test_description {
   color: hsl(0, 0%, 35%);
 }
-main .request-view .request-view-body .request-column ul li .test_price {
+main .request-view .request-body-wrapper .request-view-body .request-column ul li .test_price {
+  display: grid;
+  gap: 0.5rem;
+  grid-auto-flow: column;
   justify-self: flex-end;
   color: rgb(22, 21, 21);
+  align-items: center;
 }
-main .request-view .request-view-body .request-column ul li .action {
+main .request-view .request-body-wrapper .request-view-body .request-column ul li .test_price input {
+  border: 1px solid hsl(0, 0%, 90%);
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+main .request-view .request-body-wrapper .request-view-body .request-column ul li .action {
   justify-self: flex-end;
   inset-block-start: 0;
   inset-inline-end: 0;
   padding: 0.25rem 0.5rem;
   font-size: 1rem;
   color: gray;
+}
+main .request-view .request-body-wrapper .request-footer-area {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: stretch;
+  align-items: center;
+}
+main .request-view .request-body-wrapper .request-footer-area .test-total {
+  font-weight: bold;
+}
+main .request-view .request-body-wrapper .request-footer-area .cta-area {
+  display: grid;
+  justify-content: flex-end;
 }/*# sourceMappingURL=components.css.map */

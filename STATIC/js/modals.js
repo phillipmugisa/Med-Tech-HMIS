@@ -161,6 +161,8 @@ function setModalPatientDetails(patient, modal) {
 }
 
 function displayTriageFormData (data, parentElem) {
+    parentElem.querySelectorAll("input, textarea")
+        .forEach(elem => elem.value = "")
     parentElem.querySelector("#blood_pressure").value = data.blood_pressure
     parentElem.querySelector("#heart_rate").value = data.heart_rate
     parentElem.querySelector("#respiratory_rate").value = data.respiratory_rate

@@ -50,6 +50,7 @@ CUSTOM_APPS = [
     "doctor",
     "patients",
     "finance",
+    "lab",
     "app_api"
 ]
 

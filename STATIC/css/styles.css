@@ -447,10 +447,21 @@ table tbody tr.active {
   display: grid;
   gap: 1rem;
   align-content: flex-start;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .allergy_name,
 .allergy_comment {
   margin-block: .25rem;
   padding-inline: .25rem;
+}
+
+#allergies_form_area .addable-form-area {
+  background-color: hsl(205, 64%, 95%);
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+#allergies_form_area input,
+#allergies_form_area textarea {
+  padding: .5rem;
 }
