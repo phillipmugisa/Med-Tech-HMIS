@@ -55,8 +55,7 @@ urlpatterns = [
     path("gynnotes/<str:visit_id>/visit/", AppApiViews.VisitGynNotesListView.as_view(), name='visit_gyn_notes_list'),
 
 
-    # lab
-    
+    # lab    
     path("lab/requests/", AppApiViews.LabRequestListView.as_view(), name='lab_requests_list'),
     path("lab/requests/<int:pk>", AppApiViews.LabRequestRetrieveView.as_view(), name='lab_requests_retrieve'),
     path("lab/requests/<int:pk>/update/", AppApiViews.LabRequestUpdateView.as_view(), name='lab_requests_update'),

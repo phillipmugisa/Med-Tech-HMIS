@@ -263,7 +263,7 @@ select {
 .modal-section .section-content input[type="date"] {
   border: 1px solid #cce5f9;
   border-radius: 6px;
-  padding-block: 3.3px;
+  padding: 3.3px;
   inline-size: 100% !important;
   background-color: #edf4fa;
 }
@@ -464,4 +464,8 @@ table tbody tr.active {
 #allergies_form_area input,
 #allergies_form_area textarea {
   padding: .5rem;
+}
+
+.departments .department {
+  cursor: pointer;
 }

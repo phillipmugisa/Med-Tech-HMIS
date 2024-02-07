@@ -1,0 +1,62 @@
+{% block content %}
+<main class="split">
+    <aside class="sidebar-cta-section">
+        <button class="accented">
+            <i class="fa fa-search"></i>
+        </button>
+        <button class="accented">
+            <i class="fa fa-cog"></i>
+        </button>
+        <button class="accented">
+            <i class="fa fa-user"></i>
+        </button>
+        <button class="accented">
+            <i class="fa fa-sign-out"></i>
+        </button>
+    </aside>
+    <section class="main-content-area">
+        <div class="main-cta-section">
+            <button class="modal-activators" id="create_patient_modal_activator" data-modal="create_patient_modal">Create Patient</button>
+        </div>
+        <div class="records-part" id="recent-patients">
+            <div class="body">
+              <table id="patientsTable" class="display" style="width:100%;margin-top:.5rem;">
+                <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Visit</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                  <tr>
+                    <th>Patient ID</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Visit</th>
+                    <th>Created At</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+        </div>            
+    </section>
+    <aside class="preview-area" id="patient-preview"></aside>
+</main>
+
+{% include "../utils/modals/patient_modal.html" %}
+{% include "../utils/modals/visits_modal.html" with doctor_specialities=doctor_specialities doctors=doctors %}
+<script>
+    document.addEventListener("htmx:afterOnLoad", () => {
+        refreshView(1);
+    })
+    document.addEventListener("DOMContentLoaded", () => {
+        refreshView(1);
+    })
+</script>
+{% endblock %}

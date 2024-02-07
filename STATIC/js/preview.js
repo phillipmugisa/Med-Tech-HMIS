@@ -113,7 +113,7 @@ const loadTriagePreview = (triage) => {
     <div class="details" id="preview_detials">
         <div class="detail-group">
             <p class="part-title">Patient:</p>
-            <p class="part-content">${triage.patient_id}</p>
+            <p class="part-content">${triage.patient_id ? triage.patient_id : triage.patient.patient_id}</p>
         </div>
         <div class="detail-group">
             <p class="part-title">Fullname:</p>

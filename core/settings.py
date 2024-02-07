@@ -56,7 +56,8 @@ CUSTOM_APPS = [
 
 THIRD_PARTY_APPS = [
     "corsheaders",
-    "rest_framework"
+    "rest_framework",
+    "django_htmx"
 ]
 
 INSTALLED_APPS = INSTALLED_APPS + CUSTOM_APPS + THIRD_PARTY_APPS
@@ -70,6 +71,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_htmx.middleware.HtmxMiddleware",
 ]
 
 ROOT_URLCONF = 'core.urls'

@@ -159,7 +159,7 @@
         }
 
         if (new_allergies.length > 0) {
-          makeRequest(`/api/allergy/create/`, method="POST", data=new_allergies)
+          makeRequest(`/api/allergy/create/`, method="POST", data=new_allergies[0])
           .then(response => {
             // show success message
             alert("saved")

@@ -395,6 +395,13 @@ class LabTestCreateView(generics.CreateAPIView, LabTestViews):
 class CategoryLabTestListView(generics.ListAPIView, LabTestViews):
     def get(self, request, category):
         self.queryset = LabModels.LabTest.objects.filter(category__name__icontains=category)
+
+        search_keyword = request.GET.get("s")
+        if search_keyword:
+            self.queryset = self.queryset.filter(
+                name__icontains=search_keyword
+                # Q(description__icontains=search_keyword)
+            )
         return self.list(request, category)
 
 class RequestLabTestListView(generics.ListAPIView):

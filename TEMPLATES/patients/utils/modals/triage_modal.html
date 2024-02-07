@@ -235,10 +235,18 @@
           "injury_details" : injury_details.value
       }
 
-      if (!(document.querySelector("#create_triage_modal").dataset.action == "edit")) {
+      if (document.querySelector("#create_triage_modal").dataset.action === "create") {
         // fetch visit data, triage is associated with a visit
         makeRequest(`/api/patients/${patient_id.value}/visit/`, method="GET")
         .then(response => {
+
+
+          // a patient must have a visit to create a triage
+          if (response.length == 0) {
+            alert("Create Visit for create user")
+            return
+          }
+
           let lastTriage = response[0]
           triageData["visit"] = lastTriage.id;
           makeTriageCreateRequest(`{% url 'api:triage_create' %}`, "POST", triageData)
@@ -246,8 +254,7 @@
         .catch(response => {
           // render error
         })
-      }
-      else {
+      } else {
         triageData["visit"] = create_triage_modal.dataset.visit
         makeTriageCreateRequest(`/api/triage/${create_triage_modal.dataset.triage}/update/`, "PATCH", triageData)
       }
