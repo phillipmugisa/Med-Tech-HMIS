@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMIS</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../STATIC/css/table.min.css">
+    <link rel="stylesheet" href="../../STATIC/themify/icons/themify-icons.css">
+
+    <link rel="stylesheet" href="../../STATIC/css/styles.css">
+    <link rel="stylesheet" href="../../STATIC/css/components.css">
+    <link rel="stylesheet" href="../../STATIC/css/utils.css">
+    <link rel="stylesheet" href="../../STATIC/icons/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <!-- js -->
+    <script src="../../STATIC/js/jquery-3.5.1.js"></script>
+    <script src="../../STATIC/js/jquery.dataTables.min.js"></script>
+
+    <script src="../../STATIC/js/scripts.js"></script>
+
+    <style>
+      
+    </style>
+</head>
+<body>
+  <header class="departments">
+    <a href="../patients/index.html" class="department">
+        <img src="../../STATIC/icons/create-patient.png" alt="">
+        <span class="department-name">Patients</span>
+    </a>
+    <a href="../patients/visits.html" class="department">
+        <img src="../../STATIC/icons/visits.svg" alt="">
+        <span class="department-name">Visits</span>
+    </a>
+    <a href="../patients/triage.html" class="department">
+        <img src="../../STATIC/icons/triage.png" alt="">
+        <span class="department-name">Triage</span>
+    </a>
+    <a href="../cashier/index.html" class="department">
+      <img src="../../STATIC/icons/cashier.png" alt="">
+      <span class="department-name">Cashier</span>
+    </a>
+    <a href="../doctor/index.html" class="department">
+        <img src="../../STATIC/icons/doctor.png" alt="">
+        <span class="department-name">Doctor</span>
+    </a>
+    <a href="../doctor/laboratory.html" class="department">
+      <img src="../../STATIC/icons/lab.png" alt="">
+      <span class="department-name">Laboratory</span>
+    </a>
+    <a href="../cardiology/index.html" class="department">
+        <img src="../../STATIC/icons/cardiology.png" alt="">
+        <span class="department-name">Cardiology</span>
+    </a>
+    <a href="../radiology/index.html" class="department">
+        <img src="../../STATIC/icons/radiology.png" alt="">
+        <span class="department-name">Radiology</span>
+    </a>
+    <a href="../pharmacy/index.html" class="department active">
+        <img src="../../STATIC/icons/pharmacy.png" alt="">
+        <span class="department-name">Pharmacy</span>
+    </a>
+    <a href="../app_admin/inventory.html" class="department">
+        <img src="../../STATIC/icons/inventory.png" alt="">
+        <span class="department-name">Inventory</span>
+    </a>
+    <a href="../theatre/index.html" class="department">
+        <img src="../../STATIC/icons/theatre.png" alt="">
+        <span class="department-name">Theatre</span>
+    </a>
+    <a href="../doctor/dental.html" class="department">
+        <img src="../../STATIC/icons/dental.png" alt="">
+        <span class="department-name">Dental</span>
+    </a>
+    <a href="../patients/appointments.html" class="department">
+        <img src="../../STATIC/icons/appointment.png" alt="">
+        <span class="department-name">Appointments</span>
+    </a>
+    <a href="../app_admin/invoices.html" class="department">
+        <img src="../../STATIC/icons/invoices.png" alt="">
+        <span class="department-name">Invoices</span>
+    </a>
+    <a href="../app_admin/finances.html" class="department">
+        <img src="../../STATIC/icons/finances.png" alt="">
+        <span class="department-name">Finances</span>
+    </a>
+    <a href="../insurance/index.html" class="department">
+      <img src="../../STATIC/icons/insurance.png" alt="">
+      <span class="department-name">Insurance</span>
+  </a>
+  <a href="../app_admin/pricing.html" class="department">
+    <img src="../../STATIC/icons/insurance.png" alt="">
+    <span class="department-name">Pricing</span>
+  </a>
+    <a href="../app_admin/index.html" class="department">
+      <img src="../../STATIC/icons/finances.png" alt="">
+      <span class="department-name">Admin</span>
+    </a>
+  </header>
+    <main class="split">
+        <aside class="sidebar-cta-section">
+            <button class="accented">
+                <i class="fa fa-search"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-cog"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-user"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-sign-out"></i>
+            </button>
+        </aside>
+        <section class="main-content-area">
+            <div class="main-cta-section">
+                <button class="accented section-togglers" data-section="assigned_patients" id="patient_list">Patient list</button>
+                <button class="accented section-togglers" data-section="assigned_patients" id="prescription_toggler">Prescription</button>
+                <button class="accented section-togglers" data-section="general_doctor" id="consumables_toggler">Consumables</button>
+                <button class="accented section-togglers" data-section="clinical_findings" id="diagnosis_toggler">Diagnosis</button>
+            </div>
+             <section class="variable-section inview" id="assigned_patients">
+              <div class="records-part" id="recent-patients">
+                <div class="body">
+                  <table id="data-table" class="display" style="width:100%;margin-top:.5rem;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>Visit</th>
+                            <th>Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>FLH230300</td>
+                            <td>John Mukama Blue</td>
+                            <td>M</td>
+                            <td>25</td>
+                            <td>No</td>
+                            <td>08:30</td>
+                        </tr>
+                        <tr>
+                            <td>FLH230385</td>
+                            <td>Grace Sasira Lusuku</td>
+                            <td>F</td>
+                            <td>47</td>
+                            <td>Yes</td>
+                            <td>10:54</td>
+                        </tr>
+                        <tr>
+                            <td>FLH230326</td>
+                            <td>Mohamed Baker L.</td>
+                            <td>M</td>
+                            <td>21</td>
+                            <td>No</td>
+                            <td>10:53</td>
+                        </tr>
+                        <tr>
+                            <td>FLH230301</td>
+                            <td>Phillip Naturinda M.</td>
+                            <td>M</td>
+                            <td>35</td>
+                            <td>No</td>
+                            <td>10:59</td>
+                        </tr>
+                        <tr>
+                          <td>FLH230311</td>
+                          <td>Deodat Aganyira</td>
+                          <td>M</td>
+                          <td>68</td>
+                          <td>No</td>
+                          <td>12:02</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230313</td>
+                        <td>Joram Bwambale</td>
+                        <td>M</td>
+                        <td>28</td>
+                        <td>No</td>
+                        <td>13:15</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230316</td>
+                        <td>Matthew Musoke</td>
+                        <td>M</td>
+                        <td>26</td>
+                        <td>No</td>
+                        <td>13:42</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230366</td>
+                        <td>Juma Kiyinji Moses</td>
+                        <td>M</td>
+                        <td>43</td>
+                        <td>No</td>
+                        <td>14:33</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230336</td>
+                        <td>Alert Kapallaga</td>
+                        <td>M</td>
+                        <td>23</td>
+                        <td>No</td>
+                        <td>14:43</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230361</td>
+                        <td>Martin Tukesiga Joel</td>
+                        <td>M</td>
+                        <td>22</td>
+                        <td>No</td>
+                        <td>14:36</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230386</td>
+                        <td>Jane Nantongo Nakato</td>
+                        <td>F</td>
+                        <td>24</td>
+                        <td>No</td>
+                        <td>14:38</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230386</td>
+                        <td>Hassan Dahalane</td>
+                        <td>M</td>
+                        <td>32</td>
+                        <td>No</td>
+                        <td>14:42</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230377</td>
+                        <td>Ssempala Moses</td>
+                        <td>M</td>
+                        <td>55</td>
+                        <td>No</td>
+                        <td>14:50</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230656</td>
+                        <td>Robert Mulenda Mwiru</td>
+                        <td>M</td>
+                        <td>26</td>
+                        <td>No</td>
+                        <td>15:08</td>
+                      </tr>
+                      <tr>
+                        <td>FLH230116</td>
+                        <td>Johnson Orone Nathan</td>
+                        <td>M</td>
+                        <td>20</td>
+                        <td>No</td>
+                        <td>15:15</td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Visit</th>
+                        <th>Created At</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+            </div>  
+            </section>
+            <section class="variable-section inview" id="prescription_toggler">
+            <div class="records-part" id="prescription_toggler">
+                <div class="body">
+                  <table id="data-table" class="display" style="width:100%;margin-top:.5rem;">
+                    <thead>
+                        <tr>
+                            <th>Include</th>
+                            <th>Drug No</th>
+                            <th>Drug Name</th>
+                            <th>Dosage</th>
+                            <th>Duration</th>
+                            <th>Quantity</th>
+                            <th>Issue Quantity</th>
+                            <th>Balance</th>
+                            <th>Unit Price</th>
+                            <th>Amount</th>
+                            <th>Location Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" id="checkbox1" name="checkbox1"></td>
+                            <td>DRG0318</td>
+                            <td>Levofloxacin I.V 100 mls</td>
+                            <td>1*1</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>15000</td>
+                            <td>20000</td>
+                            <td>10000</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="checkbox1" name="checkbox1"></td>
+                            <td>DRG0380</td>
+                            <td>Normalsaline I.V</td>
+                            <td>1*1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>20000</td>
+                            <td>20000</td>
+                            <td>12000</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="checkbox1" name="checkbox1"></td>
+                            <td>DRG0396</td>
+                            <td>Ondasentron 2mg/ml</td>
+                            <td>2*1</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>18000</td>
+                            <td>15000</td>
+                            <td>19000</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="checkbox1" name="checkbox1"></td>
+                            <td>DRG0450</td>
+                            <td>Relcer gel</td>
+                            <td>10*3</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>18000</td>
+                            <td>15000</td>
+                            <td>19000</td>
+                            
+                        </tr>
+                        <tr>
+                          <td><input type="checkbox" id="checkbox1" name="checkbox1"></td>
+                            <td>DRG0453</td>
+                            <td>Thamine 100 mg injection</td>
+                            <td>10*3</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>18000</td>
+                            <td>15000</td>
+                            <td>19000</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" id="checkbox1" name="checkbox1"></td>
+                            <td>DRG0453</td>
+                            <td>Thamine 100 mg injection</td>
+                            <td>10*3</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>18000</td>
+                            <td>15000</td>
+                            <td>19000</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" id="checkbox1" name="checkbox1"></td>
+                            <td>DRG0453</td>
+                            <td>Omeprazole injection</td>
+                            <td>10*3</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>18000</td>
+                            <td>15000</td>
+                            <td>19000</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" id="checkbox1" name="checkbox1"></td>
+                            <td>DRG0453</td>
+                            <td>Tramadol caps 50 mg</td>
+                            <td>10*3</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>18000</td>
+                            <td>15000</td>
+                            <td>19000</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" id="checkbox1" name="checkbox1"></td>
+                            <td>DRG0453</td>
+                            <td>Tramadol caps 50 mg</td>
+                            <td>10*3</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>18000</td>
+                            <td>15000</td>
+                            <td>19000</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" id="checkbox1" name="checkbox1"></td>
+                            <td>DRG0453</td>
+                            <td>Tramadol caps 50 mg</td>
+                            <td>10*3</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>18000</td>
+                            <td>15000</td>
+                            <td>19000</td>
+                      </tr>
+                     </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Visit</th>
+                        <th>Created At</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+            </div>  
+            </section>
+            <section class="variable-section" id="general_doctor">
+              <div class="section_cta_area">
+                <button class="section-part-toggler" data-section="triage">Triage</button>
+                <button class="section-part-toggler" data-section="allergies">Allergies</button>
+                <button disabled class="section-part-toggler disabled" data-section="medical_conditions">Medical Conditions</button>
+              </div>
+              <div class="variable-section-part inview" id="triage">
+                <div class="section-form">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Vital Signs</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row grid flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Blood Pressure</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Heart Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Respiratory Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Temperature</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Weight(Kg)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Height(cm)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Oxygen Saturation</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">MUAC</label>
+                            <input class="input" type="text" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Signs & Symptoms</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the signs and symptoms from the patient</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Injury Details</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the type, location and severity of injury</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section cta-area">
+                      <button class="accented section-form-cta accented">Save</button>
+                    </div>
+                </div>
+              </div>
+              <div class="variable-section-part" id="allergies">
+                <div class="section-form">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Allergies</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row grid flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Blood Pressure</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Heart Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Respiratory Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Temperature</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Weight(Kg)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Height(cm)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Oxygen Saturation</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">MUAC</label>
+                            <input class="input" type="text" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Signs & Symptoms</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the signs and symptoms from the patient</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Injury Details</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the type, location and severity of injury</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section cta-area">
+                      <button class="accented section-form-cta accented">Save</button>
+                    </div>
+                </div></div>
+              <div class="variable-section-part" id="medical_conditions">medical_conditions</div>
+            </section>
+            <section class="variable-section" id="clinical_findings">
+              <div class="section_cta_area">
+                <button class="section-part-toggler" data-section="general">General Findings</button>
+                <button class="section-part-toggler" data-section="paedeatrics">Paedeatrics</button>
+                <button class="section-part-toggler" data-section="gyn">Gyn</button>
+              </div>
+              <div class="variable-section-part inview" id="general">
+                <div class="section-form" style="border:none;padding:0;">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-content" style="border:none;border-radius:0;padding:0;block-size:450px;background-color:rgb(231, 249, 254);overflow-y:scroll;padding:4px 8px">
+                        <div class="section-content-row flex" style="gap:20px">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Presenting complaints</label>
+                              <textarea class="input" cols="100%" rows="1"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Clinical notes</label>
+                              <textarea class="input" cols="100%" rows="1"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">ROHS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">PSH</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">POH</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">POH</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">General appearance</label>
+                              <textarea class="input" cols="100%" rows="1"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Respiratory</label>
+                              <textarea class="input" cols="100%" rows="8"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">CVS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">ENT</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Abdomen & Gut</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">CNS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">General appearance</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Respiratory</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">CVS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">ENT</label>
+                              <textarea class="input" cols="100%" rows="6"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Abdomen & Gut</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">CNS</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="variable-section-part" id="paedeatrics">
+                <div class="section-form">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Allergies</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row grid flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Blood Pressure</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Heart Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Respiratory Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Temperature</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Weight(Kg)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Height(cm)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Oxygen Saturation</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">MUAC</label>
+                            <input class="input" type="text" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Signs & Symptoms</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the signs and symptoms from the patient</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Injury Details</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the type, location and severity of injury</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section cta-area">
+                      <button class="accented section-form-cta accented">Save</button>
+                    </div>
+              </div></div>
+              <div class="variable-section-part" id="gyn">gyn</div>
+            </section>
+            <section class="variable-section" id="diagnosis">diagnosis</section>
+            <section class="variable-section" id="prescription">prescription</section>
+            <section class="variable-section" id="procedures">procedures</section>
+            <section class="variable-section" id="theatre">theatre</section>
+            <section class="variable-section" id="dental_lab">dental_lab</section>
+            <section class="variable-section" id="eye">eye</section>
+            <section class="variable-section" id="lab_results">lab_results</section>
+            <section class="variable-section" id="cardiology_results">cardiology_results</section>
+            <section class="variable-section" id="radiology_results">radiology_results</section>
+        </section>
+        <aside class="preview-area" id="patient-preview">
+            <div class="img-wrapper">
+                <img src="../../STATIC/images/user.png" alt="">
+            </div>
+            <div class="details">
+                <div class="detail-group">
+                    <p class="part-title">Patient No.:</p>
+                    <p class="part-content">67834</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">First Name:</p>
+                    <p class="part-content">Alex</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Last No.:</p>
+                    <p class="part-content">Muhumuza</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">NIN:</p>
+                    <p class="part-content">CM2REK234423MFC</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Phone No:</p>
+                    <p class="part-content">+256728463968</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Birth Place:</p>
+                    <p class="part-content">Wakiso</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Gender:</p>
+                    <p class="part-content">Male</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Age:</p>
+                    <p class="part-content">24</p>
+                </div>
+            </div>
+            <div class="cta_area">
+                <button  class="modal-activators" id="edit_patient_modal_activator" data-modal="create_patient_modal">Edit Details</button>
+                <button class="modal-activators" id="create_visit_modal_activator" data-modal="create_visit_modal">Create Visit</button>
+            </div>
+        </aside>
+    </main>
+
+
+    <div class="modal" id="create_patient_modal">
+        <div class="modal-header">
+            <div class="flex" style="justify-content: flex-start; gap: 10px">
+            <img src="../../STATIC/icons/add.png" alt="" style="inline-size: 28px; block-size: 28px" />
+            <h3 style="font-size: 20px">Register Patient</h3>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Personal Information</small>
+            </div>
+            <div class="section-content">
+                <form action="">
+                <div class="flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                    <label for="">First Name</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Middle Name</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Last Name</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <div class="patient-image flex">
+                        <img src="../../STATIC/images/user.png" alt="" />
+                    </div>
+                    </div>
+                </div>
+                <div class="flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                    <label for="">National ID No.</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex" style="gap: 20px">
+                    <div class="flex flex-column" style="flex: 1">
+                        <label for="">Age</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="flex flex-column" style="flex: 2">
+                        <label for="">Date of Birth</label>
+                        <input class="input" type="date" />
+                    </div>
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Gender</label>
+                    <select name="gender" class="input">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Patient ID</label>
+                    <input class="input" type="text" value="MEDT00001" disabled />
+                    </div>
+                </div>
+                </form>
+            </div>
+            </div>
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Contact Information</small>
+            </div>
+            <div class="section-content">
+                <form action="">
+                <div class="section-content-row flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                      <label for="">Phone Number</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Alternative</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Email Address</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Home Address</label>
+                      <input class="input" type="text" />
+                    </div>
+                </div>
+                </form>
+            </div>
+            </div>
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Next of Kin</small>
+            </div>
+            <div class="section-content">
+                <div class="section-content-row flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                      <label for="">First Name</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Middle Name</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Last Name</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Relationship</label>
+                      <select name="relationship" class="input">
+                          <option value="husband">Husband</option>
+                          <option value="wife">Wife</option>
+                          <option value="brother">Brother</option>
+                          <option value="sister">Sister</option>
+                          <option value="son">Son</option>
+                          <option value="daughter">Daughter</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="section-content-row flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                      <label for="">Phone Number</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Alternative</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Home Address</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column" style="visibility: hidden"></div>
+                </div>
+            </div>
+            </div>
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Billing Method</small>
+            </div>
+            <div class="section-content">
+                <form action="">
+                <div class="section-content-row flex">
+                    <div class="form-control flex flex-column">
+                    <label for="">Select Option</label>
+                    <select name="billing" class="input" style="inline-size: 23% !important">
+                        <option value="cash">Cash</option>
+                        <option value="account">Account</option>
+                        <option value="insurance">Insurance</option>
+                    </select>
+                    </div>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="form-control">
+            <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
+            <img class="save" src="../../STATIC/icons/save.png" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="create_visit_modal">
+        <div class="modal-header">
+          <div class="flex" style="justify-content: flex-start; gap: 10px">
+            <img src="../../STATIC/icons/visits.svg" alt="" style="inline-size: 28px; block-size: 28px" />
+            <h3 style="font-size: 20px">Create Visit</h3>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Patient Information</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">First Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Middle Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Last Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <div class="patient-image flex">
+                      <img src="../../STATIC/images/user.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">National ID No.</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex" style="gap: 20px">
+                    <div class="flex flex-column" style="flex: 1">
+                      <label for="">Age</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="flex flex-column" style="flex: 2">
+                      <label for="">Date of Birth</label>
+                      <input class="input" type="date" />
+                    </div>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Gender</label>
+                    <select name="gender" class="input">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Patient ID</label>
+                    <input class="input" type="text" value="MEDT00001" disabled />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Doctor Information</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="section-content-row flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">Full Name</label>
+                    <select name="fullname" class="input">
+                      <option value="Muludiang Emmanuel">Dr. Muludiang Emmanuel</option>
+                      <option value="Mugisa Phillip">Dr. Mugisa Phillip</option>
+                      <option value="Lorika Mario">Dr. Lorika Mario</option>
+                      <option value="Barbra B">Dr. Barbra B</option>
+                      <option value="Peter P">Dr. Peter P</option>
+                      <option value="Mulondo Caxton">Dr. Mulondo Caxton</option>
+                      <option value="Abdoulanziz Ally">Dr. Abdoulanziz Ally</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Doctor ID</label>
+                    <input class="input" type="text" value="MEDZ12001" disabled />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Speciality</label>
+                    <select name="speciality" class="input">
+                      <option value="general">General</option>
+                      <option value="padeatrics">Paedeatrics</option>
+                      <option value="gynacology">Gynacology</option>
+                      <option value="dentist">Dentist</option>
+                      <option value="radiology">Radiology</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column" style="visibility: hidden">
+                    <label for="">Home Address</label>
+                    <input class="input" type="text" />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Visit Time</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="section-content-row flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">Date</label>
+                    <input class="input" type="date" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Time</label>
+                    <input class="input" type="time" />
+                  </div>
+                  <div class="form-control flex flex-column" style="visibility: hidden">
+                    <label for="">Last Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column" style="visibility: hidden">
+                    <label for="">Relationship</label>
+                    <select name="relationship" class="input">
+                      <option value="husband">Husband</option>
+                      <option value="wife">Wife</option>
+                      <option value="brother">Brother</option>
+                      <option value="sister">Sister</option>
+                      <option value="son">Son</option>
+                      <option value="daughter">Daughter</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Other Information</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="section-content-row flex">
+                  <div class="form-control flex flex-column">
+                    <div class="form-control flex flex-column" style="inline-size: 100%">
+                      <label for="">Visit Reason</label>
+                      <textarea class="input" cols="100%" rows="3"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-control">
+            <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
+            <img class="save" src="../../STATIC/icons/save.png" alt="" />
+          </div>
+        </div>
+    </div>
+</body>
+
+
+<script src="../../STATIC/js/modals.js"></script>
+
+<script>
+  // Clear patient on preview
+  const clearPatientOnPreview = (patient) => {
+    const previewArea = document.querySelector("#patient-preview");
+    const previewContent = "";
+    previewArea.innerHTML = previewContent;
+
+  }
+  // On page load, clear preview
+  clearPatientOnPreview();
+
+  // Load patient on preview
+  const loadPatientOnPreview = (patient) => {
+    const previewArea = document.querySelector("#patient-preview");
+    const previewContent = `
+    <div class="img-wrapper">
+        <img src="../../STATIC/images/user.png" alt="">
+    </div>
+    <div class="details">
+        <div class="detail-group">
+            <p class="part-title">Patient No.:</p>
+            <p class="part-content">${patient.id}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">First Name:</p>
+            <p class="part-content">${patient.name}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Last No.:</p>
+            <p class="part-content">Muhumuza</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">NIN:</p>
+            <p class="part-content">CM2REK234423MFC</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Phone No:</p>
+            <p class="part-content">+256728463968</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Birth Place:</p>
+            <p class="part-content">Wakiso</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Gender:</p>
+            <p class="part-content">${patient.gender}</p>
+        </div>
+        <div class="detail-group">
+            <p class="part-title">Age:</p>
+            <p class="part-content">${patient.age}</p>
+        </div>
+    </div>
+    <div class="cta_area">
+        <button onclick=""  class="modal-activators">Send To Lab</button>
+    </div>
+    `;
+    previewArea.innerHTML = previewContent;
+
+  }
+
+  // Change patient on prview
+  const patientRows = document.querySelector("tbody").querySelectorAll("tr");
+  patientRows.forEach(patientRow => patientRow.addEventListener("click", (event) => {
+    if(event.target.parentElement.tagName === "TR"){
+      const patient = {
+        id:event.target.parentElement.querySelectorAll("td")[0].textContent,
+        name:event.target.parentElement.querySelectorAll("td")[1].textContent,
+        age:event.target.parentElement.querySelectorAll("td")[2].textContent,
+        visit:event.target.parentElement.querySelectorAll("td")[3].textContent,
+        gender:event.target.parentElement.querySelectorAll("td")[4].textContent
+      }
+    console.log(patient);
+    loadPatientOnPreview(patient);
+    }
+  }))
+
+  // Set up your table
+  let table = $('#data-table').DataTable();
+
+  // Signout
+  const signoutBtn = document.querySelector('.fa-sign-out');
+
+  signoutBtn.addEventListener('click', (event) => {
+    window.location.href = "../auth/index.html";
+  });
+</script>
+</html>

@@ -5,8 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const section_togglers = document.querySelectorAll(".section-togglers")
     section_togglers.forEach(
         activator => activator.addEventListener("click", () => {
+            if (activator.dataset.modal != null || activator.dataset.modal != undefined) {
+                return
+            }
+
+
             let sectionToShow = document.querySelector(`#${activator.dataset.section}`)
-            // console.log(sectionToShow)
 
             section_togglers.forEach(a=>{
                 a.style.backgroundColor = "#1da1f2";
