@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMIS</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../STATIC/css/styles.css">
+    <link rel="stylesheet" href="../../STATIC/css/components.css">
+    <link rel="stylesheet" href="../../STATIC/css/utils.css">
+    <link rel="stylesheet" href="../../STATIC/icons/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <!-- js -->
+    <script src="../../STATIC/js/scripts.js"></script>
+</head>
+<body>
+    <header class="departments">
+        <a href="../patients/index.html" class="department">
+            <img src="../../STATIC/icons/create-patient.png" alt="">
+            <span class="department-name">Patients</span>
+        </a>
+        <a href="../patients/visits.html" class="department">
+            <img src="../../STATIC/icons/visits.svg" alt="">
+            <span class="department-name">Visits</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/triage.png" alt="">
+            <span class="department-name">Triage</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/invoices.png" alt="">
+            <span class="department-name">invoices</span>
+        </a>
+        <a href="../doctor/index.html" class="department">
+            <img src="../../STATIC/icons/doctor.png" alt="">
+            <span class="department-name">Doctor</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/lab.png" alt="">
+            <span class="department-name">Laboratory</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/cardiology.png" alt="">
+            <span class="department-name">Cardiology</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/radiology.png" alt="">
+            <span class="department-name">Radiology</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/pharmacy.png" alt="">
+            <span class="department-name">Pharmacy</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/inventory.png" alt="">
+            <span class="department-name">Inventory</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/theatre.png" alt="">
+            <span class="department-name">Theatre</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/dental.png" alt="">
+            <span class="department-name">Dental</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/appointment.png" alt="">
+            <span class="department-name">Appointments</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/finances.png" alt="">
+            <span class="department-name">Finances</span>
+        </a>
+        <a href="" class="department">
+            <img src="../../STATIC/icons/finances.png" alt="">
+            <span class="department-name">Finances</span>
+        </a>
+    </header>
+    <main class="split">
+        <aside class="sidebar-cta-section">
+            <button class="accented">
+                <i class="fa fa-search"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-cog"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-user"></i>
+            </button>
+            <button class="accented">
+                <i class="fa fa-sign-out"></i>
+            </button>
+        </aside>
+        <section class="main-content-area">
+            <div class="main-cta-section">
+                <button class="accented section-togglers" data-section="assigned_patients" id="_togglerassigned_patients">Assigned Patients</button>
+                <button class="accented section-togglers" data-section="general_doctor" id="general_doctor_toggler">General</button>
+                <button class="accented section-togglers" data-section="clinical_findings" id="clinical_findings_toggler">Clinical Findings</button>
+                <button class="accented section-togglers" data-section="diagnosis" id="diagnosis_toggler">Diagnosis</button>
+                <button class="accented section-togglers" data-section="prescription" id="prescription_toggler">Prescription</button>
+                <button class="accented section-togglers" data-section="procedures" id="procedures_toggler">Procedures</button>
+                <button class="accented section-togglers" data-section="theatre" id="theatre_toggler">Theatre</button>
+                <button class="accented section-togglers" data-section="dental_lab" id="dental_lab_toggler">Dental Lab</button>
+                <button class="accented section-togglers" data-section="eye" id="eye_toggler">Eye</button>
+                <button class="accented section-togglers" data-section="lab_results" id="lab_results_toggler">Lab Results</button>
+                <button class="accented section-togglers" data-section="cardiology_results" id="cardiology_results_toggler">Cardiology Results</button>
+                <button class="accented section-togglers" data-section="radiology_results" id="radiology_results_toggler">Radiology Results</button>
+            </div>
+            <section class="variable-section" id="assigned_patients">
+              <div class="records-part" id="recent-patients">
+                  <header>
+                      <p class="table-title">Assigned Patients</p>
+                      <form action="">
+                          <input type="search" name="" id="" placeholder="Search...">
+                      </form>
+                  </header>
+                  <div class="body">
+                      <table>
+                          <thead>
+                              <tr class="cs-bg-hover-color cs-text-md cs-text-secondary cs-font-600">
+                                  <th>No.</th>
+                                  <th>Name</th>
+                                  <th>Age</th>
+                                  <th>Visit</th>
+                                  <th>Gender</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>23453</td>
+                                  <td>Alex Makasa</td>
+                                  <td>23</td>
+                                  <td>No</td>
+                                  <td>Male</td>
+                              </tr>
+                              <tr>
+                                  <td>23453</td>
+                                  <td>Alex Makasa</td>
+                                  <td>23</td>
+                                  <td>No</td>
+                                  <td>Male</td>
+                              </tr>
+                              <tr>
+                                  <td>23453</td>
+                                  <td>Alex Makasa</td>
+                                  <td>23</td>
+                                  <td>No</td>
+                                  <td>Male</td>
+                              </tr>
+                              <tr>
+                                  <td>23453</td>
+                                  <td>Alex Makasa</td>
+                                  <td>23</td>
+                                  <td>No</td>
+                                  <td>Male</td>
+                              </tr>
+                              <tr>
+                                  <td>23453</td>
+                                  <td>Alex Makasa</td>
+                                  <td>23</td>
+                                  <td>No</td>
+                                  <td>Male</td>
+                              </tr>
+                              <tr>
+                                  <td>23453</td>
+                                  <td>Alex Makasa</td>
+                                  <td>23</td>
+                                  <td>No</td>
+                                  <td>Male</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <div class="table-pagination cs-flex cs-justify-between cs-align-center" style="--gap: 1rem;padding: 0 1rem;">
+                          <div class="cs-grid cs-align-center">
+                              <p class="cs-text-md" style="color: var(--text-color);">Showing Page <span id="current-page-0"></span> of <span id="max-page"></span>. (<span id="table-item-count"></span> Entries)</p>
+                          </div>
+                          <div class="table-pagination cs-flex cs-justify-end cs-align-center" style="--gap: 1rem;">
+                              <button id="previous-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Previous</button>
+                              <span id="current-page" class="cs-text-md"></span>
+                              <button id="next-page" class="btn outlined cs-text-md cs-bg-hover-cover br-sm">Next</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </section>
+            <section class="variable-section inview" id="general_doctor">
+              <div class="section_cta_area">
+                <button class="section-part-toggler" data-section="triage">Triage</button>
+                <button class="section-part-toggler" data-section="allergies">Allergies</button>
+                <button class="section-part-toggler" data-section="medical_conditions">Medical Conditions</button>
+              </div>
+              <div class="variable-section-part inview" id="triage">
+                <div class="section-form">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Triage Vital Signs</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row grid flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Blood Pressure</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Heart Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Respiratory Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Temperature</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Weight(Kg)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Height(cm)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Oxygen Saturation</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">MUAC</label>
+                            <input class="input" type="text" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Signs & Symptoms</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the signs and symptoms from the patient</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Injury Details</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the type, location and severity of injury</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section cta-area">
+                      <button class="accented section-form-cta accented">Save</button>
+                    </div>
+                </div>
+              </div>
+              <div class="variable-section-part" id="allergies">
+                <div class="section-form">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Allergy Vital Signs</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row grid flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Blood Pressure</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Heart Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Respiratory Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Temperature</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Weight(Kg)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Height(cm)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Oxygen Saturation</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">MUAC</label>
+                            <input class="input" type="text" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Signs & Symptoms</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the signs and symptoms from the patient</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Injury Details</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the type, location and severity of injury</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section cta-area">
+                      <button class="accented section-form-cta accented">Save</button>
+                    </div>
+                </div></div>
+                <div class="variable-section-part inview" id="medical_conditions">
+                <div class="section-form">
+                  <form action="">
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Vital Signs</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row grid flex-gap-40">
+                          <div class="form-control flex flex-column">
+                            <label for="">Blood Pressure</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Heart Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Respiratory Rate</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Temperature</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Weight(Kg)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Height(cm)</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">Oxygen Saturation</label>
+                            <input class="input" type="text" />
+                          </div>
+                          <div class="form-control flex flex-column">
+                            <label for="">MUAC</label>
+                            <input class="input" type="text" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Signs & Symptoms</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the signs and symptoms from the patient</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section">
+                      <div class="section-label">
+                        <small>Injury Details</small>
+                      </div>
+                      <div class="section-content">
+                        <div class="section-content-row flex">
+                          <div class="form-control flex flex-column">
+                            <div class="form-control flex flex-column" style="inline-size: 100%">
+                              <label for="">Fill the type, location and severity of injury</label>
+                              <textarea class="input" cols="100%" rows="2"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-section cta-area">
+                      <button class="accented section-form-cta accented">Save</button>
+                    </div>
+              <div class="variable-section-part" id="medical_conditions">medical_conditions</div>
+            </section>
+            <section class="variable-section" id="clinical_findings">clinical_findings</section>
+            <section class="variable-section" id="diagnosis">diagnosis</section>
+            <section class="variable-section" id="prescription">prescription</section>
+            <section class="variable-section" id="procedures">procedures</section>
+            <section class="variable-section" id="theatre">theatre</section>
+            <section class="variable-section" id="dental_lab">dental_lab</section>
+            <section class="variable-section" id="eye">eye</section>
+            <section class="variable-section" id="lab_results">lab_results</section>
+            <section class="variable-section" id="cardiology_results">cardiology_results</section>
+            <section class="variable-section" id="radiology_results">radiology_results</section>
+        </section>
+        <aside class="preview-area" id="patient-preview">
+            <div class="img-wrapper">
+                <img src="../../STATIC/images/user.png" alt="">
+            </div>
+            <div class="details">
+                <div class="detail-group">
+                    <p class="part-title">Patient No.:</p>
+                    <p class="part-content">67834</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">First Name:</p>
+                    <p class="part-content">Alex</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Last No.:</p>
+                    <p class="part-content">Muhumuza</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">NIN:</p>
+                    <p class="part-content">CM2REK234423MFC</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Phone No:</p>
+                    <p class="part-content">+256728463968</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Birth Place:</p>
+                    <p class="part-content">Wakiso</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Gender:</p>
+                    <p class="part-content">Male</p>
+                </div>
+                <div class="detail-group">
+                    <p class="part-title">Age:</p>
+                    <p class="part-content">24</p>
+                </div>
+            </div>
+            <div class="cta_area">
+                <button  class="modal-activators" id="edit_patient_modal_activator" data-modal="create_patient_modal">Edit Details</button>
+                <button class="modal-activators" id="create_visit_modal_activator" data-modal="create_visit_modal">Create Visit</button>
+            </div>
+        </aside>
+    </main>
+
+
+    <div class="modal" id="create_patient_modal">
+        <div class="modal-header">
+            <div class="flex" style="justify-content: flex-start; gap: 10px">
+            <img src="../../STATIC/icons/add.png" alt="" style="inline-size: 28px; block-size: 28px" />
+            <h3 style="font-size: 20px">Register Patient</h3>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Personal Information</small>
+            </div>
+            <div class="section-content">
+                <form action="">
+                <div class="flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                    <label for="">First Name</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Middle Name</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Last Name</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <div class="patient-image flex">
+                        <img src="../../STATIC/images/user.png" alt="" />
+                    </div>
+                    </div>
+                </div>
+                <div class="flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                    <label for="">National ID No.</label>
+                    <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex" style="gap: 20px">
+                    <div class="flex flex-column" style="flex: 1">
+                        <label for="">Age</label>
+                        <input class="input" type="text" />
+                    </div>
+                    <div class="flex flex-column" style="flex: 2">
+                        <label for="">Date of Birth</label>
+                        <input class="input" type="date" />
+                    </div>
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Gender</label>
+                    <select name="gender" class="input">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    </div>
+                    <div class="form-control flex flex-column">
+                    <label for="">Patient ID</label>
+                    <input class="input" type="text" value="MEDT00001" disabled />
+                    </div>
+                </div>
+                </form>
+            </div>
+            </div>
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Contact Information</small>
+            </div>
+            <div class="section-content">
+                <form action="">
+                <div class="section-content-row flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                      <label for="">Phone Number</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Alternative</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Email Address</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Home Address</label>
+                      <input class="input" type="text" />
+                    </div>
+                </div>
+                </form>
+            </div>
+            </div>
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Next of Kin</small>
+            </div>
+            <div class="section-content">
+                <div class="section-content-row flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                      <label for="">First Name</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Middle Name</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Last Name</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Relationship</label>
+                      <select name="relationship" class="input">
+                          <option value="husband">Husband</option>
+                          <option value="wife">Wife</option>
+                          <option value="brother">Brother</option>
+                          <option value="sister">Sister</option>
+                          <option value="son">Son</option>
+                          <option value="daughter">Daughter</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="section-content-row flex flex-gap-40">
+                    <div class="form-control flex flex-column">
+                      <label for="">Phone Number</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Alternative</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column">
+                      <label for="">Home Address</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="form-control flex flex-column" style="visibility: hidden"></div>
+                </div>
+            </div>
+            </div>
+            <div class="modal-section">
+            <div class="section-label">
+                <small>Billing Method</small>
+            </div>
+            <div class="section-content">
+                <form action="">
+                <div class="section-content-row flex">
+                    <div class="form-control flex flex-column">
+                    <label for="">Select Option</label>
+                    <select name="billing" class="input" style="inline-size: 23% !important">
+                        <option value="cash">Cash</option>
+                        <option value="account">Account</option>
+                        <option value="insurance">Insurance</option>
+                    </select>
+                    </div>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="form-control">
+            <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
+            <img class="save" src="../../STATIC/icons/save.png" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="create_visit_modal">
+        <div class="modal-header">
+          <div class="flex" style="justify-content: flex-start; gap: 10px">
+            <img src="../../STATIC/icons/visits.svg" alt="" style="inline-size: 28px; block-size: 28px" />
+            <h3 style="font-size: 20px">Create Visit</h3>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Patient Information</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">First Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Middle Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Last Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <div class="patient-image flex">
+                      <img src="../../STATIC/images/user.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">National ID No.</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex" style="gap: 20px">
+                    <div class="flex flex-column" style="flex: 1">
+                      <label for="">Age</label>
+                      <input class="input" type="text" />
+                    </div>
+                    <div class="flex flex-column" style="flex: 2">
+                      <label for="">Date of Birth</label>
+                      <input class="input" type="date" />
+                    </div>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Gender</label>
+                    <select name="gender" class="input">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Patient ID</label>
+                    <input class="input" type="text" value="MEDT00001" disabled />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Doctor Information</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="section-content-row flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">Full Name</label>
+                    <select name="fullname" class="input">
+                      <option value="Muludiang Emmanuel">Dr. Muludiang Emmanuel</option>
+                      <option value="Mugisa Phillip">Dr. Mugisa Phillip</option>
+                      <option value="Lorika Mario">Dr. Lorika Mario</option>
+                      <option value="Barbra B">Dr. Barbra B</option>
+                      <option value="Peter P">Dr. Peter P</option>
+                      <option value="Mulondo Caxton">Dr. Mulondo Caxton</option>
+                      <option value="Abdoulanziz Ally">Dr. Abdoulanziz Ally</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Doctor ID</label>
+                    <input class="input" type="text" value="MEDZ12001" disabled />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Speciality</label>
+                    <select name="speciality" class="input">
+                      <option value="general">General</option>
+                      <option value="padeatrics">Paedeatrics</option>
+                      <option value="gynacology">Gynacology</option>
+                      <option value="dentist">Dentist</option>
+                      <option value="radiology">Radiology</option>
+                    </select>
+                  </div>
+                  <div class="form-control flex flex-column" style="visibility: hidden">
+                    <label for="">Home Address</label>
+                    <input class="input" type="text" />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Visit Time</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="section-content-row flex flex-gap-40">
+                  <div class="form-control flex flex-column">
+                    <label for="">Date</label>
+                    <input class="input" type="date" />
+                  </div>
+                  <div class="form-control flex flex-column">
+                    <label for="">Time</label>
+                    <input class="input" type="time" />
+                  </div>
+                  <div class="form-control flex flex-column" style="visibility: hidden">
+                    <label for="">Last Name</label>
+                    <input class="input" type="text" />
+                  </div>
+                  <div class="form-control flex flex-column" style="visibility: hidden">
+                    <label for="">Relationship</label>
+                    <select name="relationship" class="input">
+                      <option value="husband">Husband</option>
+                      <option value="wife">Wife</option>
+                      <option value="brother">Brother</option>
+                      <option value="sister">Sister</option>
+                      <option value="son">Son</option>
+                      <option value="daughter">Daughter</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-section">
+            <div class="section-label">
+              <small>Other Information</small>
+            </div>
+            <div class="section-content">
+              <form action="">
+                <div class="section-content-row flex">
+                  <div class="form-control flex flex-column">
+                    <div class="form-control flex flex-column" style="inline-size: 100%">
+                      <label for="">Visit Reason</label>
+                      <textarea class="input" cols="100%" rows="3"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-control">
+            <img class="cancel" src="../../STATIC/icons/cancel.png" alt="" />
+            <img class="save" src="../../STATIC/icons/save.png" alt="" />
+          </div>
+        </div>
+    </div>
+</body>
+
+
+<script src="../../STATIC/js/modals.js"></script>
+</html>
