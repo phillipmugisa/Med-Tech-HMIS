@@ -7,10 +7,11 @@ The project will adapt a modular way of implementation; where each feature is im
 - Patients
 - Visits
 - Self Requests
-- Tringe
+- Triage
 - Doctor
 - Lab
 - Radiology
+- Cardiology
 - Dental
 - Pharmacy
 - Theater 
@@ -18,6 +19,7 @@ The project will adapt a modular way of implementation; where each feature is im
 - Finances 
 - Cashier
 - Invoices
+- Reports
 - SMS
 
 ## Languages Used
