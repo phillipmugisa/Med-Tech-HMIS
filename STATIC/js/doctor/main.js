@@ -6,7 +6,8 @@ document.querySelectorAll(".section-togglers:not(#assigned_patients_toggler)")
         elem.classList.add("disabled")
     })
 
-function createAllergyElem(id= null, name="", comment="") {
+function createAllergyElem(id= null, name="", comment="", updated_on="") {
+        
     const elem = document.createElement("div")
     elem.className = "addable-form-area"
     elem.innerHTML = `
@@ -18,6 +19,7 @@ function createAllergyElem(id= null, name="", comment="") {
         <label for="">Comments</label>
         <textarea cols="100%" rows="3" class="allergy_comment input"></textarea>
     </div>
+    <b style="font-weight:500;font-size: .9rem;">${updated_on ? new Date(updated_on).toLocaleString(): ""}</b>
     `
     elem.querySelector(".allergy_name").value = name;
     elem.querySelector(".allergy_comment").value = comment;
@@ -44,8 +46,13 @@ function refreshDoctorAllergieslist() {
     // fetch allergies
     makeRequest(`/api/allergy/${currentPatientState.state.patient_id}/patient/`, method="GET")
     .then(response => {
+        allergies_form.childNodes.forEach(child => {
+            if (child.getAttribute("data-new-record") !== "true") {
+                child.remove()
+            }
+        })
         response.forEach(record => {
-            allergies_form.appendChild(createAllergyElem(id=record.id, name=record.name, comment=record.comment))
+            allergies_form.appendChild(createAllergyElem(id=record.id, name=record.name, comment=record.comment, updated_on = record.updated_on))
         })
     })
     

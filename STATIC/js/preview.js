@@ -3,6 +3,8 @@
 const backend_url = "http://localhost:8000"
 
 const loadPatientOnPreview = (patient) => {
+    const main = document.querySelector("main")
+    main.classList.add("split")
     let previewArea = document.querySelector(".preview-area");
     let previewContent = `
     <div class="img-wrapper">
@@ -55,6 +57,8 @@ const loadPatientOnPreview = (patient) => {
 
 
 const loadVisitPreview = (visit) => {
+    const main = document.querySelector("main")
+    main.classList.add("split")
     let previewArea = document.querySelector(".preview-area");
     let previewContent = `
     <div class="img-wrapper">
@@ -105,6 +109,8 @@ const loadVisitPreview = (visit) => {
 }
 
 const loadTriagePreview = (triage) => {
+    const main = document.querySelector("main")
+    main.classList.add("split")
     let previewArea = document.querySelector(".preview-area");
     let previewContent = `
     <div class="img-wrapper">
@@ -141,7 +147,7 @@ const loadTriagePreview = (triage) => {
         </div>
         <div class="detail-group">
             <p class="part-title">Updated On:</p>
-            <p class="part-content">${triage.updated_on}</p>
+            <p class="part-content">${new Date(triage.updated_on).toLocaleString()}</p>
         </div>
     </div>
     <div class="cta_area">
